@@ -5,6 +5,7 @@ import com.home.facebookclone.repos.UsersRepository;
 
 import javax.persistence.*;
 import java.security.Timestamp;
+import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
 @Table(name="user")
@@ -66,7 +67,8 @@ public class  user {
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
 
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<post> post;
 
 
 
