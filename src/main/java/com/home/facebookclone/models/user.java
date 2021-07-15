@@ -65,10 +65,13 @@ public class  user {
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-
+    //
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<post> post;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<groups> groups;
 
 
 

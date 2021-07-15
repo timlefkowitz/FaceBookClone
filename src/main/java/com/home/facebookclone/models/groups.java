@@ -2,6 +2,7 @@ package com.home.facebookclone.models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 
 @Entity // << this is how hibernate knows to make tables out of the class
@@ -33,8 +34,14 @@ public class groups {
     @Column( name = "content")
     private String content;
 
+    //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+    //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
+    //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+    //
 
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<groups> groups;
 
 
     // Insert Constructor
