@@ -3,6 +3,8 @@ package com.home.facebookclone.controllers;
 
 import com.home.facebookclone.models.groups;
 import com.home.facebookclone.models.user;
+import com.home.facebookclone.models.usersPost;
+import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.groupPost;
 import com.home.facebookclone.repos.groupRepo;
@@ -16,13 +18,16 @@ public class CreateControllers {
 
     private final UsersRepository usersDao;
 
+    private final UsersPostRepo usersPost;
+
     private final groupRepo groupDao;
 
     private final groupPost groupPostDao;
 
 
-    public CreateControllers(UsersRepository usersDao, groupRepo groupDao, groupPost groupPostDao) {
+    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPost groupPostDao) {
         this.usersDao = usersDao;
+        this.usersPost = usersPost;
         this.groupDao = groupDao;
 
         this.groupPostDao = groupPostDao;
@@ -110,6 +115,20 @@ public class CreateControllers {
     public String usersPost()
     {
         return"UserPostingForm";
+    }
+
+    @PostMapping("/post")
+    public String addAnewUserPost(@RequestParam(name="title") String title,
+                              @RequestParam(name="description") String description
+
+
+    ){
+
+        usersPost n = new usersPost();
+        n.setTitle(title);
+        n.setBody(description);
+        usersPost.save(n);
+        return "redirect:/UsersHome";
     }
 
 
