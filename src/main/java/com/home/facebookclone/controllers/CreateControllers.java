@@ -29,7 +29,6 @@ public class CreateControllers {
         this.usersDao = usersDao;
         this.usersPost = usersPost;
         this.groupDao = groupDao;
-
         this.groupPostDao = groupPostDao;
     }
 
