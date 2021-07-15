@@ -2,6 +2,7 @@ package com.home.facebookclone.models;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="usersPost")
@@ -28,6 +29,14 @@ public class usersPost {
 
     @Column(name = "imgPath")
     private String imgPath;
+
+    // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+    //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
+    //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+    //
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
+    private List<post> postOwner;
 
 
 
