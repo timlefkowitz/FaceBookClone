@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserHome</title>
+
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+
+
+    <!--  convert to a stylesheet later -->
+    <style>
+
+        * {
+
+        }
+
+        .avatar {
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand me-2" href="">
+            FB
+
+            <!--          <a>-->
+            <!--&lt;!&ndash;                  src=""&ndash;&gt;-->
+            <!--                  height="16"-->
+            <!--                  alt=""-->
+            <!--                  loading="lazy"-->
+            <!--                  style="margin-top: -1px;"-->
+            <!--          </a>-->
+        </a>
+
+        <!-- Toggle button -->
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarButtonsExample"
+                aria-controls="navbarButtonsExample"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+            </ul>
+            <!-- Left links -->
+
+            <div class="d-flex align-items-center">
+                <button type="button" class="btn btn-link px-3 me-2">
+                    Login
+                </button>
+                <button type="button" class="btn btn-primary me-3">
+                    Sign up for free
+                </button>
+                <a
+                        class="btn btn-dark px-3"
+                        href="https://github.com/mdbootstrap/mdb-ui-kit"
+                        role="button"
+                >POST</a>
+            </div>
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+
+
+
+<!-- begining of userPost -->
+
+
+<form class="form-signin" style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
+    <img class="mb-4" src="https://i.imgur.com/v2t7qrK.gif" alt="" width="72" height="72">
+
+
+    <h1 class="h3 mb-3 font-weight-normal"> Create a Group </h1>
+
+    <!--         Title          -->
+    <label for="inputTitle" class="sr-only">Group's Title</label>
+    <input type="username" id="inputTitle" class="form-control" placeholder="Give your post a title" required="" autofocus="" name="inputTitle">
+    <!--         Description    -->
+    <label for="inputDescription" class="sr-only">Description</label>
+    <textarea class="form-control" id="inputDescription" rows="3" name="Description" type="text"></textarea>
+
+
+
+
+    <!--   -->
+    <!--   -->
+    <!--                 Image Upload    -->
+    <!--   -->
+    <!--   -->
+    <!--   -->
+    <label class="form-label" for="inputIMG">Upload a Avatar</label>
+    <input type="file" class="form-control" id="inputIMG" name="inputAvatar" />
+
+
+    <p></p>
+    <button class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Create a group</button><p></p>
+
+
+    <p class="mt-5 mb-3 text-muted">FBCLONE</p>
+</form>
+
+
+
+
+
+<!-- end of userpost -->
+
+
+
+</body>
+</html>
