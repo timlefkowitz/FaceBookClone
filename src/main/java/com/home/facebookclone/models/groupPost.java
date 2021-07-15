@@ -18,33 +18,33 @@ public class groupPost {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "groupId")
-    private long groupId;
+    @Column(name = "title")
+    private long title;
 
-    @Column(name = "userId")
-    private long userId;
+    @Column(name = "ownerOfPost")
+    private long ownerOfPost;
 
-    @Column(name = "message")
-    private String message;
+    @Column(name = "body")
+    private String body;
 
 
 
     //Insert
 
-    public groupPost(long groupId, long userId, String message) {
-        this.groupId = groupId;
-        this.userId = userId;
-        this.message = message;
+    public groupPost(long title, long ownerOfPost, String body) {
+        this.title = title;
+        this.ownerOfPost = ownerOfPost;
+        this.body = body;
     }
 
 
     //update
 
-    public groupPost(long id, long groupId, long userId, String message) {
+    public groupPost(long id, long title, long ownerOfPost, String body) {
         this.id = id;
-        this.groupId = groupId;
-        this.userId = userId;
-        this.message = message;
+        this.title = title;
+        this.ownerOfPost = ownerOfPost;
+        this.body = body;
     }
 
 
@@ -59,27 +59,27 @@ public class groupPost {
         this.id = id;
     }
 
-    public long getGroupId() {
-        return groupId;
+    public long getTitle() {
+        return title;
     }
 
-    public void setGroupId(long groupId) {
-        this.groupId = groupId;
+    public void setTitle(long title) {
+        this.title = title;
     }
 
-    public long getUserId() {
-        return userId;
+    public long getOwnerOfPost() {
+        return ownerOfPost;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setOwnerOfPost(long ownerOfPost) {
+        this.ownerOfPost = ownerOfPost;
     }
 
-    public String getMessage() {
-        return message;
+    public String getBody() {
+        return body;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setBody(String body) {
+        this.body = body;
     }
 }
