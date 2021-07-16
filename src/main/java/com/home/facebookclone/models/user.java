@@ -80,6 +80,9 @@ public class  user {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "RecieverOfMessage")
     Private List<Messages> MSGreciver;
 
+      @OneToMany(cascade = CascadeType.ALL, mappedBy = "MessageSender")
+    Private List<Messages> MSGsender;
+
 
 
     // Insert Constructor
