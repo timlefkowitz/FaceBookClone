@@ -77,6 +77,9 @@ public class  user {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
     private List<groupPost> groupPosts;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "RecieverOfMessage")
+    Private List<Messages> MSGreciver;
+
 
 
     // Insert Constructor
