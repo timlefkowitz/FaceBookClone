@@ -82,8 +82,8 @@ public class CreateControllers {
 
 
     @PostMapping("/groupcreation")
-    public String addAnewGroup(@RequestParam(name="title") String title,
-                               @RequestParam(name="Description") String description){
+    public String addAnewGroup(@RequestParam(name="inputTitle") String title,
+                               @RequestParam(name="inputDescription") String description){
 
         groups n = new groups();
         n.setTitle(title);
