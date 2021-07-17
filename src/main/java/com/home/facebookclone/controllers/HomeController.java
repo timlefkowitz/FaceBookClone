@@ -33,6 +33,24 @@ public class HomeController {
         return"index";
     }
 
+    @GetMapping("/index")
+    public String login()
+    {
+        return"index";
+    }
+
+    @GetMapping("/signup")
+    public String signup()
+    {
+        return"signup";
+    }
+
+    @GetMapping("/post")
+    public String post()
+    {
+        return"UserPostingForm";
+    }
+
     @GetMapping("/admin")
     public String adminHome(Model view)
     {
