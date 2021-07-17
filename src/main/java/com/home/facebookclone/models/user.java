@@ -34,16 +34,16 @@ public class  user {
     @Column(name = "firstName", length = 100)
     private String firstName;
 
-    @Column(name = "middleName",  length = 20)
+    @Column(name = "middleName",  length = 40)
     private String middleName;
 
-    @Column(name = "lastName",  length = 20)
+    @Column(name = "lastName",  length = 40)
     private String lastName;
 
     @Column(name = "userName",  length = 100)
     private String userName;
 
-    @Column(name = "email",  length = 20)
+    @Column(name = "email")
     private String email;
 
     @Column(name = "passwordHash",   length = 100)
@@ -55,10 +55,10 @@ public class  user {
     @Column(name = "profile", nullable = true)
     private String profile;
 
-    @Column(name = "mobile", nullable = false, length = 16)
+    @Column(name = "mobile", nullable = false, length = 36)
     private long mobile;
 
-    @Column(name = "status", nullable = true, length = 30)
+    @Column(name = "status", nullable = true, length = 40)
     private String status;
 
 
