@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+  <title>Signin Template for Bootstrap</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: normal;
+  }
+
+  body {
+    padding:0;
+    margin:0;
+    background: linear-gradient(to right, #00AAFF, #00FF6c);
+  }
+
+
+
+  .output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 2.5rem;
+  }
+</style>
+
+
+<body class="text-center" style="max-width: 1920px">
+
+
+
+
+<form class="form-signin" action="/signup.html" method="Post" style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center" >
+  <img class="mb-4" src="https://i.imgur.com/v2t7qrK.gif" alt="" width="72" height="72">
+
+
+  <h1 class="h3 mb-3 font-weight-normal">AddFriend</h1>
+
+  <!--         username-->
+  <label for="inputFriend" class="sr-only">Add UserName</label>
+  <input type="username" id="inputFriend" class="form-control" placeholder="Add Friend" required="" autofocus="" name="inputFriend">
+
+
+
+
+
+  <div class="checkbox mb-3">
+    <button class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Add Friend</button>
+  </div>
+
+
+
+
+</form>
+
+
+</body>
+<script>
+  $( document ).ready(function() {
+    console.log( "Add a Friend here" );
+  });
+
+
+
+</script>
+
+
+<!--FILE STACK-->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js">
+
+
+  //File Stack Starter
+  const client = filestack.init(ACLsQz31NSRSYnO3FRIW5z);
+  client.picker().open();
+
+
+
+</script>
+</html>

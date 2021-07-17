@@ -133,5 +133,34 @@ public class CreateControllers {
 
 
 
+    //addfriend
+
+    @GetMapping("/addfriend")
+    public String addfriendPage()
+    {
+        return"UserPostingForm";
+    }
+
+    @PostMapping("/addfriend")
+    public String addfriend (@RequestParam(name="usernameToAdd") String username
+
+
+
+
+
+    ){
+
+//        addfriend n = new usersPost();
+//        n.setTitle(title);
+//        n.setBody(description);
+//        usersPost.save(n);
+//        return "redirect:/UsersHome";
+    }
+
+
+
+
+
+
 
 }
