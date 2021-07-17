@@ -68,17 +68,17 @@ public class  user {
     //
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
-    private List<post> postOwner;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
+//    private List<post> postOwner;
+//
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfGroup")
+//    private List<groups> groupOwner;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfGroup")
-    private List<groups> groupOwner;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
+//    private List<groupPost> groupPosts;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
-    private List<groupPost> groupPosts;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "RecieverOfMessage")
-    Private List<Messages> MSGreciver;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "RecieverOfMessage")
+//    Private List<Messages> MSGreciver;
 
 
 

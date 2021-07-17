@@ -38,8 +38,8 @@ public class post {
     @Column(length = 100)
     private String body;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    private List<post> post;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+//    private List<post> post;
 
 
 

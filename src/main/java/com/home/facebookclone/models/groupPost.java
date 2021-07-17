@@ -33,8 +33,8 @@ public class groupPost {
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
-    private List<groupPost> groupPosts;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
+//    private List<groupPost> groupPosts;
 
 
 

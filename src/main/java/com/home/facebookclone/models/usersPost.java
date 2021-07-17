@@ -35,9 +35,9 @@ public class usersPost {
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
-    private List<post> postOwner;
-
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
+//    private List<post> postOwner;
+//
 
 
     // constructors

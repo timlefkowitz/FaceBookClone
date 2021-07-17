@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:th="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -130,11 +129,22 @@
         <label>
             <input type="checkbox" value="remember-me"> Remember me
         </label>
+        <button class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Sign Up</button>
     </div>
-    <button class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Sign Up</button>
-    <p class="mt-5 mb-3 text-muted">CrushedMonkey</p>
+
+
+
+
 </form>
 
 
 </body>
+<script>
+    $( document ).ready(function() {
+        console.log( "Welcome" );
+    });
+
+
+
+</script>
 </html>

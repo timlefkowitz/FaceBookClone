@@ -6,7 +6,7 @@ import com.home.facebookclone.models.user;
 import com.home.facebookclone.models.usersPost;
 import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
-import com.home.facebookclone.repos.groupPost;
+
 import com.home.facebookclone.repos.groupRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,26 +22,26 @@ public class CreateControllers {
 
     private final groupRepo groupDao;
 
-    private final groupPost groupPostDao;
+//    private final groupPost groupPostDao;
 
 
-    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPost groupPostDao) {
+    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao) {
         this.usersDao = usersDao;
         this.usersPost = usersPost;
         this.groupDao = groupDao;
-        this.groupPostDao = groupPostDao;
+//        this.groupPostDao = groupPostDao;
     }
 
 
     // User Sign Up
 
-    @GetMapping("/Signup")
+    @GetMapping("/signup.html")
     public String Signup()
     {
-        return"Signup";
+        return"signup";
     }
 
-    @PostMapping("/Signup")
+    @PostMapping("/signup")
     public String addANewUser(@RequestParam(name="username") String username,
                                @RequestParam(name="email") String email,
                               @RequestParam(name="password") String password,

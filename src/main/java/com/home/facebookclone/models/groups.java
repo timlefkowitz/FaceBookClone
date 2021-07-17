@@ -40,8 +40,8 @@ public class groups {
     //
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfGroup")
-    private List<groups> groupOwner;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfGroup")
+//    private List<groups> groupOwner;
 
 
     // Insert Constructor
