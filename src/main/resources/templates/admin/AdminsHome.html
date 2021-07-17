@@ -162,25 +162,23 @@
                         <thead>
                         <tr>
                             <th>id</th>
-                            <th>username</th>
-                            <th>email</th>
-                            <th>cell</th>
+                            <th>group name</th>
+                            <th>CreatedBy</th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        <tr style="align-items: center" th:each="groups : ${allGroups}">
+                        <tr style="align-items: center" th:each="groups : ${allgroups}">
 
-                            <td style="align-items: center"  th:text="${group.id}"></td>
-                            <td style="align-items: center"  th:text="${group.title}">
-                            <td style="align-items: center"  th:text="${user.email}">
-                            <td style="align-items: center"  th:text="${user.mobile}">
+                            <td style="align-items: center"  th:text="${groups.id}"></td>
+                            <td style="align-items: center"  th:text="${groups.title}">
+                            <td style="align-items: center"  th:text="${groups.createdBy}">
 
                                 <!--                    need to add action and method    action="/products/delete" method="post"-->
 
                                 <form>
                                     <input type="hidden" name="user_id" value="${user.id}">
-                                    <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+                                    <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">
                                 </form>
                             </td>
                         </tr>
