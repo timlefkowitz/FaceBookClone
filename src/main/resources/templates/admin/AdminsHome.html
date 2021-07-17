@@ -105,23 +105,14 @@
 
 
 <!--        Friends-->
-<div class="container" style="margin-top: 5%; margin-left: 5%; margin-right:5%">
+<div class="container" style="margin-top: 5%; margin-left: 5%; margin-right:5%; ">
     <div class="row">
-        <div class="col-sm">
+        <div class="col-sm overflow-auto scrolling-wrapper" style="max-width: 450px!important;">
 
 
-            <table class="table" style="width:20%; margin-top: 5%">
+            <table class="table overflow-auto " style="width:20%;  margin-top: 5%">
                 <thead class="thead-dark">
                 <tr>
-<!--                    <th scope="col">ALL USERS</th>-->
-
-<!--                    <div style="align-items: center" th:each="user : ${allusers}">-->
-<!--                        <a style="align-items: center"  th:text="${user.id}"></a>-->
-<!--                        <a style="align-items: center"  th:text="${user.userName}"><a/>-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-
                     <table class="table">
                         <thead>
                         <tr>
@@ -137,6 +128,7 @@
 
                             <td style="align-items: center"  th:text="${user.id}"></td>
                             <td style="align-items: center"  th:text="${user.userName}">
+                            <td style="align-items: center"  th:text="${user.email}">
                             <td style="align-items: center"  th:text="${user.mobile}">
 
 <!--                    need to add action and method    action="/products/delete" method="post"-->
@@ -152,15 +144,6 @@
 
 
 
-
-<!--                    <div th:if="${''}">-->
-<!--                        <div th:text="${''}">ID</div>-->
-<!--                        <div th:text="${''}">Username</div>-->
-<!--                    </div>-->
-
-<!--                    <div th:each="imgs: ${'userPost.imgs'}">-->
-<!--                        <img th:src="${imgs.path}" th:alt="${imgs.description}">-->
-<!--                    </div>-->
                 </tr>
                 </thead>
 
@@ -168,40 +151,47 @@
 
 
 
+
             <!--    Group List-->
 
 
-            <table class="table" style="width:20%">
+            <table class="table overflow-auto " style="width:20%;  margin-top: 5%">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">ALL Groups</th>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>username</th>
+                            <th>email</th>
+                            <th>cell</th>
 
-<!--                    <div th:if="${''}">-->
-<!--                        <div th:text="${''}">ID</div>-->
-<!--                        <div th:text="${''}">Username</div>-->
-<!--                    </div>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="align-items: center" th:each="groups : ${allGroups}">
 
-<!--                    <div th:each="imgs: ${'userPost.imgs'}">-->
-<!--                        <img th:src="${imgs.path}" th:alt="${imgs.description}">-->
-<!--                    </div>-->
+                            <td style="align-items: center"  th:text="${group.id}"></td>
+                            <td style="align-items: center"  th:text="${group.title}">
+                            <td style="align-items: center"  th:text="${user.email}">
+                            <td style="align-items: center"  th:text="${user.mobile}">
+
+                                <!--                    need to add action and method    action="/products/delete" method="post"-->
+
+                                <form>
+                                    <input type="hidden" name="user_id" value="${user.id}">
+                                    <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
 
 
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>GamingArena</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Contemporary Art</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>ProgrammersPalce</td>
-                </tr>
-                </tbody>
+
             </table>
 
 

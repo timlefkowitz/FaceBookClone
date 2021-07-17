@@ -2,6 +2,7 @@ package com.home.facebookclone.controllers;
 
 
 import com.home.facebookclone.repos.UsersRepository;
+import com.home.facebookclone.repos.groupRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,11 @@ public class HomeController {
     // Repo Daos
 
     private final UsersRepository userDao;
+    private final groupRepo groupDao;
 
-    public HomeController(UsersRepository userDao) {
+    public HomeController(UsersRepository userDao, groupRepo groupDao) {
         this.userDao = userDao;
+        this.groupDao = groupDao;
     }
 
 
@@ -34,6 +37,7 @@ public class HomeController {
     public String adminHome(Model view)
     {
         view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
         return"admin/AdminsHome";
     }
 
