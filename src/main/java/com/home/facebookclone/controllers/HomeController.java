@@ -45,11 +45,6 @@ public class HomeController {
         return"signup";
     }
 
-    @GetMapping("/post")
-    public String post()
-    {
-        return"UserPostingForm";
-    }
 
     @GetMapping("/admin")
     public String adminHome(Model view)

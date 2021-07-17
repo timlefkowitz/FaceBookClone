@@ -121,8 +121,8 @@ public class CreateControllers {
     }
 
     @PostMapping("/post")
-    public String addAnewUserPost(@RequestParam(name="title") String title,
-                              @RequestParam(name="description") String description
+    public String addAnewUserPost(@RequestParam(name="inputTitle") String title,
+                              @RequestParam(name="inputDescription") String description
 
 
     ){
