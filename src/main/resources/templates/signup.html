@@ -93,6 +93,21 @@
 
     <!--   Avatar Upload    -->
 
+    <script>
+
+        const client = filestack.init(ACLsQz31NSRSYnO3FRIW5z);
+        const options = {
+            transformations: {
+                crop: false,
+                circle: true,
+                rotate: true
+            }
+        };
+
+        client.picker(options).open();
+    </script>
+
+
     <label class="form-label" for="inputAvatar">Upload a avatar</label>
     <input type="file" class="form-control" id="inputAvatar" name="inputAvatar" />
 
@@ -131,7 +146,7 @@
 
 
     //File Stack Starter
-    const client = filestack.init(YOUR_API_KEY);
+    const client = filestack.init(ACLsQz31NSRSYnO3FRIW5z);
     client.picker().open();
 
 
