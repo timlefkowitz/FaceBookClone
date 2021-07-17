@@ -61,6 +61,13 @@ public class  user {
     @Column(name = "status", nullable = true, length = 40)
     private String status;
 
+    @Column(name = "friendslist", nullable = true)
+    private List<friendslist> friendslist;
+
+    @Column
+    private boolean is_admin;
+
+
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
