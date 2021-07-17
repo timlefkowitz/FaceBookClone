@@ -148,17 +148,16 @@ public class CreateControllers {
 
 
 
-    ){
+    ) {
 
 //        addfriend n = new usersPost();
 //        n.setTitle(title);
 //        n.setBody(description);
 //        usersPost.save(n);
 //        return "redirect:/UsersHome";
+
+    return "redirect:/UsersHome";
     }
-
-
-
 
 
 
