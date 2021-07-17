@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class HomeController {
+    // I need to throw some catch statements into this capstone
+//           if(HomeController = null ){
+//        throw new IllegalArgumentException();
+//    }
 
 
     // Repo Daos
@@ -26,9 +30,10 @@ public class HomeController {
         return"index";
     }
 
-    @GetMapping("/Admin")
-    public String adminHome()
+    @GetMapping("/admin")
+    public String adminHome(Model view)
     {
+        view.addAttribute("allusers", userDao.findAll());
         return"admin/AdminsHome";
     }
 

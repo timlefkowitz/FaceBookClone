@@ -9,12 +9,15 @@ import com.home.facebookclone.repos.UsersRepository;
 
 import com.home.facebookclone.repos.groupRepo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CreateControllers {
+
+    private final UsersRepository userDao;
 
     private final UsersRepository usersDao;
 
@@ -25,7 +28,8 @@ public class CreateControllers {
 //    private final groupPost groupPostDao;
 
 
-    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao) {
+    public CreateControllers(UsersRepository userDao, UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao) {
+        this.userDao = userDao;
         this.usersDao = usersDao;
         this.usersPost = usersPost;
         this.groupDao = groupDao;
@@ -142,13 +146,16 @@ public class CreateControllers {
     }
 
     @PostMapping("/addfriend")
-    public String addfriend (@RequestParam(name="usernameToAdd") String username
+    public String addfriend (Model view, @RequestParam(name="usernameToAdd") String username
+
 
 
 
 
 
     ) {
+        //Find all users
+        view.addAttribute("allusers", usersDao.findAll());
 
 //        addfriend n = new usersPost();
 //        n.setTitle(title);

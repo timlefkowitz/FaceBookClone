@@ -63,6 +63,11 @@
 
   <h1 class="h3 mb-3 font-weight-normal">AddFriend</h1>
 
+
+  <div style="align-items: center" class="overflow-auto" th:each="user : ${ads}">
+    <h3 style="align-items: center"  th:text="${user.userName}"></h3>
+  </div>
+
   <!--         username-->
   <label for="inputFriend" class="sr-only">Add UserName</label>
   <input type="username" id="inputFriend" class="form-control" placeholder="Add Friend" required="" autofocus="" name="inputFriend">
