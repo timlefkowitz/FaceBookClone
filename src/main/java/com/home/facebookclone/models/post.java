@@ -26,6 +26,9 @@ public class post {
     @Column (length = 100)
     private long postId;
 
+    @Column (length = 100)
+    private String owner;
+
     @Column(length = 100)
     private long key;
 
@@ -45,25 +48,27 @@ public class post {
 
     //Insert Constructor
 
-    public post(long postId, long key, String content, String title, String body) {
+    public post(long postId, long key, String content, String title, String body, String owner) {
         this.postId = postId;
         this.key = key;
         this.content = content;
         this.title = title;
         this.body = body;
+        this.owner = owner;
     }
 
 
     //Update Constructor
 
 
-    public post(long id, long postId, long key, String content, String title, String body) {
+    public post(long id, long postId, long key, String content, String title, String body, String owner) {
         this.id = id;
         this.postId = postId;
         this.key = key;
         this.content = content;
         this.title = title;
         this.body = body;
+        this.owner = owner;
     }
 
 
@@ -116,5 +121,13 @@ public class post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }

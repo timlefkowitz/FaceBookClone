@@ -1,6 +1,7 @@
 package com.home.facebookclone.controllers;
 
 
+import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.groupRepo;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,12 @@ public class HomeController {
 
     private final UsersRepository userDao;
     private final groupRepo groupDao;
+    private final UsersPostRepo postsRepo;
 
-    public HomeController(UsersRepository userDao, groupRepo groupDao) {
+    public HomeController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo) {
         this.userDao = userDao;
         this.groupDao = groupDao;
+        this.postsRepo = postsRepo;
     }
 
 
@@ -51,6 +54,7 @@ public class HomeController {
     {
         view.addAttribute("allusers", userDao.findAll());
         view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allposts", postsRepo.findAll());
         return"admin/AdminsHome";
     }
 

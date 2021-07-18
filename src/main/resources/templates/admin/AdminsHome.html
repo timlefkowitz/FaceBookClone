@@ -226,6 +226,12 @@
                 <!--          Start of posting div-->
                 <div class="row postingDiv" style="display: flex; justify-content: center">
 
+
+                    <a style="align-items: center" th:each="usersPost : ${allposts}">
+
+                        <a style="align-items: center"  th:text="${usersPost.createdBy}"></a>
+
+
                     <!--            Avatar && Username && Status Update   -->
                     <div class="col-sm" style="border-color: #00AAFF; border-style: solid; align-content: center; align-items: center; justify-content: center">
 
@@ -238,9 +244,16 @@
 
 
                         <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                        <div class="col-sm">UserName</div>
-                        <div class="col-sm">StatusUpdate</div>
-                    </div>
+
+                        <a>UserName</a>
+                        <p></p>
+                        </div>
+
+
+
+
+
+
 
 
                     <!--            The Main User Posts                         -->
