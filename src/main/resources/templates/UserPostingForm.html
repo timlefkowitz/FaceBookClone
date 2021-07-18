@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+<!--    Bring in a variable using th-->
+    <meta name="fileStackApi" th:content="${fileStackApi}">
     <title>UserHome</title>
 
 
@@ -148,6 +150,19 @@
 
 
 <!-- end of userpost -->
+
+<!--    Filestack Javascript-->
+ <script th:inline="javascript">
+
+     /*<![CDATA[*/
+
+     var filestackapi = [[${fileStackApi}}]];
+     console.log(filestackapi)
+
+
+
+
+ </script>
 
 
 
