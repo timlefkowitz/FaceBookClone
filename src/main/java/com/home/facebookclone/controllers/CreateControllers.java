@@ -38,15 +38,21 @@ public class CreateControllers {
     }
 
 
+
+
 //    Wiring in FileStack
     @Value("${filestack.api.key.}")
     private String fileStackApi;
 
+
+
+
     // User Sign Up
 
     @GetMapping("/signup.html")
-    public String Signup()
+    public String Signup(Model model)
     {
+        model.addAttribute("fileStackApi");
         return"signup";
     }
 
@@ -101,8 +107,10 @@ public class CreateControllers {
     // Create a Group Post
 
     @GetMapping("/PostToAGroup")
-    public String postToAGroup()
+    public String postToAGroup(Model model)
     {
+
+        model.addAttribute("groupId", groupDao.findAll());  // When I come back to this we can link all groupsThatBelongToOwner
         return"GroupPostingForm";
     }
 
