@@ -8,6 +8,7 @@ import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 
 import com.home.facebookclone.repos.groupRepo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +37,10 @@ public class CreateControllers {
 //        this.groupPostDao = groupPostDao;
     }
 
+
+//    Wiring in FileStack
+    @Value("${filestack.api.key.}")
+    private String fileStackApi;
 
     // User Sign Up
 
