@@ -52,7 +52,7 @@ public class CreateControllers {
     @GetMapping("/signup.html")
     public String Signup(Model model)
     {
-        model.addAttribute("fileStackApi");
+        model.addAttribute("fileStackApi", fileStackApi);
         return"signup";
     }
 
@@ -86,8 +86,9 @@ public class CreateControllers {
     // Create a Group
 
     @GetMapping("/groupcreation")
-    public String createAgroup()
+    public String createAgroup(Model model)
     {
+        model.addAttribute("fileStackApi", fileStackApi);
         return"CreateAGroup";
     }
 
@@ -109,7 +110,7 @@ public class CreateControllers {
     @GetMapping("/PostToAGroup")
     public String postToAGroup(Model model)
     {
-
+        model.addAttribute("fileStackApi",fileStackApi);
         model.addAttribute("groupId", groupDao.findAll());  // When I come back to this we can link all groupsThatBelongToOwner
         return"GroupPostingForm";
     }
@@ -128,8 +129,9 @@ public class CreateControllers {
     // Create a Users Post
 
     @GetMapping("/post")
-    public String usersPost()
+    public String usersPost(Model model)
     {
+        model.addAttribute("fileStackApi",fileStackApi);
         return"UserPostingForm";
     }
 
