@@ -134,10 +134,10 @@
         <!--   -->
         <!--   -->
         <label class="form-label" for="inputIMG">Upload up to 3 Images</label><p></p>
-<!--        <input type="file" class="form-control" id="inputIMG" name="inputAvatar" />-->
-<!--        <input type="file" class="form-control" id="inputIMG1" name="inputAvatar" />-->
-<!--        <input type="file" class="form-control" id="inputIMG2" name="inputAvatar" />-->
         <button class="btn btn-light" type="button" id="inputIMG" name="inputIMG">Upload</button>
+
+<!--                field is how we connect it to our controller for binding -->
+        <input th:type="hidden" id="stashFileStackURL" name="stashFileStackURL" th:value="imgPath" th:field="*{imgPath}">
 
         <p></p>
         <button class="btn btn-info" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Post To the HUB</button><p></p>
@@ -175,10 +175,20 @@
         //Establishing a FileStack connection
      const client = filestack.init(filestackapi);
 
+     const options = {
+         onUploadDone:
+             function(res){
+             $("#stashFileStackURL").val(res.filesUploaded[0].url);
+             console.log(res.filesUploaded[0].url);
+
+
+             }
+     }
+
 
      // inputIMG button code
      $("#inputIMG").click(function(){
-         client.picker().open();
+         client.picker(options).open();
      })
 
 

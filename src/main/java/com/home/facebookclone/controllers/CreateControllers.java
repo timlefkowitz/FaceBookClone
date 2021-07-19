@@ -137,12 +137,14 @@ public class CreateControllers {
 
     @PostMapping("/post")
     public String addAnewUserPost(@RequestParam(name="inputTitle") String title,
-                              @RequestParam(name="inputDescription") String description
+                              @RequestParam(name="inputDescription") String description,
+                                   @RequestParam(name="stashFileStackURL") String images
 
 
     ){
 
         usersPost n = new usersPost();
+        n.setImgPath(images);
         n.setTitle(title);
         n.setBody(description);
         usersPost.save(n);
