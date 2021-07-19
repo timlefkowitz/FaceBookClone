@@ -41,7 +41,7 @@ public class CreateControllers {
 
 
 //    Wiring in FileStack
-    @Value("${filestack.api.key.}")
+    @Value("${filestack.api.key}")
     private String fileStackApi;
 
 
