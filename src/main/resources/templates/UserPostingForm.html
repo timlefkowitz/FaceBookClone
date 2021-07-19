@@ -133,13 +133,14 @@
         <!--   -->
         <!--   -->
         <!--   -->
-        <label class="form-label" for="inputIMG">Upload up to 3 Images</label>
-        <input type="file" class="form-control" id="inputIMG" name="inputAvatar" />
-        <input type="file" class="form-control" id="inputIMG1" name="inputAvatar" />
-        <input type="file" class="form-control" id="inputIMG2" name="inputAvatar" />
+        <label class="form-label" for="inputIMG">Upload up to 3 Images</label><p></p>
+<!--        <input type="file" class="form-control" id="inputIMG" name="inputAvatar" />-->
+<!--        <input type="file" class="form-control" id="inputIMG1" name="inputAvatar" />-->
+<!--        <input type="file" class="form-control" id="inputIMG2" name="inputAvatar" />-->
+        <button class="btn btn-light" type="button" id="inputIMG" name="inputIMG">Upload</button>
 
         <p></p>
-        <button class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Post To the HUB</button><p></p>
+        <button class="btn btn-info" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Post To the HUB</button><p></p>
 
 
         <p class="mt-5 mb-3 text-muted">FBCLONE</p>
@@ -169,6 +170,9 @@
      var filestackapi = [[${fileStackApi}]];
      console.log(filestackapi);
 
+
+
+        //Establishing a FileStack connection
      const client = filestack.init(filestackapi);
      client.picker().open();
 
