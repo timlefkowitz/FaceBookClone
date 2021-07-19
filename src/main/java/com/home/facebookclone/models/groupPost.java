@@ -2,8 +2,6 @@ package com.home.facebookclone.models;
 
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
 @Table(name="groupPost")
@@ -20,13 +18,16 @@ public class groupPost {
     private long id;
 
     @Column(name = "title")
-    private long title;
+    private String title;
 
     @Column(name = "ownerOfPost")
-    private long ownerOfPost;
+    private String ownerOfPost;
 
     @Column(name = "body")
     private String body;
+
+    @Column(name = "imgPath")
+    private String imgPath;
 
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
@@ -41,20 +42,22 @@ public class groupPost {
 
     //Insert
 
-    public groupPost(long title, long ownerOfPost, String body) {
+    public groupPost(String title, String ownerOfPost, String body, String imgPath) {
         this.title = title;
         this.ownerOfPost = ownerOfPost;
         this.body = body;
+        this.imgPath = imgPath;
     }
 
 
     //update
 
-    public groupPost(long id, long title, long ownerOfPost, String body) {
+    public groupPost(long id, String title, String ownerOfPost, String body, String imgPath) {
         this.id = id;
         this.title = title;
         this.ownerOfPost = ownerOfPost;
         this.body = body;
+        this.imgPath = imgPath;
     }
 
 
@@ -69,19 +72,19 @@ public class groupPost {
         this.id = id;
     }
 
-    public long getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(long title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public long getOwnerOfPost() {
+    public String getOwnerOfPost() {
         return ownerOfPost;
     }
 
-    public void setOwnerOfPost(long ownerOfPost) {
+    public void setOwnerOfPost(String ownerOfPost) {
         this.ownerOfPost = ownerOfPost;
     }
 
@@ -91,5 +94,13 @@ public class groupPost {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 }
