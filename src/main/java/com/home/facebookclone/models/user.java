@@ -61,6 +61,9 @@ public class  user {
     @Column(name = "status", nullable = true, length = 40)
     private String status;
 
+    @Column(name = "imgPath")
+    private String imgPath;
+
 //    @Column(name = "friendslist", nullable = true)
 //    private List<friendslist> friendslist;
 
@@ -91,7 +94,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String userName, String email, String passwordHash, String intro, String profile, long mobile, String status) {
+    public user(String firstName, String middleName, String lastName, String userName, String email, String passwordHash, String intro, String profile, long mobile, String status, String imgPath) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -102,12 +105,13 @@ public class  user {
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
+        this.imgPath = imgPath;
     }
 
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String userName, String email, String passwordHash, String intro, String profile, long mobile, String status) {
+    public user(long id, String firstName, String middleName, String lastName, String userName, String email, String passwordHash, String intro, String profile, long mobile, String status, String imgPath) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -119,6 +123,7 @@ public class  user {
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
+        this.imgPath = imgPath;
     }
 
 
@@ -211,5 +216,13 @@ public class  user {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 }

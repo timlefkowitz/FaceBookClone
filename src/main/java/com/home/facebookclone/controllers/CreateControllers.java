@@ -65,7 +65,8 @@ public class CreateControllers {
                               @RequestParam(name="inputLastName") String lastname,
                               @RequestParam(name="inputMobile") long mobilenumber,
                               @RequestParam(name="status") String status,
-                              @RequestParam(name="profile") String profile
+                              @RequestParam(name="profile") String profile,
+                              @RequestParam(name="imgPath") String imgPath
 
     ){
 
@@ -79,6 +80,7 @@ public class CreateControllers {
         n.setMobile(mobilenumber);
         n.setStatus(status);
         n.setProfile(profile);
+        n.setImgPath(imgPath);
         usersDao.save(n);
         return "redirect:/UsersHome";
     }
@@ -95,7 +97,9 @@ public class CreateControllers {
 
     @PostMapping("/groupcreation")
     public String addAnewGroup(@RequestParam(name="inputTitle") String title,
-                               @RequestParam(name="inputDescription") String description){
+                               @RequestParam(name="inputDescription") String description
+
+    ){
 
         groups n = new groups();
         n.setTitle(title);
