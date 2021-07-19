@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="fileStackApi" th:content="${fileStackApi}">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
 
     <title>Signin Template for Bootstrap</title>
 
@@ -111,8 +113,9 @@
     </script>
 
 
-    <label class="form-label" for="inputAvatar">Upload a avatar</label>
-    <input type="file" class="form-control" id="inputAvatar" name="inputAvatar" />
+
+    <label class="form-label" for="inputIMG">Upload a Avatar</label><p></p>
+    <button class="btn btn-light" type="button" id="inputIMG" name="inputIMG">Upload</button>
 
     <!--         Give yourself a status!!  -->
     <label for="inputstatus" class="sr-only">Give yourself a status</label>
@@ -144,13 +147,35 @@
 </script>
 
 
-<!--FILE STACK-->
-<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js">
+<!--        jquery-->
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
 
 
-    //File Stack Starter
-    const client = filestack.init(ACLsQz31NSRSYnO3FRIW5z);
-    client.picker().open();
+<!--    Filestack Javascript-->
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script th:inline="javascript">
+
+    /*<![CDATA[*/
+
+    var filestackapi = [[${fileStackApi}]];
+    console.log(filestackapi);
+
+
+
+    //Establishing a FileStack connection
+    const client = filestack.init(filestackapi);
+
+
+    // inputIMG button code
+    $("#inputIMG").click(function(){
+        client.picker().open();
+    })
+
 
 
 
