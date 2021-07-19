@@ -169,6 +169,9 @@
      var filestackapi = [[${fileStackApi}]];
      console.log(filestackapi);
 
+     const client = filestack.init(filestackapi);
+     client.picker().open();
+
 
 
 
