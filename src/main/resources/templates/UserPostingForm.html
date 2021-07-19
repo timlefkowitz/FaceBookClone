@@ -174,7 +174,12 @@
 
         //Establishing a FileStack connection
      const client = filestack.init(filestackapi);
-     client.picker().open();
+
+
+     // inputIMG button code
+     $("#inputIMG").click(function(){
+         client.picker().open();
+     })
 
 
 
