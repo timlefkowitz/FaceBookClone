@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="fileStackApi" th:content="${fileStackApi}">
     <title>UserHome</title>
 
 
@@ -124,16 +125,15 @@
 
 
 
-    <!--   -->
-    <!--   -->
-    <!--                 Image Upload    -->
-    <!--   -->
-    <!--   -->
-    <!--   -->
-    <label class="form-label" for="inputIMG">Upload up to 3 Images</label>
-    <input type="file" class="form-control" id="inputIMG" name="inputAvatar" />
-    <input type="file" class="form-control" id="inputIMG1" name="inputAvatar" />
-    <input type="file" class="form-control" id="inputIMG2" name="inputAvatar" />
+
+    <!--                    Avatar upload-->
+    <label class="form-label" for="inputIMG">Upload an Avatar</label><p></p>
+    <button class="btn btn-light" type="button" id="inputIMG" name="inputIMG">Upload</button>
+
+    <!--                field is how we connect it to our controller for binding -->
+    <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL">
+    <!--        th:field="*{img_path}-->
+
 
     <p></p>
     <button class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Post to Group ${}</button><p></p>
@@ -147,6 +147,59 @@
 
 
 <!-- end of userpost -->
+
+<script>
+    $( document ).ready(function() {
+        console.log( "Post to the community" );
+    });
+
+
+
+</script>
+
+<!--        jquery-->
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+
+
+<!--    Filestack Javascript-->
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script th:inline="javascript">
+
+    /*<![CDATA[*/
+
+    var filestackapi = [[${fileStackApi}]];
+    console.log(filestackapi);
+
+
+
+    //Establishing a FileStack connection
+    const client = filestack.init(filestackapi);
+
+    const options = {
+        onUploadDone:
+            function(res){
+                $("#stashFileStackURL").val(res.filesUploaded[0].url);
+                console.log(res.filesUploaded[0].url);
+
+
+            }
+    }
+
+
+    // inputIMG button code
+    $("#inputIMG").click(function(){
+        client.picker(options).open();
+    })
+
+
+
+
+</script>
 
 
 
