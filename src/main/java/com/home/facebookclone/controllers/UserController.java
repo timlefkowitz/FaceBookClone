@@ -5,6 +5,7 @@ import com.home.facebookclone.models.user;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.friendslistrepo;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,9 +52,10 @@ public class UserController {
     }
 
     @GetMapping("addfriend")
-    public String addfriend(Model model)
+    public String addfriend(Model view, Model model)
     {
-        model.addAttribute("allusers", new friendslist());
+
+        view.addAttribute("allusers", users.findAll());
         model.addAttribute("fileStackApi", fileStackApi);
         return"users/sign-up";
     }
@@ -62,6 +64,7 @@ public class UserController {
     public String addAusernameToyourFriendsList(@RequestParam(name="username") String username
 
     ){
+        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         friendslist n = new friendslist();
         n.setUsername(username);

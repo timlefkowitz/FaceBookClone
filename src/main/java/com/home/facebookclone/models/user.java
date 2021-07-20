@@ -60,7 +60,7 @@ public class  user {
     @Column(name = "imgPath")
     private String imgPath;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "friendslist")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "friendslist")
     private List<friendslist> friendslist;
 
     @Column(nullable = false)

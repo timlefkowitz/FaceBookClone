@@ -27,18 +27,34 @@ public class friendslist {
     @Column(name = "username")
     private String username;
 
+    @OneToOne
+    private user owner;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "friendslist")
+    private List<friendslist> friendslist;
+
+
+
     //insert
 
-    public friendslist(String username) {
+    public friendslist(String username, user owner, List<com.home.facebookclone.models.friendslist> friendslist) {
         this.username = username;
+        this.owner = owner;
+        this.friendslist = friendslist;
     }
 
 
     //update
 
-    public friendslist(long id, String username) {
+    public friendslist(long id, String username, user owner, List<com.home.facebookclone.models.friendslist> friendslist) {
         this.id = id;
         this.username = username;
+        this.owner = owner;
+        this.friendslist = friendslist;
+    }
+
+    public friendslist() {
+
     }
 
 
@@ -59,5 +75,21 @@ public class friendslist {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public user getOwner() {
+        return owner;
+    }
+
+    public void setOwner(user owner) {
+        this.owner = owner;
+    }
+
+    public List<com.home.facebookclone.models.friendslist> getFriendslist() {
+        return friendslist;
+    }
+
+    public void setFriendslist(List<com.home.facebookclone.models.friendslist> friendslist) {
+        this.friendslist = friendslist;
     }
 }
