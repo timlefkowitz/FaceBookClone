@@ -29,7 +29,6 @@ public class HomeController {
         this.postsRepo = postsRepo;
     }
 
-
     @GetMapping("/")
     public String landingPage()
     {

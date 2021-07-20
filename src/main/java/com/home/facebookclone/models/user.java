@@ -11,6 +11,8 @@ import java.util.List;
 @Table(name="user")
 public class  user {
 
+
+
     public user(){
 
     }

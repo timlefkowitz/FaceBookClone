@@ -11,6 +11,7 @@ import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.groupPostRepo;
 import com.home.facebookclone.repos.groupRepo;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,9 @@ public class CreateControllers {
 
     private final groupPostRepo groupPostDao;
 
+//    private final PasswordEncoder passwordEncoder;
+
+
 //    private final groupPost groupPostDao;
 
 
@@ -40,6 +44,7 @@ public class CreateControllers {
         this.groupDao = groupDao;
 //        this.groupPostDao = groupPostDao;
         this.groupPostDao = groupPostDao;
+//        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -57,8 +62,9 @@ public class CreateControllers {
     @GetMapping("users/sign-up.html")
     public String Signup(Model model)
     {
+        model.addAttribute("user", new user());
         model.addAttribute("fileStackApi", fileStackApi);
-        return"signup";
+        return"users/sign-up";
     }
 
     @PostMapping("users/sign-up.html")
@@ -76,9 +82,10 @@ public class CreateControllers {
     ){
 
         user n = new user();
+//        String hash = passwordEncoder.encode(password);
+//        n.setPasswordHash(hash);
         n.setUserName(username);
         n.setEmail(email);
-        n.setPasswordHash(password);
         n.setFirstName(firstname);
         n.setMiddleName(middlename);
         n.setLastName(lastname);
