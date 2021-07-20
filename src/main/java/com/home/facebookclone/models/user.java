@@ -60,8 +60,8 @@ public class  user {
     @Column(name = "imgPath")
     private String imgPath;
 
-    @Column(name="friends")
-    private List<friendslist> friends;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "friendslist")
+    private List<friendslist> friendslist;
 
     @Column(nullable = false)
     private boolean isAdmin;
@@ -102,24 +102,26 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath) {
+    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location) {
         this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
-
+        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
         this.imgPath = imgPath;
+        this.location = location;
+        this.friendslist = friendslist;
     }
 
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath) {
+    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist) {
         this.id = id;
         this.firstname = firstName;
         this.middleName = middleName;
@@ -127,11 +129,13 @@ public class  user {
         this.username = username;
         this.email = email;
         this.password = password;
-
+        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
         this.imgPath = imgPath;
+        this.location = location;
+        this.friendslist = friendslist;
     }
 
 
@@ -150,6 +154,8 @@ public class  user {
         mobile = copy.mobile;
         status = copy.status;
         imgPath = copy.imgPath;
+        isAdmin = copy.isAdmin;
+        location = copy.location;
 
     }
 
@@ -244,5 +250,37 @@ public class  user {
 
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public List<com.home.facebookclone.models.friendslist> getFriendslist() {
+        return friendslist;
+    }
+
+    public void setFriendslist(List<com.home.facebookclone.models.friendslist> friendslist) {
+        this.friendslist = friendslist;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
