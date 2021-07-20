@@ -54,14 +54,14 @@ public class CreateControllers {
 
     // User Sign Up
 
-    @GetMapping("/signup.html")
+    @GetMapping("users/sign-up.html")
     public String Signup(Model model)
     {
         model.addAttribute("fileStackApi", fileStackApi);
         return"signup";
     }
 
-    @PostMapping("/signup.html")
+    @PostMapping("users/sign-up.html")
     public String addANewUser(@RequestParam(name="inputUserName") String username,
                                @RequestParam(name="inputEmail") String email,
                               @RequestParam(name="inputPassword") String password,
