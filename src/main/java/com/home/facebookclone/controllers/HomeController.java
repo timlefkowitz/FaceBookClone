@@ -29,17 +29,7 @@ public class HomeController {
         this.postsRepo = postsRepo;
     }
 
-    @GetMapping("/")
-    public String landingPage()
-    {
-        return"index";
-    }
 
-    @GetMapping("/index")
-    public String login()
-    {
-        return"index";
-    }
 
     @GetMapping("/signup")
     public String signup()
