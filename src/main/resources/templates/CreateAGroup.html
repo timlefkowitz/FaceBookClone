@@ -92,17 +92,25 @@
             <!-- Left links -->
 
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-link px-3 me-2" href="index">
-                    Login
-                </button>
-                <button type="button" class="btn btn-primary me-3" href="signup">
-                    Sign up
-                </button>
+                <!--                <button type="button" class="btn btn-link px-3 me-2" href="index">-->
+                <!--                    Login-->
+                <!--                </button>-->
+                <!--                <button type="button" class="btn btn-primary me-3" href="signup">-->
+                <!--                    Sign up-->
+                <!--                </button>-->
                 <a
                         class="btn btn-dark px-3"
                         href="post"
                         role="button"
                 >POST</a>
+                <ul>
+                    <!-- More links here... -->
+
+                    <form th:action="@{/logout}" th:method="post">
+                        <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                    </form>
+
+                </ul>
             </div>
         </div>
         <!-- Collapsible wrapper -->

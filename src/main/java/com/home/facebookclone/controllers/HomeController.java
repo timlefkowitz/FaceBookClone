@@ -85,6 +85,16 @@ public class HomeController {
     }
 
 
+    @GetMapping("/home")
+    public String adminHome(Model view)
+    {
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allposts", postsRepo.findAll());
+        return"home";
+    }
+
+
 
 
 

@@ -96,7 +96,38 @@ public class CreateControllers {
         n.setProfile(profile);
         n.setImgPath(imgPath);
         usersDao.save(n);
-        return "redirect:/UsersHome";
+        return "redirect:/home";
+    }
+
+
+    // Create a Users Post
+
+    @GetMapping("/post")
+    public String usersPost(Model model)
+    {
+        model.addAttribute("usersPost", new usersPost());
+        model.addAttribute("fileStackApi",fileStackApi);
+        return"UserPostingForm";
+    }
+
+    @PostMapping("/post")
+    public String addAnewUserPost(@RequestParam(name="title") String title,
+                                  @RequestParam(name="body") String description,
+                                  @RequestParam(name="imgPath") String imgPath
+
+
+    ){
+
+        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        usersPost n = new usersPost();
+        n.setImgPath(imgPath);
+
+        n.setOwner(user);
+        n.setTitle(title);
+        n.setBody(description);
+        usersPost.save(n);
+        return "redirect:/home";
     }
 
     // Create a Group
@@ -128,7 +159,7 @@ public class CreateControllers {
         n.setContent(content);
         n.setCreatedBy(createdBy);
         groupDao.save(n);
-        return "redirect:/UsersHome";
+        return "redirect:/home";
     }
 
 
@@ -155,38 +186,11 @@ public class CreateControllers {
         groupPostDao.save(n);
 //        groupPost n = new groupPost();
 //        groupPostDao.save(n);
-        return "redirect:/UsersHome";
+        return "redirect:/home";
     }
 
 
-    // Create a Users Post
 
-    @GetMapping("/post")
-    public String usersPost(Model model)
-    {
-        model.addAttribute("fileStackApi",fileStackApi);
-        return"UserPostingForm";
-    }
-
-    @PostMapping("/post")
-    public String addAnewUserPost(@RequestParam(name="title") String title,
-                              @RequestParam(name="body") String description,
-                                   @RequestParam(name="imgPath") String imgPath
-
-
-    ){
-
-        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        usersPost n = new usersPost();
-        n.setImgPath(imgPath);
-
-        n.setOwner(user);
-        n.setTitle(title);
-        n.setBody(description);
-        usersPost.save(n);
-        return "redirect:/UsersHome";
-    }
 
 
 

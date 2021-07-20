@@ -75,7 +75,11 @@
 
 
 
-<body >
+<body>
+
+
+
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -117,12 +121,12 @@
             <!-- Left links -->
 
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-link px-3 me-2" href="index">
-                    Login
-                </button>
-                <button type="button" class="btn btn-primary me-3" href="signup">
-                    Sign up
-                </button>
+<!--                <button type="button" class="btn btn-link px-3 me-2" href="index">-->
+<!--                    Login-->
+<!--                </button>-->
+<!--                <button type="button" class="btn btn-primary me-3" href="signup">-->
+<!--                    Sign up-->
+<!--                </button>-->
                 <a
                         class="btn btn-dark px-3"
                         href="post"
@@ -245,38 +249,85 @@
 
             <!--              UserPost        style="max-height: 400px;      -->
             <div class="container userPost" style="height:100%">
+                <tr style="align-items: center" th:each="usersPost : ${allposts}">
 
 
 
                 <!--          Start of posting div-->
-                <div class="row postingDiv" style="display: flex; justify-content: center">
 
-                <!--            Avatar && Username && Status Update   -->
-                    <div class="col-sm" style="border-color: #00AAFF; border-style: solid; align-content: center; align-items: center; justify-content: center" id="postuserinfobox">
-                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                        <div class="col-sm">UserName</div>
-                        <div class="col-sm">StatusUpdate</div>
-                    </div>
+<!--                <div class="row postingDiv" style="display: flex; justify-content: center">-->
 
-
-                    <!--            The Main User Posts                         -->
-                    <div class="col-lg-9" style="border-color: #00AAFF; border-style: solid">
+<!--                &lt;!&ndash;            Avatar && Username && Status Update   &ndash;&gt;-->
+<!--&lt;!&ndash;                    <td style="align-items: center"  th:text="${usersPost.owner}"></td>&ndash;&gt;-->
+<!--                    <div class="col-sm" style="border-color: #00AAFF; border-style: solid; align-content: center; align-items: center; justify-content: center" id="postuserinfobox">-->
+<!--                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">-->
+<!--                        <div class="col-sm">UserName</div>-->
+<!--                        <div class="col-sm">StatusUpdate</div>-->
+<!--                    </div>-->
 
 
-                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="https://live.staticflickr.com/65535/51266844876_e00121a287_b.jpg" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="https://live.staticflickr.com/65535/51266106377_cf2afa3279_h.jpg" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="https://live.staticflickr.com/65535/51260503839_fd075699a5_h.jpg" alt="Third slide">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                    &lt;!&ndash;            The Main User Posts                         &ndash;&gt;-->
+<!--                    <div class="col-lg-9" style="border-color: #00AAFF; border-style: solid">-->
+
+
+<!--                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">-->
+<!--                            <div class="carousel-inner">-->
+<!--                                <div class="carousel-item active">-->
+<!--                                    <img class="d-block w-100" src="https://live.staticflickr.com/65535/51266844876_e00121a287_b.jpg" alt="First slide">-->
+<!--                                </div>-->
+<!--                                <div class="carousel-item">-->
+<!--                                    <img class="d-block w-100" src="https://live.staticflickr.com/65535/51266106377_cf2afa3279_h.jpg" alt="Second slide">-->
+<!--                                </div>-->
+<!--                                <div class="carousel-item">-->
+<!--                                    <img class="d-block w-100" src="https://live.staticflickr.com/65535/51260503839_fd075699a5_h.jpg" alt="Third slide">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+
+
+                    <!--    Group List-->
+
+
+                    <table class="table overflow-auto " style="width:20%;  margin-top: 5%; height:500px;">
+                        <thead class="thead-dark">
+                        <tr>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>owner</th>
+                                    <th>title</th>
+                                    <th>imgPath</th>
+                                    <th>body</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr style="align-items: center" th:each="usersPost : ${allposts}">
+
+                                    <td style="align-items: center"  th:text="${usersPost.title}"></td>
+                                    <td style="align-items: center"  th:text="${usersPost.owner}">
+<!--                                    <td style="align-items: center"  th:text="${usersPost.body}">-->
+
+                                        <!--                    need to add action and method    action="/products/delete" method="post"-->
+
+                                        <form>
+                                            <input type="hidden" name="user_id" value="${user.id}">
+                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">
+                                        </form>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+
+                        </tr>
+                        </thead>
+
+                    </table>
                 </div>
 
             </div>

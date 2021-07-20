@@ -53,6 +53,7 @@
 
 <body>
 
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -94,17 +95,25 @@
             <!-- Left links -->
 
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-link px-3 me-2" href="index">
-                    Login
-                </button>
-                <button type="button" class="btn btn-primary me-3" href="signup">
-                    Sign up
-                </button>
+                <!--                <button type="button" class="btn btn-link px-3 me-2" href="index">-->
+                <!--                    Login-->
+                <!--                </button>-->
+                <!--                <button type="button" class="btn btn-primary me-3" href="signup">-->
+                <!--                    Sign up-->
+                <!--                </button>-->
                 <a
                         class="btn btn-dark px-3"
                         href="post"
                         role="button"
                 >POST</a>
+                <ul>
+                    <!-- More links here... -->
+
+                    <form th:action="@{/logout}" th:method="post">
+                        <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                    </form>
+
+                </ul>
             </div>
         </div>
         <!-- Collapsible wrapper -->
@@ -118,7 +127,7 @@
 <!-- begining of userPost -->
 
 
-    <form class="form-signin" style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center" action="/post" method="Post">
+    <form class="form-signin" th:action="@{/post}" method="POST" th:object="${usersPost}"  style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
         <img class="mb-4" src="https://i.imgur.com/v2t7qrK.gif" alt="" width="72" height="72">
 
 
@@ -140,12 +149,13 @@
         <!--   -->
         <!--   -->
         <!--   -->
-        <label class="form-label" for="imgPath">Upload up to 3 Images</label><p></p>
+        <!--                    Avatar upload-->
+        <label class="form-label" for="imgPath">Upload an image</label><p></p>
         <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload</button>
 
-<!--                field is how we connect it to our controller for binding -->
+        <!--                field is how we connect it to our controller for binding -->
         <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL">
-<!--        th:field="*{img_path}-->
+        <!--        th:field="*{img_path}-->
 
         <p></p>
         <button class="btn btn-info" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Post To the HUB</button><p></p>
