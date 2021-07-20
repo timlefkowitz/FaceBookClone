@@ -19,8 +19,11 @@ public class groups {
     @Column(name = "id")
     private long id;
 
+    @OneToOne
+    private user owner;
+
     @Column(name = "CreatedBy")
-    private long CreatedBy;
+    private String CreatedBy;
 
     @Column(name = "title")
     private String title;
@@ -46,24 +49,26 @@ public class groups {
 
     // Insert Constructor
 
-    public groups(long createdBy, String title, String summary, String profile, String content) {
-        CreatedBy = createdBy;
+    public groups(String createdBy, String title, String summary, String profile, String content, user owner) {
+        this.CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
         this.profile = profile;
         this.content = content;
+        this.owner = owner;
     }
 
 
     // Update Constructor
 
-    public groups(long id, long createdBy, String title, String summary, String profile, String content) {
+    public groups(long id, String createdBy, String title, String summary, String profile, String content, user owner) {
         this.id = id;
-        CreatedBy = createdBy;
+        this.CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
         this.profile = profile;
         this.content = content;
+        this.owner = owner;
     }
 
 
@@ -78,11 +83,11 @@ public class groups {
         this.id = id;
     }
 
-    public long getCreatedBy() {
+    public String getCreatedBy() {
         return CreatedBy;
     }
 
-    public void setCreatedBy(long createdBy) {
+    public void setCreatedBy(String createdBy) {
         CreatedBy = createdBy;
     }
 
@@ -116,5 +121,13 @@ public class groups {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public user getOwner() {
+        return owner;
+    }
+
+    public void setOwner(user owner) {
+        this.owner = owner;
     }
 }

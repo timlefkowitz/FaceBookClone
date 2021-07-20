@@ -2,6 +2,7 @@ package com.home.facebookclone.models;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
 @Table(name="user")
@@ -58,6 +59,18 @@ public class  user {
 
     @Column(name = "imgPath")
     private String imgPath;
+
+    @Column(name="friends")
+    private List<friendslist> friends;
+
+    @Column(nullable = false)
+    private boolean isAdmin;
+
+    @Column(nullable = false)
+    private String location;
+
+
+
 
 //    @Column(name = "friendslist", nullable = true)
 //    private List<friendslist> friendslist;

@@ -78,6 +78,27 @@
     <h3 style="align-items: center"  th:text="${user.userName}"></h3>
   </div>
 
+
+
+  <tr style="align-items: center" th:each="user : ${allusers}">
+
+    <td style="align-items: center"  th:text="${user.id}"></td>
+    <td style="align-items: center"  th:text="${user.username}">
+    <td style="align-items: center"  th:text="${user.email}">
+    <td style="align-items: center"  th:text="${user.mobile}">
+
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
   <!--         username-->
   <label for="inputFriend" class="sr-only">Add UserName</label>
   <input type="username" id="inputFriend" class="form-control" placeholder="Add Friend" required="" autofocus="" name="inputFriend">

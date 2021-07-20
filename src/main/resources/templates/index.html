@@ -72,6 +72,9 @@
 </style>
 
 
+
+<!--{}{}{}{}{}{}{}{}{}{}{}}{}{}-->
+
 <body class="text-center" style="max-width: 1920px">
 
 
@@ -82,7 +85,13 @@
 
 
   <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-
+<!--  // Spring Security -->
+  <div th:if="${param.error}">
+    Invalid Username and Password.
+  </div>
+  <div th:if="${param.logout}">
+    You have been logged out.
+  </div>
 
 
 
@@ -90,7 +99,7 @@
 
   <label for="username" class="sr-only">username</label>
   <input type="username" id="username" class="form-control" placeholder="username" required="" autofocus="" name="username">
-  <!--         Password-->
+  <!--         Password, your password will be hashed and encrypted      -->
   <label for="password" class="sr-only">Password</label>
   <input type="password" id="password" class="form-control" placeholder="password" required="" name="password">
   <p class="mt-5 mb-3 text-muted">Password is hashed and updated through a framework.</p>
@@ -108,6 +117,8 @@
 
 
   <div class="checkbox mb-3">
+
+    <!--- Remember Me doesn't function. I'm prioritizing currently     -->
     <label>
       <input type="checkbox" value="remember-me"> Remember me
     </label>
@@ -122,7 +133,7 @@
   <div style="max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
     <a href="users/sign-up.html" class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" role="button" aria-pressed="true">Sign Up</a>
 
-    <p class="mt-5 mb-3 text-muted">FaceBookClone</p>
+    <p class="mt-5 mb-3 text-muted">FBC</p>
   </div>
 
 </form>
@@ -155,6 +166,7 @@
 
       // <<<<<<<< >>>> Let's write some jquery. <<<<>>>>>>>'
       // <<<<<<>>>>      Here's my example of doing something on a click  <<<>>>>>>>>
+      // <<<<<>>>>        Will brb to this    <<<<>>>>>>>>>>>>>>>>>
       // $("#email").find(100),{
       //   $("#prize")
       // var prize = "goldMember"
@@ -167,6 +179,10 @@
 
 
 </script>
+
+
+<!--      Security Feature-->
+<!--{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{{}}-->
 
 
 <http use-expressions="true">

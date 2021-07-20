@@ -31,12 +31,6 @@ public class HomeController {
 
 
 
-    @GetMapping("/signup")
-    public String signup()
-    {
-        return"signup";
-    }
-
 
     @GetMapping("/admin")
     public String adminHome(Model view)
@@ -46,6 +40,17 @@ public class HomeController {
         view.addAttribute("allposts", postsRepo.findAll());
         return"admin/AdminsHome";
     }
+
+
+
+    @GetMapping("/signup")
+    public String signup()
+    {
+        return"signup";
+    }
+
+
+
 
 
     // HOME PAGE
@@ -59,6 +64,9 @@ public class HomeController {
     @GetMapping("/UsersHome/{id}")
     public String showById(@PathVariable Long id, Model view){
         view.addAttribute("user", userDao.getById(id));
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allposts", postsRepo.findAll());
         return "UsersHome";
     }
 

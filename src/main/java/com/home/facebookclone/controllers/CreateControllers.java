@@ -110,14 +110,23 @@ public class CreateControllers {
 
 
     @PostMapping("/groupcreation")
-    public String addAnewGroup(@RequestParam(name="inputTitle") String title,
-                               @RequestParam(name="inputDescription") String description
+    public String addAnewGroup(@RequestParam(name="title") String title,
+                               @RequestParam(name="summary") String summary,
+                               @RequestParam(name="createdBy") String createdBy,
+                               @RequestParam(name="content") String content
+
 
     ){
 
+
+        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         groups n = new groups();
+        n.setOwner(user);
+        n.setSummary(summary);
         n.setTitle(title);
-        n.setContent(description);
+        n.setContent(content);
+        n.setCreatedBy(createdBy);
         groupDao.save(n);
         return "redirect:/UsersHome";
     }
