@@ -167,11 +167,11 @@ public class CreateControllers {
 
     ){
 
-        user x = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         usersPost n = new usersPost();
         n.setImgPath(imgPath);
-        n.setCreatedBy(x);
+        n.setOwner(user);
         n.setTitle(title);
         n.setBody(description);
         usersPost.save(n);
