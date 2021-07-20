@@ -193,32 +193,32 @@ public class CreateControllers {
 
     //addfriend
 
-    @GetMapping("/addfriend")
-    public String addfriendPage()
-    {
-        return"UserPostingForm";
-    }
-
-    @PostMapping("/addfriend")
-    public String addfriend (Model view, @RequestParam(name="usernameToAdd") String username
-
-
-
-
-
-
-    ) {
-        //Find all users
-        view.addAttribute("allusers", usersDao.findAll());
-
-//        addfriend n = new usersPost();
-//        n.setTitle(title);
-//        n.setBody(description);
-//        usersPost.save(n);
-//        return "redirect:/UsersHome";
-
-    return "redirect:/UsersHome";
-    }
+//    @GetMapping("/addfriend")
+//    public String addfriendPage()
+//    {
+//        return"UserPostingForm";
+//    }
+//
+//    @PostMapping("/addfriend")
+//    public String addfriend (Model view, @RequestParam(name="usernameToAdd") String username
+//
+//
+//
+//
+//
+//
+//    ) {
+//        //Find all users
+//        view.addAttribute("allusers", usersDao.findAll());
+//
+////        addfriend n = new usersPost();
+////        n.setTitle(title);
+////        n.setBody(description);
+////        usersPost.save(n);
+////        return "redirect:/UsersHome";
+//
+//    return "redirect:/UsersHome";
+//    }
 
 
 

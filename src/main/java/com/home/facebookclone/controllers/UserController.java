@@ -60,17 +60,18 @@ public class UserController {
         return"users/sign-up";
     }
 
-    @PostMapping("addfriend")
-    public String addAusernameToyourFriendsList(@RequestParam(name="username") String username
-
-    ){
-        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        friendslist n = new friendslist();
-        n.setUsername(username);
-        friendslistDao.save(n);
-        return "redirect:/UsersHome";
-    }
+//    @PostMapping("addfriend")
+//    public String addAusernameToyourFriendsList(@RequestParam(name="username") String username
+//
+//    ){
+//        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//        friendslist n = new friendslist();
+////        n.setUsername(username);
+////        friendToAdd.setOwner(this);
+//        friendslistDao.save(n);
+//        return "redirect:/UsersHome";
+//    }
 
 
 }

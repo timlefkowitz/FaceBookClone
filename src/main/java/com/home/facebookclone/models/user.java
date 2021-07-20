@@ -60,8 +60,8 @@ public class  user {
     @Column(name = "imgPath")
     private String imgPath;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "friendslist")
-    private List<friendslist> friendslist;
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "friendslist")
+//    private friendslist friendslist;
 
     @Column(nullable = false)
     private boolean isAdmin;
@@ -115,7 +115,7 @@ public class  user {
         this.status = status;
         this.imgPath = imgPath;
         this.location = location;
-        this.friendslist = friendslist;
+
     }
 
 
@@ -135,7 +135,7 @@ public class  user {
         this.status = status;
         this.imgPath = imgPath;
         this.location = location;
-        this.friendslist = friendslist;
+
     }
 
 
@@ -260,13 +260,13 @@ public class  user {
         this.firstname = firstname;
     }
 
-    public List<com.home.facebookclone.models.friendslist> getFriendslist() {
-        return friendslist;
-    }
-
-    public void setFriendslist(List<com.home.facebookclone.models.friendslist> friendslist) {
-        this.friendslist = friendslist;
-    }
+//    public com.home.facebookclone.models.friendslist getFriendslist() {
+//        return friendslist;
+//    }
+//
+//    public void setFriendslist(com.home.facebookclone.models.friendslist friendslist) {
+//        this.friendslist = friendslist;
+//    }
 
     public boolean isAdmin() {
         return isAdmin;

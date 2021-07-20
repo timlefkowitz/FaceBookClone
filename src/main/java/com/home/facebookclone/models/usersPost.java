@@ -54,7 +54,7 @@ public class usersPost {
     // constructors
     // insert
 
-    public usersPost(long createdBy, String title, String body, String imgPath) {
+    public usersPost(String title, String body, String imgPath) {
 
         this.title = title;
         this.body = body;
