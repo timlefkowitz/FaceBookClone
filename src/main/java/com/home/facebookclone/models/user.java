@@ -1,11 +1,7 @@
 package com.home.facebookclone.models;
 
 
-import com.home.facebookclone.repos.UsersRepository;
-
 import javax.persistence.*;
-import java.security.Timestamp;
-import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
 @Table(name="user")
@@ -33,8 +29,8 @@ public class  user {
 
 // trying to get work done on the via/bus haha
 
-    @Column(name = "firstName", length = 100)
-    private String firstName;
+    @Column(name = "firstname", length = 100)
+    private String firstname;
 
     @Column(name = "middleName",  length = 40)
     private String middleName;
@@ -42,17 +38,14 @@ public class  user {
     @Column(name = "lastName",  length = 40)
     private String lastName;
 
-    @Column(name = "userName",  length = 100)
-    private String userName;
+    @Column(name = "username",  length = 100)
+    private String username;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "passwordHash",   length = 100)
-    private String passwordHash;
-
-    @Column(name = "intro",  nullable = true , length = 100)
-    private String intro;
+    @Column(name = "password",   length = 100)
+    private String password;
 
     @Column(name = "profile", nullable = true)
     private String profile;
@@ -96,14 +89,14 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String userName, String email, String passwordHash, String intro, String profile, long mobile, String status, String imgPath) {
-        this.firstName = firstName;
+    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath) {
+        this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.username = username;
         this.email = email;
-        this.passwordHash = passwordHash;
-        this.intro = intro;
+        this.password = password;
+
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
@@ -113,15 +106,15 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String userName, String email, String passwordHash, String intro, String profile, long mobile, String status, String imgPath) {
+    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath) {
         this.id = id;
-        this.firstName = firstName;
+        this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.username = username;
         this.email = email;
-        this.passwordHash = passwordHash;
-        this.intro = intro;
+        this.password = password;
+
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
@@ -129,7 +122,26 @@ public class  user {
     }
 
 
-// GETTERS AND SETTERS
+    // Copy Constructor
+
+
+    public user(user copy) {
+        id = copy.id;
+        firstname = copy.firstname;
+        middleName = copy.middleName;
+        lastName = copy.lastName;
+        username = copy.username;
+        email = copy.email;
+        password = copy.password;
+        profile = copy.profile;
+        mobile = copy.mobile;
+        status = copy.status;
+        imgPath = copy.imgPath;
+
+    }
+
+
+    // GETTERS AND SETTERS
 
 
     public long getId() {
@@ -141,11 +153,11 @@ public class  user {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstname = firstName;
     }
 
     public String getMiddleName() {
@@ -164,12 +176,12 @@ public class  user {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getEmail() {
@@ -180,21 +192,14 @@ public class  user {
         this.email = email;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String passwordHash) {
+        this.password = passwordHash;
     }
 
-    public String getIntro() {
-        return intro;
-    }
-
-    public void setIntro(String intro) {
-        this.intro = intro;
-    }
 
     public String getProfile() {
         return profile;

@@ -69,29 +69,29 @@
     <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
 
     <!--         username-->
-    <label for="inputUserName" class="sr-only">UserName</label>
-    <input type="username" id="inputUserName" class="form-control" placeholder="Enter desired username" required="" th:field="*{userName}" autofocus="" name="inputUserName">
+    <label for="username" class="sr-only">UserName</label>
+    <input type="username" id="username" class="form-control" placeholder="Enter desired username" required="" th:field="*{username}" autofocus="" name="username">
     <!--         Email-->
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" th:field="*{email}" name="inputEmail">
+    <label for="email" class="sr-only">Email address</label>
+    <input type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="" th:field="*{email}" name="email">
     <!--         Password-->
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" th:field="*{passwordHash}" name="inputPassword">
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" required="" th:field="*{password}" name="password">
     <!--         FirstName-->
-    <label for="inputFirstName" class="sr-only">First Name</label>
-    <input type="text" id="inputFirstName" class="form-control" placeholder="First name" required="" autofocus="" name="inputFirstName">
+    <label for="firstname" class="sr-only">First Name</label>
+    <input type="text" id="firstname" class="form-control" placeholder="First name" required="" autofocus="" name="firstname">
 
     <!--        Middle Name  -->
-    <label for="inputMiddleName" class="sr-only">Middle Name</label>
-    <input type="text" id="inputMiddleName" class="form-control" placeholder="Middle Name" required="" autofocus="" name="inputMiddleName">
+    <label for="middleName" class="sr-only">Middle Name</label>
+    <input type="text" id="middleName" class="form-control" placeholder="Middle Name" required="" autofocus="" name="middleName">
 
     <!--         Last name  -->
-    <label for="inputLastName" class="sr-only">Last Name</label>
-    <input type="text" id="inputLastName" class="form-control" placeholder="Last name" required="" autofocus="" name="inputLastName">
+    <label for="lastName" class="sr-only">Last Name</label>
+    <input type="text" id="lastName" class="form-control" placeholder="Last name" required="" autofocus="" name="lastName">
 
     <!--         Mobile  -->
-    <label for="inputMobile" class="sr-only">Mobile Number</label>
-    <input type="text" id="inputMobile" class="form-control" placeholder="#Mobile" required="" autofocus="" name="inputMobile">
+    <label for="mobile" class="sr-only">Mobile Number</label>
+    <input type="text" id="mobile" class="form-control" placeholder="#Mobile" required="" autofocus="" name="mobile">
 
 
 
@@ -99,8 +99,8 @@
 
 
 <!--                    Avatar upload-->
-    <label class="form-label" for="inputIMG">Upload an Avatar</label><p></p>
-    <button class="btn btn-light" type="button" id="inputIMG" name="inputIMG">Upload</button>
+    <label class="form-label" for="imgPath">Upload an Avatar</label><p></p>
+    <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload</button>
 
     <!--                field is how we connect it to our controller for binding -->
     <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL">
@@ -111,12 +111,12 @@
 
 
     <!--         Give yourself a status!!  -->
-    <label for="inputstatus" class="sr-only">Give yourself a status</label>
-    <input type="text" id="inputstatus" class="form-control" placeholder="give yourself a status" required="" autofocus="" name="status">
+    <label for="status" class="sr-only">Give yourself a status</label>
+    <input type="text" id="status" class="form-control" placeholder="give yourself a status" required="" autofocus="" name="status">
 
     <!--        Give your profile a Description  -->
-    <label for="inputProfile" class="sr-only">Tell us about yourself</label>
-    <input type="text" id="inputProfile" class="form-control" placeholder="Tell us about yourself!" required="" autofocus="" name="profile">
+    <label for="profile" class="sr-only">Tell us about yourself</label>
+    <input type="text" id="profile" class="form-control" placeholder="Tell us about yourself!" required="" autofocus="" name="profile">
 
 
     <div class="checkbox mb-3">

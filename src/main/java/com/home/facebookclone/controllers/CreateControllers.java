@@ -31,13 +31,13 @@ public class CreateControllers {
 
     private final groupPostRepo groupPostDao;
 
-//    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
 
 //    private final groupPost groupPostDao;
 
 
-    public CreateControllers(UsersRepository userDao, UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao) {
+    public CreateControllers(UsersRepository userDao, UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.usersDao = usersDao;
         this.usersPost = usersPost;
@@ -45,6 +45,7 @@ public class CreateControllers {
 //        this.groupPostDao = groupPostDao;
         this.groupPostDao = groupPostDao;
 //        this.passwordEncoder = passwordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -68,13 +69,13 @@ public class CreateControllers {
     }
 
     @PostMapping("users/sign-up.html")
-    public String addANewUser(@RequestParam(name="inputUserName") String username,
-                               @RequestParam(name="inputEmail") String email,
-                              @RequestParam(name="inputPassword") String password,
-                              @RequestParam(name="inputFirstName") String firstname,
-                              @RequestParam(name="inputMiddleName") String middlename,
-                              @RequestParam(name="inputLastName") String lastname,
-                              @RequestParam(name="inputMobile") long mobilenumber,
+    public String addANewUser(@RequestParam(name="username") String username,
+                               @RequestParam(name="email") String email,
+                              @RequestParam(name="password") String password,
+                              @RequestParam(name="firstname") String firstname,
+                              @RequestParam(name="middleName") String middlename,
+                              @RequestParam(name="lastName") String lastName,
+                              @RequestParam(name="mobile") long mobilenumber,
                               @RequestParam(name="status") String status,
                               @RequestParam(name="profile") String profile,
                               @RequestParam(name="imgPath") String imgPath
@@ -82,13 +83,13 @@ public class CreateControllers {
     ){
 
         user n = new user();
-//        String hash = passwordEncoder.encode(password);
-//        n.setPasswordHash(hash);
-        n.setUserName(username);
+        String hash = passwordEncoder.encode(password);
+        n.setPassword(hash);
+        n.setUsername(username);
         n.setEmail(email);
         n.setFirstName(firstname);
         n.setMiddleName(middlename);
-        n.setLastName(lastname);
+        n.setLastName(lastName);
         n.setMobile(mobilenumber);
         n.setStatus(status);
         n.setProfile(profile);

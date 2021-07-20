@@ -1,6 +1,7 @@
 package com.home.facebookclone.controllers;
 
 import com.home.facebookclone.models.user;
+import com.home.facebookclone.repos.UsersRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private user users;
-//    private PasswordEncoder passwordEncoder;
+    private UsersRepository users;
 
-//    public UserController(user users, PasswordEncoder passwordEncoder) {
-//        this.users = users;
-//        this.passwordEncoder = passwordEncoder;
-//    }
+    private PasswordEncoder passwordEncoder;
+
+    public UserController(UsersRepository users, PasswordEncoder passwordEncoder) {
+        this.users = users;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @GetMapping("/sign-up")
     public String showSignupForm(Model model){
@@ -24,11 +26,11 @@ public class UserController {
         return "users/sign-up";
     }
 
-//    @PostMapping("/sign-up")
-//    public String saveUser(@ModelAttribute user user){
-//        String hash = passwordEncoder.encode(user.getPasswordHash());
-//        user.setPasswordHash(hash);
-//        user.save(user);
-//        return "redirect:/login";
-//    }
+    @PostMapping("/sign-up")
+    public String saveUser(@ModelAttribute user user){
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        users.save(user);
+        return "redirect:/login";
+    }
 }
