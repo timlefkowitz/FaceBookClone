@@ -69,7 +69,7 @@ public class HomeController {
 
     @GetMapping("/UsersHome/{id}")
     public String showById(@PathVariable Long id, Model view){
-        view.addAttribute("ads", userDao.getById(id));
+        view.addAttribute("user", userDao.getById(id));
         return "UsersHome";
     }
 
