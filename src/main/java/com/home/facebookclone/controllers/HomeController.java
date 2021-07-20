@@ -41,48 +41,48 @@ public class HomeController {
 //        return"admin/AdminsHome";
 //    }
 
-
-
-    @GetMapping("/signup")
-    public String signup()
-    {
-        return"signup";
-    }
-
+//
+//
+//    @GetMapping("/signup")
+//    public String signup()
+//    {
+//        return"signup";
+//    }
+//
 
 
 
 
     // HOME PAGE
 
-    @GetMapping("/UsersHome")
-    public String usersHome()
-    {
-        return"UsersHome";
-    }
+//    @GetMapping("/UsersHome")
+//    public String usersHome()
+//    {
+//        return"UsersHome";
+//    }
+//
+//    @GetMapping("/UsersHome/{id}")
+//    public String showById(@PathVariable Long id, Model view){
+//        view.addAttribute("user", userDao.getById(id));
+//        view.addAttribute("allusers", userDao.findAll());
+//        view.addAttribute("allgroups", groupDao.findAll());
+//        view.addAttribute("allposts", postsRepo.findAll());
+//        return "UsersHome";
+//    }
 
-    @GetMapping("/UsersHome/{id}")
-    public String showById(@PathVariable Long id, Model view){
-        view.addAttribute("user", userDao.getById(id));
-        view.addAttribute("allusers", userDao.findAll());
-        view.addAttribute("allgroups", groupDao.findAll());
-        view.addAttribute("allposts", postsRepo.findAll());
-        return "UsersHome";
-    }
-
-
-    @GetMapping("/UsersProfile")
-    public String usersProfile()
-    {
-        return"UsersProfile";
-    }
-
-    // Currently Signed in profile
-    @GetMapping("/currentProfile")
-    public String currentUsersProfile()
-    {
-        return"CurrentUsersProfileAndEditProfile";
-    }
+//
+//    @GetMapping("/UsersProfile")
+//    public String usersProfile()
+//    {
+//        return"UsersProfile";
+//    }
+//
+//    // Currently Signed in profile
+//    @GetMapping("/currentProfile")
+//    public String currentUsersProfile()
+//    {
+//        return"CurrentUsersProfileAndEditProfile";
+//    }
 
 
     @GetMapping("/home")
@@ -92,6 +92,21 @@ public class HomeController {
         view.addAttribute("allgroups", groupDao.findAll());
         view.addAttribute("allposts", postsRepo.findAll());
         return"home";
+    }
+
+
+    // Show Constructors
+
+    @GetMapping("/UsersProfile")
+    public String show(Model view){
+        view.addAttribute("user", userDao.findAll());
+        return"UsersProfile";
+    }
+
+    @GetMapping("/UsersProfile/{id}")
+    public String showById(@PathVariable Long id, Model view){
+        view.addAttribute("user", userDao.getById(id));
+        return "UsersProfile";
     }
 
 
