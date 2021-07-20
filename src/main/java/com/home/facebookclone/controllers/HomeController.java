@@ -29,7 +29,6 @@ public class HomeController {
         this.postsRepo = postsRepo;
     }
 
-
     @GetMapping("/")
     public String landingPage()
     {
@@ -69,7 +68,7 @@ public class HomeController {
 
     @GetMapping("/UsersHome/{id}")
     public String showById(@PathVariable Long id, Model view){
-        view.addAttribute("ads", userDao.getById(id));
+        view.addAttribute("user", userDao.getById(id));
         return "UsersHome";
     }
 

@@ -43,7 +43,6 @@
 
 
 <body >
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -79,23 +78,31 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="#">FBCLONDE ADMIN LOGIN</a>
                 </li>
             </ul>
             <!-- Left links -->
 
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-link px-3 me-2">
+                <button type="button" class="btn btn-link px-3 me-2" href="index">
                     Login
                 </button>
-                <button type="button" class="btn btn-primary me-3">
-                    Sign up for free
+                <button type="button" class="btn btn-primary me-3" href="signup">
+                    Sign up
                 </button>
                 <a
                         class="btn btn-dark px-3"
-                        href="https://github.com/mdbootstrap/mdb-ui-kit"
+                        href="post"
                         role="button"
                 >POST</a>
+                <ul>
+                    <!-- More links here... -->
+
+                    <form th:action="@{/logout}" th:method="post">
+                        <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                    </form>
+
+                </ul>
             </div>
         </div>
         <!-- Collapsible wrapper -->
