@@ -56,7 +56,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/CreateAGroup", // only authenticated users can edit ads
                         "UserPostingForm",
                         "UsersHome",
-                        "UsersProfile"
+                        "UsersProfile",
+                        "/post"
+
                 )
                 .authenticated()
         ;

@@ -17,10 +17,6 @@ public class usersPost {
     @Column(name = "id")
     private long id;
 
-
-    @Column(name = "CreatedBy")
-    private long CreatedBy;
-
     @Column(name = "title")
     private String title;
 
@@ -45,7 +41,7 @@ public class usersPost {
     // insert
 
     public usersPost(long createdBy, String title, String body, String imgPath) {
-        CreatedBy = createdBy;
+
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
@@ -56,7 +52,7 @@ public class usersPost {
 
     public usersPost(long id, long createdBy, String title, String body, String imgPath) {
         this.id = id;
-        CreatedBy = createdBy;
+
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
@@ -72,14 +68,6 @@ public class usersPost {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getCreatedBy() {
-        return CreatedBy;
-    }
-
-    public void setCreatedBy(long createdBy) {
-        CreatedBy = createdBy;
     }
 
     public String getTitle() {

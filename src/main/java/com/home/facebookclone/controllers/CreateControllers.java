@@ -11,6 +11,7 @@ import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.groupPostRepo;
 import com.home.facebookclone.repos.groupRepo;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -159,15 +160,18 @@ public class CreateControllers {
     }
 
     @PostMapping("/post")
-    public String addAnewUserPost(@RequestParam(name="inputTitle") String title,
-                              @RequestParam(name="inputDescription") String description,
+    public String addAnewUserPost(@RequestParam(name="title") String title,
+                              @RequestParam(name="body") String description,
                                    @RequestParam(name="imgPath") String imgPath
 
 
     ){
 
+        user x = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         usersPost n = new usersPost();
         n.setImgPath(imgPath);
+        n.setCreatedBy(x);
         n.setTitle(title);
         n.setBody(description);
         usersPost.save(n);
