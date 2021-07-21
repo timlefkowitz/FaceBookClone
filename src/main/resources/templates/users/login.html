@@ -158,6 +158,49 @@
 <!--  </audio>-->
 
 
+<!--        jquery-->
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+
+
+<!--    Filestack Javascript-->
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script th:inline="javascript">
+
+  /*<![CDATA[*/
+
+  var filestackapi = [[${fileStackApi}]];
+  console.log(filestackapi);
+
+
+
+  //Establishing a FileStack connection
+  const client = filestack.init(filestackapi);
+
+  const options = {
+    onUploadDone:
+            function(res){
+              $("#stashFileStackURL").val(res.filesUploaded[0].url);
+              console.log(res.filesUploaded[0].url);
+
+
+            }
+  }
+
+
+  // inputIMG button code
+  $("#inputIMG").click(function(){
+    client.picker(options).open();
+  })
+
+
+
+
+</script>
 
 <script>
 
