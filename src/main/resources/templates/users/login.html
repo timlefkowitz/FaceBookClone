@@ -1,24 +1,195 @@
+<!--
+[][][] Thank you for viewing my capstone project [][][]
+[][][][][][][][][] Please bare with my code [][][][][][
+[][][][][][][][][] Tue 20th 2:04AM [][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][
+-->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-  <title>Log In v1</title>
-</head>
-<body>
-<h1>Log In</h1>
-<div th:if="${param.error}">
-  Invalid Username and Password.
-</div>
-<div th:if="${param.logout}">
-  You have been logged out.
-</div>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-<form th:action="@{/login}" method="post">
-  <label for="username">Username</label>
-  <input id="username" name="username" type="text" />
-  <label for="password">Password</label>
-  <input id="password" name="password" type="password" />
-  <input type="submit" value="Log In" />
+  <title>Login</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!--    //favcon-->
+  <link rel="icon" type="image/png" sizes="16x16" href="https://live.staticflickr.com/65535/51320697245_9708355788_c.jpg">
+</head>
+
+
+
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: normal;
+  }
+
+  body {
+    padding:0;
+    margin:0;
+    background: linear-gradient(to right, #00AAFF, #00FF6c);
+  }
+
+  .calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+  }
+
+  .calculator-grid > button:hover {
+    background-color:rgba(255, 255, 255, .9);
+  }
+
+
+  .output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 2.5rem;
+  }
+</style>
+
+
+
+<!--{}{}{}{}{}{}{}{}{}{}{}}{}{}-->
+
+<body class="text-center" style="max-width: 1920px">
+
+
+
+
+<form class="form-signin" th:action="@{/login}" method="post" style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
+  <img class="mb-4" src="https://i.imgur.com/v2t7qrK.gif" alt="" width="72" height="72">
+
+
+  <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+  <!--  // Spring Security -->
+  <div th:if="${param.error}">
+    Invalid Username and Password.
+  </div>
+  <div th:if="${param.logout}">
+    You have been logged out.
+  </div>
+
+
+
+
+
+  <label for="username" class="sr-only">username</label>
+  <input type="username" id="username" class="form-control" placeholder="username" required="" autofocus="" name="username">
+  <!--         Password, your password will be hashed and encrypted      -->
+  <label for="password" class="sr-only">Password</label>
+  <input type="password" id="password" class="form-control" placeholder="password" required="" name="password">
+  <p class="mt-5 mb-3 text-muted">Password is hashed and updated through a framework.</p>
+
+
+
+  <!--  &lt;!&ndash;         FirstName&ndash;&gt;-->
+  <!--  <label for="inputFirstName" class="sr-only">Email address</label>-->
+  <!--  <input type="email" id="inputFirstName" class="form-control" placeholder="First name" required="" autofocus="">-->
+  <!--  &lt;!&ndash;         Lastname&ndash;&gt;-->
+  <!--  <label for="inputLastName" class="sr-only">Email address</label>-->
+  <!--  <input type="email" id="inputLastName" class="form-control" placeholder="Last name" required="" autofocus="">-->
+
+
+
+
+  <div class="checkbox mb-3">
+
+    <!--- Remember Me doesn't function. I'm prioritizing currently     -->
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-block" value="Log In" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Sign in</button>
+
 </form>
+
+<form class="form-signin" style="margin-top: 45px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
+  <p class="mt-5 mb-3 text-muted">Don't Have an Account?</p>
+
+  <div style="max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
+    <a href="users/sign-up.html" class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" role="button" aria-pressed="true">Sign Up</a>
+
+    <p class="mt-5 mb-3 text-muted">FBC</p>
+  </div>
+
+</form>
+
+
+
+<!--  /// Audio Controls  -->
+<!--          W3EXAMPLE   -->
+
+<!--  <audio controls>-->
+<!--    <source src="horse.ogg" type="audio/ogg">-->
+<!--    <source src="horse.mp3" type="audio/mpeg">-->
+<!--    Your browser does not support the audio element.-->
+<!--  </audio>-->
+
+<!-- -->
+<!--</div>-->
+<!--  <audio controls>-->
+<!--    <source src="horse.ogg" type="audio/ogg">-->
+<!--    <source src="horse.mp3" type="audio/mpeg">-->
+<!--    Your browser does not support the audio element.-->
+<!--  </audio>-->
+
+
+
+<script>
+
+  $(document).ready(function(){
+    $("#signUpButton").click(function(){
+
+      // <<<<<<<< >>>> Let's write some jquery. <<<<>>>>>>>'
+      // <<<<<<>>>>      Here's my example of doing something on a click  <<<>>>>>>>>
+      // <<<<<>>>>        Will brb to this    <<<<>>>>>>>>>>>>>>>>>
+      // $("#email").find(100),{
+      //   $("#prize")
+      // var prize = "goldMember"
+      //   alert("You are the 100th signup win a price " + prize)
+      // }
+
+    });
+  });
+
+
+
+</script>
+
+
+<!--      Security Feature-->
+<!--{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{{}}-->
+
+
+<http use-expressions="true">
+  <intercept-url pattern="/admin*"
+                 access="hasRole('admin') and hasIpAddress('70.94.160.36')"/>
+  ...
+</http>
+
 </body>
 </html>
