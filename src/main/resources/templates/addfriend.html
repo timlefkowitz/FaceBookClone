@@ -86,16 +86,13 @@
     <td style="align-items: center"  th:text="${user.username}">
     <td style="align-items: center"  th:text="${user.email}">
     <td style="align-items: center"  th:text="${user.mobile}">
+    <option style="align-items: center"  th:text="${user.id}"></option>
 
 
   <div class="form-group">
     <label for="exampleFormControlSelect2">Example multiple select</label>
     <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <option th:text="${user.id}">1</option>
     </select>
   </div>
 

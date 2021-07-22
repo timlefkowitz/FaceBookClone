@@ -211,9 +211,10 @@
               <table class="table">
                 <thead>
                 <tr>
-                  <th>id</th>
-                  <th>group name</th>
-                  <th>CreatedBy</th>
+                  <th>Title</th>
+                  <th>Body of Post </th>
+                  <th>img path</th>
+                  <th>Owner</th>
 
                 </tr>
                 </thead>
@@ -221,15 +222,17 @@
                 <tr style="align-items: center" th:each="usersPost : ${allposts}">
 
                   <td style="align-items: center"  th:text="${usersPost.title}"></td>
-                  <td style="align-items: center"  th:text="${usersPost.owner}">
-                  <td style="align-items: center"  th:text="${usersPost.body}">
+                  <td style="align-items: center"  th:text="${usersPost.body}"></td>
+                  <img style="align-items: center"  th:text="${usersPost.imgPath}">
 
-                    <!--                    need to add action and method    action="/products/delete" method="post"-->
+                  <!--                                    <td style="align-items: center"  th:text="${usersPost.owner}"   owner is not working    >-->
 
-                    <form>
-                      <input type="hidden" name="user_id" value="${user.id}">
-                      <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">
-                    </form>
+                  <!--                    need to add action and method    action="/products/delete" method="post"-->
+
+                  <form>
+                    <input type="hidden" name="user_id" value="${user.id}">
+                    <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">
+                  </form>
                   </td>
                 </tr>
                 </tbody>
@@ -243,6 +246,9 @@
           </table>
 
         </div>
+
+
+
 
 
 
