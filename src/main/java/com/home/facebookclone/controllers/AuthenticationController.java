@@ -27,9 +27,6 @@ public class AuthenticationController {
     @Value("${filestack.api.key}")
     private String fileStackApi;
 
-
-
-
     @GetMapping("/")
     public String landingPage()
     {
