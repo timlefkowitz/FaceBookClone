@@ -120,6 +120,7 @@ public class HomeController {
     public String showById2(@PathVariable Long id, Model view){
         view.addAttribute("user", userDao.getById(id));
         view.addAttribute("usersPost", postsRepo.getById(id));
+        view.addAttribute("{id}+friends", userDao.getById(id));
         return "UsersProfile";
     }
 
