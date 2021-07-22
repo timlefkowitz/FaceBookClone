@@ -163,30 +163,33 @@
 <script th:inline="javascript">
 
     /*<![CDATA[*/
+    (function () {
 
-    var filestackapi = [[${fileStackApi}]];
-    console.log(filestackapi);
-
-
-
-    //Establishing a FileStack connection
-    const client = filestack.init(filestackapi);
-
-    const options = {
-        onUploadDone:
-            function(res){
-                $("#stashFileStackURL").val(res.filesUploaded[0].url);
-                console.log(res.filesUploaded[0].url);
+            var filestackapi = [[${fileStackApi}]];
+            console.log(filestackapi);
 
 
-            }
-    }
+            //Establishing a FileStack connection
+            const client = filestack.init(filestackapi);
+
+        const options = {
+            onUploadDone:
+                function(res){
+                    $("#stashFileStackURL").val(res.filesUploaded[0].url);
+                    console.log(res.filesUploaded[0].url);
+
+                }
+        }
+
+        // inputIMG button code
+        $("#inputIMG").click(function(){
+            client.picker(options).open();
+        })
 
 
-    // inputIMG button code
-    $("#inputIMG").click(function(){
-        client.picker(options).open();
-    })
+    })();
+
+
 
 
 
