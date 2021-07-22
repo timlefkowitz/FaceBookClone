@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CreateControllers {
 
-    private final UsersRepository userDao;
-
     private final UsersRepository usersDao;
 
     private final UsersPostRepo usersPost;
@@ -38,13 +36,17 @@ public class CreateControllers {
 //    private final groupPost groupPostDao;
 
 
-    public CreateControllers(UsersRepository userDao, UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder) {
-        this.userDao = userDao;
+    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder) {
+
         this.usersDao = usersDao;
         this.usersPost = usersPost;
         this.groupDao = groupDao;
+
+
 //        this.groupPostDao = groupPostDao;
         this.groupPostDao = groupPostDao;
+
+
 //        this.passwordEncoder = passwordEncoder;
         this.passwordEncoder = passwordEncoder;
     }
@@ -122,7 +124,6 @@ public class CreateControllers {
 
         usersPost n = new usersPost();
         n.setImgPath(imgPath);
-
         n.setOwner(user);
         n.setTitle(title);
         n.setBody(description);
