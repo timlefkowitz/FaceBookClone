@@ -243,8 +243,8 @@
                                 <thead>
                                 <tr>
                                     <th>Title</th>
-                                    <th>img path</th>
                                     <th>Body of Post </th>
+                                    <th>img path</th>
                                     <th>Owner</th>
 
                                 </tr>
@@ -253,9 +253,9 @@
                                 <tr style="align-items: center" th:each="usersPost : ${allposts}">
 
                                     <td style="align-items: center"  th:text="${usersPost.title}"></td>
+                                    <td style="align-items: center"  th:text="${usersPost.body}"></td>
+                                    <td style="align-items: center"  th:text="${usersPost.imgPath}"></td>
 
-                                    <td style="align-items: center"  th:text="${usersPost.imgPath}">
-                                    <td style="align-items: center"  th:text="${usersPost.body}">
 <!--                                    <td style="align-items: center"  th:text="${usersPost.owner}"   owner is not working    >-->
 
                                         <!--                    need to add action and method    action="/products/delete" method="post"-->
