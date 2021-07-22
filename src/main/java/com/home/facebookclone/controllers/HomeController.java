@@ -116,6 +116,13 @@ public class HomeController {
         return "UsersProfile";
     }
 
+    @GetMapping("/{id}")
+    public String showById2(@PathVariable Long id, Model view){
+        view.addAttribute("user", userDao.getById(id));
+        view.addAttribute("usersPost", postsRepo.getById(id));
+        return "UsersProfile";
+    }
+
 
 
 
