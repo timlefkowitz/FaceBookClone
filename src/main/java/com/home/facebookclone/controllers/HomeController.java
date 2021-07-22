@@ -4,6 +4,7 @@ package com.home.facebookclone.controllers;
 import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.groupRepo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -93,6 +94,11 @@ public class HomeController {
         view.addAttribute("allposts", postsRepo.findAll());
         return"home";
     }
+
+
+    //    Wiring in FileStack
+    @Value("${filestack.api.key}")
+    private String fileStackApi;
 
 
     // Show Constructors
