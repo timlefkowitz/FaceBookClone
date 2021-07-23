@@ -19,11 +19,22 @@ public class prac {
         Arrays.sort(str2);
 
         //Compare sorted strings
-        for (int i = 0l i < n1; i++)
+        for (int i = 0; i < n1; i++)
             if(str1[i] != str2[i])
                 return false;
 
             return true;
     }
 
+    public static void main(String args[]){
+        char str1[] = { 't', 'e', 's', 't' };
+        char str2[] = { 't', 't', 'e', 'w' };
+
+        // function call
+        if(areAnagram(str1, str2))
+            System.out.println("The two strings are" + " anagram of each other");
+
+        else
+            System.out.println("The two strings are not " + " anagrams of each other");
+    }
 }
