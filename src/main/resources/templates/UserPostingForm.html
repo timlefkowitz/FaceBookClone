@@ -155,11 +155,12 @@
         <!--   -->
         <!--                    Image Upload-->
         <label class="form-label" for="imgPath"></label><p></p>
-        <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload An Image</button>
+
 
         <!--                field is how we connect it to our controller for binding -->
-        <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL">
-        <!--        th:field="*{img_path}-->
+        <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL" th:field="*{imgPath}">
+        <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload An Image</button>
+        <!--        -->
 
         <p></p>
         <button class="btn btn-info" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Post To the HUB</button><p></p>
@@ -211,7 +212,7 @@
 
 
      // inputIMG button code
-     $("#inputIMG").click(function(){
+     $("#imgPath").click(function(){
          client.picker(options).open();
      })
 
