@@ -142,10 +142,10 @@ public class CreateControllers {
 
 
     @PostMapping("/groupcreation")
-    public String addAnewGroup(@RequestParam(name="title") String title,
-                               @RequestParam(name="summary") String summary,
-                               @RequestParam(name="createdBy") String createdBy,
-                               @RequestParam(name="content") String content
+    public String addAnewGroup(@RequestParam(name="GroupPosttitle") String title,
+                               @RequestParam(name="GroupPostsummary") String summary,
+                               @RequestParam(name="GroupPostcreatedBy") String createdBy,
+                               @RequestParam(name="GroupPostcontent") String content
 
 
     ){
