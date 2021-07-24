@@ -145,7 +145,8 @@ public class CreateControllers {
     public String addAnewGroup(@RequestParam(name="GroupPosttitle") String title,
                                @RequestParam(name="GroupPostsummary") String summary,
                                @RequestParam(name="GroupPostcreatedBy") String createdBy,
-                               @RequestParam(name="GroupPostcontent") String content
+                               @RequestParam(name="GroupPostcontent") String content,
+                                                              @RequestParam(name="GroupPostIMGPath") String content
 
 
     ){

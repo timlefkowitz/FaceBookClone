@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
 <!--    Bring in a variable using th-->
     <meta name="fileStackApi" th:content="${fileStackApi}">
+    <meta name="fileStackApi2" th:content="${fileStackApi}">
     <title>Post</title>
 
 
@@ -166,7 +167,7 @@
 
 
         <!--                field is how we connect it to our controller for binding -->
-        <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL" th:field="*{imgPath}">
+        <input th:type="hidden" id="stashFileStackURL2" name="imgPath" th:value="stashFileStackURL" th:field="*{imgPath}">
         <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload An Image</button>
         <!--        -->
 
@@ -205,7 +206,7 @@
 
     <!--         Description    -->
     <label for="GroupPostDescription" class="sr-only">Description</label>
-    <textarea class="form-control" id="GroupPostDescription" rows="3" name="body" type="text"></textarea>
+    <textarea class="form-control" id="GroupPostDescription" rows="3" name="GroupPostDescription" type="text"></textarea>
 
 
 
@@ -222,7 +223,7 @@
 
     <!--                field is how we connect it to our controller for binding -->
     <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL" th:field="*{imgPath}">
-    <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload An Image</button>
+    <button class="btn btn-light" type="button" id="GroupPostIMGPath" name="imgPath">Upload An Image</button>
     <!--        -->
 
     <p></p>
