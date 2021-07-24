@@ -185,8 +185,8 @@ public class CreateControllers {
     ){
         groupPost n = new groupPost();
         n.setTitle(title);
-        n.setBody(body);
-        n.setImgPath(imgPath);
+        n.setBody(summary);
+        n.setImgPath(GroupPostIMGPath);
         groupPostDao.save(n);
 //        groupPost n = new groupPost();
 //        groupPostDao.save(n);
