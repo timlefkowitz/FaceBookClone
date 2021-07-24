@@ -127,7 +127,7 @@
 <!--        Friends-->
 <div class="container" style="margin-top: 5%; margin-left: 5%; margin-right:5%; ">
     <div class="row">
-        <div class="col-sm overflow-auto scrolling-wrapper" style="max-width: 450px!important;">
+        <div class="col-sm overflow-auto scrolling-wrapper" style="max-width: 450px!important; height:100%">
 
 
             <table class="table overflow-auto " style="width:20%;  margin-top: 5%">
@@ -234,7 +234,7 @@
         <!-- END OF REFRESH EXAMPLE -->
 
         <!--      USERS POSTS DIV   -->
-        <div class="col-lg-9" style="border-color: red; border-style: solid; height:100% " th:each="usersPost : ${allposts}">
+        <div class="col-lg-9" style="justify-content: center;align-items: center;  border-color: red; border-style: solid; height:100% " th:each="usersPost : ${allposts}">
 
             ALL POST
 
@@ -254,7 +254,6 @@
                                 <tr>
                                     <th>Title</th>
                                     <th>Body of Post </th>
-                                    <th>${usersPost.imgPath}</th>
 
 
 
@@ -275,6 +274,7 @@
                                     <td style="align-items: center"  th:text="${usersPost.body}"></td>
 <!--                                    <src style="align-items: center"  th:text="${usersPost.imgPath}">-->
                                     <img th:src="${usersPost.imgPath}">
+                                    <td style="align-items: center"  th:text="${usersPost.owner}"></td>
 
 
                                         <form>
