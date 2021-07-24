@@ -234,7 +234,7 @@
         <!-- END OF REFRESH EXAMPLE -->
 
         <!--      USERS POSTS DIV   -->
-        <div class="col-lg-9" style="border-color: red; border-style: solid; height:100% ">
+        <div class="col-lg-9" style="border-color: red; border-style: solid; height:100% " th:each="usersPost : ${allposts}">
 
             ALL POST
 
@@ -258,24 +258,27 @@
 
 
 
+
 <!--                                    HEY I NEED YOUR HELP HERE !!!! :D -->
 
 
 <!--                                    ^^ this is printing the path of the image https://live.staticflickr.com/65535/51317304220_1de8464325_k.jpg-->
 <!--                                    and i'm getting confused on how to call the variable ${usersPost.imgPath} into a src=""-->
-                                    <th>Owner</th>
+                                    <t>Owner</t>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr style="align-items: center" th:each="usersPost : ${allposts}">
+                                <tr style="align-items: center" >
 
                                     <td style="align-items: center"  th:text="${usersPost.title}"></td>
                                     <td style="align-items: center"  th:text="${usersPost.body}"></td>
-                                    <src style="align-items: center"  th:text="${usersPost.imgPath}">
+<!--                                    <src style="align-items: center"  th:text="${usersPost.imgPath}">-->
+                                    <img th:src="${usersPost.imgPath}">
+
 
                                         <form>
-                                            <input type="hidden" name="user_id" value="${user.id}">
+                                            <input type="hidden" name="user_id" value="${user.id}" style="max-width: 20px">
                                             <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">
                                         </form>
                                     </td>

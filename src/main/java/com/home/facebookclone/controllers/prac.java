@@ -37,4 +37,9 @@ public class prac {
         else
             System.out.println("The two strings are not " + " anagrams of each other");
     }
+
+//
+//    for (int i = 0 ; i < 10 ;i++ ){
+//        return "hello";
+//    }
 }
