@@ -131,11 +131,15 @@
         <img class="mb-4" src="https://i.imgur.com/v2t7qrK.gif" alt="" width="72" height="72">
 
 
-        <h1 class="h3 mb-3 font-weight-normal"> New Post </h1>
+<!--        /// would like to create a button here to switch to posting to groups in this same page. -->
+<!--        /// the next button here will switch using jquery to a group posting button -->
 
-        <h1>/</h1>
 
-        <button class="btn default"><h1>Post To A Group</h1></button>
+        <h1 class="h3 mb-3 font-weight-normal"> New Post
+
+        /
+
+            <button class="btn default">Post To A Group</h1></button>
 
         <!--         Title          -->
         <label for="title" class="sr-only">Title</label>
@@ -172,6 +176,63 @@
 
         <p class="mt-5 mb-3 text-muted">FBCLONE</p>
     </form>
+
+
+
+<!-- begining of userPost -->
+
+
+<form class="form-signin" th:action="@{/post}" method="POST" th:object="${usersPost}"  style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
+    <img class="mb-4" src="https://i.imgur.com/v2t7qrK.gif" alt="" width="72" height="72">
+
+
+    <!--        /// would like to create a button here to switch to posting to groups in this same page. -->
+    <!--        /// the next button here will switch using jquery to a group posting button -->
+
+
+    <h1 class="h3 mb-3 font-weight-normal"> New Post
+
+        /
+
+        <button class="btn default">Post To A Group</h1></button>
+
+    <!--         Title          -->
+    <label for="title" class="sr-only">Title</label>
+    <input type="title" id="title" class="form-control" placeholder="Give your post a title" required="" autofocus="" name="title">
+
+
+
+
+    <!--         Description    -->
+    <label for="body" class="sr-only">Description</label>
+    <textarea class="form-control" id="body" rows="3" name="body" type="text"></textarea>
+
+
+
+
+    <!--   -->
+    <!--   -->
+    <!--                 Image Upload    -->
+    <!--   -->
+    <!--   -->
+    <!--   -->
+    <!--                    Image Upload-->
+    <label class="form-label" for="imgPath"></label><p></p>
+
+
+    <!--                field is how we connect it to our controller for binding -->
+    <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL" th:field="*{imgPath}">
+    <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload An Image</button>
+    <!--        -->
+
+    <p></p>
+    <button class="btn btn-info" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Post To the HUB</button><p></p>
+
+
+    <p class="mt-5 mb-3 text-muted">FBCLONE</p>
+</form>
+
+
 
 
 
@@ -223,6 +284,13 @@
      $("#groupPostButton").click(function(){
          client.picker(options).open();
      })
+
+                 ////////\\\\\\\\\\
+            /////////////\\\\\\\\\\\\\\
+        /////////////////\\\\\\\\\\\\\\\\\\\
+     ////////////////////\\\\\\\\\\\\\\\\\\\\\
+     // lets make a switch between users post and group post
+     $("")
 
 
 
