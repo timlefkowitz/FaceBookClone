@@ -146,7 +146,7 @@ public class CreateControllers {
                                @RequestParam(name="GroupPostsummary") String summary,
                                @RequestParam(name="GroupPostcreatedBy") String createdBy,
                                @RequestParam(name="GroupPostcontent") String content,
-                                                              @RequestParam(name="GroupPostIMGPath") String content
+                               @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
 
 
     ){
@@ -176,9 +176,11 @@ public class CreateControllers {
     }
 
     @PostMapping("/PostToAGroup")
-    public String addAnewGroupPost(@RequestParam(name="title") String title,
-                                   @RequestParam(name="body") String body,
-                                   @RequestParam(name="imgPath") String imgPath
+    public String addAnewGroupPost(@RequestParam(name="GroupPosttitle") String title,
+                                   @RequestParam(name="GroupPostsummary") String summary,
+                                   @RequestParam(name="GroupPostcreatedBy") String createdBy,
+                                   @RequestParam(name="GroupPostcontent") String content,
+                                   @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
 
     ){
         groupPost n = new groupPost();

@@ -26,7 +26,7 @@ public class groupPost {
     @Column(name = "body")
     private String body;
 
-    @Column(name = "imgPath")
+    @Column(name = "stashFileStackURL2")
     private String imgPath;
 
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
