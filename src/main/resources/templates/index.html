@@ -5,7 +5,8 @@
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][
 -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -75,7 +76,7 @@
 
 <!--{}{}{}{}{}{}{}{}{}{}{}}{}{}-->
 
-<body class="text-center" style="max-width: 1920px">
+<body class="text-center" style="max-width: 1920px" sec:authorize="isAuthenticated()>
 
 
 
