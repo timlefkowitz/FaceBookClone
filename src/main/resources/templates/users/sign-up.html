@@ -108,6 +108,23 @@
 
 <!--                    Avatar upload-->
     <label class="form-label" for="imgPath">Upload an Avatar</label><p></p>
+
+    <div class="form-group">
+        <label for="originalavatar">Example multiple select</label>
+        <select multiple class="form-control" id="originalavatar">
+<!--            <option></option>-->
+<!--            <option>2</option>-->
+<!--            <option>3</option>-->
+<!--            <option>4</option>-->
+<!--            <option>5</option>-->
+            <option><img src="avatars/BLUEcube.gif" value="1"></option>
+            <img th:src="avatars/BlueSphere.gif" value="2">
+            <img th:src="avatars/Greendata.gif" value="3">
+        </select>
+    </div>
+
+
+
     <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload</button>
 
 <!--    &lt;!&ndash;                field is how we connect it to our controller for binding &ndash;&gt;     vv the field is how we call our vairbale in the model-->
