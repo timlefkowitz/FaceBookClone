@@ -54,7 +54,7 @@ public class  user {
     @Column(name = "mobile", nullable = false, length = 36)
     private long mobile;
 
-    @Column(name = "status", nullable = true, length = 40)
+    @Column(name = "status", nullable = true)
     private String status;
 
     @Column(name = "imgPath")
