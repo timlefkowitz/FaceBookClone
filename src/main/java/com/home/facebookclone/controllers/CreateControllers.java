@@ -68,7 +68,7 @@ public class CreateControllers {
     {
         model.addAttribute("user", new user());
         model.addAttribute("fileStackApi", fileStackApi);
-        return"users/sign-up";
+        return"home";
     }
 
     @PostMapping("users/sign-up.html")

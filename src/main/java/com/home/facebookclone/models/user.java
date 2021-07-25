@@ -54,7 +54,7 @@ public class  user {
     @Column(name = "mobile", nullable = false, length = 36)
     private long mobile;
 
-    @Column(name = "status", nullable = true, length = 40)
+    @Column(name = "status", nullable = true)
     private String status;
 
     @Column(name = "imgPath")
@@ -63,10 +63,10 @@ public class  user {
 //    @OneToOne(cascade = CascadeType.ALL, mappedBy = "friendslist")
 //    private friendslist friendslist;
 
-    @Column(nullable = false)
-    private boolean isAdmin;
+//    @Column(nullable = true)
+//    private boolean isAdmin;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String location;
 
 
@@ -109,7 +109,7 @@ public class  user {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+//        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
@@ -129,7 +129,7 @@ public class  user {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+//        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
@@ -154,7 +154,7 @@ public class  user {
         mobile = copy.mobile;
         status = copy.status;
         imgPath = copy.imgPath;
-        isAdmin = copy.isAdmin;
+//        isAdmin = copy.isAdmin;
         location = copy.location;
 
     }
@@ -268,13 +268,13 @@ public class  user {
 //        this.friendslist = friendslist;
 //    }
 
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
+//    public boolean isAdmin() {
+//        return isAdmin;
+//    }
+//
+//    public void setAdmin(boolean admin) {
+//        isAdmin = admin;
+//    }
 
     public String getLocation() {
         return location;
