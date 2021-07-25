@@ -81,7 +81,9 @@ public class CreateControllers {
                               @RequestParam(name="mobile") long mobilenumber,
                               @RequestParam(name="status") String status,
                               @RequestParam(name="profile") String profile,
-                              @RequestParam(name="imgPath") String imgPath
+                              @RequestParam(name="imgPath") String imgPath,
+                              @RequestParam(name="originalavatar") String originalavatar
+
 
     ){
 
@@ -97,6 +99,7 @@ public class CreateControllers {
         n.setStatus(status);
         n.setProfile(profile);
         n.setImgPath(imgPath);
+        n.setOriginalavatar(originalavatar);
         usersDao.save(n);
         return "redirect:/home";
     }

@@ -105,7 +105,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, originalavatar) {
+    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar) {
         this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -125,7 +125,7 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar;) {
+    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar) {
         this.id = id;
         this.firstname = firstName;
         this.middleName = middleName;
@@ -161,6 +161,7 @@ public class  user {
         imgPath = copy.imgPath;
         isAdmin = copy.isAdmin;
         location = copy.location;
+        originalavatar = copy.originalavatar;
 
     }
 

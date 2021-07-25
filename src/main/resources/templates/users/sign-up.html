@@ -56,7 +56,26 @@
         background: linear-gradient(to right, #00AAFF, #00FF6c);
     }
 
+    #avatars{
+        width:300px;
+        height: 300px;
+        overflow-y: auto;
+    }
+    .avatars > input{
+        display: none;
+    }
 
+    .avatars > input + img{
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .avatars > input:checked + img{
+        border: 2px solid;
+        border-image-source: linear-gradient(235deg, #89ff00, #010615, #00bcd4)
+    }
+
+    /*background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);*/
 
     .output .previous-operand {
         color: rgba(255, 255, 255, .75);
@@ -109,19 +128,50 @@
 <!--                    Avatar upload-->
     <label class="form-label" for="imgPath">Upload an Avatar</label><p></p>
 
-    <div class="form-group">
-        <label for="originalavatar">Example multiple select</label>
-        <select multiple class="form-control" id="originalavatar" name="originalavatar">
-<!--            <option></option>-->
+
+    <div id="avatars">
+
+            <label class="avatars">
+                <input type="radio" name="originalavatar"/>
+                <img src="https://cdn.filestackcontent.com/TwI5ACOXR3GWYDMMcbrM" alt=""/>
+            </label>
+
+            <label class="avatars">
+                <input type="radio" name="originalavatar"/>
+                <img src="https://cdn.filestackcontent.com/e2oZp8WqQC6uk5KlQpVQ" alt=""/>
+            </label>
+
+
+    </div>
+
+    <p></p>
+
+
+
+<!--    <div class="form-group">-->
+<!--        <label for="exampleFormControlSelect1">Example select</label>-->
+<!--        <select class="form-control" id="exampleFormControlSelect1">-->
+<!--            <option style="background-image:url(https://cdn.filestackcontent.com/e2oZp8WqQC6uk5KlQpVQ)"; th:height="64px" ></option>-->
 <!--            <option>2</option>-->
 <!--            <option>3</option>-->
 <!--            <option>4</option>-->
 <!--            <option>5</option>-->
-            <option><img src="avatars/BLUEcube.gif" value="1"></option>
-            <img th:src="https://cdn.filestackcontent.com/e2oZp8WqQC6uk5KlQpVQ" value="2">
-            <img th:src="avatars/Greendata.gif" value="3">
-        </select>
-    </div>
+<!--        </select>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="originalavatar">Example multiple select</label>-->
+<!--        <select multiple class="form-control" id="originalavatar" name="originalavatar">-->
+<!--&lt;!&ndash;            <option></option>&ndash;&gt;-->
+<!--&lt;!&ndash;            <option>2</option>&ndash;&gt;-->
+<!--&lt;!&ndash;            <option>3</option>&ndash;&gt;-->
+<!--&lt;!&ndash;            <option>4</option>&ndash;&gt;-->
+<!--&lt;!&ndash;            <option>5</option>&ndash;&gt;-->
+<!--            <option><img src="avatars/BLUEcube.gif" value="1"></option>-->
+<!--            <img th:src="https://cdn.filestackcontent.com/e2oZp8WqQC6uk5KlQpVQ" value="https://cdn.filestackcontent.com/e2oZp8WqQC6uk5KlQpVQ">-->
+<!--            <img th:src="avatars/Greendata.gif" value="3">-->
+<!--        </select>-->
+<!--    </div>-->
 
 
 
