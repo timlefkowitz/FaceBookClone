@@ -60,6 +60,9 @@ public class  user {
     @Column(name = "imgPath")
     private String imgPath;
 
+    @Column(name = "originalavatar")
+    private String originalavatar;
+
 //    @OneToOne(cascade = CascadeType.ALL, mappedBy = "friendslist")
 //    private friendslist friendslist;
 
@@ -102,7 +105,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location) {
+    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, originalavatar) {
         this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -115,13 +118,14 @@ public class  user {
         this.status = status;
         this.imgPath = imgPath;
         this.location = location;
+        this.originalavatar = originalavatar;
 
     }
 
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist) {
+    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar;) {
         this.id = id;
         this.firstname = firstName;
         this.middleName = middleName;
@@ -135,6 +139,7 @@ public class  user {
         this.status = status;
         this.imgPath = imgPath;
         this.location = location;
+        this.originalavatar = originalavatar;
 
     }
 
@@ -282,5 +287,13 @@ public class  user {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getOriginalavatar() {
+        return originalavatar;
+    }
+
+    public void setOriginalavatar(String originalavatar) {
+        this.originalavatar = originalavatar;
     }
 }
