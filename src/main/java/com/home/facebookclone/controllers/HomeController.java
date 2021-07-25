@@ -125,6 +125,23 @@ public class HomeController {
     }
 
 
+    // Show by username Constructors
+
+    @GetMapping("/showusername")
+    public String showByusername(Model view){
+        view.addAttribute("user", userDao.findAll());
+        return"UsersProfile";
+    }
+
+    @GetMapping("/{username}}")
+    public String showByusername(@PathVariable String username, Model view){
+        view.addAttribute("user", userDao.getByUsername(username));
+        return "UsersProfile";
+    }
+
+
+
+
 
 
 

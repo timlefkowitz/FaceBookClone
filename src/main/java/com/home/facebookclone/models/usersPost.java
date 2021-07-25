@@ -26,6 +26,15 @@ public class usersPost {
     @Column(name = "imgPath")
     private String imgPath;
 
+    @Column(name = "imgPath1")
+    private String imgPath1;
+
+    @Column(name = "imgPath2")
+    private String imgPath2;
+
+    @Column(name = "imgPath3")
+    private String imgPath3;
+
     @OneToOne
     private user owner;
 
@@ -54,22 +63,29 @@ public class usersPost {
     // constructors
     // insert
 
-    public usersPost(String title, String body, String imgPath) {
+    public usersPost(String title, String body, String imgPath,  String imgPath1, String imgPath2, String imgPath3) {
 
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
+        this.imgPath1 = imgPath1;
+        this.imgPath2= imgPath2;
+        this.imgPath3 = imgPath3;
     }
 
 
     // update
 
-    public usersPost(long id, long createdBy, String title, String body, String imgPath) {
+    public usersPost(long id, long createdBy, String title, String body, String imgPath, String imgPath1, String imgPath2, String imgPath3) {
         this.id = id;
 
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
+        this.imgPath1 = imgPath1;
+        this.imgPath2= imgPath2;
+        this.imgPath3 = imgPath3;
+
     }
 
 
@@ -131,4 +147,29 @@ public class usersPost {
 //    public void setPostCategories(List<postCategory> postCategories) {
 //        this.postCategories = postCategories;
 //    }
+
+
+    public String getImgPath1() {
+        return imgPath1;
+    }
+
+    public void setImgPath1(String imgPath1) {
+        this.imgPath1 = imgPath1;
+    }
+
+    public String getImgPath2() {
+        return imgPath2;
+    }
+
+    public void setImgPath2(String imgPath2) {
+        this.imgPath2 = imgPath2;
+    }
+
+    public String getImgPath3() {
+        return imgPath3;
+    }
+
+    public void setImgPath3(String imgPath3) {
+        this.imgPath3 = imgPath3;
+    }
 }

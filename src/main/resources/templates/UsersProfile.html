@@ -80,7 +80,7 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">FBCLONDE ADMIN LOGIN</a>
+          <a class="nav-link" href="#">FBCLONDE</a>
         </li>
       </ul>
       <!-- Left links -->
@@ -131,7 +131,7 @@
         <!--            Avatar && Username && Status Update   -->
         <div class="col-sm" style="border-color: #00AAFF; border-style: solid; align-content: center; align-items: center; justify-content: center">
           <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-          <div style="align-items: center" th:each="user : ${user}">
+          <div style="align-items: center" th:each="user : ${allusers}">
             <h3 style="align-items: center"  th:text="${user.username}"></h3>
             <p style="align-items: center"  th:text="${user.status}"><p/>
           </div>
