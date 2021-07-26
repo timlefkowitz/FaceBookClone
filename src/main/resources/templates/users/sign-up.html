@@ -70,9 +70,9 @@
         border: 2px solid transparent;
     }
 
-    .avatars > input:checked + img{
-        border: 2px solid;
-        border-image-source: linear-gradient(235deg, #89ff00, #010615, #00bcd4)
+    .  > input:checked + img{
+        border: 1.8px solid #e4f82d;
+        /*border-image-source: linear-gradient(235deg, #89ff00, #010615, #00bcd4)*/
     }
 
     /*background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);*/
@@ -81,6 +81,39 @@
         color: rgba(255, 255, 255, .75);
         font-size: 2.5rem;
     }
+
+
+    /*
+     *  STYLE 6
+     */
+
+    #originalavatar::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+    #originalavatar::-webkit-scrollbar
+    {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+
+    #originalavatar::-webkit-scrollbar-thumb
+    {
+        background-color: #F90;
+        background-image: -webkit-linear-gradient(45deg,
+        rgba(255, 255, 255, .2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .2) 50%,
+        rgba(255, 255, 255, .2) 75%,
+        transparent 75%,
+        transparent)
+    }
+
+
+
 </style>
 
 
@@ -125,18 +158,16 @@
 
 
 
-<!--                    Avatar upload-->
-    <label class="form-label" for="imgPath">Upload an Avatar</label><p></p>
 
 
-    <div id="avatars">
+    <div id="originalavatar"> Choose an original Avatar
 
-            <label class="avatars">
+            <label class="originalavatar" for="originalavatar">
                 <input type="radio" name="originalavatar"/>
                 <img src="https://cdn.filestackcontent.com/TwI5ACOXR3GWYDMMcbrM" alt=""/>
             </label>
 
-            <label class="avatars">
+            <label class="originalavatar">
                 <input type="radio" name="originalavatar"/>
                 <img src="https://cdn.filestackcontent.com/e2oZp8WqQC6uk5KlQpVQ" alt=""/>
             </label>
@@ -172,6 +203,10 @@
 <!--            <img th:src="avatars/Greendata.gif" value="3">-->
 <!--        </select>-->
 <!--    </div>-->
+
+
+    <!--                    Avatar upload-->
+    <label class="form-label" for="imgPath">Or Upload an Avatar</label><p></p>
 
 
 

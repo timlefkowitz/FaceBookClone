@@ -69,8 +69,8 @@ public class  user {
     @Column(nullable = false)
     private boolean isAdmin;
 
-    @Column(nullable = false)
-    private String location;
+//    @Column(nullable = false)
+//    private String location;
 
 
 
@@ -117,7 +117,7 @@ public class  user {
         this.mobile = mobile;
         this.status = status;
         this.imgPath = imgPath;
-        this.location = location;
+//        this.location = location;
         this.originalavatar = originalavatar;
 
     }
@@ -138,7 +138,7 @@ public class  user {
         this.mobile = mobile;
         this.status = status;
         this.imgPath = imgPath;
-        this.location = location;
+//        this.location = location;
         this.originalavatar = originalavatar;
 
     }
@@ -160,7 +160,7 @@ public class  user {
         status = copy.status;
         imgPath = copy.imgPath;
         isAdmin = copy.isAdmin;
-        location = copy.location;
+//        location = copy.location;
         originalavatar = copy.originalavatar;
 
     }
@@ -282,13 +282,13 @@ public class  user {
         isAdmin = admin;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
+//    public String getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
 
     public String getOriginalavatar() {
         return originalavatar;

@@ -58,7 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "UsersHome",
                         "/UsersHome",
                         "UsersProfile",
-                        "/post"
+                        "/post",
+                        "/{username}"  /// maybe anyone can see usersprofiles but not post
 
                 )
                 .authenticated()
