@@ -86,7 +86,7 @@ public class HomeController {
 //    }
 
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String adminHome(Model view)
     {
         view.addAttribute("allusers", userDao.findAll());

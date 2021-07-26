@@ -92,8 +92,8 @@ public class  user {
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
 //    private List<post> postOwner;
 //
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfGroup")
-//    private List<groups> groupOwner;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
+    private List<groups> groups;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
 //    private List<groupPost> groupPosts;
