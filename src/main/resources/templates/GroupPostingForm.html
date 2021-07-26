@@ -131,23 +131,29 @@
     <h1 class="h3 mb-3 font-weight-normal"> Post to group ${} </h1>
 
     <!--         Title          -->
-    <label for="inputTitle" class="sr-only">Title</label>
-    <input type="username" id="inputTitle" class="form-control" placeholder="Give your post a title" required="" autofocus="" name="inputTitle">
+    <label for="GroupPosttitle" class="sr-only">Title</label>
+    <input type="text" id="GroupPosttitle" class="form-control" placeholder="Give your post a title" required="" autofocus="" name="GroupPosttitle">
     <!--         Description    -->
-    <label for="inputDescription" class="sr-only">Description</label>
-    <textarea class="form-control" id="inputDescription" rows="3" name="Description" type="text"></textarea>
+    <label for="GroupPostsummary" class="sr-only">Description</label>
+    <textarea class="form-control" id="GroupPostsummary" rows="3" name="GroupPostsummary" type="text"></textarea>
 
 
 
 
 
     <!--                    Avatar upload-->
-    <label class="form-label" for="inputIMG">Upload an Avatar</label><p></p>
-    <button class="btn btn-light" type="button" id="inputIMG" name="inputIMG">Upload</button>
+    <label class="form-label" for="imgPath">Or Upload an Avatar</label><p></p>
 
-    <!--                field is how we connect it to our controller for binding -->
-    <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL">
-    <!--        th:field="*{img_path}-->
+
+
+    <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload</button>
+
+    <!--    &lt;!&ndash;                field is how we connect it to our controller for binding &ndash;&gt;     vv the field is how we call our vairbale in the model-->
+    <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL" th:field="*{imgPath}">
+    <!--                   Upload Button   -->
+
+    <!--        -->
+
 
 
     <p></p>

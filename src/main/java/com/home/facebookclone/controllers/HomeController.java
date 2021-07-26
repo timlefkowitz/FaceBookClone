@@ -95,6 +95,24 @@ public class HomeController {
         return"home";
     }
 
+    @GetMapping("/friends")
+    public String friendspage(Model view)
+    {
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allposts", postsRepo.findAll());
+        return"friends";
+    }
+
+    @GetMapping("/groups")
+    public String groupspage(Model view)
+    {
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allposts", postsRepo.findAll());
+        return"groups";
+    }
+
 
     //    Wiring in FileStack
     @Value("${filestack.api.key}")
