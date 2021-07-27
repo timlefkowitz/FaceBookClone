@@ -63,23 +63,11 @@ public class  user {
     @Column(name = "originalavatar")
     private String originalavatar;
 
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "friendslist")
-//    private friendslist friendslist;
-
-    @Column(nullable = false)
+    @Column
     private boolean isAdmin;
 
-//    @Column(nullable = false)
-//    private String location;
 
 
-
-
-//    @Column(name = "friendslist", nullable = true)
-//    private List<friendslist> friendslist;
-
-    @Column
-    private boolean is_admin;
 
 
 
@@ -93,13 +81,18 @@ public class  user {
 //    private List<post> postOwner;
 //
 
+    @OneToOne
+    private user groupOwner;
+
+    @OneToMany(mappedBy = "CommentOwner")
+    private List<comment> comments;
+
 
     // one user would be in many groups??
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "igroups")
     private List<groups> igroups;
 
-    @OneToOne
-    private user groupOwner;
+
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
 //    private List<groupPost> groupPosts;
