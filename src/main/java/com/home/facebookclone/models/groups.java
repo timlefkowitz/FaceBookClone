@@ -22,7 +22,7 @@ public class groups {
     // THERE CAN BE MANY OWNERS THAT OWN THINGS???????
 
     @OneToOne
-    private user owner;
+    private user groupOwner;
 
     @Column(name = "CreatedBy")
     private String CreatedBy;
