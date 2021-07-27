@@ -19,6 +19,8 @@ public class groups {
     @Column(name = "id")
     private long id;
 
+    // THERE CAN BE MANY OWNERS THAT OWN THINGS???????
+
     @OneToOne
     private user owner;
 
