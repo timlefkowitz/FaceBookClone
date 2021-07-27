@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
@@ -135,12 +136,13 @@ public class HomeController {
     }
 
     @GetMapping("/{username}/{id}")
-    public String showById2(@PathVariable Long id, Model view, String username){
+    @ResponseBody
+    public String showById2(@PathVariable Long id, Model view, String username, String status){
         view.addAttribute("user", userDao.getById(id));
         view.addAttribute("username", userDao.getByUsername(username));
         view.addAttribute("usersPost", postsRepo.getById(id));
         view.addAttribute("{id}+friends", userDao.getById(id));
-        return "UsersProfile";
+        return "UsersProfile" + status;
     }
 
 
