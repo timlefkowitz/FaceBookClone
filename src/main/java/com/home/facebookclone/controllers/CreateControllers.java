@@ -158,7 +158,7 @@ public class CreateControllers {
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         groups n = new groups();
-        n.setOwner(user);
+//        n.setOwner(user);
         n.setSummary(summary);
         n.setTitle(title);
         n.setContent(content);
