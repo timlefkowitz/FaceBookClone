@@ -14,4 +14,18 @@ public class comment {
     @Column(length = 3096)
     private String body;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private user commentOwner;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private user postOwner;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private user groupOwner;
+
+
+
 }
