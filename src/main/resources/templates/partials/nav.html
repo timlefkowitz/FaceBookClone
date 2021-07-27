@@ -1,0 +1,21 @@
+<!DOCTYPE html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<!--//      Original fragment -->
+
+  <nav th:fragment="navbarfragment">
+
+
+  </nav>
+
+
+<!-- //   this new fragment wants to reprint the original fragment AFTER coping the FIRST fragment..  cuuz everything is a object but here we are calling them fragments-->
+<nav th="navfragment :: navbar">
+
+</body>
+</html>
