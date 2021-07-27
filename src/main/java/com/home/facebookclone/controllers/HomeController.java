@@ -136,7 +136,6 @@ public class HomeController {
     }
 
     @GetMapping("/{username}/{id}")
-    @ResponseBody
     public String showById2(@PathVariable Long id, Model view, String username, String status){
         view.addAttribute("user", userDao.getById(id));
         view.addAttribute("username", userDao.getByUsername(username));
