@@ -2,6 +2,7 @@ package com.home.facebookclone.models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,6 +27,21 @@ public class groups {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private List<groups> igroups;
+
+    @ManyToMany
+        @JoinTable(
+                name = "friends",
+                joinColumns = @JoinColumn(name = "user_id"),
+                inverseJoinColumns = @JoinColumn(name = "friend_id")
+        )
+    private List<friendslist> friends = new ArrayList<>();
+
+
+
+
+
+
+
 
     @Column(name = "CreatedBy")
     private String CreatedBy;

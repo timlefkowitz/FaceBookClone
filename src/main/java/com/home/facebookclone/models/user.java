@@ -78,8 +78,8 @@ public class  user {
 //    @Column(name = "friendslist", nullable = true)
 //    private List<friendslist> friendslist;
 
-//    @Column(nullable = true)
-//    private boolean is_admin;
+    @Column
+    private boolean is_admin;
 
 
 
