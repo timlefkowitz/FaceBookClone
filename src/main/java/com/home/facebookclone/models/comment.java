@@ -57,6 +57,14 @@ public class comment {
 
     //  copy
 
+    public comment(comment copy)
+    {
+        id = copy.id;
+        body = copy.body;
+        groupOwner = copy.groupOwner;
+        postOwner = copy.postOwner;
+    }
+
 
 
     /// Getters and setters
