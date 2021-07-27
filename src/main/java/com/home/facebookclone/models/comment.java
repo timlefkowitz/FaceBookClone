@@ -66,7 +66,6 @@ public class comment {
     }
 
 
-
     /// Getters and setters
 
 
