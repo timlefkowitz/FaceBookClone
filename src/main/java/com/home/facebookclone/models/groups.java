@@ -24,6 +24,9 @@ public class groups {
     @OneToOne
     private user groupOwner;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private List<groups> igroups;
+
     @Column(name = "CreatedBy")
     private String CreatedBy;
 

@@ -95,8 +95,8 @@ public class  user {
 
 
     // one user would be in many groups??
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
-    private List<groups> groups;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "igroups")
+    private List<groups> igroups;
 
     @OneToOne
     private user groupOwner;
