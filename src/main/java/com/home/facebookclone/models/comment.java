@@ -7,6 +7,10 @@ import javax.persistence.*;
 @Table(name = "comments")
 public class comment {
 
+    public comment(){
+
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -28,4 +32,73 @@ public class comment {
 
 
 
+
+
+    /// insert
+
+    public comment(String body, user commentOwner, user postOwner, user groupOwner) {
+        this.body = body;
+        this.commentOwner = commentOwner;
+        this.postOwner = postOwner;
+        this.groupOwner = groupOwner;
+    }
+
+
+    /// update
+
+    public comment(long id, String body, user commentOwner, user postOwner, user groupOwner) {
+        this.id = id;
+        this.body = body;
+        this.commentOwner = commentOwner;
+        this.postOwner = postOwner;
+        this.groupOwner = groupOwner;
+    }
+
+
+    //  copy
+
+
+
+    /// Getters and setters
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public user getCommentOwner() {
+        return commentOwner;
+    }
+
+    public void setCommentOwner(user commentOwner) {
+        this.commentOwner = commentOwner;
+    }
+
+    public user getPostOwner() {
+        return postOwner;
+    }
+
+    public void setPostOwner(user postOwner) {
+        this.postOwner = postOwner;
+    }
+
+    public user getGroupOwner() {
+        return groupOwner;
+    }
+
+    public void setGroupOwner(user groupOwner) {
+        this.groupOwner = groupOwner;
+    }
 }
