@@ -1,6 +1,8 @@
 package com.home.facebookclone.models;
 
 
+import com.home.facebookclone.repos.groupRepo;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +88,7 @@ public class  user {
             name = "groupOwner_id",
             referencedColumnName = "id"
     )
-    private List<groups> groupOwner = new ArrayList<>();
+    private List<groupRepo> groupOwner = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(
