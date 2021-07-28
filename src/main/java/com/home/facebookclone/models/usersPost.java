@@ -29,16 +29,13 @@ public class usersPost {
     @OneToOne
     private user owner;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersPost")
-//    private List<userPostImgs> images;
-
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-////            name="post_categories",
-//            joinColumns={@JoinColumn(name="userPostID")}
-////            inverseJoinColumns={@JoinColumn(name="category_id")}
-//    )
-//    private List<postCategory> postCategories;
+    @ManyToOne
+    @JoinColumn(
+            name = "user_id",
+//            JoinColumn = @JoinColumn(name = "user_id"),
+            referencedColumnName = "id"
+    )
+    private user commentOwner;
 
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -115,20 +112,5 @@ public class usersPost {
     public void setOwner(user owner) {
         this.owner = owner;
     }
-//
-//    public List<userPostImgs> getImages() {
-//        return images;
-//    }
-//
-//    public void setImages(List<userPostImgs> images) {
-//        this.images = images;
-//    }
-//
-//    public List<postCategory> getPostCategories() {
-//        return postCategories;
-//    }
-//
-//    public void setPostCategories(List<postCategory> postCategories) {
-//        this.postCategories = postCategories;
-//    }
+
 }

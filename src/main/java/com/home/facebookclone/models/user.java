@@ -88,10 +88,14 @@ public class  user {
     @OneToMany
     @JoinColumn(
             name = "user_id",
-            joinColumns = @JoinColumn(name = "user_id"),
+//            JoinColumn = @JoinColumn(name = "user_id"),
             referencedColumnName = "id"
     )
-    private user commentOwner;
+    private List<user> commentOwner = new ArrayList<>();
+
+
+    @OneToOne
+    private user owner;
 
     @ManyToMany
     @JoinTable(
