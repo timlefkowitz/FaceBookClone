@@ -89,7 +89,7 @@ public class  user {
     @JoinColumn(
             name = "user_id",
 //            JoinColumn = @JoinColumn(name = "user_id"),
-            referencedColumnName = "id"
+            referencedColumnName = "commentid"
     )
     private List<user> commentOwner = new ArrayList<>();
 

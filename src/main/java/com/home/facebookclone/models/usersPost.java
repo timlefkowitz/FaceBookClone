@@ -37,6 +37,10 @@ public class usersPost {
     )
     private user commentOwner;
 
+    @ManyToOne
+    @JoinColumn(name = "postOwner_id", referencedColumnName = "id")
+    private user postOwner;
+
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]

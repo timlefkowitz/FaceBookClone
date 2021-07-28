@@ -19,15 +19,15 @@ public class comment {
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "comment_id", referencedColumnName = "id")
     private user commentOwner;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "postOwner_id", referencedColumnName = "id")
     private user postOwner;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "groupOwner_id", referencedColumnName = "id")
     private user groupOwner;
 
 
