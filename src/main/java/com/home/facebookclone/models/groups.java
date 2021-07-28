@@ -25,21 +25,8 @@ public class groups {
     @OneToOne
     private user groupOwner;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private List<groups> igroups;
-
-    @ManyToMany
-        @JoinTable(
-                name = "friends",
-                joinColumns = @JoinColumn(name = "user_id"),
-                inverseJoinColumns = @JoinColumn(name = "friend_id")
-        )
-    private List<friendslist> friends = new ArrayList<>();
-
-
-
-
-
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<groups> mygroups;
 
 
 
@@ -57,6 +44,7 @@ public class groups {
 
     @Column( name = "content")
     private String content;
+
 
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
@@ -76,7 +64,7 @@ public class groups {
         this.summary = summary;
         this.profile = profile;
         this.content = content;
-        this.owner = owner;
+        this.groupOwner = owner;
     }
 
 
@@ -89,7 +77,7 @@ public class groups {
         this.summary = summary;
         this.profile = profile;
         this.content = content;
-        this.owner = owner;
+        this.groupOwner = owner;
     }
 
 
@@ -145,10 +133,10 @@ public class groups {
     }
 
     public user getOwner() {
-        return owner;
+        return groupOwner;
     }
 
     public void setOwner(user owner) {
-        this.owner = owner;
+        this.groupOwner = owner;
     }
 }

@@ -24,8 +24,8 @@ public class friendslist {
     @ManyToMany
     @JoinTable(
             name = "friends",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "friend_id")
+            joinColumns = @JoinColumn(name = "friend_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private List<friendslist> friends = new ArrayList<>();
 

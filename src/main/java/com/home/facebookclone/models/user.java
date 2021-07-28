@@ -2,6 +2,7 @@ package com.home.facebookclone.models;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
@@ -84,13 +85,27 @@ public class  user {
     @OneToOne
     private user groupOwner;
 
-    @OneToMany(mappedBy = "CommentOwner")
-    private List<comment> comments;
+    @OneToMany
+    @JoinColumn(
+            name = "user_id",
+            joinColumns = @JoinColumn(name = "user_id"),
+            referencedColumnName = "id"
+    )
+    private user commentOwner;
+
+    @ManyToMany
+    @JoinTable(
+            name = "friends",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id")
+    )
+    private List<friendslist> friends = new ArrayList<>();
+
 
 
     // one user would be in many groups??
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "igroups")
-    private List<groups> igroups;
+    private List<groups> mygroups;
 
 
 
