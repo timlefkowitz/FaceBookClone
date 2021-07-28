@@ -108,8 +108,13 @@ public class  user {
 
 
     // one user would be in many groups??
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "igroups")
-    private List<groups> mygroups;
+    @ManyToMany
+    @JoinTable(
+            name = "friends",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id")
+    )
+    private List<groups> groups = new ArrayList<>();
 
 
 
