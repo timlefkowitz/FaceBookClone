@@ -81,9 +81,12 @@ public class  user {
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
 //    private List<post> postOwner;
 //
-
-    @OneToOne
-    private user groupOwner;
+    @OneToMany
+    @JoinColumn(
+            name = "groupOwner_id",
+            referencedColumnName = "id"
+    )
+    private List<groups> groupOwner = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(

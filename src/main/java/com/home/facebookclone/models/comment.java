@@ -19,16 +19,10 @@ public class comment {
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "comment_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "commentid")
     private user commentOwner;
 
-    @ManyToOne
-    @JoinColumn(name = "postOwner_id", referencedColumnName = "id")
-    private user postOwner;
 
-    @ManyToOne
-    @JoinColumn(name = "groupOwner_id", referencedColumnName = "id")
-    private user groupOwner;
 
 
 
@@ -39,8 +33,8 @@ public class comment {
     public comment(String body, user commentOwner, user postOwner, user groupOwner) {
         this.body = body;
         this.commentOwner = commentOwner;
-        this.postOwner = postOwner;
-        this.groupOwner = groupOwner;
+//        this.postOwner = postOwner;
+//        this.groupOwner = groupOwner;
     }
 
 
@@ -50,8 +44,8 @@ public class comment {
         this.id = id;
         this.body = body;
         this.commentOwner = commentOwner;
-        this.postOwner = postOwner;
-        this.groupOwner = groupOwner;
+//        this.postOwner = postOwner;
+//        this.groupOwner = groupOwner;
     }
 
 
@@ -61,8 +55,8 @@ public class comment {
     {
         id = copy.id;
         body = copy.body;
-        groupOwner = copy.groupOwner;
-        postOwner = copy.postOwner;
+//        groupOwner = copy.groupOwner;
+//        postOwner = copy.postOwner;
     }
 
 
@@ -93,19 +87,19 @@ public class comment {
         this.commentOwner = commentOwner;
     }
 
-    public user getPostOwner() {
-        return postOwner;
-    }
-
-    public void setPostOwner(user postOwner) {
-        this.postOwner = postOwner;
-    }
-
-    public user getGroupOwner() {
-        return groupOwner;
-    }
-
-    public void setGroupOwner(user groupOwner) {
-        this.groupOwner = groupOwner;
-    }
+//    public user getPostOwner() {
+//        return postOwner;
+//    }
+//
+//    public void setPostOwner(user postOwner) {
+//        this.postOwner = postOwner;
+//    }
+//
+//    public user getGroupOwner() {
+//        return groupOwner;
+//    }
+//
+//    public void setGroupOwner(user groupOwner) {
+//        this.groupOwner = groupOwner;
+//    }
 }
