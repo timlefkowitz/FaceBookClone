@@ -88,7 +88,7 @@ public class  user {
             name = "groupOwner_id",
             referencedColumnName = "id"
     )
-    private List<groupRepo> groupOwner = new ArrayList<>();
+    private List<groups> groupOwner = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(
