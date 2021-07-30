@@ -21,12 +21,12 @@ public class friendslist {
     @Column(name = "id")
     private long id;
 
-    @ManyToMany
-    @JoinTable(
-            name = "friends",
-            joinColumns = @JoinColumn(name = "friend_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<friendslist> friends = new ArrayList<>();
+//    @ManyToMany
+//    @JoinTable(
+//            name = "friends",
+//            joinColumns = @JoinColumn(name = "friend_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private List<friendslist> friends = new ArrayList<>();
 
 }
