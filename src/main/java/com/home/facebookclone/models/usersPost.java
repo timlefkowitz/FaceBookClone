@@ -26,8 +26,12 @@ public class usersPost {
     @Column(name = "imgPath")
     private String imgPath;
 
-//    @OneToOne
-//    private user owner;
+    @OneToOne
+    private user owner;
+
+//    public getUsername();
+    @OneToOne
+    private user username;
 //
 //    @ManyToOne
 //    @JoinColumn(
@@ -55,27 +59,49 @@ public class usersPost {
     // constructors
     // insert
 
-    public usersPost(String title, String body, String imgPath) {
 
+    public usersPost(String title, String body, String imgPath, user owner, user username) {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
+        this.owner = owner;
+        this.username = username;
     }
+
+
 
 
     // update
 
-    public usersPost(long id, long createdBy, String title, String body, String imgPath) {
-        this.id = id;
 
+
+    public usersPost(long id, String title, String body, String imgPath, user owner, user username) {
+        this.id = id;
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
+        this.owner = owner;
+        this.username = username;
     }
-
 
     // Getters and Setters
 
+
+    public user getOwner() {
+        return owner;
+    }
+
+    public void setOwner(user owner) {
+        this.owner = owner;
+    }
+
+    public user getUsername() {
+        return username;
+    }
+
+    public void setUsername(user username) {
+        this.username = username;
+    }
 
     public long getId() {
         return id;

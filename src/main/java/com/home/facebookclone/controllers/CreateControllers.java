@@ -127,7 +127,7 @@ public class CreateControllers {
 
         usersPost n = new usersPost();
         n.setImgPath(imgPath);
-        n.setOwner(user);
+        String username = usersPost
         n.setTitle(title);
         n.setBody(description);
         usersPost.save(n);
