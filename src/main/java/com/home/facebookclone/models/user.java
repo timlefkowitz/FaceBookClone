@@ -83,43 +83,43 @@ public class  user {
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
 //    private List<post> postOwner;
 //
-    @OneToMany
-    @JoinColumn(
-            name = "groupOwner_id",
-            referencedColumnName = "id"
-    )
-    private List<groups> groupOwner = new ArrayList<>();
-
-    @OneToMany
-    @JoinColumn(
-            name = "user_id",
-//            JoinColumn = @JoinColumn(name = "user_id"),
-            referencedColumnName = "commentid"
-    )
-    private List<user> commentOwner = new ArrayList<>();
-
-
-    @OneToOne
-    private user owner;
-
-    @ManyToMany
-    @JoinTable(
-            name = "friends",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "friend_id")
-    )
-    private List<friendslist> friends = new ArrayList<>();
-
-
-
-    // one user would be in many groups??
-    @ManyToMany
-    @JoinTable(
-            name = "friends",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id")
-    )
-    private List<groups> groups = new ArrayList<>();
+//    @OneToMany
+//    @JoinColumn(
+//            name = "groupOwner_id",
+//            referencedColumnName = "id"
+//    )
+//    private List<groups> groupOwner = new ArrayList<>();
+//
+//    @OneToMany
+//    @JoinColumn(
+//            name = "user_id",
+////            JoinColumn = @JoinColumn(name = "user_id"),
+//            referencedColumnName = "commentid"
+//    )
+//    private List<user> commentOwner = new ArrayList<>();
+//
+//
+//    @OneToOne
+//    private user owner;
+//
+//    @ManyToMany
+//    @JoinTable(
+//            name = "friends",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "friend_id")
+//    )
+//    private List<friendslist> friends = new ArrayList<>();
+//
+//
+//
+//    // one user would be in many groups??
+//    @ManyToMany
+//    @JoinTable(
+//            name = "friends",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "group_id")
+//    )
+//    private List<groups> groups = new ArrayList<>();
 
 
 

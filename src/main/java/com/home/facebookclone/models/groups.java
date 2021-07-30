@@ -48,14 +48,14 @@ public class groups {
 //    @OneToOne
 //    private user groupOwner;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<groups> mygroups;
-
-
-    @ManyToOne
-    @JoinColumn(name = "groupOwner_id", referencedColumnName = "id")
-    private user groupOwner;
-
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<groups> mygroups;
+//
+//
+//    @ManyToOne
+//    @JoinColumn(name = "groupOwner_id", referencedColumnName = "id")
+//    private user groupOwner;
+//
 
 
     // Insert Constructor
@@ -66,7 +66,7 @@ public class groups {
         this.summary = summary;
         this.profile = profile;
         this.content = content;
-        this.groupOwner = owner;
+//        this.groupOwner = owner;
     }
 
 
@@ -79,7 +79,7 @@ public class groups {
         this.summary = summary;
         this.profile = profile;
         this.content = content;
-        this.groupOwner = owner;
+//        this.groupOwner = owner;
     }
 
 
@@ -133,12 +133,12 @@ public class groups {
     public void setContent(String content) {
         this.content = content;
     }
-
-    public user getOwner() {
-        return groupOwner;
-    }
-
-    public void setOwner(user owner) {
-        this.groupOwner = owner;
-    }
+//
+//    public user getOwner() {
+//        return groupOwner;
+//    }
+//
+//    public void setOwner(user owner) {
+//        this.groupOwner = owner;
+//    }
 }

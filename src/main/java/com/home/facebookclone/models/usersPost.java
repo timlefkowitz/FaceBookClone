@@ -26,20 +26,20 @@ public class usersPost {
     @Column(name = "imgPath")
     private String imgPath;
 
-    @OneToOne
-    private user owner;
-
-    @ManyToOne
-    @JoinColumn(
-            name = "user_id",
-//            JoinColumn = @JoinColumn(name = "user_id"),
-            referencedColumnName = "id"
-    )
-    private user commentOwner;
-
-    @ManyToOne
-    @JoinColumn(name = "postOwner_id", referencedColumnName = "id")
-    private user postOwner;
+//    @OneToOne
+//    private user owner;
+//
+//    @ManyToOne
+//    @JoinColumn(
+//            name = "user_id",
+////            JoinColumn = @JoinColumn(name = "user_id"),
+//            referencedColumnName = "id"
+//    )
+//    private user commentOwner;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "postOwner_id", referencedColumnName = "id")
+//    private user postOwner;
 
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -109,12 +109,12 @@ public class usersPost {
         this.imgPath = imgPath;
     }
 
-    public user getOwner() {
-        return owner;
-    }
-
-    public void setOwner(user owner) {
-        this.owner = owner;
-    }
+//    public user getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(user owner) {
+//        this.owner = owner;
+//    }
 
 }
