@@ -124,6 +124,7 @@ public class  user {
     }
 
 
+
     // Copy Constructor
 
 
@@ -144,6 +145,8 @@ public class  user {
         originalavatar = copy.originalavatar;
 
     }
+
+
 
 
     // GETTERS AND SETTERS

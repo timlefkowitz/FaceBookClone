@@ -39,6 +39,7 @@ public class AuthenticationController {
         return"index";
     }
 
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "users/login";
@@ -51,6 +52,9 @@ public class AuthenticationController {
         view.addAttribute("allgroups", groupDao.findAll());
         return"admin/AdminsHome";
     }
+
+
+
 
 
 
