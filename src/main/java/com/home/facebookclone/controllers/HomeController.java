@@ -34,68 +34,6 @@ public class HomeController {
 
 
 
-//    @GetMapping("/admin")
-//    public String adminHome(Model view)
-//    {
-//        view.addAttribute("allusers", userDao.findAll());
-//        view.addAttribute("allgroups", groupDao.findAll());
-//        view.addAttribute("allposts", postsRepo.findAll());
-//        return"admin/AdminsHome";
-//    }
-
-//
-//
-//    @GetMapping("/signup")
-//    public String signup()
-//    {
-//        return"signup";
-//    }
-//
-
-
-
-
-    // HOME PAGE
-
-//    @GetMapping("/UsersHome")
-//    public String usersHome()
-//    {
-//        return"UsersHome";
-//    }
-//
-//    @GetMapping("/UsersHome/{id}")
-//    public String showById(@PathVariable Long id, Model view){
-//        view.addAttribute("user", userDao.getById(id));
-//        view.addAttribute("allusers", userDao.findAll());
-//        view.addAttribute("allgroups", groupDao.findAll());
-//        view.addAttribute("allposts", postsRepo.findAll());
-//        return "UsersHome";
-//    }
-
-//
-//    @GetMapping("/UsersProfile")
-//    public String usersProfile()
-//    {
-//        return"UsersProfile";
-//    }
-//
-//    // Currently Signed in profile
-//    @GetMapping("/currentProfile")
-//    public String currentUsersProfile()
-//    {
-//        return"CurrentUsersProfileAndEditProfile";
-//    }
-
-
-    @GetMapping("/")
-    public String adminHome(Model view)
-    {
-        view.addAttribute("allusers", userDao.findAll());
-        view.addAttribute("allgroups", groupDao.findAll());
-        view.addAttribute("allposts", postsRepo.findAll());
-        return"home";
-    }
-
     @GetMapping("/friends")
     public String friendspage(Model view)
     {

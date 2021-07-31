@@ -127,8 +127,6 @@ public class CreateControllers {
 
         usersPost n = new usersPost();
         n.setImgPath(imgPath);
-        user username = n.getOwner(); //n.getOwner().getUsername isn't working but leaving this for the morning cup of coffee..
-        n.setUsername(username);
         n.setTitle(title);
         n.setBody(description);
         usersPost.save(n);

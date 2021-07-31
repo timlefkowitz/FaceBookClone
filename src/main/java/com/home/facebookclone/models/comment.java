@@ -18,23 +18,12 @@ public class comment {
     @Column(length = 3096)
     private String body;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "commentid")
-    private user commentOwner;
-
-
-
-
-
 
 
     /// insert
 
     public comment(String body, user commentOwner, user postOwner, user groupOwner) {
         this.body = body;
-        this.commentOwner = commentOwner;
-//        this.postOwner = postOwner;
-//        this.groupOwner = groupOwner;
     }
 
 
@@ -43,9 +32,6 @@ public class comment {
     public comment(long id, String body, user commentOwner, user postOwner, user groupOwner) {
         this.id = id;
         this.body = body;
-        this.commentOwner = commentOwner;
-//        this.postOwner = postOwner;
-//        this.groupOwner = groupOwner;
     }
 
 
@@ -55,8 +41,6 @@ public class comment {
     {
         id = copy.id;
         body = copy.body;
-//        groupOwner = copy.groupOwner;
-//        postOwner = copy.postOwner;
     }
 
 
@@ -79,27 +63,4 @@ public class comment {
         this.body = body;
     }
 
-    public user getCommentOwner() {
-        return commentOwner;
-    }
-
-    public void setCommentOwner(user commentOwner) {
-        this.commentOwner = commentOwner;
-    }
-
-//    public user getPostOwner() {
-//        return postOwner;
-//    }
-//
-//    public void setPostOwner(user postOwner) {
-//        this.postOwner = postOwner;
-//    }
-//
-//    public user getGroupOwner() {
-//        return groupOwner;
-//    }
-//
-//    public void setGroupOwner(user groupOwner) {
-//        this.groupOwner = groupOwner;
-//    }
 }

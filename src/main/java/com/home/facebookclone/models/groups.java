@@ -45,17 +45,7 @@ public class groups {
 
     // THERE CAN BE MANY OWNERS THAT OWN THINGS???????
 
-//    @OneToOne
-//    private user groupOwner;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<groups> mygroups;
-//
-//
-//    @ManyToOne
-//    @JoinColumn(name = "groupOwner_id", referencedColumnName = "id")
-//    private user groupOwner;
-//
 
 
     // Insert Constructor

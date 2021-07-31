@@ -49,7 +49,6 @@ public class AuthenticationController {
     {
         view.addAttribute("allusers", userDao.findAll());
         view.addAttribute("allgroups", groupDao.findAll());
-//        view.addAttribute("allposts", postsRepo.findAll());
         return"admin/AdminsHome";
     }
 

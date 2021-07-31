@@ -26,24 +26,6 @@ public class usersPost {
     @Column(name = "imgPath")
     private String imgPath;
 
-    @OneToOne
-    private user owner;
-
-//    public getUsername();
-    @OneToOne
-    private user username;
-//
-//    @ManyToOne
-//    @JoinColumn(
-//            name = "user_id",
-////            JoinColumn = @JoinColumn(name = "user_id"),
-//            referencedColumnName = "id"
-//    )
-//    private user commentOwner;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "postOwner_id", referencedColumnName = "id")
-//    private user postOwner;
 
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -51,9 +33,7 @@ public class usersPost {
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
-//    private List<post> postOwner;
-//
+
 
 
     // constructors
@@ -64,8 +44,6 @@ public class usersPost {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
-        this.owner = owner;
-        this.username = username;
     }
 
 
@@ -80,28 +58,14 @@ public class usersPost {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
-        this.owner = owner;
-        this.username = username;
+//        this.owner = owner;
+//        this.username = username;
     }
 
     // Getters and Setters
 
 
-    public user getOwner() {
-        return owner;
-    }
 
-    public void setOwner(user owner) {
-        this.owner = owner;
-    }
-
-    public user getUsername() {
-        return username;
-    }
-
-    public void setUsername(user username) {
-        this.username = username;
-    }
 
     public long getId() {
         return id;
@@ -135,12 +99,6 @@ public class usersPost {
         this.imgPath = imgPath;
     }
 
-//    public user getOwner() {
-//        return owner;
-//    }
-//
-//    public void setOwner(user owner) {
-//        this.owner = owner;
-//    }
+
 
 }
