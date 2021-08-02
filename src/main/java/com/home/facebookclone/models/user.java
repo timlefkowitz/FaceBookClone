@@ -80,6 +80,9 @@ public class  user {
 
 
 
+
+
+
     // Insert Constructor
 
     public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar) {
