@@ -30,7 +30,14 @@ public class HomeController {
         this.postsRepo = postsRepo;
     }
 
-
+    @GetMapping("/home")
+    public String home(Model view)
+    {
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allposts", postsRepo.findAll());
+        return"home";
+    }
 
 
 
