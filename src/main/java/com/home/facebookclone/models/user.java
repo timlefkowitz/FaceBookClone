@@ -1,6 +1,8 @@
 package com.home.facebookclone.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -76,6 +78,10 @@ public class  user {
     //
 
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Owner")
+    @JsonBackReference
+    private List<usersPost> BlogPost;
+
 
 
 
@@ -85,7 +91,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar) {
+    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar, List<usersPost> BlogPost) {
         this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -99,13 +105,14 @@ public class  user {
         this.imgPath = imgPath;
 //        this.location = location;
         this.originalavatar = originalavatar;
+        this.BlogPost = BlogPost;
 
     }
 
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar) {
+    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar, List<usersPost> BlogPost) {
         this.id = id;
         this.firstname = firstName;
         this.middleName = middleName;
@@ -120,6 +127,7 @@ public class  user {
         this.imgPath = imgPath;
 //        this.location = location;
         this.originalavatar = originalavatar;
+        this.BlogPost = BlogPost;
 
     }
 
@@ -142,6 +150,7 @@ public class  user {
 //        isAdmin = copy.isAdmin;
 //        location = copy.location;
         originalavatar = copy.originalavatar;
+        BlogPost = copy.BlogPost;
 
     }
 
@@ -252,5 +261,13 @@ public class  user {
 
     public void setOriginalavatar(String originalavatar) {
         this.originalavatar = originalavatar;
+    }
+
+    public List<usersPost> getOwner() {
+        return BlogPost;
+    }
+
+    public void setOwner(List<usersPost> owner) {
+        BlogPost = owner;
     }
 }

@@ -33,6 +33,10 @@ public class usersPost {
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private user Owner;
+
 
 
 
@@ -44,6 +48,7 @@ public class usersPost {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
+        this.Owner = Owner;
     }
 
 
@@ -55,6 +60,7 @@ public class usersPost {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
+        this.Owner = Owner;
     }
 
 
@@ -93,6 +99,11 @@ public class usersPost {
         this.imgPath = imgPath;
     }
 
+    public user getOwner() {
+        return Owner;
+    }
 
-
+    public void setOwner(user owner) {
+        Owner = owner;
+    }
 }
