@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class HomeController {
-    // I need to throw some catch statements into this capstone
-//           if(HomeController = null ){
-//        throw new IllegalArgumentException();
-//    }
 
 
-    // Repo Daos
+    // Daos
 
     private final UsersRepository userDao;
     private final groupRepo groupDao;
     private final UsersPostRepo postsRepo;
+
+
+
+
 
     public HomeController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo) {
         this.userDao = userDao;
@@ -33,67 +33,6 @@ public class HomeController {
 
 
 
-//    @GetMapping("/admin")
-//    public String adminHome(Model view)
-//    {
-//        view.addAttribute("allusers", userDao.findAll());
-//        view.addAttribute("allgroups", groupDao.findAll());
-//        view.addAttribute("allposts", postsRepo.findAll());
-//        return"admin/AdminsHome";
-//    }
-
-//
-//
-//    @GetMapping("/signup")
-//    public String signup()
-//    {
-//        return"signup";
-//    }
-//
-
-
-
-
-    // HOME PAGE
-
-//    @GetMapping("/UsersHome")
-//    public String usersHome()
-//    {
-//        return"UsersHome";
-//    }
-//
-//    @GetMapping("/UsersHome/{id}")
-//    public String showById(@PathVariable Long id, Model view){
-//        view.addAttribute("user", userDao.getById(id));
-//        view.addAttribute("allusers", userDao.findAll());
-//        view.addAttribute("allgroups", groupDao.findAll());
-//        view.addAttribute("allposts", postsRepo.findAll());
-//        return "UsersHome";
-//    }
-
-//
-//    @GetMapping("/UsersProfile")
-//    public String usersProfile()
-//    {
-//        return"UsersProfile";
-//    }
-//
-//    // Currently Signed in profile
-//    @GetMapping("/currentProfile")
-//    public String currentUsersProfile()
-//    {
-//        return"CurrentUsersProfileAndEditProfile";
-//    }
-
-
-    @GetMapping("/")
-    public String adminHome(Model view)
-    {
-        view.addAttribute("allusers", userDao.findAll());
-        view.addAttribute("allgroups", groupDao.findAll());
-        view.addAttribute("allposts", postsRepo.findAll());
-        return"home";
-    }
 
     @GetMapping("/friends")
     public String friendspage(Model view)
@@ -142,11 +81,6 @@ public class HomeController {
         view.addAttribute("{id}+friends", userDao.getById(id));
         return "UsersProfile";
     }
-
-
-
-
-
 
 
 }

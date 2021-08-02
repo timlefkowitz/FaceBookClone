@@ -66,8 +66,8 @@ public class  user {
 //    @OneToOne(cascade = CascadeType.ALL, mappedBy = "friendslist")
 //    private friendslist friendslist;
 
-    @Column(nullable = false)
-    private boolean isAdmin;
+//    @Column(nullable = false)
+//    private boolean isAdmin;
 
 //    @Column(nullable = false)
 //    private String location;
@@ -92,8 +92,8 @@ public class  user {
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
 //    private List<post> postOwner;
 //
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
-    private List<groups> groups;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
+//    private List<groups> groups;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
 //    private List<groupPost> groupPosts;
@@ -112,7 +112,7 @@ public class  user {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+//        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
@@ -133,7 +133,7 @@ public class  user {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+//        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
@@ -159,7 +159,7 @@ public class  user {
         mobile = copy.mobile;
         status = copy.status;
         imgPath = copy.imgPath;
-        isAdmin = copy.isAdmin;
+//        isAdmin = copy.isAdmin;
 //        location = copy.location;
         originalavatar = copy.originalavatar;
 
@@ -274,13 +274,13 @@ public class  user {
 //        this.friendslist = friendslist;
 //    }
 
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
+//    public boolean isAdmin() {
+//        return isAdmin;
+//    }
+//
+//    public void setAdmin(boolean admin) {
+//        isAdmin = admin;
+//    }
 
 //    public String getLocation() {
 //        return location;

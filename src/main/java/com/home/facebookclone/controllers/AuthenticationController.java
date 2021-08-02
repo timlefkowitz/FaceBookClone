@@ -28,8 +28,12 @@ public class AuthenticationController {
     private String fileStackApi;
 
     @GetMapping("/")
-    public String landingPage()
+    public String landingPage(Model view)
     {
+
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allpost", postsRepo.findAll());
         return"index";
     }
 
@@ -39,10 +43,10 @@ public class AuthenticationController {
         return"index";
     }
 
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "users/login";
-    }
+//    @GetMapping("/login")
+//    public String showLoginForm() {
+//        return "users/login";
+//    }
 
     @GetMapping("/admin")
     public String adminHome(Model view)
