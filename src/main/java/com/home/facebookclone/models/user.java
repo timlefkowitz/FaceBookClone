@@ -4,6 +4,7 @@ package com.home.facebookclone.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
@@ -81,6 +82,12 @@ public class  user {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "Owner")
     @JsonBackReference
     private List<usersPost> BlogPost;
+
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
+    @JsonBackReference
+    private Collection<friendslist> contactListOwner;
 
 
 
