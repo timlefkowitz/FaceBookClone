@@ -10,14 +10,19 @@ public class  user {
 
 
 
-    public user(){
-
-    }
 
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] the Blank function              [][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+
+
+    public user(){
+
+    }
+
+
+
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] Calling instances               [][][][][][][][][][][][][][][][][][][]
@@ -28,7 +33,6 @@ public class  user {
     @Column(name = "id")
     private long id;
 
-// trying to get work done on the via/bus haha
 
     @Column(name = "firstname", length = 100)
     private String firstname;
@@ -63,23 +67,6 @@ public class  user {
     @Column(name = "originalavatar")
     private String originalavatar;
 
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "friendslist")
-//    private friendslist friendslist;
-
-//    @Column(nullable = false)
-//    private boolean isAdmin;
-
-//    @Column(nullable = false)
-//    private String location;
-
-
-
-
-//    @Column(name = "friendslist", nullable = true)
-//    private List<friendslist> friendslist;
-
-//    @Column(nullable = true)
-//    private boolean is_admin;
 
 
 
@@ -89,17 +76,7 @@ public class  user {
     //
 
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerOfPost")
-//    private List<post> postOwner;
-//
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
-//    private List<groups> groups;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "GroupPostOwner")
-//    private List<groupPost> groupPosts;
-
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "RecieverOfMessage")
-//    Private List<Messages> MSGreciver;
 
 
 
@@ -265,30 +242,6 @@ public class  user {
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
-
-//    public com.home.facebookclone.models.friendslist getFriendslist() {
-//        return friendslist;
-//    }
-//
-//    public void setFriendslist(com.home.facebookclone.models.friendslist friendslist) {
-//        this.friendslist = friendslist;
-//    }
-
-//    public boolean isAdmin() {
-//        return isAdmin;
-//    }
-//
-//    public void setAdmin(boolean admin) {
-//        isAdmin = admin;
-//    }
-
-//    public String getLocation() {
-//        return location;
-//    }
-//
-//    public void setLocation(String location) {
-//        this.location = location;
-//    }
 
     public String getOriginalavatar() {
         return originalavatar;
