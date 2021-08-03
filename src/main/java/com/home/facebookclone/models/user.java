@@ -92,6 +92,14 @@ public class  user {
     @JsonBackReference
     private List<groups> groupOwner;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
+    @JsonBackReference
+    private List<groupMember> groupMember;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
+    @JsonBackReference
+    private List<groupComment> groupComment;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
