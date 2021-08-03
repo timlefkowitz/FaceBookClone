@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
+
+//        Daos
+
     private UsersRepository users;
-
     private PasswordEncoder passwordEncoder;
-
     private friendslistrepo friendslistDao;
+
 
     public UserController(UsersRepository users, PasswordEncoder passwordEncoder, friendslistrepo friendslistDao) {
         this.users = users;
@@ -34,7 +36,7 @@ public class UserController {
     private String fileStackApi;
 
 
-
+//        Sign Up
 
 
     @GetMapping("/sign-up")
@@ -51,14 +53,16 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @GetMapping("addfriend")
-    public String addfriend(Model view, Model model)
-    {
+//        Friends
 
-        view.addAttribute("allusers", users.findAll());
-        model.addAttribute("fileStackApi", fileStackApi);
-        return"users/sign-up";
+
+
+    @GetMapping("/friends")
+    public String friendspage(Model view)
+    {
+        return"friends";
     }
+
 
 
 

@@ -21,6 +21,7 @@
     <style>
 
         * {
+            font-family: Helvetica, SansSerif;
 
         }
 
@@ -109,7 +110,9 @@
                         class="btn btn-dark px-3 material-icons-outlined"
                         href="myprofile"
                         role="button">
-                             <i class="material-icons" style="font-size:14px;">account_circle</i></a>
+
+                             <i class="material-icons" style="font-size:14px;">account_circle</i>
+                         </a>
                     </li>
 
                     <!-- More links here... -->
@@ -143,7 +146,6 @@
                                     <img th:src="${usersPost.imgPath}" style="height: 60vh; width: 60vh;">
                                     <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
                                     <p style="align-items: center" th:text="${usersPost.body}"></p>
-
                                     <h6 style="align-items: center" th:text="${usersPost.owner}"></h6>
 
 

@@ -44,14 +44,7 @@ public class HomeController {
 
 
 
-    @GetMapping("/friends")
-    public String friendspage(Model view)
-    {
-        view.addAttribute("allusers", userDao.findAll());
-        view.addAttribute("allgroups", groupDao.findAll());
-        view.addAttribute("allposts", postsRepo.findAll());
-        return"friends";
-    }
+
 
 //    @GetMapping("/groups")
 //    public String groupspage(Model view)
@@ -106,6 +99,9 @@ public class HomeController {
         view.addAttribute("singlePost", postsRepo.getById(id));
         return"singlePost";
     }
+
+
+
 
 
 }

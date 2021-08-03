@@ -202,7 +202,7 @@ public class CreateControllers {
 
 // Add a Friend
 
-    // User Sign Up
+    // Add a Frined
 
     @GetMapping("/add")
     public String getaddfriend(Model model)
