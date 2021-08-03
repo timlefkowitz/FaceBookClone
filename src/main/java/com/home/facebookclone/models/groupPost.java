@@ -39,9 +39,7 @@ public class groupPost {
 
 
 
-    @ManyToOne
-    @JoinColumn(name = "groupComment_id")
-    private groups groupComment;
+
 
 
 

@@ -55,6 +55,14 @@ public class groups {
     @JoinColumn(name = "groupOwner_id")
     private groups groupOwner;
 
+    @ManyToOne
+    @JoinColumn(name = "groupComment")
+    private groups groupComment;
+
+    @ManyToOne
+    @JoinColumn(name = "groupMember_id")
+    private groups groupMember;
+
 
     // THERE CAN BE MANY OWNERS THAT OWN THINGS???????
 

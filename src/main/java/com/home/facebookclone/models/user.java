@@ -92,7 +92,7 @@ public class  user {
     @JsonBackReference
     private List<groups> groupOwner;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
     @JsonBackReference
     private List<groupMember> groupMember;
 
