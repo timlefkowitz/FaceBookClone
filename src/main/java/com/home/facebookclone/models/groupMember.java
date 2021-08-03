@@ -25,4 +25,21 @@ public class groupMember {
     @JoinColumn(name = "groupMember_id")
     private groups groupMember;
 
+
+    //insert
+
+    public groupMember(String root, groups groupMember) {
+        Root = root;
+        this.groupMember = groupMember;
+    }
+
+
+    //update
+
+
+
+    // getters and setters
+
+
+
 }
