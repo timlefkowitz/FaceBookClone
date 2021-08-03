@@ -1,10 +1,11 @@
 package com.home.facebookclone.models;
 
-
 import com.home.facebookclone.repos.groupRepo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.Collection;
 import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
@@ -13,14 +14,19 @@ public class  user {
 
 
 
-    public user(){
-
-    }
 
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] the Blank function              [][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+
+
+    public user(){
+
+    }
+
+
+
 
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] Calling instances               [][][][][][][][][][][][][][][][][][][]
@@ -31,7 +37,6 @@ public class  user {
     @Column(name = "id")
     private long id;
 
-// trying to get work done on the via/bus haha
 
     @Column(name = "firstname", length = 100)
     private String firstname;
@@ -72,10 +77,6 @@ public class  user {
 
 
 
-
-
-
-
     // [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -83,29 +84,49 @@ public class  user {
 
 
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Owner")
+    @JsonBackReference
+    private List<usersPost> BlogPost;
+
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
+    @JsonBackReference
+    private Collection<friendslist> contactListOwner;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id")
+    @JsonBackReference
+    private Collection<friendslist> contactListEntity;
+
+
+
+
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar) {
+    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar, List<usersPost> BlogPost, Collection<friendslist> contactListOwner, Collection<friendslist> contactListEntity) {
         this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+//        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
         this.imgPath = imgPath;
 //        this.location = location;
         this.originalavatar = originalavatar;
+        this.BlogPost = BlogPost;
+        this.contactListOwner = contactListOwner;
+        this.contactListEntity = contactListEntity;
 
     }
 
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar) {
+    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar, List<usersPost> BlogPost, Collection<friendslist> contactListOwner, Collection<friendslist> contactListEntity) {
         this.id = id;
         this.firstname = firstName;
         this.middleName = middleName;
@@ -113,13 +134,16 @@ public class  user {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+//        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
         this.imgPath = imgPath;
 //        this.location = location;
         this.originalavatar = originalavatar;
+        this.BlogPost = BlogPost;
+        this.contactListOwner = contactListOwner;
+        this.contactListEntity = contactListEntity;
 
     }
 
@@ -140,9 +164,12 @@ public class  user {
         mobile = copy.mobile;
         status = copy.status;
         imgPath = copy.imgPath;
-        isAdmin = copy.isAdmin;
+//        isAdmin = copy.isAdmin;
 //        location = copy.location;
         originalavatar = copy.originalavatar;
+        BlogPost = copy.BlogPost;
+        contactListOwner = copy.contactListOwner;
+        contactListEntity = copy.contactListEntity;
 
     }
 
@@ -249,35 +276,43 @@ public class  user {
         this.firstname = firstname;
     }
 
-//    public com.home.facebookclone.models.friendslist getFriendslist() {
-//        return friendslist;
-//    }
-//
-//    public void setFriendslist(com.home.facebookclone.models.friendslist friendslist) {
-//        this.friendslist = friendslist;
-//    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
-//    public String getLocation() {
-//        return location;
-//    }
-//
-//    public void setLocation(String location) {
-//        this.location = location;
-//    }
-
     public String getOriginalavatar() {
         return originalavatar;
     }
 
     public void setOriginalavatar(String originalavatar) {
         this.originalavatar = originalavatar;
+    }
+
+    public List<usersPost> getOwner() {
+        return BlogPost;
+    }
+
+    public void setOwner(List<usersPost> owner) {
+        BlogPost = owner;
+    }
+
+    public List<usersPost> getBlogPost() {
+        return BlogPost;
+    }
+
+    public void setBlogPost(List<usersPost> blogPost) {
+        BlogPost = blogPost;
+    }
+
+    public Collection<friendslist> getContactListOwner() {
+        return contactListOwner;
+    }
+
+    public void setContactListOwner(Collection<friendslist> contactListOwner) {
+        this.contactListOwner = contactListOwner;
+    }
+
+    public Collection<friendslist> getContactListEntity() {
+        return contactListEntity;
+    }
+
+    public void setContactListEntity(Collection<friendslist> contactListEntity) {
+        this.contactListEntity = contactListEntity;
     }
 }

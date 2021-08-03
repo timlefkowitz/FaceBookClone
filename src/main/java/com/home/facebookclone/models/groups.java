@@ -123,12 +123,5 @@ public class groups {
     public void setContent(String content) {
         this.content = content;
     }
-//
-//    public user getOwner() {
-//        return groupOwner;
-//    }
-//
-//    public void setOwner(user owner) {
-//        this.groupOwner = owner;
-//    }
+
 }

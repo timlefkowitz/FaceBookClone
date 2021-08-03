@@ -33,6 +33,10 @@ public class usersPost {
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private user Owner;
+
 
 
 
@@ -44,6 +48,7 @@ public class usersPost {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
+        this.Owner = Owner;
     }
 
 
@@ -58,8 +63,8 @@ public class usersPost {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
-//        this.owner = owner;
-//        this.username = username;
+        this.Owner = Owner;
+
     }
 
     // Getters and Setters
@@ -99,6 +104,16 @@ public class usersPost {
         this.imgPath = imgPath;
     }
 
+<<<<<<< HEAD
 
 
+=======
+    public user getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(user owner) {
+        Owner = owner;
+    }
+>>>>>>> b6
 }

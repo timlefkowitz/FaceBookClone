@@ -9,26 +9,40 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ResponseBody;
+=======
+import org.springframework.web.bind.annotation.PostMapping;
+>>>>>>> b6
 
 @Controller
 public class HomeController {
-    // I need to throw some catch statements into this capstone
-//           if(HomeController = null ){
-//        throw new IllegalArgumentException();
-//    }
 
 
-    // Repo Daos
+    // Daos
 
     private final UsersRepository userDao;
     private final groupRepo groupDao;
     private final UsersPostRepo postsRepo;
 
+
+
+
+
     public HomeController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo) {
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.postsRepo = postsRepo;
+    }
+
+
+    @GetMapping("/home")
+    public String home(Model view)
+    {
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("allgroups", groupDao.findAll());
+        view.addAttribute("allposts", postsRepo.findAll());
+        return"home";
     }
 
 
@@ -83,9 +97,19 @@ public class HomeController {
     }
 
 
+//    @PostMapping("show/{id}/delete")
+//    public String deleteUsersPost(@PathVariable Long id)
+//    {
+//        Order order = orderDao.getById(id);
+//        orderDao.delete(order);
+//        return "redirect:/show";
+//    }
 
-
-
+    @GetMapping("/show/{id}")
+    public String showById(@PathVariable long id,Model view){
+        view.addAttribute("singlePost", postsRepo.getById(id));
+        return"singlePost";
+    }
 
 
 }
