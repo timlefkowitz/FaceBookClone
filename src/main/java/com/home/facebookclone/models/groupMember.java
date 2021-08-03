@@ -36,10 +36,37 @@ public class groupMember {
 
     //update
 
+    public groupMember(long id, String root, groups groupMember) {
+        this.id = id;
+        Root = root;
+        this.groupMember = groupMember;
+    }
 
 
     // getters and setters
 
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getRoot() {
+        return Root;
+    }
+
+    public void setRoot(String root) {
+        Root = root;
+    }
+
+    public groups getGroupMember() {
+        return groupMember;
+    }
+
+    public void setGroupMember(groups groupMember) {
+        this.groupMember = groupMember;
+    }
 }
