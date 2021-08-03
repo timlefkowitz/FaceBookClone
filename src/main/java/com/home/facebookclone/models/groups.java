@@ -35,6 +35,9 @@ public class groups {
     @Column( name = "content")
     private String content;
 
+    @Column(name = "groupavatar")
+    private String groupavatar;
+
 
 
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -50,7 +53,7 @@ public class groups {
 
     // Insert Constructor
 
-    public groups(String createdBy, String title, String summary, String profile, String content, user owner) {
+    public groups(String createdBy, String title, String summary, String profile, String content, user owner, String groupavatar) {
         this.CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
@@ -62,7 +65,7 @@ public class groups {
 
     // Update Constructor
 
-    public groups(long id, String createdBy, String title, String summary, String profile, String content, user owner) {
+    public groups(long id, String createdBy, String title, String summary, String profile, String content, user owner, String groupavatar) {
         this.id = id;
         this.CreatedBy = createdBy;
         this.title = title;
@@ -123,5 +126,14 @@ public class groups {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getGroupavatar() {
+        return groupavatar;
+    }
+
+    public void setGroupavatar(String groupavatar) {
+        this.groupavatar = groupavatar;
+    }
+
 
 }

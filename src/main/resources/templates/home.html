@@ -10,15 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-<<<<<<< HEAD
-<!--&lt;!&ndash;    music import      &ndash;&gt;-->
-<!--    <link rel="stylesheet" href="ydxx.css">-->
-=======
-
 
 <!--    music import      -->
     <link rel="stylesheet" href="ydxx.css">
->>>>>>> b6
 
 
 
@@ -121,54 +115,29 @@
 <!-- END OF NAVBAR     -->
 
 
-<div id="mainforpost">
-        <!--      USERS POSTS DIV   -->
-        <div class="col-lg-9" style="justify-content: center;align-items: center;  border-color: red; border-style: solid; height:100% " th:each="usersPost : ${allposts}" >
 
-            ALL POST
-
+<!--      USERS POSTS DIV   -->
+<div id="mainforpost" class="col-lg-9" th:each="usersPost : ${allposts}">
 
             <!--              UserPost        style="max-height: 400px;      -->
             <div class="container userPost" style="height:100%">
 
-
-
                 <!--          Start of posting div-->
-                <div class="row postingDiv" style="display: flex; justify-content: center">
-                    <table class="table overflow-auto " style="width:20%;  margin-top: 5%">
-                        <thead class="thead-dark">
-                        <tr>
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Body of Post </th>
-                                    <th>Owner</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr style="align-items: center" >
-
-                                    <td style="align-items: center"  th:text="${usersPost.title}"></td>
-                                    <td style="align-items: center"  th:text="${usersPost.body}"></td>
-                                    <img th:src="${usersPost.imgPath}">
-                                    <td style="align-items: center"  th:text="${usersPost.owner}"></td>
+                <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
 
-                                        <form>
-                                            <input type="hidden" name="user_id" value="${user.id}" style="width: 20px">
-                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">
-                                        </form>
-                                    </td>
-                                </tr>
-                                </tbody>
-                                </tbody>
-                            </table>
-                        </tr>
-                        </thead>
+                                    <img th:src="${usersPost.imgPath}" style="height: 60vh; width: 60vh;">
+                                    <h4 style="align-items: center"  th:text="${usersPost.title}"></h4>
+                                    <p style="align-items: center"  th:text="${usersPost.body}"></p>
 
-                    </table>
+                                    <h6 style="align-items: center"  th:text="${usersPost.owner}"></h6>
+
+
+<!--                                        <form>-->
+<!--                                            <input type="hidden" name="user_id" value="${user.id}" style="width: 20px">-->
+<!--                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">-->
+<!--                                        </form>-->
+
 
             </div>
                 <!--               END OF USER POST-->
@@ -188,7 +157,7 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
+
 </div>
 
 
@@ -201,10 +170,30 @@
 
 
 
-=======
->>>>>>> b6
-</body>
-<footer>
 
-</footer>
+</body>
+
+
+
+<!--/// NAV FOR MOBILE-->
+<nav class="navbar navbar-expand-sm nav1 fixed-bottom navbar-dark bg-dark" style="height: 158px; text-align: center; align-items: center; justify-content: center; display:none;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="homeButton" style="width: 128px;display: inline; justify-content: center; text-align: center">
+        <img src="users/avatars/home.gif" style="height: 128px; width:128px; width:100%; ">
+        <a style="color: #F5F5F5; font-size: 8px">home</a>
+    </div>
+    <div class="homeButton" style="width: 128px;display: inline; justify-content: center; text-align: center">
+        <img src="users/avatars/groups.gif" style="height: 128px; width:128px; width:100%; ">
+        <a style="color: #F5F5F5; font-size: 8px">groups</a>
+    </div>
+    <div class="homeButton" style="width: 128px;display: inline; justify-content: center; text-align: center">
+        <img src="users/avatars/BLUEcube.gif" style="height: 128px; width:128px; width:100%; ">
+        <a style="color: #F5F5F5; font-size: 8px">post</a>
+    </div>
+
+</nav>
 </html>

@@ -9,11 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.ResponseBody;
-=======
-import org.springframework.web.bind.annotation.PostMapping;
->>>>>>> b6
+
 
 @Controller
 public class HomeController {
@@ -57,14 +53,14 @@ public class HomeController {
         return"friends";
     }
 
-    @GetMapping("/groups")
-    public String groupspage(Model view)
-    {
-        view.addAttribute("allusers", userDao.findAll());
-        view.addAttribute("allgroups", groupDao.findAll());
-        view.addAttribute("allposts", postsRepo.findAll());
-        return"groups";
-    }
+//    @GetMapping("/groups")
+//    public String groupspage(Model view)
+//    {
+//        view.addAttribute("allusers", userDao.findAll());
+//        view.addAttribute("allgroups", groupDao.findAll());
+//        view.addAttribute("allposts", postsRepo.findAll());
+//        return"groups";
+//    }
 
 
     //    Wiring in FileStack

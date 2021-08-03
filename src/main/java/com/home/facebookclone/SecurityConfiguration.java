@@ -38,9 +38,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
 
                 .loginPage("/index")
-                .defaultSuccessUrl("home") // user's home page, it can be any URL
-
-                .loginPage("/index")
                 .defaultSuccessUrl("/home") // user's home page, it can be any URL
 
                 .permitAll() // Anyone can go to the login page
@@ -66,7 +63,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/UsersHome",
                         "UsersProfile",
                         "/post",
-                        "/{username}"  /// maybe anyone can see usersprofiles but not post
+                        "/{username}",
+                        "/groups"/// maybe anyone can see usersprofiles but not post
 
                 )
                 .authenticated()

@@ -104,10 +104,6 @@ public class usersPost {
         this.imgPath = imgPath;
     }
 
-<<<<<<< HEAD
-
-
-=======
     public user getOwner() {
         return Owner;
     }
@@ -115,5 +111,5 @@ public class usersPost {
     public void setOwner(user owner) {
         Owner = owner;
     }
->>>>>>> b6
+
 }

@@ -20,18 +20,14 @@
 
 
   <!-- Custom styles for this template -->
-  <link href="signin.css" rel="stylesheet">
+<!--  <link href="signin.css" rel="stylesheet">-->
 
 
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!--    //favcon-->
   <link rel="icon" type="image/png" sizes="16x16" href="https://live.staticflickr.com/65535/51320697245_9708355788_c.jpg">
@@ -83,80 +79,6 @@
 <!--  The entire content of the partial will be *included* inside this div.-->
 <!--</nav>-->
 
-<!-- Navbar -->
-
-<!-- Container wrapper -->
-<div class="container">
-  <!-- Navbar brand -->
-  <a class="navbar-brand me-2" href="">
-    PHOTONS
-
-    <!--          <a>-->
-    <!--&lt;!&ndash;                  src=""&ndash;&gt;-->
-    <!--                  height="16"-->
-    <!--                  alt=""-->
-    <!--                  loading="lazy"-->
-    <!--                  style="margin-top: -1px;"-->
-    <!--          </a>-->
-  </a>
-
-  <!-- Toggle button -->
-  <button
-          class="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarButtonsExample"
-          aria-controls="navbarButtonsExample"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-  >
-    <i class="fas fa-bars"></i>
-  </button>
-
-  <!-- Collapsible wrapper -->
-  <div class="collapse navbar-collapse" id="navbarButtonsExample">
-    <!-- Left links -->
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <a class="nav-link" href="home">home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="groups">groups</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="friends">friends</a>
-      </li>
-    </ul>
-    <!-- Left links -->
-
-    <div class="d-flex align-items-center">
-      <!--                <button type="button" class="btn btn-link px-3 me-2" href="index">-->
-      <!--                    Login-->
-      <!--                </button>-->
-      <!--                <button type="button" class="btn btn-primary me-3" href="signup">-->
-      <!--                    Sign up-->
-      <!--                </button>-->
-      <a
-              class="btn btn-dark px-3 material-icons-outlined"
-              href="post"
-              role="button"
-      ><i class="material-icons" style="font-size:14px;">create_new_folder</i>POST</a>
-      <ul>
-        <!-- More links here... -->
-
-        <form th:action="@{/logout}" th:method="post">
-          <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-        </form>
-
-      </ul>
-    </div>
-  </div>
-  <!-- Collapsible wrapper -->
-</div>
-<!-- Container wrapper -->
-
-</nav>
-<!-- Navbar -->
-
 
 
 <form class="form-signin" th:action="@{/index}" method="post" style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
@@ -164,13 +86,18 @@
 
 
   <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-<!--  // Spring Security -->
-  <div th:if="${param.error}">
-    Invalid Username and Password.
-  </div>
-  <div th:if="${param.logout}">
-    You have been logged out.
-  </div>
+
+
+
+
+
+      <!--  // Spring Security -->
+        <div th:if="${param.error}">
+          Invalid Username and Password.
+        </div>
+        <div th:if="${param.logout}">
+          You have been logged out.
+        </div>
 
 
 
@@ -188,9 +115,9 @@
   <div class="checkbox mb-3">
 
     <!--- Remember Me doesn't function. I'm prioritizing currently     -->
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
+<!--    <label>-->
+<!--      <input type="checkbox" value="remember-me"> Remember me-->
+<!--    </label>-->
   </div>
   <button class="btn btn-lg btn-block" value="Log In" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">Sign in</button>
 
@@ -302,6 +229,15 @@
                  access="hasRole('admin') and hasIpAddress('70.94.160.36')"/>
   ...
 </http>
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>
