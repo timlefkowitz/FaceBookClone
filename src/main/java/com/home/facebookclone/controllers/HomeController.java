@@ -85,6 +85,12 @@ public class HomeController {
         return "UsersProfile" + status;
     }
 
+    @GetMapping("/{username}")
+    public String showById2(@PathVariable Model view, String username){
+        view.addAttribute("username", userDao.getByUsername(username));
+        return "UsersProfile";
+    }
+
 
 //    @PostMapping("show/{id}/delete")
 //    public String deleteUsersPost(@PathVariable Long id)

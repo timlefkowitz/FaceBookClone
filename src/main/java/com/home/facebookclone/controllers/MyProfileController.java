@@ -1,10 +1,12 @@
 package com.home.facebookclone.controllers;
 
 
+import com.home.facebookclone.models.user;
 import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.friendslistrepo;
 import com.home.facebookclone.repos.groupRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,10 @@ public class MyProfileController {
         this.postsRepo = postsRepo;
         this.friendslistDao = friendslistDao;
     }
+
+
+//    @Autowired
+//    private user username;
 
 
     @RequestMapping(value="/myprofile")
