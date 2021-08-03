@@ -40,11 +40,13 @@ public class usersPost {
 
 
 
+
+
     // constructors
     // insert
 
 
-    public usersPost(String title, String body, String imgPath, user owner, user username) {
+    public usersPost(String title, String body, String imgPath, user owner, user username, groups groupOwner) {
         this.title = title;
         this.body = body;
         this.imgPath = imgPath;
@@ -58,7 +60,7 @@ public class usersPost {
 
 
 
-    public usersPost(long id, String title, String body, String imgPath, user owner, user username) {
+    public usersPost(long id, String title, String body, String imgPath, user owner, user username, groups groupOwner) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -112,4 +114,11 @@ public class usersPost {
         Owner = owner;
     }
 
+    public groups getGroupOwner() {
+        return groupOwner;
+    }
+
+    public void setGroupOwner(groups groupOwner) {
+        this.groupOwner = groupOwner;
+    }
 }

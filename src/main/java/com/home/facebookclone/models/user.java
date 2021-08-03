@@ -88,7 +88,9 @@ public class  user {
     @JsonBackReference
     private List<usersPost> BlogPost;
 
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
+    @JsonBackReference
+    private List<groups> groupOwner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
     @JsonBackReference

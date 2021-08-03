@@ -1,5 +1,7 @@
 package com.home.facebookclone.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -44,6 +46,14 @@ public class groups {
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupPost")
+    @JsonBackReference
+    private List<groupPost> groupPost;
+
+    @ManyToOne
+    @JoinColumn(name = "groupOwner_id")
+    private groups groupOwner;
 
 
     // THERE CAN BE MANY OWNERS THAT OWN THINGS???????

@@ -63,27 +63,27 @@ public class HomeController {
 
     // Show Constructors
 
-    @GetMapping("/UsersProfile")
-    public String show(Model view){
-        view.addAttribute("user", userDao.findAll());
-        return"UsersProfile";
-    }
-
-    @GetMapping("/UsersProfile/{id}")
-    public String showById(@PathVariable Long id, Model view){
-        view.addAttribute("user", userDao.getById(id));
-        view.addAttribute("usersPost", postsRepo.getById(id));
-        return "UsersProfile";
-    }
-
-    @GetMapping("/{username}/{id}")
-    public String showById2(@PathVariable Long id, Model view, String username, String status){
-        view.addAttribute("user", userDao.getById(id));
-        view.addAttribute("username", userDao.getByUsername(username));
-        view.addAttribute("usersPost", postsRepo.getById(id));
-        view.addAttribute("{id}+friends", userDao.getById(id));
-        return "UsersProfile" + status;
-    }
+//    @GetMapping("/UsersProfile")
+//    public String show(Model view){
+//        view.addAttribute("user", userDao.findAll());
+//        return"UsersProfile";
+//    }
+//
+//    @GetMapping("/UsersProfile/{id}")
+//    public String showById(@PathVariable Long id, Model view){
+//        view.addAttribute("user", userDao.getById(id));
+//        view.addAttribute("usersPost", postsRepo.getById(id));
+//        return "UsersProfile";
+//    }
+//
+//    @GetMapping("/{username}/{id}")
+//    public String showById2(@PathVariable Long id, Model view, String username, String status){
+//        view.addAttribute("user", userDao.getById(id));
+//        view.addAttribute("username", userDao.getByUsername(username));
+//        view.addAttribute("usersPost", postsRepo.getById(id));
+//        view.addAttribute("{id}+friends", userDao.getById(id));
+//        return "UsersProfile" + status;
+//    }
 
     @GetMapping("/{username}")
     public String showById2(@PathVariable Model view, String username){
