@@ -89,6 +89,10 @@ public class  user {
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id")
+    @JsonBackReference
+    private Collection<friendslist> contactListEntity;
+
 
 
 
@@ -98,7 +102,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar, List<usersPost> BlogPost) {
+    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar, List<usersPost> BlogPost, Collection<friendslist> contactListOwner, Collection<friendslist> contactListEntity) {
         this.firstname = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -113,13 +117,15 @@ public class  user {
 //        this.location = location;
         this.originalavatar = originalavatar;
         this.BlogPost = BlogPost;
+        this.contactListOwner = contactListOwner;
+        this.contactListEntity = contactListEntity;
 
     }
 
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar, List<usersPost> BlogPost) {
+    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar, List<usersPost> BlogPost, Collection<friendslist> contactListOwner, Collection<friendslist> contactListEntity) {
         this.id = id;
         this.firstname = firstName;
         this.middleName = middleName;
@@ -135,6 +141,8 @@ public class  user {
 //        this.location = location;
         this.originalavatar = originalavatar;
         this.BlogPost = BlogPost;
+        this.contactListOwner = contactListOwner;
+        this.contactListEntity = contactListEntity;
 
     }
 
@@ -158,6 +166,8 @@ public class  user {
 //        location = copy.location;
         originalavatar = copy.originalavatar;
         BlogPost = copy.BlogPost;
+        contactListOwner = copy.contactListOwner;
+        contactListEntity = copy.contactListEntity;
 
     }
 
@@ -276,5 +286,29 @@ public class  user {
 
     public void setOwner(List<usersPost> owner) {
         BlogPost = owner;
+    }
+
+    public List<usersPost> getBlogPost() {
+        return BlogPost;
+    }
+
+    public void setBlogPost(List<usersPost> blogPost) {
+        BlogPost = blogPost;
+    }
+
+    public Collection<friendslist> getContactListOwner() {
+        return contactListOwner;
+    }
+
+    public void setContactListOwner(Collection<friendslist> contactListOwner) {
+        this.contactListOwner = contactListOwner;
+    }
+
+    public Collection<friendslist> getContactListEntity() {
+        return contactListEntity;
+    }
+
+    public void setContactListEntity(Collection<friendslist> contactListEntity) {
+        this.contactListEntity = contactListEntity;
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
@@ -87,6 +88,21 @@ public class HomeController {
         view.addAttribute("usersPost", postsRepo.getById(id));
         view.addAttribute("{id}+friends", userDao.getById(id));
         return "UsersProfile";
+    }
+
+
+//    @PostMapping("show/{id}/delete")
+//    public String deleteUsersPost(@PathVariable Long id)
+//    {
+//        Order order = orderDao.getById(id);
+//        orderDao.delete(order);
+//        return "redirect:/show";
+//    }
+
+    @GetMapping("/show/{id}")
+    public String showById(@PathVariable long id,Model view){
+        view.addAttribute("singlePost", postsRepo.getById(id));
+        return"singlePost";
     }
 
 
