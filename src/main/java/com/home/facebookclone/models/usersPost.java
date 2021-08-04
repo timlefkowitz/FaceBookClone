@@ -114,11 +114,4 @@ public class usersPost {
         Owner = owner;
     }
 
-    public groups getGroupOwner() {
-        return groupOwner;
-    }
-
-    public void setGroupOwner(groups groupOwner) {
-        this.groupOwner = groupOwner;
-    }
 }

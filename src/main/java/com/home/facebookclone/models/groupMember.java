@@ -5,7 +5,8 @@ import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
-@Controller
+@Entity
+@Table(name="groupMember")
 public class groupMember {
 
     public groupMember() {

@@ -4,6 +4,7 @@ package com.home.facebookclone.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity // << this is how hibernate knows to make tables out of the class
@@ -36,6 +37,13 @@ public class groupPost {
     //[][][][][][][][][][][][][] mySQL Relationships[][][][][][][][][][][][][][][][][]
     //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
     //
+
+
+    @ManyToOne
+    @JoinColumn(name = "groupPost")
+    private user Owner;
+
+
 
 
 
