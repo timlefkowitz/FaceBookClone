@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.security.Principal;
 
 @Controller
-public class MyProfileController {
+public class ProfileController {
 
     // Daos
 
@@ -26,7 +26,7 @@ public class MyProfileController {
     private final friendslistrepo friendslistDao;
 
 
-    public MyProfileController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo, friendslistrepo friendslistDao) {
+    public ProfileController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo, friendslistrepo friendslistDao) {
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.postsRepo = postsRepo;

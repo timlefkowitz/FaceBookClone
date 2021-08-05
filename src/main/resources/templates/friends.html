@@ -152,6 +152,9 @@
 
             <img th:src="${users.imgPath}" style="height: 60vh; width: 60vh;">
             <h4 style="align-items: center" th:text="${users.username}"></h4>
+                <form th:method="post" th:action="@{/friends}">
+                    <input id="friendslistHidden" name="friendslistHidden" th:value=${profileID} type="hidden">
+                </form>
 
 
 
