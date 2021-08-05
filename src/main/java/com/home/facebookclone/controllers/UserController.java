@@ -60,23 +60,6 @@ public class UserController {
 
 
 
-    @GetMapping("/friends")
-    public String friendspage(Model view, HttpServletRequest request, @RequestParam(name="friendslistHidden") long addID)
-    {
-
-        friendslist addFriend = new friendslist();
-        user addthisUserID = users.getOne(addID);
-        user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        addFriend.setOwner_user(friendslistOwner);
-        addFriend.setAdded_user_id(addthisUserID);
-        friends.save(addFriend);
-
-        view.addAttribute("allusers", users.findAll());
-        view.addAttribute("friends", friends.findContactsByOwner_userId(addID));
-        return"friends";
-    }
-
 
 
 
