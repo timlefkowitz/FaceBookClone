@@ -56,5 +56,36 @@ public class ProfileController {
         return "myprofile";
     }
 
+    @GetMapping("/show/{id}")
+    public String showById(@PathVariable long id,Model view){
+        view.addAttribute("singlePost", postsRepo.getById(id));
+        return"singlePost";
+    }
+
+    @GetMapping("/{username}")
+    public String showById2(@PathVariable Model view, String username){
+        view.addAttribute("username", userDao.getByUsername(username));
+        return "UsersProfile";
+    }
+
+
+//    @PostMapping("show/{id}/delete")
+//    public String deleteUsersPost(@PathVariable Long id)
+//    {
+//        Order order = orderDao.getById(id);
+//        orderDao.delete(order);
+//        return "redirect:/show";
+//    }
+
+    //    @GetMapping("/{username}/{id}")
+//    public String showById2(@PathVariable Long id, Model view, String username, String status){
+//        view.addAttribute("user", userDao.getById(id));
+//        view.addAttribute("username", userDao.getByUsername(username));
+//        view.addAttribute("usersPost", postsRepo.getById(id));
+//        view.addAttribute("{id}+friends", userDao.getById(id));
+//        return "UsersProfile" + status;
+//    }
+
+
 
 }
