@@ -41,47 +41,55 @@ public class ProfileController {
 //    @Autowired
 //    private user username;
 
-    @PostMapping("/{username}")
-    public String showByUsername(@PathVariable Model view, user username, Principal principal)
-    {
-        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//    @PostMapping("/{username}")
+//    public String showByUsername(@PathVariable Model view, user username, Principal principal)
+//    {
+//        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//
+////        view.addAttribute("username", userDao.getByUsername(username));
+////        view.addAttribute("usersFriends", friendslistDao.findContactsByOwner_userId(user));
+////        view.addAttribute("usersGroups", userDao.getByUsername(user));
+//
+//
+//
+//        return "UsersProfile";
+//    }
 
+//    @GetMapping("/{username}")
+//    public String getByUsername(@PathVariable String username,
+//                                @PathVariable long id,
+//                                Model view,
+//                                Principal principal
+//    )
+//    {
+//        //current user
+//        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        List<friendslist> friendslist = friendslistDao.findContactsByOwner_userId(currentUser.getId());
+//        boolean friendsAlready = !friendslistDao.findByOwner_userAndAdded_user_idExists(id, currentUser.getId()).isEmpty();
+//
+////        view.addAttribute("friendsList", friendslist);
+//        view.addAttribute("user", userDao.getById(id));
+//        view.addAttribute("usersProfile", userDao.getByUsername(username));
+//
+////        return "UsersProfile";
+//    }
 
-
-
-//        view.addAttribute("username", userDao.getByUsername(username));
-//        view.addAttribute("usersFriends", friendslistDao.findContactsByOwner_userId(user));
-//        view.addAttribute("usersGroups", userDao.getByUsername(user));
-
-
-
+    @GetMapping("/{username}/{id}")
+    public String showById2(@PathVariable Long id, Model view, String username){
+        view.addAttribute("user", userDao.getById(id));
+        view.addAttribute("username", userDao.getByUsername(username));
+        view.addAttribute("usersPost", postsRepo.getById(id));
+        view.addAttribute("{id}+friends", userDao.getById(id));
         return "UsersProfile";
     }
 
-    @GetMapping("{username}")
-    public String getByUsername(@PathVariable long id, Model view, Principal principal, user username)
-    {
-        //current user
-        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-
-
-        List<friendslist> friendslist = friendslistDao.findContactsByOwner_userId(currentUser.getId());
-
-        view.addAttribute("friendsList", friendslist);
-
-        boolean friendsAlready = !friendslistDao.findByOwner_userAndAdded_user_idExists(id, currentUser.getId()).isEmpty();
-
-
-
-
-
-
-
-
-
+    @GetMapping("/{username}")
+    public String showByUsername(@PathVariable String username, Model view){
+        view.addAttribute("user", userDao.getByUsername(username));
         return "UsersProfile";
     }
+
 
 
 
@@ -121,14 +129,7 @@ public class ProfileController {
 //        return "redirect:/show";
 //    }
 
-    //    @GetMapping("/{username}/{id}")
-//    public String showById2(@PathVariable Long id, Model view, String username, String status){
-//        view.addAttribute("user", userDao.getById(id));
-//        view.addAttribute("username", userDao.getByUsername(username));
-//        view.addAttribute("usersPost", postsRepo.getById(id));
-//        view.addAttribute("{id}+friends", userDao.getById(id));
-//        return "UsersProfile" + status;
-//    }
+
 
 
 

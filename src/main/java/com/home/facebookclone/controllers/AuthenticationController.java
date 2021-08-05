@@ -55,13 +55,13 @@ public class AuthenticationController {
 //    }
 
 
-    @GetMapping("/admin")
-    public String adminHome(Model view)
-    {
-        view.addAttribute("allusers", userDao.findAll());
-        view.addAttribute("allgroups", groupDao.findAll());
-        return"admin/AdminsHome";
-    }
+//    @GetMapping("/admin")
+//    public String adminHome(Model view)
+//    {
+//        view.addAttribute("allusers", userDao.findAll());
+//        view.addAttribute("allgroups", groupDao.findAll());
+//        return"admin/AdminsHome";
+//    }
 
 
 
