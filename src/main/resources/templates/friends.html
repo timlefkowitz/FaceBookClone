@@ -26,8 +26,16 @@
     <!--  convert to a stylesheet later -->
     <style>
 
-        * {
+        *, *::before, *::after {
+            box-sizing: border-box;
+            font-family: sans-serif;
+            font-weight: normal;
+        }
 
+        #headercard {
+            padding:0;
+            margin:0;
+            background: linear-gradient(to right, #00AAFF, #00FF6c);
         }
 
         .avatar {
@@ -39,6 +47,7 @@
 
 
     </style>
+
 
 
 <!--    //favcon-->
@@ -141,19 +150,27 @@
 
 
 <!--      USERS POSTS DIV   -->
-<div id="mainforpost" class="col-lg-9" th:each="users : ${allusers}">
+<div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">
+<a style=" align-items: center; margin-top: 5%; margin-right: 25%; text-align: center" class="card" id="headercard" width="300px">friends</a>
+<div id="mainforpost" class="col-lg-9" th:each="friendslist : ${friendslistHidden}">
 
     <!--              UserPost        style="max-height: 400px;      -->
-    <div class="container userPost" style="height:100%">
+    <div class="card container userPost" style="height:100%">
 
         <!--          Start of posting div-->
-        <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">gfd
+        <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
+
 
 
 <!--            <img th:src="${users.imgPath}" style="height: 60vh; width: 60vh;">-->
-            <h4 style="align-items: center" th:text="${users.username}"></h4>
+            <h4 style="align-items: center" th:text="${friendslist.added_user_id}"></h4>
+            <h6 style="align-items: center" th:text="${friendslist.getAdded_user_id()}"></h6>
+
+
+
+<!--            for adding a friend-->
                 <form th:method="post" th:action="@{/friends}">
-                    <input id="friendslistHidden" name="friendslistHidden"  type="hidden">
+                    <input id="friendslistHidden" name="friendslistHidden"  type="hidden" th:text="${friendslist.added_user_id}">
 <!--                    th:value=${profileID}-->
                 </form>
 
@@ -165,7 +182,7 @@
             <!--                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">-->
             <!--                                        </form>-->
 
-
+        </div>
         </div>
         <!--               END OF USER POST-->
 
