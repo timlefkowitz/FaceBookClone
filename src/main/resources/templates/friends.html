@@ -141,7 +141,7 @@
 
 
 <!--      USERS POSTS DIV   -->
-<div id="mainforpost" class="col-lg-9" th:each="users : ${allusers}">
+<div id="mainforpost" class="col-lg-9" th:each="friends : ${friends}">
 
     <!--              UserPost        style="max-height: 400px;      -->
     <div class="container userPost" style="height:100%">
@@ -150,10 +150,11 @@
         <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
 
-            <img th:src="${users.imgPath}" style="height: 60vh; width: 60vh;">
-            <h4 style="align-items: center" th:text="${users.username}"></h4>
+<!--            <img th:src="${users.imgPath}" style="height: 60vh; width: 60vh;">-->
+            <h4 style="align-items: center" th:text="${friends.added_user_id}"></h4>
                 <form th:method="post" th:action="@{/friends}">
-                    <input id="friendslistHidden" name="friendslistHidden" th:value=${profileID} type="hidden">
+                    <input id="friendslistHidden" name="friendslistHidden"  type="hidden">
+<!--                    th:value=${profileID}-->
                 </form>
 
 

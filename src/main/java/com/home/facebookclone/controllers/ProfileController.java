@@ -1,19 +1,23 @@
 package com.home.facebookclone.controllers;
 
 
+import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.user;
 import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.friendslistrepo;
 import com.home.facebookclone.repos.groupRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class ProfileController {
@@ -36,6 +40,35 @@ public class ProfileController {
 
 //    @Autowired
 //    private user username;
+
+    @PostMapping("/{username}")
+    public String showByUsername(@PathVariable Model view, user username, Principal principal)
+    {
+        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
+
+
+//        view.addAttribute("username", userDao.getByUsername(username));
+//        view.addAttribute("usersFriends", friendslistDao.findContactsByOwner_userId(user));
+//        view.addAttribute("usersGroups", userDao.getByUsername(user));
+
+
+
+        return "UsersProfile";
+    }
+
+    @GetMapping("{username}")
+    public String getByUsername(Model view, Principal principal, user username)
+    {
+        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<friendslist> friendslist = friendslistDao.findContactsByOwner_userId(user.getId());
+
+        view.addAttribute("friendsList", friendslist);
+        return "UsersProfile";
+    }
+
+
 
 
     @RequestMapping(value="/myprofile")
@@ -62,11 +95,7 @@ public class ProfileController {
         return"singlePost";
     }
 
-    @GetMapping("/{username}")
-    public String showById2(@PathVariable Model view, String username){
-        view.addAttribute("username", userDao.getByUsername(username));
-        return "UsersProfile";
-    }
+
 
 
 //    @PostMapping("show/{id}/delete")
