@@ -70,13 +70,10 @@ public class UserController {
 
         addFriend.setOwner_user(friendslistOwner);
         addFriend.setAdded_user_id(addthisUserID);
-
         friends.save(addFriend);
 
-
-
         view.addAttribute("allusers", users.findAll());
-        view.addAttribute("friends", friends.findContactsByOwner_userId(user));
+        view.addAttribute("friends", friends.findContactsByOwner_userId(addID));
         return"friends";
     }
 
