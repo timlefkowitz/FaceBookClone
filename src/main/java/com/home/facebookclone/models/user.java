@@ -48,7 +48,7 @@ public class  user {
     private String lastName;
 
     @Column(name = "username",  length = 100)
-    private String username;     //i'm thinking this needs to be public user username;
+    public String username;     //i'm thinking this needs to be public user username;
 
     @Column(name = "email")
     private String email;
