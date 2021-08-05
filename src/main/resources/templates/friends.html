@@ -141,7 +141,7 @@
 
 
 <!--      USERS POSTS DIV   -->
-<div id="mainforpost" class="col-lg-9" th:each="usersPost : ${allposts}">
+<div id="mainforpost" class="col-lg-9" th:each="users : ${allusers}">
 
     <!--              UserPost        style="max-height: 400px;      -->
     <div class="container userPost" style="height:100%">
@@ -150,8 +150,9 @@
         <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
 
-            <img th:src="${usersPost.imgPath}" style="height: 60vh; width: 60vh;">
-            <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
+            <img th:src="${users.imgPath}" style="height: 60vh; width: 60vh;">
+            <h4 style="align-items: center" th:text="${users.username}"></h4>
+
 
 
 
