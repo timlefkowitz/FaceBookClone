@@ -152,7 +152,7 @@
 <!--      USERS POSTS DIV   -->
 <div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">
 <a style=" align-items: center; margin-top: 5%; margin-right: 25%; text-align: center" class="card" id="headercard" width="300px">friends</a>
-<div id="mainforpost" class="col-lg-9" th:each="friendslist : ${friendslistHidden}">
+<div id="mainforpost" class="col-lg-9" th:each="friendslistGen : ${friendslistGen}">
 
     <!--              UserPost        style="max-height: 400px;      -->
     <div class="card container userPost" style="height:100%">
@@ -163,14 +163,17 @@
 
 
 <!--            <img th:src="${users.imgPath}" style="height: 60vh; width: 60vh;">-->
-            <h4 style="align-items: center" th:text="${friendslist.added_user_id}"></h4>
-            <h6 style="align-items: center" th:text="${friendslist.getAdded_user_id()}"></h6>
+<!--            <h4 style="align-items: center" th:text="${friendslistGen.added_user_id}"></h4>-->
+<!--            <h6 style="align-items: center" th:text="${friendslistGen.getAdded_user_id()}"></h6>-->
+
+
+            <span style="font-size:12px" th:text="text=${friendslistGen.getAdded_user_id()}"></span>
 
 
 
 <!--            for adding a friend-->
                 <form th:method="post" th:action="@{/friends}">
-                    <input id="friendslistHidden" name="friendslistHidden"  type="hidden" th:text="${friendslist.added_user_id}">
+                    <input id="friendslistHidden" name="friendslistHidden"  type="hidden">
 <!--                    th:value=${profileID}-->
                 </form>
 

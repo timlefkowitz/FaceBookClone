@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class friendsController {
@@ -73,14 +74,17 @@ public class friendsController {
     {
 
         user FRIENDSLISTOWNER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long currentUser = FRIENDSLISTOWNER.getId(); /// Okay, Here i was struggling because I needed my view to be a long, but not just a parsed long but the long of the current users ID, this was a major connecting the dots breakthrough
+        long currentUser = FRIENDSLISTOWNER.getId();
 
-        view.addAttribute("allusers", users.findAll());
+
+
+        List<friendslist> friendslistGen = friends.findContactsByOwner_userId(FRIENDSLISTOWNER.getId());
+
+
+
+        view.addAttribute("allusers", friends.findAll());
         view.addAttribute("friendslistHidden", friends.findContactsByOwner_userId(currentUser));
-
-//        if (addFriend.size() == 0){
-//
-//        }
+        view.addAttribute("friendslistGen", friendslistGen);
 
 
 

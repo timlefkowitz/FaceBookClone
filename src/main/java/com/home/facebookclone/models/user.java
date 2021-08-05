@@ -325,4 +325,36 @@ public class  user {
     public void setContactListEntity(Collection<friendslist> contactListEntity) {
         this.contactListEntity = contactListEntity;
     }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public List<groups> getGroupOwner() {
+        return groupOwner;
+    }
+
+    public void setGroupOwner(List<groups> groupOwner) {
+        this.groupOwner = groupOwner;
+    }
+
+    public List<com.home.facebookclone.models.groupMember> getGroupMember() {
+        return groupMember;
+    }
+
+    public void setGroupMember(List<com.home.facebookclone.models.groupMember> groupMember) {
+        this.groupMember = groupMember;
+    }
+
+    public List<com.home.facebookclone.models.groupComment> getGroupComment() {
+        return groupComment;
+    }
+
+    public void setGroupComment(List<com.home.facebookclone.models.groupComment> groupComment) {
+        this.groupComment = groupComment;
+    }
 }

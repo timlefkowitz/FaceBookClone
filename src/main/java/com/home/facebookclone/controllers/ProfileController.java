@@ -65,8 +65,8 @@ public class ProfileController {
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 
-        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<friendslist> friendslist = friendslistDao.findContactsByOwner_userId(user.getId());
+
+        List<friendslist> friendslist = friendslistDao.findContactsByOwner_userId(currentUser.getId());
 
         view.addAttribute("friendsList", friendslist);
 
