@@ -73,7 +73,7 @@ public class friendsController {
     {
 
         user FRIENDSLISTOWNER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long currentUser = FRIENDSLISTOWNER.getId();
+        long currentUser = FRIENDSLISTOWNER.getId(); /// Okay, Here i was struggling because I needed my view to be a long, but not just a parsed long but the long of the current users ID, this was a major connecting the dots breakthrough
 
         view.addAttribute("allusers", users.findAll());
         view.addAttribute("friendslistHidden", friends.findContactsByOwner_userId(currentUser));
