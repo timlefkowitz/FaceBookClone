@@ -61,10 +61,25 @@ public class ProfileController {
     @GetMapping("{username}")
     public String getByUsername(Model view, Principal principal, user username)
     {
+        //current user
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<friendslist> friendslist = friendslistDao.findContactsByOwner_userId(user.getId());
 
         view.addAttribute("friendsList", friendslist);
+
+        boolean friendsAlready = !friendslistDao.findByOwner_userAndAdded_user_idExists(id, currentUser.getId()).isEmpty();
+
+
+
+
+
+
+
+
+
         return "UsersProfile";
     }
 
