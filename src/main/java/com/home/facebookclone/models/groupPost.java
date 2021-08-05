@@ -41,7 +41,7 @@ public class groupPost {
 
     @ManyToOne
     @JoinColumn(name = "groupPost")
-    private user Owner;
+    private user groupPost;
 
 
 
