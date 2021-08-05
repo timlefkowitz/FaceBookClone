@@ -59,7 +59,7 @@ public class ProfileController {
     }
 
     @GetMapping("{username}")
-    public String getByUsername(Model view, Principal principal, user username)
+    public String getByUsername(@PathVariable long id, Model view, Principal principal, user username)
     {
         //current user
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
