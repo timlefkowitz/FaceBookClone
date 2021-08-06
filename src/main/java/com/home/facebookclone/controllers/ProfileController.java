@@ -34,44 +34,6 @@ public class ProfileController {
         this.friendslistDao = friendslistDao;
     }
 
-
-//    @Autowired
-//    private user username;
-
-//    @PostMapping("/{username}")
-//    public String showByUsername(@PathVariable Model view, user username, Principal principal)
-//    {
-//        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//
-//
-////        view.addAttribute("username", userDao.getByUsername(username));
-////        view.addAttribute("usersFriends", friendslistDao.findContactsByOwner_userId(user));
-////        view.addAttribute("usersGroups", userDao.getByUsername(user));
-//
-//
-//
-//        return "UsersProfile";
-//    }
-
-//    @GetMapping("/{username}")
-//    public String getByUsername(@PathVariable String username,
-//                                @PathVariable long id,
-//                                Model view,
-//                                Principal principal
-//    )
-//    {
-//        //current user
-//        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        List<friendslist> friendslist = friendslistDao.findContactsByOwner_userId(currentUser.getId());
-//        boolean friendsAlready = !friendslistDao.findByOwner_userAndAdded_user_idExists(id, currentUser.getId()).isEmpty();
-//
-////        view.addAttribute("friendsList", friendslist);
-//        view.addAttribute("user", userDao.getById(id));
-//        view.addAttribute("usersProfile", userDao.getByUsername(username));
-//
-////        return "UsersProfile";
-//    }
-
     @GetMapping("/{username}/{id}")
     public String showById2(@PathVariable Long id, Model view, String username){
         view.addAttribute("user", userDao.getById(id));
@@ -98,6 +60,8 @@ public class ProfileController {
         user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 
+        long newfriend = addedUser.getId();
+
 //        String usernameString = {username};
 
         addedFriend.setOwner_user(friendslistOwner);
@@ -105,12 +69,8 @@ public class ProfileController {
         friendslistDao.save(addedFriend);
 
 
-        return "redirect:/";
+        return "redirect:/home";
     }
-
-
-
-
 
 
 
