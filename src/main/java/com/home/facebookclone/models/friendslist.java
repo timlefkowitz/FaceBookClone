@@ -25,7 +25,7 @@ public class friendslist {
     @ManyToOne
     @JoinColumn(name="list_owner_id")
     @JsonManagedReference
-    private user owner_user;
+    private user ownerUser;
 
     @ManyToOne
     @JoinColumn(name="added_user_id")
@@ -36,7 +36,7 @@ public class friendslist {
     // insert
 
     public friendslist(user owner_user, user added_user_id) {
-        this.owner_user = owner_user;
+        this.ownerUser = owner_user;
         this.added_user_id = added_user_id;
     }
 
@@ -45,7 +45,7 @@ public class friendslist {
 
     public friendslist(long id, user owner_user, user added_user_id) {
         this.id = id;
-        this.owner_user = owner_user;
+        this.ownerUser = owner_user;
         this.added_user_id = added_user_id;
     }
 
@@ -63,12 +63,12 @@ public class friendslist {
         this.id = id;
     }
 
-    public user getOwner_user() {
-        return owner_user;
+    public user getOwnerUser() {
+        return ownerUser;
     }
 
     public void setOwner_user(user owner_user) {
-        this.owner_user = owner_user;
+        this.ownerUser = owner_user;
     }
 
     public user getAdded_user_id() {

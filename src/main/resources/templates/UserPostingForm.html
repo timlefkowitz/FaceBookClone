@@ -127,7 +127,7 @@
 <!--        /// the next button here will switch using jquery to a group posting button -->
 
 
-        <h1 class="h3 mb-3 font-weight-normal"> New Post</h1>
+        <h1 class="h3 mb-3 font-weight-normal">New Post</h1>
 
         <!--         Title          -->
         <label for="title" class="sr-only">Title</label>
@@ -155,6 +155,7 @@
 
         <!--                field is how we connect it to our controller for binding -->
         <input th:type="hidden" id="stashFileStackURL" name="imgPath" th:value="stashFileStackURL" th:field="*{imgPath}">
+        <input th:type="hidden" id="postOwner" name="postOwner" th:value="postOwner">
         <button class="btn btn-light" type="button" id="imgPath" name="imgPath">Upload An Image</button>
         <!--        -->
 

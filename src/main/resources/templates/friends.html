@@ -152,7 +152,9 @@
 <!--      USERS POSTS DIV   -->
 <div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">
 <a style=" align-items: center; margin-top: 5%; margin-right: 25%; text-align: center" class="card" id="headercard" width="300px">friends</a>
-<div id="mainforpost" class="col-lg-9" th:each="friendslistGen : ${friendslistGen}">
+
+
+<div id="mainforpost" class="col-lg-9" th:each="indifriend : ${friendslistHidden}">
 
     <!--              UserPost        style="max-height: 400px;      -->
     <div class="card container userPost" style="height:100%">
@@ -167,7 +169,7 @@
 <!--            <h6 style="align-items: center" th:text="${friendslistGen.getAdded_user_id()}"></h6>-->
 
 
-            <span style="font-size:12px" th:text="text=${friendslistGen.getAdded_user_id()}"></span>
+            <span style="font-size:12px" th:text="${indifriend.getAdded_user_id().username}"></span>
 
 
 

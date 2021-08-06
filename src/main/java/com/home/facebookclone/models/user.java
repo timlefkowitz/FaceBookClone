@@ -100,7 +100,7 @@ public class  user {
     @JsonBackReference
     private List<groupComment> groupComment;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerUser")
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
 

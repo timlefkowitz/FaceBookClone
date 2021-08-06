@@ -2,6 +2,7 @@ package com.home.facebookclone.repos;
 
 
 import com.home.facebookclone.models.friendslist;
+import com.home.facebookclone.models.user;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,8 @@ public interface friendslistrepo extends JpaRepository<friendslist, Long> {
 
     @Query(value = "SELECT * FROM FBclone.friendslist WHERE added_user_id = ?1 AND list_owner_id = ?2", nativeQuery = true)
     List<friendslist> findByOwner_userAndAdded_user_idExists(long added_user_id, long list_owner_id);
+
+    List<friendslist> getByOwnerUser(user OwnerUser);
 
 
 

@@ -70,7 +70,7 @@ public class friendsController {
     }
 
     @GetMapping("/friends")
-    public String getFriends(Model view, HttpServletRequest request, user friendslistOwner)
+    public String getFriends(Model view)
     {
 
         user FRIENDSLISTOWNER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -78,18 +78,43 @@ public class friendsController {
 
 
 
-        List<friendslist> friendslistGen = friends.findContactsByOwner_userId(FRIENDSLISTOWNER.getId());
+        List<friendslist> friendslistGen = friends.getByOwnerUser(FRIENDSLISTOWNER);
 
 
 
+        System.out.println(friendslistGen.size());
         view.addAttribute("allusers", friends.findAll());
-        view.addAttribute("friendslistHidden", friends.findContactsByOwner_userId(currentUser));
-        view.addAttribute("friendslistGen", friendslistGen);
+        view.addAttribute("friendslistHidden", friendslistGen);
+//        view.addAttribute("friendslistGen", friendslistGen);
 
 
 
 
         return "friends";
     }
+
+    // Add a Friend
+
+    // Add a Frined
+
+//    @GetMapping("/add")
+//    public String getaddfriend(Model model)
+//    {
+//        model.addAttribute("user", new user());
+//        return"addfriend";
+//    }
+//
+//    @PostMapping("/add")
+//    public String postaddfriend(@RequestParam(name="username") String username
+//
+//
+//    ){
+//
+//        user n = new user();
+//        n.setUsername(username);
+//        usersDao.save(n);
+//        return "redirect:/addfriend";
+//    }
+
 
 }

@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -85,10 +82,34 @@ public class ProfileController {
     }
 
     @GetMapping("/{username}")
-    public String showByUsername(@PathVariable String username, Model view){
+    public String showByUsername(@PathVariable String username,
+                                 Model view
+//                                 @RequestParam(name="addfriend") long addID
+    ){
         view.addAttribute("user", userDao.getByUsername(username));
+//        view.addAttribute("addfriend", addID);
         return "UsersProfile";
     }
+
+    @PostMapping("/{username}")
+    public String profilePostings(@RequestParam(name="FriendHidden") long addID){
+        friendslist addedFriend = new friendslist();
+        user addedUser = userDao.getById(addID);
+        user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
+//        String usernameString = {username};
+
+        addedFriend.setOwner_user(friendslistOwner);
+        addedFriend.setAdded_user_id(addedUser);
+        friendslistDao.save(addedFriend);
+
+
+        return "redirect:/";
+    }
+
+
+
 
 
 

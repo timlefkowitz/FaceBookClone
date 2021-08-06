@@ -136,13 +136,20 @@
       <div id="profileItems" style="margin-top:15vh">
 
 
-        <div >
+        <div>
           <img th:src="${user.imgPath}" style="height: 20vh; width: 20vh;">
 
 
         <div>
           <a>username</a></s>
           <h6 style="align-items: center" th:text="${user.username}"></h6>
+          <form th:method="post" th:action="@{/username}">
+            <input id="FriendHidden" name="FriendHidden" th:value="${username}"
+                   type="hidden">
+            <button style="margin-top: 48px; margin-right: 5px" type="submit"
+                    class="btn btn3"><span th:text="'Add to contacts!'"></span></button>
+
+          </form>
         </div></div>
 
         <div>

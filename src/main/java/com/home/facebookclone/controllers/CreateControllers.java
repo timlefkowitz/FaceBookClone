@@ -63,7 +63,7 @@ public class CreateControllers {
 
     // User Sign Up
 
-    @GetMapping("users/sign-up.html")
+    @GetMapping("users/sign-up")
     public String Signup(Model model)
     {
         model.addAttribute("user", new user());
@@ -71,7 +71,7 @@ public class CreateControllers {
         return"users/sign-up";
     }
 
-    @PostMapping("users/sign-up.html")
+    @PostMapping("users/sign-up")
     public String addANewUser(@RequestParam(name="username") String username,
                                @RequestParam(name="email") String email,
                               @RequestParam(name="password") String password,
@@ -87,8 +87,11 @@ public class CreateControllers {
 
     ){
 
+
+
         user n = new user();
         String hash = passwordEncoder.encode(password);
+
         n.setPassword(hash);
         n.setUsername(username);
         n.setEmail(email);
@@ -98,6 +101,10 @@ public class CreateControllers {
         n.setMobile(mobilenumber);
         n.setStatus(status);
         n.setProfile(profile);
+
+//        if(imgPath.contains("stashFileStackURL"){
+//
+//        }
         n.setImgPath(imgPath);
         n.setOriginalavatar(originalavatar);
         usersDao.save(n);
@@ -118,7 +125,8 @@ public class CreateControllers {
     @PostMapping("/post")
     public String addAnewUserPost(@RequestParam(name="title") String title,
                                   @RequestParam(name="body") String description,
-                                  @RequestParam(name="imgPath") String imgPath
+                                  @RequestParam(name="imgPath") String imgPath,
+                                  @RequestParam(name="postOwner") user postOwner
 
 
     ){
@@ -127,6 +135,7 @@ public class CreateControllers {
 
         usersPost n = new usersPost();
         n.setImgPath(imgPath);
+        n.setOwner(user);
         n.setTitle(title);
         n.setBody(description);
         usersPost.save(n);
@@ -200,29 +209,6 @@ public class CreateControllers {
 
 
 
-// Add a Friend
-
-    // Add a Frined
-
-    @GetMapping("/add")
-    public String getaddfriend(Model model)
-    {
-        model.addAttribute("user", new user());
-        model.addAttribute("fileStackApi", fileStackApi);
-        return"addfriend";
-    }
-
-    @PostMapping("/add")
-    public String postaddfriend(@RequestParam(name="username") String username
-
-
-    ){
-
-        user n = new user();
-        n.setUsername(username);
-        usersDao.save(n);
-        return "redirect:/addfriend";
-    }
 
 
 
