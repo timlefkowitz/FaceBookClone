@@ -55,6 +55,10 @@ public class friendslist {
     // getters and setters
 
 
+    public void setOwnerUser(user ownerUser) {
+        this.ownerUser = ownerUser;
+    }
+
     public long getId() {
         return id;
     }

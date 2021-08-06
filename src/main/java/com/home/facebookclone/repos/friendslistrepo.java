@@ -12,11 +12,11 @@ import java.util.List;
 @Repository
 public interface friendslistrepo extends JpaRepository<friendslist, Long> {
 
-    @Query(value = "SELECT * FROM  FBclone.friendslist WHERE list_owner_id = ?1",  nativeQuery = true)
-    List<friendslist> findContactsByOwner_userId(long id);
-
-    @Query(value = "SELECT * FROM FBclone.friendslist WHERE added_user_id = ?1 AND list_owner_id = ?2", nativeQuery = true)
-    List<friendslist> findByOwner_userAndAdded_user_idExists(long added_user_id, long list_owner_id);
+//    @Query(value = "SELECT * FROM  FBclone.friendslist WHERE list_owner_id = ?1",  nativeQuery = true)
+//    List<friendslist> findContactsByOwner_userId(long id);
+//
+//    @Query(value = "SELECT * FROM FBclone.friendslist WHERE added_user_id = ?1 AND list_owner_id = ?2", nativeQuery = true)
+//    List<friendslist> findByOwner_userAndAdded_user_idExists(long added_user_id, long list_owner_id);
 
     List<friendslist> getByOwnerUser(user OwnerUser);
 

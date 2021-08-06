@@ -5,17 +5,15 @@ import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.user;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.friendslistrepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -29,6 +27,8 @@ public class friendsController {
     //    Wiring in FileStack   ///
 //    @Value("${filestack.api.key}")
 //    private String fileStackApi;
+
+
 
 
     //     Daos
@@ -52,21 +52,29 @@ public class friendsController {
 
 
     @PostMapping("/friends")
-    public String friendspage(Model view, HttpServletRequest request, @RequestParam(name="friendslistHidden") long addID)
+    @ResponseBody
+    public String friendspage()
     {
 
-        friendslist addFriend = new friendslist();
-        user addthisUserID = users.getById(addID);
-        user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        addFriend.setOwner_user(friendslistOwner);
-        addFriend.setAdded_user_id(addthisUserID);
-        friends.save(addFriend);
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        view.addAttribute("allusers", users.findAll());
-        view.addAttribute("friendslistHidden", friends.findContactsByOwner_userId(addID));
+        Collection<friendslist> addFriend = currentUser.getContactListOwner();
 
-        return"friends";
+        System.out.println("##########");
+        System.out.println(addFriend);
+        System.out.println("##########");
+
+//
+//        user addthisUserID = users.getById(addID);
+//
+//        addFriend.setOwner_user(friendslistOwner);
+//        addFriend.setAdded_user_id(addthisUserID);
+//        friends.save(addFriend);
+
+
+//        return"redirect:/friends";
+        return "test";
     }
 
     @GetMapping("/friends")
@@ -74,7 +82,7 @@ public class friendsController {
     {
 
         user FRIENDSLISTOWNER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long currentUser = FRIENDSLISTOWNER.getId();
+//        long currentUser = FRIENDSLISTOWNER.getId();
 
 
 
