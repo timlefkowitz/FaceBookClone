@@ -35,7 +35,7 @@ public class UserController {
 
 
     //    Wiring in FileStack
-    @Value("${filestack.api.key}")
+    @Value("${FSKEY}")
     private String fileStackApi;
 
 

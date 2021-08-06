@@ -24,7 +24,7 @@ public class AuthenticationController {
 
 
     //    Wiring in FileStack
-    @Value("${filestack.api.key}")
+    @Value("${FSKEY}")
     private String fileStackApi;
 
     @GetMapping("/")
