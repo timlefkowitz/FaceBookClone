@@ -101,10 +101,6 @@ public class CreateControllers {
         n.setMobile(mobilenumber);
         n.setStatus(status);
         n.setProfile(profile);
-
-//        if(imgPath.contains("stashFileStackURL"){
-//
-//        }
         n.setImgPath(imgPath);
         n.setOriginalavatar(originalavatar);
         usersDao.save(n);
@@ -125,8 +121,8 @@ public class CreateControllers {
     @PostMapping("/post")
     public String addAnewUserPost(@RequestParam(name="title") String title,
                                   @RequestParam(name="body") String description,
-                                  @RequestParam(name="imgPath") String imgPath,
-                                  @RequestParam(name="postOwner") user postOwner
+                                  @RequestParam(name="imgPath") String imgPath
+//                                  @RequestParam(name="postOwner") user postOwner
 
 
     ){

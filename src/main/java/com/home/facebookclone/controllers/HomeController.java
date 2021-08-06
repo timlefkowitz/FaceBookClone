@@ -42,11 +42,6 @@ public class HomeController {
     }
 
 
-
-
-
-
-
     //    Wiring in FileStack
     @Value("${FSKEY}")
     private String fileStackApi;
