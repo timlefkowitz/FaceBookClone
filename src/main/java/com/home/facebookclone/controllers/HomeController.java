@@ -46,15 +46,6 @@ public class HomeController {
 
 
 
-//    @GetMapping("/groups")
-//    public String groupspage(Model view)
-//    {
-//        view.addAttribute("allusers", userDao.findAll());
-//        view.addAttribute("allgroups", groupDao.findAll());
-//        view.addAttribute("allposts", postsRepo.findAll());
-//        return"groups";
-//    }
-
 
     //    Wiring in FileStack
     @Value("${filestack.api.key}")
@@ -62,27 +53,6 @@ public class HomeController {
 
 
     // Show Constructors
-
-//    @GetMapping("/UsersProfile")
-//    public String show(Model view){
-//        view.addAttribute("user", userDao.findAll());
-//        return"UsersProfile";
-//    }
-//
-//    @GetMapping("/UsersProfile/{id}")
-//    public String showById(@PathVariable Long id, Model view){
-//        view.addAttribute("user", userDao.getById(id));
-//        view.addAttribute("usersPost", postsRepo.getById(id));
-//        return "UsersProfile";
-//    }
-//
-
-
-
-
-
-
-
 
 
 }
