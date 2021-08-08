@@ -167,7 +167,7 @@
                 <span style="font-size:12px" th:text="${indifriend.getAdded_user_id().username}" id="userOwnerPost" th:href="@{indifriend.getAdded_user_id().username}"></span>
 
 
-            <button th:onclick="'/' + ${indifriend.getAdded_user_id().username}"></button>
+            <button th:onclick="${indifriend.getAdded_user_id().username}"></button>
 
 
 <!--            <script>-->
