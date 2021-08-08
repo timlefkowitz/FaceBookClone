@@ -92,9 +92,6 @@ public class friendsController {
 
         user FRIENDSLISTOWNER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        long currentUser = FRIENDSLISTOWNER.getId();
-
-
-
         List<friendslist> friendslistGen = friends.getByOwnerUser(FRIENDSLISTOWNER);
 
 
