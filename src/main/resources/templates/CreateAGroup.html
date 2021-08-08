@@ -50,6 +50,7 @@
 
 <body>
 
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -57,15 +58,10 @@
         <!-- Navbar brand -->
         <a class="navbar-brand me-2" href="">
             PHOTONS
-
-            <!--          <a>-->
-            <!--&lt;!&ndash;                  src=""&ndash;&gt;-->
-            <!--                  height="16"-->
-            <!--                  alt=""-->
-            <!--                  loading="lazy"-->
-            <!--                  style="margin-top: -1px;"-->
-            <!--          </a>-->
         </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <!-- Toggle button -->
         <button
@@ -81,42 +77,60 @@
         </button>
 
         <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <a class="nav-link" href="home">home</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="home">home</a>
+                    <a class="nav-link" href="groups">groups</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="friends">friends</a>
                 </li>
             </ul>
+
+
             <!-- Left links -->
 
             <div class="d-flex align-items-center">
-                <!--                <button type="button" class="btn btn-link px-3 me-2" href="index">-->
-                <!--                    Login-->
-                <!--                </button>-->
-                <!--                <button type="button" class="btn btn-primary me-3" href="signup">-->
-                <!--                    Sign up-->
-                <!--                </button>-->
-                <a
-                        class="btn btn-dark px-3"
-                        href="post"
-                        role="button"
-                >POST</a>
-                <ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a
+                                class="btn btn-dark px-3 material-icons-outlined"
+                                href="post"
+                                role="button">
+                            <i class="material-icons" style="font-size:14px;">create_new_folder</i>POST</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                                class="btn btn-dark px-3 material-icons-outlined"
+                                href="myprofile"
+                                role="button">
+
+                            <i class="material-icons" style="font-size:14px;">account_circle</i>
+                        </a>
+                    </li>
+
                     <!-- More links here... -->
-
-                    <form th:action="@{/logout}" th:method="post">
-                        <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-                    </form>
-
+                    <li class="nav-item">
+                        <form th:action="@{/logout}" th:method="post">
+                            <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                        </form>
+                    </li>
                 </ul>
+
+
+
             </div>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
-<!-- Navbar -->
+<!-- END OF NAVBAR     -->
+
 
 
 

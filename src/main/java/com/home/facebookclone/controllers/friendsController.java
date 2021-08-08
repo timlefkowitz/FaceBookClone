@@ -74,7 +74,7 @@ public class friendsController {
 
 
 //        return"redirect:/friends";
-        return "test";
+        return "redirect:/friends";
     }
 
     @GetMapping("/friends")
