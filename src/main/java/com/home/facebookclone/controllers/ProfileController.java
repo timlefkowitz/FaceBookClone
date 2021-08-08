@@ -80,23 +80,23 @@ public class ProfileController {
 
 
 
-    @RequestMapping(value="/myprofile")
-    public String myprofile(@PathVariable Long id, Model view, String username, String status, Principal principal){
-        view.addAttribute("myprofile", userDao.getById(id));
-        view.addAttribute("mygroups", groupDao.getById(id));
-        view.addAttribute("username", userDao.getByUsername(username));
-        view.addAttribute("usersPost", postsRepo.getById(id));
-        view.addAttribute("{id}+friends", userDao.getById(id));
-        view.addAttribute("myfriends", friendslistDao.getById(id));
-
-        String n = principal.getName();
-        view.addAttribute("myprofile", userDao.findByUsername(n));
-
-
-
-
-        return "myprofile";
-    }
+//    @RequestMapping(value="/myprofile")
+//    public String myprofile(@PathVariable Long id, Model view, String username, String status, Principal principal){
+//        view.addAttribute("myprofile", userDao.getById(id));
+//        view.addAttribute("mygroups", groupDao.getById(id));
+//        view.addAttribute("username", userDao.getByUsername(username));
+//        view.addAttribute("usersPost", postsRepo.getById(id));
+//        view.addAttribute("{id}+friends", userDao.getById(id));
+//        view.addAttribute("myfriends", friendslistDao.getById(id));
+//
+//        String n = principal.getName();
+//        view.addAttribute("myprofile", userDao.findByUsername(n));
+//
+//
+//
+//
+//        return "myprofile";
+//    }
 
     @GetMapping("/show/{id}")
     public String showById(@PathVariable long id,Model view){

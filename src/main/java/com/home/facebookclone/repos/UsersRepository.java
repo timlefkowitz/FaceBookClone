@@ -9,11 +9,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsersRepository extends JpaRepository<user, Long> {
 
-
-    user findByUsername(String userName);
+//
+//    user findByUsername(String userName);
     user getByUsername(String username);
     user getBycontactListOwner(String username);
 
 
-
+    user findByUsername(String username);
 }

@@ -21,6 +21,4 @@ public interface friendslistrepo extends JpaRepository<friendslist, Long> {
     List<friendslist> getByOwnerUser(user OwnerUser);
 
 
-
-
 }

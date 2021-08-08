@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Collection;
@@ -53,17 +54,25 @@ public class friendsController {
 
     @PostMapping("/friends")
     @ResponseBody
-    public String friendspage()
+    public String friendspage(@RequestParam(name = "addedUser") String addedUser)
     {
 
 
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user addthisUser = users.getByUsername(addedUser);
+        friendslist n = new friendslist();
+        n.setOwner_user(currentUser);
+        n.setAdded_user_id(addthisUser);
+        friends.save(n);
 
-        Collection<friendslist> addFriend = currentUser.getContactListOwner();
 
-        System.out.println("##########");
-        System.out.println(addFriend);
-        System.out.println("##########");
+//        Collection<friendslist> addFriend = currentUser.getContactListOwner();
+//
+//        System.out.println("##########");
+//        System.out.println(addFriend);
+//        System.out.println("##########");
+
+
 
 //
 //        user addthisUserID = users.getById(addID);
@@ -91,7 +100,7 @@ public class friendsController {
 
 
         System.out.println(friendslistGen.size());
-        view.addAttribute("allusers", friends.findAll());
+//        view.addAttribute("allusers", friends.findAll());
         view.addAttribute("friendslistHidden", friendslistGen);
 //        view.addAttribute("friendslistGen", friendslistGen);
 
