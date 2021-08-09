@@ -129,7 +129,7 @@ public class  user {
         this.originalavatar = originalavatar;
         this.BlogPost = BlogPost;
         this.contactListOwner = contactListOwner;
-        this.contactListEntity = contactListEntity;
+//        this.contactListEntity = contactListEntity;
 
     }
 
@@ -153,7 +153,7 @@ public class  user {
         this.originalavatar = originalavatar;
         this.BlogPost = BlogPost;
         this.contactListOwner = contactListOwner;
-        this.contactListEntity = contactListEntity;
+//        this.contactListEntity = contactListEntity;
 
     }
 
@@ -179,7 +179,7 @@ public class  user {
         originalavatar = copy.originalavatar;
         BlogPost = copy.BlogPost;
         contactListOwner = copy.contactListOwner;
-        contactListEntity = copy.contactListEntity;
+//        contactListEntity = copy.contactListEntity;
 
     }
 
@@ -316,14 +316,6 @@ public class  user {
 
     public void setContactListOwner(Collection<friendslist> contactListOwner) {
         this.contactListOwner = contactListOwner;
-    }
-
-    public Collection<friendslist> getContactListEntity() {
-        return contactListEntity;
-    }
-
-    public void setContactListEntity(Collection<friendslist> contactListEntity) {
-        this.contactListEntity = contactListEntity;
     }
 
     public boolean isAdmin() {
