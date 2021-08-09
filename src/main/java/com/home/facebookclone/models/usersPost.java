@@ -34,11 +34,11 @@ public class usersPost {
     //
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "owner")
     private user Owner;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "postOwner")
     private user postOwner;
 
 

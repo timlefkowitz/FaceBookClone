@@ -130,7 +130,10 @@ public class groupController {
 //        1. who is the current user??
         user currentUSER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        2. generate the current users groups
-        Collection<groups> groupslistGenerator = groupDao.getByGroupMember();
+
+//        2.1 get currentUsers username for groupOwnership
+        String currentUsersUsername = currentUSER.username;
+        Collection<groups> groupslistGenerator = groupDao.getByGroupMember(currentUsersUsername);
 //        3. Ok, I've already generated the current list. I need to come back to this. lets keep originzing'
         List<groupMember> groupMember = currentUSER.getGroupMember();
 //        4. addAttributes
