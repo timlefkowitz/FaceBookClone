@@ -61,7 +61,7 @@ public class friendsController {
         user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         user currentUser = users.getById(userInSession.getId());
         user addthisUser = users.getByUsername(addedUser);
-        friendslist n = new friendslist();
+//        friendslist n = new friendslist();
 
 //        userInSession.getContactListOwner();
         Collection<friendslist> currentUsersFriends = currentUser.getContactListOwner();
@@ -74,14 +74,6 @@ public class friendsController {
 
 
         Collection<friendslist> addFriend = userInSession.getContactListOwner();
-//
-//        System.out.println("##########");
-//        System.out.println(addFriend);
-//        System.out.println("##########");
-
-
-
-//
 //        user addthisUserID = users.getById(addID);
 //
 //        addFriend.setOwner_user(friendslistOwner);

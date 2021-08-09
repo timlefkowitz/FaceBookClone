@@ -1,15 +1,9 @@
 package com.home.facebookclone.controllers;
 
 
-import com.home.facebookclone.models.groupPost;
-import com.home.facebookclone.models.groups;
-import com.home.facebookclone.models.user;
-import com.home.facebookclone.models.usersPost;
-import com.home.facebookclone.repos.UsersPostRepo;
-import com.home.facebookclone.repos.UsersRepository;
+import com.home.facebookclone.models.*;
+import com.home.facebookclone.repos.*;
 
-import com.home.facebookclone.repos.groupPostRepo;
-import com.home.facebookclone.repos.groupRepo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,10 +27,13 @@ public class CreateControllers {
     private final PasswordEncoder passwordEncoder;
 
 
+    private final friendslistrepo friendslistrepoDao;
+
+
 //    private final groupPost groupPostDao;
 
 
-    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder) {
+    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao) {
 
         this.usersDao = usersDao;
         this.usersPost = usersPost;
@@ -49,6 +46,8 @@ public class CreateControllers {
 
 //        this.passwordEncoder = passwordEncoder;
         this.passwordEncoder = passwordEncoder;
+//        this.friendsDao = friendsDao;
+        this.friendslistrepoDao = friendslistrepoDao;
     }
 
 
@@ -90,6 +89,10 @@ public class CreateControllers {
 
 
         user n = new user();
+        user firstFriend = usersDao.getById(7l);
+        friendslist i = new friendslist();
+        i.setAdded_user_id(firstFriend);
+        friendslistrepoDao.save(i);
         String hash = passwordEncoder.encode(password);
 
         n.setPassword(hash);
@@ -115,6 +118,7 @@ public class CreateControllers {
 
         n.setImgPath(imgPath);
         n.setOriginalavatar(originalavatar);
+
         usersDao.save(n);
         return "redirect:/home";
     }
