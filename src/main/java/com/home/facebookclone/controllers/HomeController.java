@@ -1,3 +1,19 @@
+/*
+    FACEBOOK CLONE / PHOTONS / HELP TANK
+    A Spring MVC FRAME FOR A SOCIAL MEDIA PLATFORM
+    By Timothy Craig Lefkowitz and the help of Codeup!
+    Aug 9th 2021
+    Special Thanks to
+         Douglas Hirsh
+         Kenneth Howell
+         Samuel Moore
+         and everyone at Codeup
+
+
+ */
+
+
+
 package com.home.facebookclone.controllers;
 
 
@@ -23,7 +39,7 @@ public class HomeController {
 
 
 
-
+    // Constructor
 
     public HomeController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo) {
         this.userDao = userDao;

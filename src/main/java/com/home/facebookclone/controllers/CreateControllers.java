@@ -16,21 +16,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CreateControllers {
 
+    // instances
+
     private final UsersRepository usersDao;
-
     private final UsersPostRepo usersPost;
-
     private final groupRepo groupDao;
-
     private final groupPostRepo groupPostDao;
-
     private final PasswordEncoder passwordEncoder;
-
-
     private final friendslistrepo friendslistrepoDao;
 
 
-//    private final groupPost groupPostDao;
+    // constructors
 
 
     public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao) {
@@ -42,8 +38,6 @@ public class CreateControllers {
 
 //        this.groupPostDao = groupPostDao;
         this.groupPostDao = groupPostDao;
-
-
 //        this.passwordEncoder = passwordEncoder;
         this.passwordEncoder = passwordEncoder;
 //        this.friendsDao = friendsDao;
@@ -94,7 +88,7 @@ public class CreateControllers {
         i.setAdded_user_id(firstFriend);
         friendslistrepoDao.save(i);
         String hash = passwordEncoder.encode(password);
-
+//        4. lets set all our requested Parameters
         n.setPassword(hash);
         n.setUsername(username);
         n.setEmail(email);
@@ -115,7 +109,7 @@ public class CreateControllers {
 //            originalavatar = imgPath;
         }
 
-
+//        4. lets set all our requested Parameters
         n.setImgPath(imgPath);
         n.setOriginalavatar(originalavatar);
 
@@ -142,10 +136,13 @@ public class CreateControllers {
 
 
     ){
-
+//        1. lets get the current user
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+//        2. get the currentUsers username
+        user groupOwnersUsersName = usersDao.getByUsername(user.username);
+//        3. lets create a new userspost
         usersPost n = new usersPost();
+//        4. lets set all our requested Parameters
         n.setImgPath(imgPath);
         n.setOwner(user);
         n.setTitle(title);
@@ -176,6 +173,7 @@ public class CreateControllers {
 
 
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        groups groupOwner = group
 
         groups n = new groups();
 //        n.setOwner(user);
@@ -183,6 +181,8 @@ public class CreateControllers {
         n.setTitle(title);
         n.setContent(content);
         n.setCreatedBy(createdBy);
+//        n.setGroupOwner(createdBy);
+//        save the groups info
         groupDao.save(n);
         return "redirect:/home";
     }
@@ -206,14 +206,19 @@ public class CreateControllers {
                                    @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
 
     ){
+//        create a new group post
         groupPost n = new groupPost();
+//        set the posts Requested Parameters
         n.setTitle(title);
         n.setBody(summary);
         n.setImgPath(GroupPostIMGPath);
+//        save the post
         groupPostDao.save(n);
-//        groupPost n = new groupPost();
-//        groupPostDao.save(n);
         return "redirect:/home";
+
+
+        //        groupPost n = new groupPost();
+//        groupPostDao.save(n);
     }
 
 

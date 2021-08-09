@@ -29,7 +29,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Controller
-public class groupController {
+public class GroupController {
 
     // Daos
 
@@ -45,7 +45,7 @@ public class groupController {
 
 
 
-    public groupController(UsersRepository userDao, groupRepo groupDao, groupPostRepo groupPostDao, UsersPostRepo postsDao) {
+    public GroupController(UsersRepository userDao, groupRepo groupDao, groupPostRepo groupPostDao, UsersPostRepo postsDao) {
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.groupPostDao = groupPostDao;
@@ -105,14 +105,7 @@ public class groupController {
 //        n.setOwner_user(userInSession);
 //        n.setAdded_user_id(addthisUser);
 
-
-
-
-
-
 //        Collection<friendslist> addFriend = userInSession.getContactListOwner();
-
-
 //        user addthisUserID = users.getById(addID);
 //
 //        addFriend.setOwner_user(friendslistOwner);

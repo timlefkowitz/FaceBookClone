@@ -26,7 +26,7 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
     private friendslistrepo friends;
 
-
+//        Constructor
     public UserController(UsersRepository users, PasswordEncoder passwordEncoder, friendslistrepo friends) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
@@ -55,12 +55,5 @@ public class UserController {
         users.save(user);
         return "redirect:/home";
     }
-
-//        Friends
-
-
-
-
-
 
 }

@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface groupPostRepo extends JpaRepository<groupPost, Long> {
-//
+
+
+//    coming back to this in the future
 //    user findByUsername(String userName);
 //    user getByUsername(String username);
 //    groups findByGroupName(String title);

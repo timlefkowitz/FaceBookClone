@@ -21,14 +21,12 @@ public class comment {
 
 
     /// insert
-
     public comment(String body, user commentOwner, user postOwner, user groupOwner) {
         this.body = body;
     }
 
 
     /// update
-
     public comment(long id, String body, user commentOwner, user postOwner, user groupOwner) {
         this.id = id;
         this.body = body;
@@ -36,7 +34,6 @@ public class comment {
 
 
     //  copy
-
     public comment(comment copy)
     {
         id = copy.id;
@@ -45,8 +42,6 @@ public class comment {
 
 
     /// Getters and setters
-
-
     public long getId() {
         return id;
     }

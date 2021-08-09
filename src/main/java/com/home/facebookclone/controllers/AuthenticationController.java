@@ -1,3 +1,20 @@
+/*
+    FACEBOOK CLONE / PHOTONS / HELP TANK
+    A Spring MVC FRAME FOR A SOCIAL MEDIA PLATFORM
+    By Timothy Craig Lefkowitz and the help of Codeup!
+    Aug 9th 2021
+    Special Thanks to
+         Douglas Hirsh
+         Kenneth Howell
+         Samuel Moore
+         and everyone at Codeup
+
+
+         Authentication Controller
+
+
+ */
+
 package com.home.facebookclone.controllers;
 
 import com.home.facebookclone.repos.UsersPostRepo;
@@ -16,16 +33,13 @@ public class AuthenticationController {
     private final groupRepo groupDao;
     private final UsersPostRepo postsRepo;
 
-    public AuthenticationController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo) {
-        this.userDao = userDao;
-        this.groupDao = groupDao;
-        this.postsRepo = postsRepo;
-    }
 
 
     //    Wiring in FileStack
     @Value("${FSKEY}")
     private String fileStackApi;
+
+
 
     @GetMapping("/")
     public String landingPage(Model view)
@@ -49,6 +63,16 @@ public class AuthenticationController {
     public String showLoginForm() {
         return "users/login";
     }
+
+
+    public AuthenticationController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo) {
+        this.userDao = userDao;
+        this.groupDao = groupDao;
+        this.postsRepo = postsRepo;
+    }
+
+
+
 //    @GetMapping("/login")
 //    public String showLoginForm() {
 //        return "users/login";
