@@ -53,12 +53,12 @@ public class friendsController {
 
 
     @PostMapping("/friends")
-//    @ResponseBody
     public String friendspage(@RequestParam(name = "addedUser") String addedUser)
     {
 
 
         user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         user currentUser = users.getById(userInSession.getId());
         user addthisUser = users.getByUsername(addedUser);
 //        friendslist n = new friendslist();
@@ -70,10 +70,12 @@ public class friendsController {
 //        n.setAdded_user_id(addthisUser);
         currentUser.setContactListOwner(currentUsersFriends);
         users.save(currentUser);
-//        friends.save(n);
+
 
 
         Collection<friendslist> addFriend = userInSession.getContactListOwner();
+
+
 //        user addthisUserID = users.getById(addID);
 //
 //        addFriend.setOwner_user(friendslistOwner);
@@ -90,15 +92,14 @@ public class friendsController {
     {
 
         user FRIENDSLISTOWNER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        long currentUser = FRIENDSLISTOWNER.getId();
-        List<friendslist> friendslistGen = friends.getByOwnerUser(FRIENDSLISTOWNER);
+
+        Collection<friendslist> friendslistGen = friends.getByOwnerUser(FRIENDSLISTOWNER);
 
 
 
         System.out.println(friendslistGen.size());
-//        view.addAttribute("allusers", friends.findAll());
         view.addAttribute("friendslistHidden", friendslistGen);
-//        view.addAttribute("friendslistGen", friendslistGen);
+
 
 
 
@@ -106,28 +107,7 @@ public class friendsController {
         return "friends";
     }
 
-    // Add a Friend
 
-    // Add a Frined
-
-//    @GetMapping("/add")
-//    public String getaddfriend(Model model)
-//    {
-//        model.addAttribute("user", new user());
-//        return"addfriend";
-//    }
-//
-//    @PostMapping("/add")
-//    public String postaddfriend(@RequestParam(name="username") String username
-//
-//
-//    ){
-//
-//        user n = new user();
-//        n.setUsername(username);
-//        usersDao.save(n);
-//        return "redirect:/addfriend";
-//    }
 
 
 }

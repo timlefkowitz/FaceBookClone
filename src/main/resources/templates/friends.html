@@ -161,13 +161,13 @@
 <!--            <h4 style="align-items: center" th:text="${friendslistGen.added_user_id}"></h4>-->
 <!--            <h6 style="align-items: center" th:text="${friendslistGen.getAdded_user_id()}"></h6>-->
 
-               <img th:src="${indifriend.getOwnerUser().originalavatar}" style="height: 20px; width: 20px;">
+               <img th:src="${indifriend.getAdded_user_id().imgPath}" style="height: 20px; width: 20px;">
 
                 <a th:href="'/' + ${indifriend.getAdded_user_id().username}">test</a>
                 <span style="font-size:12px" th:text="${indifriend.getAdded_user_id().username}" id="userOwnerPost" th:href="@{indifriend.getAdded_user_id().username}"></span>
 
 
-            <button th:onclick="${indifriend.getAdded_user_id().username}"></button>
+<!--            <button th:onclick="${indifriend.getAdded_user_id().username}"></button>-->
 
 
 <!--            <script>-->
