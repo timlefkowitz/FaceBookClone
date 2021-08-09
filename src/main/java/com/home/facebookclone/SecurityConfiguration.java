@@ -64,6 +64,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "UsersProfile",
                         "/post",
                         "/{username}",
+                        "/home",
                         "/groups"/// maybe anyone can see usersprofiles but not post
 
                 )

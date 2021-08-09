@@ -160,7 +160,7 @@
 
 
 <!--      USERS POSTS DIV   -->
-<div id="mainforpost" class="col-lg-9" th:each="usersPost : ${allposts}">
+<div id="mainforpost" class="col-lg-9" th:each="usersPost : ${allposts}" style="align-items: center; align-content: center;">
 
             <!--              UserPost        style="max-height: 400px;      -->
             <div class="container userPost" style="height:100%">
@@ -169,20 +169,17 @@
                 <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
 
-                                    <img th:src="${usersPost.imgPath}" style="height: 60vh; width: 60vh;">
-                                    <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
-                                    <p style="align-items: center" th:text="${usersPost.body}"></p>
+                    <img th:src="${usersPost.imgPath}" style="height: 60vh; width: 60vh;">
+                    <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
+                    <p style="align-items: center" th:text="${usersPost.body}"></p>
 
 
 
-                                        <img th:src="${usersPost.getOwner().imgPath}" style="height: 32px; width: 32px;">
-                                        <h6 style="align-items: center" th:text="${usersPost.getOwner().username}"></h6></a>
+                    <!--                    <img th:src="${usersPost.getOwnerUser().originalavatar}" style="height: 20px; width: 20px;">-->
 
-
-<!--                                        <form>-->
-<!--                                            <input type="hidden" name="user_id" value="${user.id}" style="width: 20px">-->
-<!--                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">-->
-<!--                                        </form>-->
+                    <a th:href="'/' + ${usersPost.getOwner().username}">
+                        <img th:src="${usersPost.getOwner().imgPath}" style="height: 32px; width: 32px;">
+                        <h6 style="align-items: center" th:text="${usersPost.getOwner().username}"></h6></a>
 
 
                 </div>
