@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <!--/*-->
 <!--FACEBOOK CLONE / PHOTONS / HELP TANK-->
 <!--A Spring MVC FRAME FOR A SOCIAL MEDIA PLATFORM-->
@@ -12,8 +15,6 @@
 
 <!--*/-->
 
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
 
 <head>
@@ -174,9 +175,6 @@
 
 
 
-<!--                    <img th:src="${usersPost.getOwnerUser().originalavatar}" style="height: 20px; width: 20px;">-->
-
-                                        <a th:href="'/' + ${usersPost.getOwner().username}">
                                         <img th:src="${usersPost.getOwner().imgPath}" style="height: 32px; width: 32px;">
                                         <h6 style="align-items: center" th:text="${usersPost.getOwner().username}"></h6></a>
 
