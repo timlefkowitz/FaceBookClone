@@ -1,9 +1,11 @@
 package com.home.facebookclone.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name="groupMember")
@@ -25,6 +27,11 @@ public class groupMember {
     @ManyToOne
     @JoinColumn(name = "groupMember_id")
     private groups groupMember;
+
+
+    @ManyToOne
+    @JoinColumn(name = "groupOWner")
+    public user groupOwner;
 
 
     //insert

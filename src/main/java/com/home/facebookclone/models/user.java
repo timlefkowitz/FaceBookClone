@@ -84,13 +84,13 @@ public class  user {
 
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Owner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "postOwner")
     @JsonBackReference
     private List<usersPost> BlogPost;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
     @JsonBackReference
-    private List<groups> groupOwner;
+    private Collection<groups> groupOwner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
     @JsonBackReference
@@ -98,11 +98,15 @@ public class  user {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
     @JsonBackReference
-    private List<groupComment> groupComment;
+    private Collection<groupComment> groupComment;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerUser")
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
+
+    @OneToMany
+    @JoinColumn(name = "groupOWner")
+    public user groupOwner;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id", fetch = FetchType.EAGER)
 //    @JsonBackReference
