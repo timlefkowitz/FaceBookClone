@@ -7,8 +7,6 @@ package com.home.facebookclone.controllers;
 
  */
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.groupMember;
 import com.home.facebookclone.models.groups;
 import com.home.facebookclone.models.user;
@@ -23,8 +21,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
 import java.util.Collection;
 import java.util.List;
 
@@ -42,15 +38,15 @@ public class GroupController {
 
 
     // Blank
-
-
-
-    public GroupController(UsersRepository userDao, groupRepo groupDao, groupPostRepo groupPostDao, UsersPostRepo postsDao) {
+    public GroupController(UsersRepository userDao, groupRepo groupDao, groupPostRepo groupPostDao, UsersPostRepo postsDao){
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.groupPostDao = groupPostDao;
+
         this.postsDao = postsDao;
     }
+
+
 
     @PostMapping("/groups")
     public String groupsAndgroupMembers(@RequestParam(name = "addedUser") String addedUser,
@@ -118,7 +114,7 @@ public class GroupController {
     }
 
     @GetMapping("/groups")
-    public String groupsHomeView(Model view, @RequestParam(name = "currentGroups") String currentGroup)
+    public String groupsHomeView(Model view)
     {
 //        1. who is the current user??
         user currentUSER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -130,7 +126,9 @@ public class GroupController {
 //        3. Ok, I've already generated the current list. I need to come back to this. lets keep originzing'
         List<groupMember> groupMember = currentUSER.getGroupMember();
 //        4. addAttributes
-        view.addAttribute("friendslist", groupslistGenerator);
+//        view.addAttribute("allgroups", groupslistGenerator);
+        view.addAttribute("allgroups", groupDao.findAll());
+
 
 
 
@@ -139,7 +137,7 @@ public class GroupController {
 
 
 //        System Prints
-        System.out.println(groupMember);
+//        System.out.println(groupMember);
 
 //        I believe from here I just need an addAttribute
 //        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
@@ -147,19 +145,6 @@ public class GroupController {
 //        view.addAttribute("friendslist", friendslistGen);
 
 //        Collection<friendslist> friendslistGen = groups.getByGroupOwner(groupOwner);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         return "groups";

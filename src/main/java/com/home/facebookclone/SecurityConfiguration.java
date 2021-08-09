@@ -58,6 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/groupcreation", // only authenticated users can edit ads
                         "groupcreation",
                         "groups",
+                        "/groups",
                         "UserPostingForm",
                         "UsersHome",
                         "/UsersHome",
