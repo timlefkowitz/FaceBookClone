@@ -96,7 +96,6 @@ public class friendsController {
         Collection<friendslist> friendslistGen = friends.getByOwnerUser(FRIENDSLISTOWNER);
 
 
-
         System.out.println(friendslistGen.size());
         view.addAttribute("friendslist", friendslistGen);
 

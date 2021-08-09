@@ -153,5 +153,35 @@ public class groups {
         this.groupavatar = groupavatar;
     }
 
+    public List<com.home.facebookclone.models.groupPost> getGroupPost() {
+        return groupPost;
+    }
 
+    public void setGroupPost(List<com.home.facebookclone.models.groupPost> groupPost) {
+        this.groupPost = groupPost;
+    }
+
+    public groups getGroupOwner() {
+        return groupOwner;
+    }
+
+    public void setGroupOwner(groups groupOwner) {
+        this.groupOwner = groupOwner;
+    }
+
+    public groups getGroupComment() {
+        return groupComment;
+    }
+
+    public void setGroupComment(groups groupComment) {
+        this.groupComment = groupComment;
+    }
+
+    public groups getGroupMember() {
+        return groupMember;
+    }
+
+    public void setGroupMember(groups groupMember) {
+        this.groupMember = groupMember;
+    }
 }
