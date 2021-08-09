@@ -37,6 +37,10 @@ public class usersPost {
     @JoinColumn(name = "user_id")
     private user Owner;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private user postOwner;
+
 
     
 

@@ -104,9 +104,9 @@ public class  user {
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
 
-    @OneToMany
-    @JoinColumn(name = "groupOWner")
-    public user groupOwner;
+//    @OneToMany
+//    @JoinColumn(name = "groupOWner")
+//    public List<groups> groupOwner;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id", fetch = FetchType.EAGER)
 //    @JsonBackReference
@@ -330,7 +330,7 @@ public class  user {
         isAdmin = admin;
     }
 
-    public List<groups> getGroupOwner() {
+    public Collection<groups> getGroupOwner() {
         return groupOwner;
     }
 
@@ -346,7 +346,7 @@ public class  user {
         this.groupMember = groupMember;
     }
 
-    public List<com.home.facebookclone.models.groupComment> getGroupComment() {
+    public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {
         return groupComment;
     }
 

@@ -7,6 +7,7 @@ package com.home.facebookclone.controllers;
 
  */
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.groupMember;
 import com.home.facebookclone.models.groups;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 import java.util.List;
 
@@ -35,6 +38,9 @@ public class groupController {
     private final groupPostRepo groupPostDao;
     private final UsersPostRepo postsDao;
 
+
+
+
     // Blank
 
 
@@ -47,32 +53,64 @@ public class groupController {
     }
 
     @PostMapping("/groups")
-    public String groupsPage(@RequestParam(name = "addedUser") String addedUser,
+    public String groupsAndgroupMembers(@RequestParam(name = "addedUser") String addedUser,
                              @RequestParam(name = "currentGroup") String currentGroup
     )
     {
 
-
+//        1. generate the user
         user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        user currentUser = userDao.getById(userInSession.getId());
-        user addthisUser = userDao.getByUsername(addedUser);
-        groups group = groupDao.getByTitle(currentGroup);
+//            -- Define currentUser and get by their username ((username)) < Check It out get by username!!
+        user currentUser = userDao.getByUsername(addedUser);
 
+
+//        2. generate the list of group members
+        List<groupMember> currentgroups = currentUser.getGroupMember();
+
+
+//        3. generate what the current Groups Name is
+        groups currentGroupsName = groupDao.getByTitle(currentGroup);
+
+
+//        4. Create a new object of group member <<<< this needs to be moved where groups are created |||||
+        currentgroups.add(new groupMember(userInSession));
+
+//        5.  add new user to group
+        currentUser.setGroupMember((List<groupMember>) currentGroupsName);
+        groupDao.save(currentGroupsName);
+
+
+
+
+
+//        APPLICATION WRAP UP / ORGINIZE TEMPLATE // BY TIMOTHY LEFKOWITZ , SAMUEL M, KENNETH HOWELL, DOUGLAS HIRSH THANK YOU
+
+//        1. generate the user
+//        2. generate the list of group members
+//        3. generate what the current Groups Name is
+
+
+
+//        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+//        00.1 experiments and history
+//        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+
+
+//        user currentUser = userDao.getById(userInSession.getId());
 
 //        friendslist n = new friendslist();
 
 //        userInSession.getContactListOwner();
-        List<groupMember> currentgroups = currentUser.getGroupMember();
-        currentgroups.add(new groupMember(currentUser, group));
 //        n.setOwner_user(userInSession);
 //        n.setAdded_user_id(addthisUser);
-        currentUser.setContactListOwner(currentUsersFriends);
-        users.save(currentUser);
 
 
 
-        Collection<friendslist> addFriend = userInSession.getContactListOwner();
+
+
+
+//        Collection<friendslist> addFriend = userInSession.getContactListOwner();
 
 
 //        user addthisUserID = users.getById(addID);
@@ -87,16 +125,42 @@ public class groupController {
     }
 
     @GetMapping("/groups")
-    public String getFriends(Model view, @RequestParam(name = "currentGroup") String currentGroup)
+    public String groupsHomeView(Model view, @RequestParam(name = "currentGroups") String currentGroup)
     {
+//        1. who is the current user??
+        user currentUSER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        2. generate the current users groups
+        Collection<groups> groupslistGenerator = groupDao.getByGroupMember();
+//        3. Ok, I've already generated the current list. I need to come back to this. lets keep originzing'
+        List<groupMember> groupMember = currentUSER.getGroupMember();
+//        4. addAttributes
+        view.addAttribute("friendslist", groupslistGenerator);
 
-        user FRIENDSLISTOWNER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        Collection<friendslist> friendslistGen = friends.getByOwnerUser(FRIENDSLISTOWNER);
 
 
-        System.out.println(friendslistGen.size());
-        view.addAttribute("friendslist", friendslistGen);
+//        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+//        00.1 experiments and history
+
+
+//        System Prints
+        System.out.println(groupMember);
+
+//        I believe from here I just need an addAttribute
+//        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+
+//        view.addAttribute("friendslist", friendslistGen);
+
+//        Collection<friendslist> friendslistGen = groups.getByGroupOwner(groupOwner);
+
+
+
+
+
+
+
+
+
+
 
 
 

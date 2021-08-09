@@ -50,6 +50,9 @@ public class groupMember {
         this.groupMember = groupMember;
     }
 
+    public groupMember(user userInSession) {
+    }
+
 
     // getters and setters
 
@@ -76,5 +79,13 @@ public class groupMember {
 
     public void setGroupMember(groups groupMember) {
         this.groupMember = groupMember;
+    }
+
+    public user getGroupOwner() {
+        return groupOwner;
+    }
+
+    public void setGroupOwner(user groupOwner) {
+        this.groupOwner = groupOwner;
     }
 }
