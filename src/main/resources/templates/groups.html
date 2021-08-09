@@ -46,6 +46,12 @@
 
         }
 
+        #headercard {
+            padding:0;
+            margin:0;
+            background: linear-gradient(to right, #00AAFF, #00FF6c);
+        }
+
         .avatar {
             vertical-align: middle;
             width: 50px;
@@ -156,7 +162,8 @@
 
 <!--      Groups MAIN DIV   -->
 <div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">
-    <a style=" align-items: center; margin-top: 5%; margin-right: 25%; text-align: center" class="card" id="headercard" width="300px">All Groups</a>
+
+    <h5 style=" align-items: center; margin-top: 5%; margin-right: 25%; text-align: center" class="card" id="headercard" width="300px">All Groups</h5>
 
 
     <div id="mainforpost" class="col-lg-9" th:each="group : ${allgroups}">

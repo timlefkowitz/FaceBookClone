@@ -48,7 +48,7 @@ public class GroupController {
 
 
 
-    @PostMapping("/groups")
+    @PostMapping("/ADDgroups")
     public String groupsAndgroupMembers(@RequestParam(name = "addedUser") String addedUser,
                              @RequestParam(name = "currentGroup") String currentGroup
     )
@@ -117,15 +117,15 @@ public class GroupController {
     public String groupsHomeView(Model view)
     {
 //        1. who is the current user??
-        user currentUSER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        2. generate the current users groups
-
-//        2.1 get currentUsers username for groupOwnership
-        String currentUsersUsername = currentUSER.username;
-        Collection<groups> groupslistGenerator = groupDao.getByGroupMember(currentUsersUsername);
-//        3. Ok, I've already generated the current list. I need to come back to this. lets keep originzing'
-        List<groupMember> groupMember = currentUSER.getGroupMember();
-//        4. addAttributes
+//        user currentUSER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+////        2. generate the current users groups
+//
+////        2.1 get currentUsers username for groupOwnership
+//        String currentUsersUsername = currentUSER.username;
+//        Collection<groups> groupslistGenerator = groupDao.getByGroupMember(currentUsersUsername);
+////        3. Ok, I've already generated the current list. I need to come back to this. lets keep originzing'
+//        List<groupMember> groupMember = currentUSER.getGroupMember();
+////        4. addAttributes
 //        view.addAttribute("allgroups", groupslistGenerator);
         view.addAttribute("allgroups", groupDao.findAll());
 
