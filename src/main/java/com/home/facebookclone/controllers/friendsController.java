@@ -98,7 +98,7 @@ public class friendsController {
 
 
         System.out.println(friendslistGen.size());
-        view.addAttribute("friendslistHidden", friendslistGen);
+        view.addAttribute("friendslist", friendslistGen);
 
 
 

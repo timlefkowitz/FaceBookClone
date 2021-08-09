@@ -62,34 +62,37 @@
 
 <!--sec:authorize="isAuthenticated()-->
 <body>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
     <div class="container">
         <!-- Navbar brand -->
-        <a class="navbar-brand me-2" href="">
+        <a class="navbar-brand me-2" href="/home">
             PHOTONS
         </a>
-
-        <!-- Toggle button -->
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarButtonsExample"
-                aria-controls="navbarButtonsExample"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <i class="fas fa-bars"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Toggle button -->
+        <!--        <button-->
+        <!--                class="navbar-toggler"-->
+        <!--                type="button"-->
+        <!--                data-mdb-toggle="collapse"-->
+        <!--                data-mdb-target="#navbarButtonsExample"-->
+        <!--                aria-controls="navbarButtonsExample"-->
+        <!--                aria-expanded="false"-->
+        <!--                aria-label="Toggle navigation"-->
+        <!--        >-->
+        <!--            <i class="fas fa-bars"></i>-->
+        <!--        </button>-->
+
         <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <a class="nav-link" href="home">home</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="groups">groups</a>
                 </li>
@@ -112,13 +115,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a
-                                class="btn btn-dark px-3 material-icons-outlined"
-                                href="myprofile"
-                                role="button">
+                        <!--                         <a-->
+                        <!--                        class="btn btn-dark px-3 material-icons-outlined"-->
+                        <!--                        href="myprofile"-->
+                        <!--                        role="button">-->
 
-                            <i class="material-icons" style="font-size:14px;">account_circle</i>
-                        </a>
+                        <!--                             <i class="material-icons" style="font-size:14px;">account_circle</i>-->
+                        <!--                         </a>-->
                     </li>
 
                     <!-- More links here... -->
@@ -127,8 +130,10 @@
                             <button class="btn-link btn" style="margin-top: 8px">Logout</button>
                         </form>
                     </li>
-
                 </ul>
+
+
+
             </div>
         </div>
         <!-- Collapsible wrapper -->
@@ -142,12 +147,12 @@
 
 
 
-<!--      USERS POSTS DIV   -->
+<!--      FRIENDS MAIN DIV   -->
 <div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">
 <a style=" align-items: center; margin-top: 5%; margin-right: 25%; text-align: center" class="card" id="headercard" width="300px">friends</a>
 
 
-<div id="mainforpost" class="col-lg-9" th:each="indifriend : ${friendslistHidden}">
+<div id="mainforpost" class="col-lg-9" th:each="friend : ${friendslist}">
 
     <!--              UserPost        style="max-height: 400px;      -->
     <div class="card container userPost" style="height:100%">
@@ -156,25 +161,25 @@
         <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
 
-
+<!--                    EXPERIMENTS-->
 
 <!--            <h4 style="align-items: center" th:text="${friendslistGen.added_user_id}"></h4>-->
 <!--            <h6 style="align-items: center" th:text="${friendslistGen.getAdded_user_id()}"></h6>-->
 
-               <img th:src="${indifriend.getAdded_user_id().imgPath}" style="height: 20px; width: 20px;">
+<!--               <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 20px; width: 20px;">-->
 
-                <a th:href="'/' + ${indifriend.getAdded_user_id().username}">test</a>
-                <span style="font-size:12px" th:text="${indifriend.getAdded_user_id().username}" id="userOwnerPost" th:href="@{indifriend.getAdded_user_id().username}"></span>
-
+<!--                <a th:href="'/' + ${indifriend.getAdded_user_id().username}">test</a>-->
 
 <!--            <button th:onclick="${indifriend.getAdded_user_id().username}"></button>-->
-
 
 <!--            <script>-->
 <!--                $('#userOwnerPost').click(function(){-->
 <!--                    window.location = '${indifriend.getAdded_user_id().username}';-->
 <!--                });-->
 <!--            </script>-->
+
+
+            <span style="font-size:12px" th:text="${friend.getAdded_user_id().getUsername()}" id="userOwnerPost" th:href="@{friend.getAdded_user_id().username}"></span>
 
 
 
@@ -196,29 +201,11 @@
 
         </div>
         </div>
-        <!--               END OF USER POST-->
-
-
-
     </div>
 </div>
-</div>
-</div>
-</div>
+
+<!--               END OF FRIENDS DIV-->
 
 
-
-
-                <!--               END OF USER POST-->
-
-
-
-            </div>
-        </div>
-
-    </div>
-
-
-</div>
 </body>
 </html>
