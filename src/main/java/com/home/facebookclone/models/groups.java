@@ -53,7 +53,7 @@ public class groups {
 
     @ManyToOne
     @JoinColumn(name = "groupOwner_id")
-    private groups groupOwner;
+    private user groupOwner;
 
     @ManyToOne
     @JoinColumn(name = "groupComment")
@@ -164,11 +164,11 @@ public class groups {
         this.groupPost = groupPost;
     }
 
-    public groups getGroupOwner() {
+    public user getGroupOwner() {
         return groupOwner;
     }
 
-    public void setGroupOwner(groups groupOwner) {
+    public void setGroupOwner(user groupOwner) {
         this.groupOwner = groupOwner;
     }
 

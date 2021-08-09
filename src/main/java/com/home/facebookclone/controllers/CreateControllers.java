@@ -173,15 +173,13 @@ public class CreateControllers {
 
 
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        groups groupOwner = group
 
         groups n = new groups();
-//        n.setOwner(user);
         n.setSummary(summary);
         n.setTitle(title);
         n.setContent(content);
         n.setCreatedBy(createdBy);
-//        n.setGroupOwner(createdBy);
+        n.setGroupOwner(user);
 //        save the groups info
         groupDao.save(n);
         return "redirect:/home";

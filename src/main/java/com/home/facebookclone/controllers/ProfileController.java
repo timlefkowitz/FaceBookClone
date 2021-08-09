@@ -44,7 +44,10 @@ public class ProfileController {
         //adding featured post
 //        long featuredPost = (long) ( Math.random() * 2 + 1);
         view.addAttribute("user", userDao.getByUsername(username));
-        user featuredPostOwner = userDao.getByUsername(username);
+//        view.addAttribute("featuredPost", postsRepo.findAllByUsername(username));
+
+
+//        user featuredPostOwner = userDao.getByUsername(username);
 //        view.addAttribute("theFeaturedPost", postsRepo.findByOwner(featuredPostOwner));
 //        view.addAttribute("addfriend", addID);
         return "UsersProfile";

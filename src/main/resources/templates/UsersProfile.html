@@ -174,51 +174,64 @@
 
 
 
+<!--      &lt;!&ndash;      Featured Post DIV   &ndash;&gt;-->
+<!--      <div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">-->
+<!--        <h5 style=" align-items: center; text-align: center" class="card" id="headercard" width="300px">featured Post</h5>-->
+
+
+<!--        <div id="featuredPost" class="col-lg-9" th:each="post : ${featuredPost}">-->
+
+<!--          &lt;!&ndash;              UserPost        style="max-height: 400px;      &ndash;&gt;-->
+<!--          <div class="card container userPost" style="height:100%">-->
+
+<!--            &lt;!&ndash;          Start of posting div&ndash;&gt;-->
+<!--            <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">-->
 
 
 
 
-<!--      &lt;!&ndash;      FeaturedPost DIV   &ndash;&gt;-->
-<!--      <div id="featuredPost" class="col-lg-9" th:each="featuredPost : ${theFeaturedPost}">-->
-
-<!--        &lt;!&ndash;              UserPost        style="max-height: 400px;      &ndash;&gt;-->
-<!--        <div class="container userPost" style="height:100%">-->
-
-<!--          &lt;!&ndash;          Start of posting div&ndash;&gt;-->
-<!--          <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">-->
+<!--                <img th:src="${post}" style="height: 64px; width: 64px;">-->
+<!--                <span style="font-size:12px" th:text="${post}"></span>-->
 
 
-<!--            <img th:src="${featuredPost.}" style="height: 60vh; width: 60vh;">-->
-<!--&lt;!&ndash;            <h4 style="align-items: center" th:text="${}"></h4>&ndash;&gt;-->
-<!--&lt;!&ndash;            <p style="align-items: center" th:text="${}"></p>&ndash;&gt;-->
 
 
+
+
+
+<!--              &lt;!&ndash;            for adding a friend&ndash;&gt;-->
+<!--              <form th:method="post" th:action="@{/friends}">-->
+<!--                <input id="friendslistHidden" name="friendslistHidden"  type="hidden">-->
+<!--              </form>-->
+
+
+
+
+<!--              &lt;!&ndash;                                        <form>&ndash;&gt;-->
+<!--              &lt;!&ndash;                                            <input type="hidden" name="user_id" value="${user.id}" style="width: 20px">&ndash;&gt;-->
+<!--              &lt;!&ndash;                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">&ndash;&gt;-->
+<!--              &lt;!&ndash;                                        </form>&ndash;&gt;-->
+
+<!--            </div>-->
 <!--          </div>-->
-<!--          &lt;!&ndash;               END OF USER POST&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
 
 
 
-        </div>
+
+
+
+
+
+
+    </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-      <!--                                        <form>-->
-      <!--                                            <input type="hidden" name="user_id" value="${user.id}" style="width: 20px">-->
-      <!--                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">-->
-      <!--                                        </form>-->
-
-
-    </div>
-    <!--               END OF USER POST-->
-
-
-
-  </div>
-</div>
+<!--               END OF UserProfiles HOME   -->
 
 
 
