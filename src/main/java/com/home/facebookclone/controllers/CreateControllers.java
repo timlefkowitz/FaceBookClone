@@ -101,6 +101,18 @@ public class CreateControllers {
         n.setMobile(mobilenumber);
         n.setStatus(status);
         n.setProfile(profile);
+
+
+        System.out.println(originalavatar + " IS THIS WORKING?");
+        System.out.println(imgPath);
+        if (imgPath.isEmpty()){
+            imgPath = originalavatar;
+
+            System.out.println(imgPath + " ###");
+//            originalavatar = imgPath;
+        }
+
+
         n.setImgPath(imgPath);
         n.setOriginalavatar(originalavatar);
         usersDao.save(n);

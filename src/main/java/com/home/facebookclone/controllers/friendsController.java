@@ -53,20 +53,27 @@ public class friendsController {
 
 
     @PostMapping("/friends")
-    @ResponseBody
+//    @ResponseBody
     public String friendspage(@RequestParam(name = "addedUser") String addedUser)
     {
 
 
-        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user currentUser = users.getById(userInSession.getId());
         user addthisUser = users.getByUsername(addedUser);
         friendslist n = new friendslist();
-        n.setOwner_user(currentUser);
-        n.setAdded_user_id(addthisUser);
-        friends.save(n);
+
+//        userInSession.getContactListOwner();
+        Collection<friendslist> currentUsersFriends = currentUser.getContactListOwner();
+        currentUsersFriends.add(new friendslist(currentUser, addthisUser));
+//        n.setOwner_user(userInSession);
+//        n.setAdded_user_id(addthisUser);
+        currentUser.setContactListOwner(currentUsersFriends);
+        users.save(currentUser);
+//        friends.save(n);
 
 
-//        Collection<friendslist> addFriend = currentUser.getContactListOwner();
+        Collection<friendslist> addFriend = userInSession.getContactListOwner();
 //
 //        System.out.println("##########");
 //        System.out.println(addFriend);
