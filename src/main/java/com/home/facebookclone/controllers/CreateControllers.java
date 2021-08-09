@@ -105,7 +105,7 @@ public class CreateControllers {
 
         System.out.println(originalavatar + " IS THIS WORKING?");
         System.out.println(imgPath);
-        if (imgPath.isEmpty()){
+        if (imgPath == ""){
             imgPath = originalavatar;
 
             System.out.println(imgPath + " ###");

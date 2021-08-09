@@ -104,9 +104,9 @@ public class  user {
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id", fetch = FetchType.EAGER)
-    @JsonBackReference
-    private Collection<friendslist> contactListEntity;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id", fetch = FetchType.EAGER)
+//    @JsonBackReference
+//    private Collection<friendslist> contactListEntity;
 
 
 
