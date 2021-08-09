@@ -93,6 +93,9 @@ public class groups {
 //        this.groupOwner = owner;
     }
 
+    public groups(groups groupMember, user addthisUser) {
+    }
+
 
     // Getters and Setters
 

@@ -8,6 +8,7 @@ package com.home.facebookclone.controllers;
  */
 
 import com.home.facebookclone.models.friendslist;
+import com.home.facebookclone.models.groupMember;
 import com.home.facebookclone.models.groups;
 import com.home.facebookclone.models.user;
 import com.home.facebookclone.repos.UsersPostRepo;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 public class groupController {
@@ -55,14 +57,14 @@ public class groupController {
 
         user currentUser = userDao.getById(userInSession.getId());
         user addthisUser = userDao.getByUsername(addedUser);
-        groups groupThatUserWillBeAddedTo = groupDao.getByTitle(currentGroup);
+        groups group = groupDao.getByTitle(currentGroup);
 
 
 //        friendslist n = new friendslist();
 
 //        userInSession.getContactListOwner();
-        Collection<groups> currentgroups = currentUser.getGroupMember();
-        currentUsersFriends.add(new friendslist(currentUser, addthisUser));
+        List<groupMember> currentgroups = currentUser.getGroupMember();
+        currentgroups.add(new groupMember(currentUser, group));
 //        n.setOwner_user(userInSession);
 //        n.setAdded_user_id(addthisUser);
         currentUser.setContactListOwner(currentUsersFriends);
