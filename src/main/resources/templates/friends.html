@@ -196,8 +196,9 @@
 <!--                });-->
 <!--            </script>-->
 
-
-            <span style="font-size:12px" th:text="${friend.getAdded_user_id().getUsername()}" id="userOwnerPost" th:href="@{friend.getAdded_user_id().username}"></span>
+            <a th:href="'/' + ${friend.getAdded_user_id().username}">
+                <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 64px; width: 64px;">
+                <span style="font-size:12px" th:text="${friend.getAdded_user_id().getUsername()}" id="userOwnerPost" th:href="@{friend.getAdded_user_id().username}"></span></a>
 
 
 
