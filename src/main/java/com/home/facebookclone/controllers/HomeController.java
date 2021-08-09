@@ -52,7 +52,7 @@ public class HomeController {
     public String home(Model view)
     {
         view.addAttribute("allusers", userDao.findAll());
-        view.addAttribute("allgroups", groupDao.findAll());
+//        view.addAttribute("allgroups", groupDao.findAll());
         view.addAttribute("allposts", postsRepo.findAll());
         return"home";
     }
