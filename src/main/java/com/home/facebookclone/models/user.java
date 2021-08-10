@@ -102,10 +102,8 @@ public class  user {
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hashedPostOwner")
-    @JsonBackReference
-    private Collection<Token> tokenOwner;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tokenOwner")
+    private Collection<Token> tokens;
 
 //    @OneToMany
 //    @JoinColumn(name = "groupOWner")
@@ -120,51 +118,31 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, List friendslist, Boolean isAdmin, String location, String originalavatar, List<usersPost> BlogPost, Collection<friendslist> contactListOwner, Collection<friendslist> contactListEntity) {
-        this.firstname = firstName;
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> tokens) {
+        this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
-//        this.isAdmin = isAdmin;
         this.profile = profile;
         this.mobile = mobile;
         this.status = status;
         this.imgPath = imgPath;
-//        this.location = location;
         this.originalavatar = originalavatar;
-        this.BlogPost = BlogPost;
+        this.isAdmin = isAdmin;
+        BlogPost = blogPost;
+        this.groupOwner = groupOwner;
+        this.groupMember = groupMember;
+        this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
-//        this.contactListEntity = contactListEntity;
-
+        this.tokens = tokens;
     }
 
 
     // update Constructor
 
-    public user(long id, String firstName, String middleName, String lastName, String username, String email, String password, String intro, String profile, long mobile, String status, String imgPath, Boolean isAdmin, String location, List friendslist, String originalavatar, List<usersPost> BlogPost, Collection<friendslist> contactListOwner, Collection<friendslist> contactListEntity) {
-        this.id = id;
-        this.firstname = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-//        this.isAdmin = isAdmin;
-        this.profile = profile;
-        this.mobile = mobile;
-        this.status = status;
-        this.imgPath = imgPath;
-//        this.location = location;
-        this.originalavatar = originalavatar;
-        this.BlogPost = BlogPost;
-        this.contactListOwner = contactListOwner;
-//        this.contactListEntity = contactListEntity;
-
-    }
-
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> tokenOwner) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> tokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -183,7 +161,7 @@ public class  user {
         this.groupMember = groupMember;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
-        this.tokenOwner = tokenOwner;
+        this.tokens = tokens;
     }
 
 
@@ -202,12 +180,10 @@ public class  user {
         mobile = copy.mobile;
         status = copy.status;
         imgPath = copy.imgPath;
-//        isAdmin = copy.isAdmin;
-//        location = copy.location;
         originalavatar = copy.originalavatar;
         BlogPost = copy.BlogPost;
         contactListOwner = copy.contactListOwner;
-//        contactListEntity = copy.contactListEntity;
+
 
     }
 
@@ -225,12 +201,12 @@ public class  user {
         this.id = id;
     }
 
-    public String getFirstName() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstname = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getMiddleName() {
@@ -253,8 +229,8 @@ public class  user {
         return username;
     }
 
-    public void setUsername(String userName) {
-        this.username = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -269,10 +245,9 @@ public class  user {
         return password;
     }
 
-    public void setPassword(String passwordHash) {
-        this.password = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
 
     public String getProfile() {
         return profile;
@@ -306,44 +281,12 @@ public class  user {
         this.imgPath = imgPath;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
     public String getOriginalavatar() {
         return originalavatar;
     }
 
     public void setOriginalavatar(String originalavatar) {
         this.originalavatar = originalavatar;
-    }
-
-    public List<usersPost> getOwner() {
-        return BlogPost;
-    }
-
-    public void setOwner(List<usersPost> owner) {
-        BlogPost = owner;
-    }
-
-    public List<usersPost> getBlogPost() {
-        return BlogPost;
-    }
-
-    public void setBlogPost(List<usersPost> blogPost) {
-        BlogPost = blogPost;
-    }
-
-    public Collection<friendslist> getContactListOwner() {
-        return contactListOwner;
-    }
-
-    public void setContactListOwner(Collection<friendslist> contactListOwner) {
-        this.contactListOwner = contactListOwner;
     }
 
     public boolean isAdmin() {
@@ -354,11 +297,19 @@ public class  user {
         isAdmin = admin;
     }
 
+    public List<usersPost> getBlogPost() {
+        return BlogPost;
+    }
+
+    public void setBlogPost(List<usersPost> blogPost) {
+        BlogPost = blogPost;
+    }
+
     public Collection<groups> getGroupOwner() {
         return groupOwner;
     }
 
-    public void setGroupOwner(List<groups> groupOwner) {
+    public void setGroupOwner(Collection<groups> groupOwner) {
         this.groupOwner = groupOwner;
     }
 
@@ -374,25 +325,24 @@ public class  user {
         return groupComment;
     }
 
-    public void setGroupComment(List<com.home.facebookclone.models.groupComment> groupComment) {
-        this.groupComment = groupComment;
-    }
-
-    public void setGroupOwner(Collection<groups> groupOwner) {
-        this.groupOwner = groupOwner;
-    }
-
     public void setGroupComment(Collection<com.home.facebookclone.models.groupComment> groupComment) {
         this.groupComment = groupComment;
     }
 
-    public Collection<Token> getHashedPostModelOwner() {
-        return tokenOwner;
+    public Collection<friendslist> getContactListOwner() {
+        return contactListOwner;
     }
 
-    public void setHashedPostModelOwner(Collection<Token> tokenOwner) {
-        this.tokenOwner = tokenOwner;
+    public void setContactListOwner(Collection<friendslist> contactListOwner) {
+        this.contactListOwner = contactListOwner;
     }
 
 
+    public Collection<Token> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(Collection<Token> tokens) {
+        this.tokens = tokens;
+    }
 }

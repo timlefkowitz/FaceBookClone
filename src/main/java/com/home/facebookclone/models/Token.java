@@ -20,11 +20,6 @@ public class Token {
     @Column(name = "id")
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name="hashedPostCollection")
-    @JsonManagedReference
-    private user hashedPostOwner;
-
     @Column
     private String hashedPostFinalString;
 
@@ -33,23 +28,31 @@ public class Token {
     @JsonManagedReference
     private String hashPostTitle;
 
-
-
+    @ManyToOne
+    @JoinColumn(name="token")
+    private user tokenOwner;
 
 
     // constructor
 
-    public Token(long id, user hashedPostOwner, String hashedPost) {
+    public Token(long id, user tokenOwner, String hashedPost) {
         this.id = id;
-        this.hashedPostOwner = hashedPostOwner;
+        this.tokenOwner = tokenOwner;
         this.hashedPostFinalString = hashedPost;
     }
 
     // update
 
-    public Token(user hashedPostOwner, String hashedPost) {
-        this.hashedPostOwner = hashedPostOwner;
+    public Token(user tokenOwner, String hashedPost) {
+        this.tokenOwner = tokenOwner;
         this.hashedPostFinalString = hashedPost;
+    }
+
+    public Token(long id, String hashedPostFinalString, String hashPostTitle, user tokenOwner) {
+        this.id = id;
+        this.hashedPostFinalString = hashedPostFinalString;
+        this.hashPostTitle = hashPostTitle;
+        this.tokenOwner = tokenOwner;
     }
 
 
@@ -64,19 +67,27 @@ public class Token {
         this.id = id;
     }
 
-    public user getHashedPostOwner() {
-        return hashedPostOwner;
-    }
-
-    public void setHashedPostOwner(user hashedPostOwner) {
-        this.hashedPostOwner = hashedPostOwner;
-    }
-
-    public String getHashedPost() {
+    public String getHashedPostFinalString() {
         return hashedPostFinalString;
     }
 
-    public void setHashedPost(String hashedPost) {
-        this.hashedPostFinalString = hashedPost;
+    public void setHashedPostFinalString(String hashedPostFinalString) {
+        this.hashedPostFinalString = hashedPostFinalString;
+    }
+
+    public String getHashPostTitle() {
+        return hashPostTitle;
+    }
+
+    public void setHashPostTitle(String hashPostTitle) {
+        this.hashPostTitle = hashPostTitle;
+    }
+
+    public user getTokenOwner() {
+        return tokenOwner;
+    }
+
+    public void setTokenOwner(user tokenOwner) {
+        this.tokenOwner = tokenOwner;
     }
 }

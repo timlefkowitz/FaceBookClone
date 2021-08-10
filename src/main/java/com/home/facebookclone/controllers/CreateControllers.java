@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collection;
+
 @Controller
 public class CreateControllers {
 
@@ -25,13 +27,14 @@ public class CreateControllers {
     private final groupPostRepo groupPostDao;
     private final PasswordEncoder passwordEncoder;
     private final friendslistrepo friendslistrepoDao;
+    private final tokenRepo tokenRepoDao;
 //    private final HashedPostRepo hashPostRepo;
 
 
     // constructors
 
 
-    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao, HashedPostRepo hashPostDao) {
+    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao, HashedPostRepo hashPostDao, tokenRepo tokenRepoDao) {
 
         this.usersDao = usersDao;
         this.usersPost = usersPost;
@@ -45,6 +48,7 @@ public class CreateControllers {
 //        this.friendsDao = friendsDao;
         this.friendslistrepoDao = friendslistrepoDao;
 //        this.hashPostRepo = hashPostDao;
+        this.tokenRepoDao = tokenRepoDao;
     }
 
 
@@ -104,7 +108,7 @@ public class CreateControllers {
         n.setPassword(hash);
         n.setUsername(username);
         n.setEmail(email);
-        n.setFirstName(firstname);
+        n.setFirstname(firstname);
         n.setMiddleName(middlename);
         n.setLastName(lastName);
         n.setMobile(mobilenumber);
@@ -160,15 +164,10 @@ public class CreateControllers {
 //        1. lets get the current user
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        2. get the currentUsers username
-        user groupOwnersUsersName = usersDao.getByUsername(user.username);
+        user username = usersDao.getByUsername(user.username);
 
 //        Collection <HashedPostRepo> hashedPostRepoCollection = user.getHashedPostModelOwner(groupOwnersUsersName);
 //        3. lets create a new userspost
-
-
-
-
-
 
 
         usersPost n = new usersPost();
@@ -180,8 +179,16 @@ public class CreateControllers {
         n.setBody(description);
         usersPost.save(n);
 
+        Collection<Token> tokens = user.getTokens();
         String PostToString = n.toString();
         String hash = passwordEncoder.encode(PostToString);
+
+        Token x = new Token();
+        x.setTokenOwner(username);
+        x.setHashedPostFinalString(hash);
+        tokenRepoDao.save(x);
+
+
 
 
 
