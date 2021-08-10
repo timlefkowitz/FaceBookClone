@@ -121,15 +121,19 @@ public class ProfileController {
 
 //       Edit Profile
     @GetMapping("/{username}/edit")
-    public String editProfile(){
+    public String editProfile(@PathVariable String username, Model view){
+
+        //        0.001 add Attributes
+        view.addAttribute("userToEdit", userDao.getByUsername(username));
 
 
-        return "redirect:/home";
+
+        return "editprofile";
     }
 
     @PostMapping("/{username}/edit")
     public String editProfile(@PathVariable String username,
-                              @RequestParam(name="statusToUpdate") String statusToUpdate
+                              @RequestParam(name="statusToUpdate") String statusToUpdate, Model view
     ){
         //        currentUser should === username; if true show page
 
@@ -150,6 +154,7 @@ public class ProfileController {
 //        String updateStatus = statusToUpdate;
 //
         userDao.save(n);
+        view.addAttribute("userToEdit", userDao.getByUsername(username));
 
 
         return "redirect:/home";
