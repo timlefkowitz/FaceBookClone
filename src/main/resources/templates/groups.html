@@ -76,8 +76,9 @@
 <!--sec:authorize="isAuthenticated()-->
 <body>
 
+
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- Container wrapper -->
     <div class="container">
         <!-- Navbar brand -->
@@ -110,6 +111,9 @@
                     <a class="nav-link" href="groups">groups</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="groupcreation" role="button">create a group</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="friends">friends</a>
                 </li>
             </ul>
@@ -120,27 +124,27 @@
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a
-                                class="btn btn-dark px-3 material-icons-outlined"
-                                href="groupcreation"
-                                role="button">
-                            <i class="material-icons" style="font-size:14px;">create_new_folder</i>Create a Group</a>
+                        <a class="nav-link" href="post">post</a>
                     </li>
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a class="nav-link" th:action="@{/logout}" th:method="post" th:href="logout">logout</a>-->
+                    <!--                    </li>-->
 
-                    <li class="nav-item">
-                        <!--                         <a-->
-                        <!--                        class="btn btn-dark px-3 material-icons-outlined"-->
-                        <!--                        href="myprofile"-->
-                        <!--                        role="button">-->
+                    <!--                    <li class="nav-item">-->
+                    <!--&lt;!&ndash;                         <a&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        class="btn btn-dark px-3 material-icons-outlined"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        href="myprofile"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        role="button">&ndash;&gt;-->
 
-                        <!--                             <i class="material-icons" style="font-size:14px;">account_circle</i>-->
-                        <!--                         </a>-->
-                    </li>
+                    <!--&lt;!&ndash;                             <i class="material-icons" style="font-size:14px;">account_circle</i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                         </a>&ndash;&gt;-->
+                    <!--                    </li>-->
 
+                    <!-- More links here... -->
                     <!-- More links here... -->
                     <li class="nav-item">
                         <form th:action="@{/logout}" th:method="post">
-                            <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                            <button class="btn-link btn" style="text-decoration: none; color:#00b1ae">logout</button>
                         </form>
                     </li>
                 </ul>
@@ -154,6 +158,7 @@
     <!-- Container wrapper -->
 </nav>
 <!-- END OF NAVBAR     -->
+
 
 
 
