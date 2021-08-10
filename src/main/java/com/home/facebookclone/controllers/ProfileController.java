@@ -54,7 +54,11 @@ public class ProfileController {
         user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 //        2. lets generate the current friendslist
-        Collection<friendslist> friendslistGen = friendslistDao.getByOwnerUser(friendslistOwner);
+//        2.1 we need to covert username of the path variable to
+        user userOfCurrentProfile = userDao.getByUsername(username);
+        Collection<friendslist> friendslistGen = friendslistDao.getByOwnerUser(userOfCurrentProfile);
+
+        System.out.println(friendslistGen + "TEST##############");
 
 
 //        0.001 add Attributes
