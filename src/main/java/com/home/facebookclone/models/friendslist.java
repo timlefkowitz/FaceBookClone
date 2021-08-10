@@ -32,6 +32,9 @@ public class friendslist {
     @JsonManagedReference
     private user added_user_id;
 
+    @Column
+    private String NotFriends = "NotFriends";
+
 
     // insert
 

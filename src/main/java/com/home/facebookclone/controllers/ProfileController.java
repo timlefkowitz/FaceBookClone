@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -51,14 +52,29 @@ public class ProfileController {
 //        lets grab the friendslist by username
 
 //        1. convert user to the username
-        user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user currentProfile = userDao.getByUsername(username);
 
 //        2. lets generate the current friendslist
 //        2.1 we need to covert username of the path variable to
         user userOfCurrentProfile = userDao.getByUsername(username);
+        String usernameOfCurrentUser = currentUser.username;
         Collection<friendslist> friendslistGen = friendslistDao.getByOwnerUser(userOfCurrentProfile);
 
-        System.out.println(friendslistGen + "TEST##############");
+//          3. we want to see if the current user is friends with the usersProfile
+        Boolean verifiedFriend = friendslistGen.contains(usernameOfCurrentUser);
+
+
+        Collection<String> notVerified = new ArrayList<>();
+        notVerified.add("Sorry, Must be friends to view friends");
+
+//
+//
+//        if(friendslistGen.contains(usernameOfCurrentUser) == true){
+//            return friendslistGen;
+//        } else if(verifiedFriend == false){
+//            return notVerified;
+//        }
 
 
 //        0.001 add Attributes

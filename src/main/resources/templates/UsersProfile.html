@@ -9,6 +9,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name=viewport content="width=375, initial-scale=1">
   <title>profile</title>
 
 
@@ -40,6 +41,9 @@
       background: linear-gradient(to bottom right, #57e1e0 0%, #c408a5 100%);
       max-width: 300px;
     }
+
+    /*iphone x media query*/
+    @media only screen and (min-width: 375px) and (max-width: 767px) { /* Your Styles... */ }
 
 
   </style>
@@ -191,8 +195,9 @@
       <div>
         <a style="font-size: 12px">friends</a>
           <div th:each="friend : ${FriendsListRepo}">
-
-            <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>
+            <a th:href="'/' + ${friend.getAdded_user_id().username}">
+              <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>
+              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>
           </div>
         </div>
 
