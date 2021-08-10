@@ -119,6 +119,33 @@ public class ProfileController {
         return "redirect:/home";
     }
 
+//       Edit Profile
+
+    @PostMapping("/{username}/edit")
+    public String editProfile(@PathVariable String username,
+                              @RequestParam(name="statusToUpdate") String statusToUpdate
+    ){
+        //        currentUser should === username; if true show page
+
+//        lets get the current user
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        lets grab current users username
+        String currentUsersUsername = currentUser.username;
+//        lets make a boolean for if the user matches the user profile they want to edit
+        boolean DoesUsernameMatchCurrentuser = false;
+
+//
+//                contains(usernameOfCurrentUser);
+//
+//        String currentStatus = currentUser.setStatus(updateStatus);
+//        String updateStatus = statusToUpdate;
+//
+//        userDao.save(addedFriend);
+
+
+        return "redirect:/home";
+    }
+
 
 
 
