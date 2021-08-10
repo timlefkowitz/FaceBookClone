@@ -61,9 +61,9 @@ public class groups {
     @JoinColumn(name = "groupMember_id")
     private groups groupMember;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
-    @JsonBackReference
-    private Collection<user> createdTokens;
+    @ManyToOne
+    @JoinColumn(name = "groupOwner")
+    private user groupOwner;
 
 
     // THERE CAN BE MANY OWNERS THAT OWN THINGS???????
@@ -73,26 +73,35 @@ public class groups {
 
     // Insert Constructor
 
-    public groups(String createdBy, String title, String summary, String profile, String content, user owner, String groupavatar) {
-        this.CreatedBy = createdBy;
+    public groups(long id, String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, groups groupMember, user groupOwner) {
+        this.id = id;
+        CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
         this.profile = profile;
         this.content = content;
-//        this.groupOwner = owner;
+        this.groupavatar = groupavatar;
+        this.groupPost = groupPost;
+        this.groupComment = groupComment;
+        this.groupMember = groupMember;
+        this.groupOwner = groupOwner;
     }
 
 
     // Update Constructor
 
-    public groups(long id, String createdBy, String title, String summary, String profile, String content, user owner, String groupavatar) {
-        this.id = id;
-        this.CreatedBy = createdBy;
+
+    public groups(String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, groups groupMember, user groupOwner) {
+        CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
         this.profile = profile;
         this.content = content;
-//        this.groupOwner = owner;
+        this.groupavatar = groupavatar;
+        this.groupPost = groupPost;
+        this.groupComment = groupComment;
+        this.groupMember = groupMember;
+        this.groupOwner = groupOwner;
     }
 
     public groups(groups groupMember, user addthisUser) {
@@ -167,12 +176,12 @@ public class groups {
     }
 
 
-    public Collection<groups> getCreatedTokens() {
-        return createdTokens;
+    public user getGroupOwner() {
+        return groupOwner;
     }
 
-    public void setCreatedTokens(Collection<groups> createdTokens) {
-        this.createdTokens = createdTokens;
+    public void setGroupOwner(user groupOwner) {
+        this.groupOwner = groupOwner;
     }
 
     public groups getGroupComment() {

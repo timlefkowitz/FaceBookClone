@@ -29,7 +29,7 @@ public class Token {
 
 
     @ManyToOne
-    @JoinColumn(name="recipient_user_id")
+    @JoinColumn(name="tokenOwner")
     @JsonManagedReference
     private user tokenOwner;
 
