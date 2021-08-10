@@ -183,10 +183,16 @@
         <div>
         <a style="font-size: 12px">status</a>
           <h4 style="align-items: center" th:text="${user.status}"></h4></div>
-
-
-
         </div>
+
+      <div>
+        <a style="font-size: 12px" th:each="friends : ${FriendsListRepo}">friends</a>
+        <h4 style="align-items: center" th:text="${}"></h4></div>
+    </div>
+
+
+
+
       </div>
 
 

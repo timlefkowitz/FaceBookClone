@@ -106,6 +106,7 @@ public class  user {
     @JsonBackReference
     private Collection<HashedPostModel> hashedPostModelOwner;
 
+
 //    @OneToMany
 //    @JoinColumn(name = "groupOWner")
 //    public List<groups> groupOwner;
@@ -392,4 +393,6 @@ public class  user {
     public void setHashedPostModelOwner(Collection<HashedPostModel> hashedPostModelOwner) {
         this.hashedPostModelOwner = hashedPostModelOwner;
     }
+
+
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 
 
 @Controller
@@ -41,9 +42,28 @@ public class ProfileController {
 //                                 @RequestParam(name="addfriend") long addID
     ){
 
-        //adding featured post
+        //adding featured post. Lets make featuredPost.length, then random number between the length of all post.
+        // then use math random to select one of the post
+
 //        long featuredPost = (long) ( Math.random() * 2 + 1);
+
+
+//        lets grab the friendslist by username
+
+//        1. convert user to the username
+        user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+//        2. lets generate the current friendslist
+        Collection<friendslist> friendslistGen = friendslistDao.getByOwnerUser(friendslistOwner);
+
+
+//        0.001 add Attributes
         view.addAttribute("user", userDao.getByUsername(username));
+        view.addAttribute("FriendsListRepo", friendslistGen);
+
+
+
+
 //        view.addAttribute("featuredPost", postsRepo.findAllByUsername(username));
 
 
@@ -55,8 +75,15 @@ public class ProfileController {
 
     @PostMapping("/{username}")
     public String profilePostings(@RequestParam(name="FriendHidden") long addID){
+
+//        Creating a new friends list query
+//        1. we are creating a new friendslist
         friendslist addedFriend = new friendslist();
+
+//        2. creating the variable to add by users ID
         user addedUser = userDao.getById(addID);
+
+//        3. this tells us who the current user is
         user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 
