@@ -120,6 +120,12 @@ public class ProfileController {
     }
 
 //       Edit Profile
+    @GetMapping("/{username}/edit")
+    public String editProfile(){
+
+
+        return "redirect:/home";
+    }
 
     @PostMapping("/{username}/edit")
     public String editProfile(@PathVariable String username,
@@ -134,13 +140,16 @@ public class ProfileController {
 //        lets make a boolean for if the user matches the user profile they want to edit
         boolean DoesUsernameMatchCurrentuser = false;
 
+        user n = currentUser;
+        n.setStatus(statusToUpdate);
+
 //
 //                contains(usernameOfCurrentUser);
 //
 //        String currentStatus = currentUser.setStatus(updateStatus);
 //        String updateStatus = statusToUpdate;
 //
-//        userDao.save(addedFriend);
+        userDao.save(n);
 
 
         return "redirect:/home";
