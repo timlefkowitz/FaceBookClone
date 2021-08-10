@@ -1,9 +1,7 @@
 package com.home.facebookclone.models;
 
-import com.home.facebookclone.repos.groupRepo;
-
 import javax.persistence.*;
-import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.Collection;
 import java.util.List;
@@ -104,6 +102,10 @@ public class  user {
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hashedPostOwner")
+    @JsonBackReference
+    private Collection<HashedPostModel> hashedPostModelOwner;
+
 //    @OneToMany
 //    @JoinColumn(name = "groupOWner")
 //    public List<groups> groupOwner;
@@ -161,6 +163,27 @@ public class  user {
 
     }
 
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<HashedPostModel> hashedPostModelOwner) {
+        this.id = id;
+        this.firstname = firstname;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.profile = profile;
+        this.mobile = mobile;
+        this.status = status;
+        this.imgPath = imgPath;
+        this.originalavatar = originalavatar;
+        this.isAdmin = isAdmin;
+        BlogPost = blogPost;
+        this.groupOwner = groupOwner;
+        this.groupMember = groupMember;
+        this.groupComment = groupComment;
+        this.contactListOwner = contactListOwner;
+        this.hashedPostModelOwner = hashedPostModelOwner;
+    }
 
 
     // Copy Constructor
@@ -352,5 +375,21 @@ public class  user {
 
     public void setGroupComment(List<com.home.facebookclone.models.groupComment> groupComment) {
         this.groupComment = groupComment;
+    }
+
+    public void setGroupOwner(Collection<groups> groupOwner) {
+        this.groupOwner = groupOwner;
+    }
+
+    public void setGroupComment(Collection<com.home.facebookclone.models.groupComment> groupComment) {
+        this.groupComment = groupComment;
+    }
+
+    public Collection<HashedPostModel> getHashedPostModelOwner() {
+        return hashedPostModelOwner;
+    }
+
+    public void setHashedPostModelOwner(Collection<HashedPostModel> hashedPostModelOwner) {
+        this.hashedPostModelOwner = hashedPostModelOwner;
     }
 }

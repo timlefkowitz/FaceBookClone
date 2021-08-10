@@ -4,6 +4,7 @@ package com.home.facebookclone.controllers;
 import com.home.facebookclone.models.*;
 import com.home.facebookclone.repos.*;
 
+import com.home.facebookclone.repos.HashedPostRepo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Collection;
 
 @Controller
 public class CreateControllers {
@@ -24,12 +27,13 @@ public class CreateControllers {
     private final groupPostRepo groupPostDao;
     private final PasswordEncoder passwordEncoder;
     private final friendslistrepo friendslistrepoDao;
+    private final HashedPostRepo hashPostRepo;
 
 
     // constructors
 
 
-    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao) {
+    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao, HashedPostRepo hashPostDao) {
 
         this.usersDao = usersDao;
         this.usersPost = usersPost;
@@ -42,6 +46,7 @@ public class CreateControllers {
         this.passwordEncoder = passwordEncoder;
 //        this.friendsDao = friendsDao;
         this.friendslistrepoDao = friendslistrepoDao;
+        this.hashPostRepo = hashPostDao;
     }
 
 
@@ -81,13 +86,22 @@ public class CreateControllers {
     ){
 
 
-
+//        we are creating a new user
         user n = new user();
+
         user firstFriend = usersDao.getById(7l);
         friendslist i = new friendslist();
         i.setAdded_user_id(firstFriend);
         friendslistrepoDao.save(i);
+
+
+
         String hash = passwordEncoder.encode(password);
+
+
+//        String hashedPost = passwordEncoder.encode(UsersPost)
+
+
 //        4. lets set all our requested Parameters
         n.setPassword(hash);
         n.setUsername(username);
@@ -100,8 +114,17 @@ public class CreateControllers {
         n.setProfile(profile);
 
 
-        System.out.println(originalavatar + " IS THIS WORKING?");
         System.out.println(imgPath);
+
+
+//        {}{}{}{} PHOTONS {}{}{}{}{}{}{}{}{}{}{}{}{}
+
+//        Creating a empty collection. We are wanting to do this so the collection exist
+        HashedPostModel hp = new HashedPostModel();
+//            save the collection to the repo
+        String first = "First NFT";
+//        hashPostRepo.save(first);
+
         if (imgPath == ""){
             imgPath = originalavatar;
 
@@ -140,14 +163,32 @@ public class CreateControllers {
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        2. get the currentUsers username
         user groupOwnersUsersName = usersDao.getByUsername(user.username);
+
+//        Collection <HashedPostRepo> hashedPostRepoCollection = user.getHashedPostModelOwner(groupOwnersUsersName);
 //        3. lets create a new userspost
+
+
+
+
+
+
+
         usersPost n = new usersPost();
+
 //        4. lets set all our requested Parameters
         n.setImgPath(imgPath);
         n.setOwner(user);
         n.setTitle(title);
         n.setBody(description);
         usersPost.save(n);
+
+        String PostToString = n.toString();
+        String hash = passwordEncoder.encode(PostToString);
+
+
+
+//        hashPostRepo.save(hashedPostRepoCollection);
+
         return "redirect:/home";
     }
 
