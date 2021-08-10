@@ -12,7 +12,7 @@ public interface HashedPostRepo extends JpaRepository<friendslist, Long> {
 
 
 
-    Collection<HashedPostRepo> getByOwnerUsername(user ownerUsername);
+//    Collection<HashedPostRepo> getByOwnerUsername(user ownerUsername);
 
 
 }

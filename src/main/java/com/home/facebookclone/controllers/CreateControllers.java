@@ -27,7 +27,7 @@ public class CreateControllers {
     private final groupPostRepo groupPostDao;
     private final PasswordEncoder passwordEncoder;
     private final friendslistrepo friendslistrepoDao;
-    private final HashedPostRepo hashPostRepo;
+//    private final HashedPostRepo hashPostRepo;
 
 
     // constructors
@@ -46,7 +46,7 @@ public class CreateControllers {
         this.passwordEncoder = passwordEncoder;
 //        this.friendsDao = friendsDao;
         this.friendslistrepoDao = friendslistrepoDao;
-        this.hashPostRepo = hashPostDao;
+//        this.hashPostRepo = hashPostDao;
     }
 
 
