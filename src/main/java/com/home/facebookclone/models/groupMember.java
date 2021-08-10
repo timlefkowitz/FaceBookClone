@@ -25,9 +25,7 @@ public class groupMember {
     private groups groupMember;
 
 
-    @ManyToOne
-    @JoinColumn(name = "groupOWner")
-    public user groupOwner;
+
 
 
     //insert
@@ -77,11 +75,6 @@ public class groupMember {
         this.groupMember = groupMember;
     }
 
-    public user getGroupOwner() {
-        return groupOwner;
-    }
 
-    public void setGroupOwner(user groupOwner) {
-        this.groupOwner = groupOwner;
-    }
+
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -51,9 +52,6 @@ public class groups {
     @JsonBackReference
     private List<groupPost> groupPost;
 
-    @ManyToOne
-    @JoinColumn(name = "groupOwner_id")
-    private user groupOwner;
 
     @ManyToOne
     @JoinColumn(name = "groupComment")
@@ -62,6 +60,10 @@ public class groups {
     @ManyToOne
     @JoinColumn(name = "groupMember_id")
     private groups groupMember;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
+    @JsonBackReference
+    private Collection<user> createdTokens;
 
 
     // THERE CAN BE MANY OWNERS THAT OWN THINGS???????
@@ -164,12 +166,13 @@ public class groups {
         this.groupPost = groupPost;
     }
 
-    public user getGroupOwner() {
-        return groupOwner;
+
+    public Collection<groups> getCreatedTokens() {
+        return createdTokens;
     }
 
-    public void setGroupOwner(user groupOwner) {
-        this.groupOwner = groupOwner;
+    public void setCreatedTokens(Collection<groups> createdTokens) {
+        this.createdTokens = createdTokens;
     }
 
     public groups getGroupComment() {
@@ -187,4 +190,6 @@ public class groups {
     public void setGroupMember(groups groupMember) {
         this.groupMember = groupMember;
     }
+
+
 }

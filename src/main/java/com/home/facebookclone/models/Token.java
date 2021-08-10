@@ -25,11 +25,12 @@ public class Token {
 
     @Column
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    @JsonManagedReference
     private String hashPostTitle;
 
+
     @ManyToOne
-    @JoinColumn(name="token")
+    @JoinColumn(name="recipient_user_id")
+    @JsonManagedReference
     private user tokenOwner;
 
 

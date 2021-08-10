@@ -103,7 +103,9 @@ public class  user {
     private Collection<friendslist> contactListOwner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tokenOwner")
-    private Collection<Token> tokens;
+    @JsonBackReference
+    private Collection<Token> receivedTokens;
+
 
 //    @OneToMany
 //    @JoinColumn(name = "groupOWner")
@@ -118,7 +120,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> tokens) {
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -136,13 +138,13 @@ public class  user {
         this.groupMember = groupMember;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
-        this.tokens = tokens;
+        this.receivedTokens = receivedTokens;
     }
 
 
     // update Constructor
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> tokens) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -161,7 +163,7 @@ public class  user {
         this.groupMember = groupMember;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
-        this.tokens = tokens;
+        this.receivedTokens = receivedTokens;
     }
 
 
@@ -339,10 +341,10 @@ public class  user {
 
 
     public Collection<Token> getTokens() {
-        return tokens;
+        return receivedTokens;
     }
 
-    public void setTokens(Collection<Token> tokens) {
-        this.tokens = tokens;
+    public void setTokens(Collection<Token> receivedTokens) {
+        this.receivedTokens = receivedTokens;
     }
 }
