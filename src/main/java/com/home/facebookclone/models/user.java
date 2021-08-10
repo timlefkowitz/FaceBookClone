@@ -104,7 +104,7 @@ public class  user {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hashedPostOwner")
     @JsonBackReference
-    private Collection<HashedPostModel> hashedPostModelOwner;
+    private Collection<Token> tokenOwner;
 
 
 //    @OneToMany
@@ -164,7 +164,7 @@ public class  user {
 
     }
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<HashedPostModel> hashedPostModelOwner) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> tokenOwner) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -183,7 +183,7 @@ public class  user {
         this.groupMember = groupMember;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
-        this.hashedPostModelOwner = hashedPostModelOwner;
+        this.tokenOwner = tokenOwner;
     }
 
 
@@ -386,12 +386,12 @@ public class  user {
         this.groupComment = groupComment;
     }
 
-    public Collection<HashedPostModel> getHashedPostModelOwner() {
-        return hashedPostModelOwner;
+    public Collection<Token> getHashedPostModelOwner() {
+        return tokenOwner;
     }
 
-    public void setHashedPostModelOwner(Collection<HashedPostModel> hashedPostModelOwner) {
-        this.hashedPostModelOwner = hashedPostModelOwner;
+    public void setHashedPostModelOwner(Collection<Token> tokenOwner) {
+        this.tokenOwner = tokenOwner;
     }
 
 

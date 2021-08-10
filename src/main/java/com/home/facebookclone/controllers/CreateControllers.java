@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collection;
-
 @Controller
 public class CreateControllers {
 
@@ -120,7 +118,7 @@ public class CreateControllers {
 //        {}{}{}{} PHOTONS {}{}{}{}{}{}{}{}{}{}{}{}{}
 
 //        Creating a empty collection. We are wanting to do this so the collection exist
-        HashedPostModel hp = new HashedPostModel();
+        Token hp = new Token();
 //            save the collection to the repo
         String first = "First NFT";
 //        hashPostRepo.save(first);

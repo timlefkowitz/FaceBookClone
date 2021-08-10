@@ -2,35 +2,17 @@ package com.home.facebookclone.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.home.facebookclone.repos.UsersRepository;
-import org.springframework.stereotype.Controller;
+import org.apache.tomcat.jni.User;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="hashedPosts")
-public class HashedPostModel {
+public class Token {
 
-    @Controller
-    public class userDaoImportExperiment{
-        private final UsersRepository usersDao;
-
-        public userDaoImportExperiment(UsersRepository usersDao) {
-            this.usersDao = usersDao;
-
-        }
-
-        public UsersRepository getUsersDao() {
-            return usersDao;
-        }
-    }
-
-
-
-    public HashedPostModel(UsersRepository usersDao){
+    public Token(){
 
     }
-
-
 
 
     @Id
@@ -46,12 +28,8 @@ public class HashedPostModel {
     @Column
     private String hashedPostFinalString;
 
-
-    String postOWnerUsername = userDao.username(username);
-
-
     @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = hashedPostOwner + "")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     @JsonManagedReference
     private String hashPostTitle;
 
@@ -61,7 +39,7 @@ public class HashedPostModel {
 
     // constructor
 
-    public HashedPostModel(long id, user hashedPostOwner, String hashedPost) {
+    public Token(long id, user hashedPostOwner, String hashedPost) {
         this.id = id;
         this.hashedPostOwner = hashedPostOwner;
         this.hashedPostFinalString = hashedPost;
@@ -69,7 +47,7 @@ public class HashedPostModel {
 
     // update
 
-    public HashedPostModel(user hashedPostOwner, String hashedPost) {
+    public Token(user hashedPostOwner, String hashedPost) {
         this.hashedPostOwner = hashedPostOwner;
         this.hashedPostFinalString = hashedPost;
     }
