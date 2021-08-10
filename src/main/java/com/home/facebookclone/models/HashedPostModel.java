@@ -1,16 +1,36 @@
 package com.home.facebookclone.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.home.facebookclone.repos.UsersRepository;
+import org.springframework.stereotype.Controller;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="hashedPosts")
 public class HashedPostModel {
 
+    @Controller
+    public class userDaoImportExperiment{
+        private final UsersRepository usersDao;
 
-    public HashedPostModel(){
+        public userDaoImportExperiment(UsersRepository usersDao) {
+            this.usersDao = usersDao;
+
+        }
+
+        public UsersRepository getUsersDao() {
+            return usersDao;
+        }
+    }
+
+
+
+    public HashedPostModel(UsersRepository usersDao){
 
     }
+
+
 
 
     @Id
@@ -25,6 +45,15 @@ public class HashedPostModel {
 
     @Column
     private String hashedPostFinalString;
+
+
+    String postOWnerUsername = userDao.username(username);
+
+
+    @Column
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = hashedPostOwner + "")
+    @JsonManagedReference
+    private String hashPostTitle;
 
 
 
