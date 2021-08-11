@@ -173,7 +173,7 @@
               <a style="font-size: 12px">username</a></s>
               <h6 style="align-items: center" th:text="${user.username}"></h6>
 
-
+<!--                  Add To Contacts -->
               <form th:method="post" th:action="@{/friends}" >
                 <input id="addedUser" name="addedUser" th:value="${username}"
                        type="hidden">

@@ -68,15 +68,15 @@ public class AuthenticationController {
     }
 
     @PostMapping("/secret")
-    public String selectedUpload(@RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath){
+    public String selectedUpload(){
 
-            user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-            groups n = new groups();
-
-            n.setGroupOwner(currentUser);
-
-            groupDao.save(n);
+//            user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//            groups n = new groups();
+//
+//            n.setGroupOwner(currentUser);
+//
+//            groupDao.save(n); @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
 
         return"redirect:/home";
     }
