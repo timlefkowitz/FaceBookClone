@@ -174,11 +174,11 @@
               <h6 style="align-items: center" th:text="${user.username}"></h6>
 
 
-              <form th:method="post" th:action="@{/friends}">
+              <form th:method="post" th:action="@{/friends}" >
                 <input id="addedUser" name="addedUser" th:value="${username}"
                        type="hidden">
-                <button style="margin-top: 48px; margin-right: 5px" type="submit"
-                        class="btn btn3"><span th:text="'Add to contacts!'"></span></button>
+                <button style="padding-top: 10px; margin-right: 5px" type="submit"
+                        class="btn btn3"><span class="bg-dark btn" th:text="'Add Friend'" style="color:#00b1ae; padding-top:1vh; padding-bottom: 1vh"></span></button>
 
               </form>
             </div>
