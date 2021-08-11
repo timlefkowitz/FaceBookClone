@@ -81,6 +81,13 @@ public class AuthenticationController {
         return"redirect:/home";
     }
 
+    @GetMapping("/gifs")
+    public String gifs(Model view) {
+
+
+        return "users/avatars";
+    }
+
 
 
 
