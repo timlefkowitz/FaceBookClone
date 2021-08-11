@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthenticationController {
@@ -53,6 +54,20 @@ public class AuthenticationController {
         this.groupDao = groupDao;
         this.postsRepo = postsRepo;
     }
+
+    @GetMapping("/secret")
+    public String secret(Model view) {
+
+
+        return "users/secret";
+    }
+
+    @PostMapping("/secret")
+    public String selectedUpload(){
+
+        return"redirect:/home";
+    }
+
 
 
 
