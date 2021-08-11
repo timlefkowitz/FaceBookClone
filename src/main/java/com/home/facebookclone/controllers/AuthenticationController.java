@@ -1,13 +1,18 @@
 package com.home.facebookclone.controllers;
 
+import com.home.facebookclone.models.groups;
+import com.home.facebookclone.models.user;
 import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.groupRepo;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AuthenticationController {
@@ -63,7 +68,15 @@ public class AuthenticationController {
     }
 
     @PostMapping("/secret")
-    public String selectedUpload(){
+    public String selectedUpload(@RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath){
+
+            user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+            groups n = new groups();
+
+            n.setGroupOwner(currentUser);
+
+            groupDao.save(n);
 
         return"redirect:/home";
     }
