@@ -158,13 +158,13 @@
 
       <input th:each="userID : ${user}" type="hidden">
 
-      <div id="profileItems" style="margin-top:15vh">
+      <div id="profileItems" style="margin-top:10vh">
 
 <!--          Avatar and Add to Contacts Buttons-->
         <div>
 
             <a href="javascript:;" class="avatar rounded-circle">
-              <img th:src="${user.imgPath}" style="height: 20vh; width: 20vh;">
+              <img class="avatar" th:src="${user.imgPath}" style="height: 20vh; width: 20vh;">
             </a>
 
 
