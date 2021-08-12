@@ -171,25 +171,34 @@ public class GroupController {
     }
 
     @PostMapping("/PostToAGroup/{title}")
-    public String addAnewGroupPost(@RequestParam(name="GroupPosttitle") String title,
-                                   @RequestParam(name="GroupPostsummary") String summary,
+    public String addAnewGroupPost(@RequestParam(name="GroupPostsummary") String summary,
                                    @RequestParam(name="GroupPostcreatedBy") String createdBy,
                                    @RequestParam(name="GroupPostcontent") String content,
-                                   @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
+                                   @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath,
+                                   @PathVariable(name="title") String title
 
     ){
 
         //            Current user and their username
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String usernameOfCurrentUser = currentUser.username;
+
+//                      Lets grab the current users groups and see if that matches the title
+
+        List<groupMember> CurrentUsersGroups = currentUser.getGroupMember();
+
+        System.out.println(CurrentUsersGroups);
+
 //        Change from new group to current group
-        groupPost n = new groupPost();
-//        set the posts Requested Parameters
-        n.setTitle(title);
-        n.setBody(summary);
-        n.setImgPath(GroupPostIMGPath);
+//        groupPost n = new groupPost();
+//        Collection<groups> GroupToPost = currentUser.getGroupMember(title);
+//        groupPost n = currentUser.getGroupMember();
+////        set the posts Requested Parameters
+//        n.setTitle(title);
+//        n.setBody(summary);
+//        n.setImgPath(GroupPostIMGPath);
 //        save the post
-        groupPostDao.save(n);
+//        groupPostDao.save(n);
         return "redirect:/home";
 
 
