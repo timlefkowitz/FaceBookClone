@@ -1,6 +1,8 @@
 package com.home.facebookclone.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,6 +25,16 @@ public class groupMember {
     @ManyToOne
     @JoinColumn(name = "groupMember_id")
     private groups groupMember;
+
+    @ManyToOne
+    @JoinColumn(name="list_owner_id")
+    @JsonManagedReference
+    private user ownerUser;
+
+    @ManyToOne
+    @JoinColumn(name="added_user_id")
+    @JsonManagedReference
+    private user added_user_id;
 
 
 

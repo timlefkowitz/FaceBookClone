@@ -191,14 +191,14 @@
 
 <!--              Members -->
 
-<!--      <div>-->
-<!--        <a style="font-size: 12px">Members</a>-->
-<!--          <div th:each="friend : ${FriendsListRepo}">-->
-<!--            <a th:href="'/' + ${friend.getAdded_user_id().username}">-->
-<!--              <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>-->
-<!--              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>-->
-<!--          </div>-->
-<!--        </div>-->
+      <div>
+        <a style="font-size: 12px">Members</a>
+          <div th:each="friend : ${FriendsListRepo}">
+            <a th:href="'/' + ${friend.getAdded_user_id().username}">
+              <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>
+              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>
+          </div>
+        </div>
 
 <!--              Featured Post  -->
         <div>

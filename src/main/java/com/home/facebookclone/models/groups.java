@@ -52,14 +52,13 @@ public class groups {
     @JsonBackReference
     private List<groupPost> groupPost;
 
-
     @ManyToOne
     @JoinColumn(name = "groupComment")
     private groups groupComment;
 
-    @ManyToOne
-    @JoinColumn(name = "groupMember_id")
-    private groups groupMember;
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
+    @JsonBackReference
+    private List<user> groupMember = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "groupOwner")

@@ -3,6 +3,8 @@ package com.home.facebookclone.models;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -90,9 +92,9 @@ public class  user {
     @JsonBackReference
     private Collection<groups> groupOwner;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
     @JsonBackReference
-    private List<groupMember> groupMember;
+    private List<groupMember> groupMember = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
     @JsonBackReference
