@@ -159,15 +159,16 @@ public class GroupController {
 
     // Create a Group Post
 
-    @GetMapping("/PostToAGroup")
-    public String postToAGroup(Model model)
+    @GetMapping("/PostToAGroup/{title}")
+    public String postToAGroup(@PathVariable String title, Model model)
     {
         model.addAttribute("fileStackApi",fileStackApi);
         model.addAttribute("groupId", groupDao.findAll());  // When I come back to this we can link all groupsThatBelongToOwner
+        model.addAttribute("group", groupDao.getByTitle(title));
         return"GroupPostingForm";
     }
 
-    @PostMapping("/PostToAGroup")
+    @PostMapping("/PostToAGroup/{title}")
     public String addAnewGroupPost(@RequestParam(name="GroupPosttitle") String title,
                                    @RequestParam(name="GroupPostsummary") String summary,
                                    @RequestParam(name="GroupPostcreatedBy") String createdBy,
@@ -175,7 +176,11 @@ public class GroupController {
                                    @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
 
     ){
-//        create a new group post
+
+        //            Current user and their username
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String usernameOfCurrentUser = currentUser.username;
+//        Change from new group to current group
         groupPost n = new groupPost();
 //        set the posts Requested Parameters
         n.setTitle(title);
