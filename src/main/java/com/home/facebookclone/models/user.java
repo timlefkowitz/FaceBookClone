@@ -93,11 +93,6 @@ public class  user {
     private Collection<groups> groupOwner;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
-    @JoinTable(
-            name = "r_user_group",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id")
-    )
     private List<groupMember> groups = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
