@@ -68,9 +68,11 @@ public class AuthenticationController {
     }
 
     @PostMapping("/secret")
-    public String selectedUpload(){
+    public String selectedUpload(@RequestParam(name="newAvatar") String newAvatar){
 
-//            user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            currentUser.setImgPath(newAvatar);
+            userDao.save(currentUser);
 //
 //            groups n = new groups();
 //

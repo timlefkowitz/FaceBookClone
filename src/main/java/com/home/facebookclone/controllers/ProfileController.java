@@ -119,9 +119,24 @@ public class ProfileController {
         return "redirect:/home";
     }
 
+    boolean isProfileOwner;
+
 //       Edit Profile
     @GetMapping("/{username}/edit")
     public String editProfile(@PathVariable String username, Model view){
+
+
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        view.addAttribute("isProfileOwner", isProfileOwner);
+
+        if(currentUser.username != username){
+            isProfileOwner = false;
+        } else {
+            isProfileOwner = true;
+        }
+
+        boolean isProfileOwner;
 
         //        0.001 add Attributes
         view.addAttribute("userToEdit", userDao.getByUsername(username));
