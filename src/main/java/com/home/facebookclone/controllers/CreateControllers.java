@@ -232,40 +232,6 @@ public class CreateControllers {
     }
 
 
-    // Create a Group Post
-
-    @GetMapping("/PostToAGroup")
-    public String postToAGroup(Model model)
-    {
-        model.addAttribute("fileStackApi",fileStackApi);
-        model.addAttribute("groupId", groupDao.findAll());  // When I come back to this we can link all groupsThatBelongToOwner
-        return"GroupPostingForm";
-    }
-
-    @PostMapping("/PostToAGroup")
-    public String addAnewGroupPost(@RequestParam(name="GroupPosttitle") String title,
-                                   @RequestParam(name="GroupPostsummary") String summary,
-                                   @RequestParam(name="GroupPostcreatedBy") String createdBy,
-                                   @RequestParam(name="GroupPostcontent") String content,
-                                   @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
-
-    ){
-//        create a new group post
-        groupPost n = new groupPost();
-//        set the posts Requested Parameters
-        n.setTitle(title);
-        n.setBody(summary);
-        n.setImgPath(GroupPostIMGPath);
-//        save the post
-        groupPostDao.save(n);
-        return "redirect:/home";
-
-
-        //        groupPost n = new groupPost();
-//        groupPostDao.save(n);
-    }
-
-
 
 
 

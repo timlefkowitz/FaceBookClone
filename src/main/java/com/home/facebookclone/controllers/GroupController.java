@@ -7,14 +7,12 @@ package com.home.facebookclone.controllers;
 
  */
 
-import com.home.facebookclone.models.friendslist;
-import com.home.facebookclone.models.groupMember;
-import com.home.facebookclone.models.groups;
-import com.home.facebookclone.models.user;
+import com.home.facebookclone.models.*;
 import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.groupPostRepo;
 import com.home.facebookclone.repos.groupRepo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +33,14 @@ public class GroupController {
     private final groupRepo groupDao;
     private final groupPostRepo groupPostDao;
     private final UsersPostRepo postsDao;
+
+
+
+    //    Wiring in FileStack
+    @Value("${FSKEY}")
+    private String fileStackApi;
+
+
 
 
 
@@ -148,5 +154,42 @@ public class GroupController {
 
         return "groupHome";
     }
+
+
+
+    // Create a Group Post
+
+    @GetMapping("/PostToAGroup")
+    public String postToAGroup(Model model)
+    {
+        model.addAttribute("fileStackApi",fileStackApi);
+        model.addAttribute("groupId", groupDao.findAll());  // When I come back to this we can link all groupsThatBelongToOwner
+        return"GroupPostingForm";
+    }
+
+    @PostMapping("/PostToAGroup")
+    public String addAnewGroupPost(@RequestParam(name="GroupPosttitle") String title,
+                                   @RequestParam(name="GroupPostsummary") String summary,
+                                   @RequestParam(name="GroupPostcreatedBy") String createdBy,
+                                   @RequestParam(name="GroupPostcontent") String content,
+                                   @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
+
+    ){
+//        create a new group post
+        groupPost n = new groupPost();
+//        set the posts Requested Parameters
+        n.setTitle(title);
+        n.setBody(summary);
+        n.setImgPath(GroupPostIMGPath);
+//        save the post
+        groupPostDao.save(n);
+        return "redirect:/home";
+
+
+        //        groupPost n = new groupPost();
+//        groupPostDao.save(n);
+    }
+
+
 
 }
