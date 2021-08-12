@@ -128,21 +128,24 @@ public class ProfileController {
 
         user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //
-        user currentUser = userDao.getByUsername(userInSession.getUsername());
+        user currentUser = userDao.getByUsername(userInSession.username);
         user profileOwner = userDao.getByUsername(username);
 
         view.addAttribute("isProfileOwner", isProfileOwner);
 
 //        System.out.println(currentUser);
-        System.out.println("profileowner" + profileOwner);
-        System.out.println("currentUSer" + userInSession);
+        System.out.println("profileowner" + profileOwner.username);
+        System.out.println("currentUSer" + userInSession.username);
 
-        if(currentUser != profileOwner){
+        if(userInSession.username == profileOwner.username){
+            System.out.println("You are not the profile owner");
             isProfileOwner = false;
-
         } else {
+            System.out.println("You are the profile Owner");
             isProfileOwner = true;
         }
+
+        System.out.println(isProfileOwner);
 
 
         //        0.001 add Attributes
