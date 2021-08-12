@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface UsersPostRepo extends JpaRepository<usersPost, Long> {
 
     usersPost getById(long id);
+    usersPost getusersPostBy(usersPost owner);
 
 //    String findAllByUsername(String username);
 //    usersPost getByUsername(String username);

@@ -3,6 +3,7 @@ package com.home.facebookclone.controllers;
 
 import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.user;
+import com.home.facebookclone.models.usersPost;
 import com.home.facebookclone.repos.UsersPostRepo;
 import com.home.facebookclone.repos.UsersRepository;
 import com.home.facebookclone.repos.friendslistrepo;
@@ -55,6 +56,7 @@ public class ProfileController {
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         user currentProfile = userDao.getByUsername(username);
 
+
 //        2. lets generate the current friendslist
 //        2.1 we need to covert username of the path variable to
         user userOfCurrentProfile = userDao.getByUsername(username);
@@ -63,11 +65,9 @@ public class ProfileController {
 
 //          3. we want to see if the current user is friends with the usersProfile
         Boolean verifiedFriend = friendslistGen.contains(usernameOfCurrentUser);
-
-
-        Collection<String> notVerified = new ArrayList<>();
-        notVerified.add("Sorry, Must be friends to view friends");
-
+//
+//        Collection<String> notVerified = new ArrayList<>();
+//        notVerified.add("Sorry, Must be friends to view friends");
 //
 //
 //        if(friendslistGen.contains(usernameOfCurrentUser) == true){
@@ -76,10 +76,10 @@ public class ProfileController {
 //            return notVerified;
 //        }
 
-
 //        0.001 add Attributes
         view.addAttribute("user", userDao.getByUsername(username));
         view.addAttribute("FriendsListRepo", friendslistGen);
+        view.addAttribute("featuredPost", userDao.getByBlogPost(currentProfile));
 
 
 
@@ -230,7 +230,4 @@ public class ProfileController {
         this.postsRepo = postsRepo;
         this.friendslistDao = friendslistDao;
     }
-
-
-
 }

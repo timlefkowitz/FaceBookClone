@@ -185,12 +185,13 @@
 
         </div>
 
-<!--              Status-->
+<!--              Status -->
         <div>
           <a style="font-size: 12px">status</a>
             <h4 style="align-items: center" th:text="${user.status}"></h4>
         </div>
 
+<!--              Friends -->
 
       <div>
         <a style="font-size: 12px">friends</a>
@@ -201,10 +202,16 @@
           </div>
         </div>
 
+<!--              Featured Post  -->
+        <div>
+          <a style="font-size: 12px">featuredPost</a>
+          <img th:src="${usersPost.imgPath}" style="width: 85vh;">
+          <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
+          <p style="align-items: center" th:text="${usersPost.body}"></p>
 
-      </div>
-    </div>
-      </div>
+          </div>
+
+        </div>
 
 
 
@@ -254,18 +261,6 @@
 <!--      </div>-->
 
 
-
-
-
-
-
-
-
-    </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!--               END OF UserProfiles HOME   -->
 
