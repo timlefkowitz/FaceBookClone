@@ -57,11 +57,7 @@ public class groups {
     private groups groupComment;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groups")
-    @JoinTable(
-            name = "r_user_group",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id")
-    )
+
     private List<user> groupMember = new ArrayList<>();
 
     @ManyToOne

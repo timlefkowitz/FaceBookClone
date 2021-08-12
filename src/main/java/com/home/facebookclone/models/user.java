@@ -92,7 +92,12 @@ public class  user {
     @JsonBackReference
     private Collection<groups> groupOwner;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
+    @ManyToMany
+    @JoinTable(
+            name = "groupMemberModel",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id")
+    )
     private List<groupMember> groups = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")

@@ -15,63 +15,59 @@ public class groupMember implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    private String messedup;
+//
+//    @Id
+//    @Column(name = "user_id")
+//    private Long userId;
+//
+//    @Id
+//    @Column(name = "group_id")
+//    private Long groupId;
 
-    @Id
-    @Column(name = "user_id")
-    private Long userId;
+    public enum UserGroupRole {
+        MEMBER, MODERATOR
+    }
 
-    @Id
-    @Column(name = "group_id")
-    private Long groupId;
+    @Enumerated(EnumType.STRING)
+    private UserGroupRole role;
 
 
 
     //insert
-
-    public groupMember(Long userId, Long groupId) {
-        this.userId = userId;
-        this.groupId = groupId;
-    }
-
-
-    //update
-
-
-    public groupMember(long id, Long userId, Long groupId) {
-        this.id = id;
-        this.userId = userId;
-        this.groupId = groupId;
-    }
-
-
-
-    // getters and setters
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
+//
+//    public groupMember(Long userId, Long groupId) {
+//        this.userId = userId;
+//        this.groupId = groupId;
+//    }
+//
+//
+//    //update
+//
+//    public groupMember(Long userId, Long groupId, UserGroupRole role) {
+//        this.userId = userId;
+//        this.groupId = groupId;
+//        this.role = role;
+//    }
+//
+//
+//    // getters and setters
+//
+//
+//
+//    public Long getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(Long userId) {
+//        this.userId = userId;
+//    }
+//
+//    public Long getGroupId() {
+//        return groupId;
+//    }
+//
+//    public void setGroupId(Long groupId) {
+//        this.groupId = groupId;
+//    }
 }
