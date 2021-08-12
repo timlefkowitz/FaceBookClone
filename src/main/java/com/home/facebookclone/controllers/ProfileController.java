@@ -137,12 +137,12 @@ public class ProfileController {
         System.out.println("profileowner" + profileOwner.username);
         System.out.println("currentUSer" + userInSession.username);
 
-        if(userInSession.username == profileOwner.username){
+        if(userInSession == profileOwner){
             System.out.println("You are not the profile owner");
-            isProfileOwner = false;
+            isProfileOwner = true;
         } else {
             System.out.println("You are the profile Owner");
-            isProfileOwner = true;
+            isProfileOwner = false;
         }
 
         System.out.println(isProfileOwner);
