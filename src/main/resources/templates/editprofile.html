@@ -157,7 +157,7 @@
 
 
 <!--      USERS POSTS DIV   -->
-<div id="mainforpost" class="col-lg-12" th:each="user : ${userToEdit}" th:class="${isProfileOwner}? profileOwner : guest">
+<div id="mainforpost" class="col-lg-12" th:each="user : ${userToEdit}" th:class="${isProfileOwner} ? profileOwner : guest">
 
   <!--              UserPost        style="max-height: 400px;      -->
   <div class="container userPost" style="height:100%">

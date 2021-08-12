@@ -126,17 +126,24 @@ public class ProfileController {
     public String editProfile(@PathVariable String username, Model view){
 
 
-        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+        user currentUser = userDao.getByUsername(userInSession.getUsername());
+        user profileOwner = userDao.getByUsername(username);
 
         view.addAttribute("isProfileOwner", isProfileOwner);
 
-        if(currentUser.username != username){
+//        System.out.println(currentUser);
+        System.out.println("profileowner" + profileOwner);
+        System.out.println("currentUSer" + userInSession);
+
+        if(currentUser != profileOwner){
             isProfileOwner = false;
+
         } else {
             isProfileOwner = true;
         }
 
-        boolean isProfileOwner;
 
         //        0.001 add Attributes
         view.addAttribute("userToEdit", userDao.getByUsername(username));
