@@ -98,7 +98,7 @@ public class  user {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id")
     )
-    private List<groupMember> groupMember = new ArrayList<>();
+    private List<groupMember> groups = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
     @JsonBackReference
@@ -126,7 +126,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -141,7 +141,7 @@ public class  user {
         this.isAdmin = isAdmin;
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
-        this.groupMember = groupMember;
+        this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
@@ -150,7 +150,7 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<groups> groupOwner, List<com.home.facebookclone.models.groupMember> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -166,7 +166,7 @@ public class  user {
         this.isAdmin = isAdmin;
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
-        this.groupMember = groupMember;
+        this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
@@ -321,12 +321,24 @@ public class  user {
         this.groupOwner = groupOwner;
     }
 
-    public List<com.home.facebookclone.models.groupMember> getGroupMember() {
-        return groupMember;
+    public List<usersPost> getBlogPost() {
+        return blogPost;
     }
 
-    public void setGroupMember(List<com.home.facebookclone.models.groupMember> groupMember) {
-        this.groupMember = groupMember;
+    public List<groupMember> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<groupMember> groups) {
+        this.groups = groups;
+    }
+
+    public Collection<Token> getReceivedTokens() {
+        return receivedTokens;
+    }
+
+    public void setReceivedTokens(Collection<Token> receivedTokens) {
+        this.receivedTokens = receivedTokens;
     }
 
     public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {

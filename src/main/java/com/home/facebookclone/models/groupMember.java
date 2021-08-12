@@ -27,12 +27,6 @@ public class groupMember implements Serializable {
     @Column(name = "group_id")
     private Long groupId;
 
-//    @ManyToOne
-//    @JoinColumn(name = "groupMember_id")
-//    private groups groupMember;
-
-
-
 
 
     //insert

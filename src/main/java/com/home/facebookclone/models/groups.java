@@ -56,7 +56,7 @@ public class groups {
     @JoinColumn(name = "groupComment")
     private groups groupComment;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groups")
     @JsonBackReference
     private List<user> groupMember = new ArrayList<>();
 
