@@ -152,6 +152,7 @@ public class GroupController {
 //        0.001 add Attributes
         view.addAttribute("group", groupDao.getByTitle(title));
 
+
         return "groupHome";
     }
 
@@ -165,6 +166,7 @@ public class GroupController {
         model.addAttribute("fileStackApi",fileStackApi);
         model.addAttribute("groupId", groupDao.findAll());  // When I come back to this we can link all groupsThatBelongToOwner
         model.addAttribute("group", groupDao.getByTitle(title));
+        model.addAttribute("allgroups", groupDao.findAll());
         return"GroupPostingForm";
     }
 
