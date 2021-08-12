@@ -4,37 +4,32 @@ package com.home.facebookclone.models;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="groupMember")
-public class groupMember {
+public class groupMember implements Serializable {
 
     public groupMember() {
 
     }
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 
-    @Column(name = "Root")
-    private String Root;
+    @Id
+    @Column(name = "user_id")
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "groupMember_id")
-    private groups groupMember;
+    @Id
+    @Column(name = "group_id")
+    private Long groupId;
 
-    @ManyToOne
-    @JoinColumn(name="list_owner_id")
-    @JsonManagedReference
-    private user ownerUser;
-
-    @ManyToOne
-    @JoinColumn(name="added_user_id")
-    @JsonManagedReference
-    private user added_user_id;
+//    @ManyToOne
+//    @JoinColumn(name = "groupMember_id")
+//    private groups groupMember;
 
 
 
@@ -42,22 +37,21 @@ public class groupMember {
 
     //insert
 
-    public groupMember(String root, groups groupMember) {
-        Root = root;
-        this.groupMember = groupMember;
+    public groupMember(Long userId, Long groupId) {
+        this.userId = userId;
+        this.groupId = groupId;
     }
 
 
     //update
 
-    public groupMember(long id, String root, groups groupMember) {
+
+    public groupMember(long id, Long userId, Long groupId) {
         this.id = id;
-        Root = root;
-        this.groupMember = groupMember;
+        this.userId = userId;
+        this.groupId = groupId;
     }
 
-    public groupMember(user userInSession) {
-    }
 
 
     // getters and setters
@@ -71,22 +65,19 @@ public class groupMember {
         this.id = id;
     }
 
-    public String getRoot() {
-        return Root;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setRoot(String root) {
-        Root = root;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public groups getGroupMember() {
-        return groupMember;
+    public Long getGroupId() {
+        return groupId;
     }
 
-    public void setGroupMember(groups groupMember) {
-        this.groupMember = groupMember;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
-
-
-
 }

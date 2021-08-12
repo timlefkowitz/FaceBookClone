@@ -78,7 +78,7 @@ public class GroupController {
 
 
 //        4. Create a new object of group member <<<< this needs to be moved where groups are created |||||
-        currentgroups.add(new groupMember(userInSession));
+//        currentgroups.add(new groupMember(userInSession));
 
 //        5.  add new user to group
         currentUser.setGroupMember((List<groupMember>) currentGroupsName);

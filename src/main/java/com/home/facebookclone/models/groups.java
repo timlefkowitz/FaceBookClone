@@ -72,8 +72,7 @@ public class groups {
 
     // Insert Constructor
 
-    public groups(long id, String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, groups groupMember, user groupOwner) {
-        this.id = id;
+    public groups(String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, List<user> groupMember, user groupOwner) {
         CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
@@ -90,7 +89,8 @@ public class groups {
     // Update Constructor
 
 
-    public groups(String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, groups groupMember, user groupOwner) {
+    public groups(long id, String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, List<user> groupMember, user groupOwner) {
+        this.id = id;
         CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
@@ -191,13 +191,11 @@ public class groups {
         this.groupComment = groupComment;
     }
 
-    public groups getGroupMember() {
+    public List<user> getGroupMember() {
         return groupMember;
     }
 
-    public void setGroupMember(groups groupMember) {
+    public void setGroupMember(List<user> groupMember) {
         this.groupMember = groupMember;
     }
-
-
 }
