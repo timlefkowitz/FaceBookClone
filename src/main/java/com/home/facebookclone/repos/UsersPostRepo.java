@@ -12,6 +12,8 @@ public interface UsersPostRepo extends JpaRepository<usersPost, Long> {
     usersPost getById(long id);
     usersPost getusersPostBy(usersPost owner);
 
+    usersPost findByOwner(user Owner);
+
 //    String findAllByUsername(String username);
 //    usersPost getByUsername(String username);
 

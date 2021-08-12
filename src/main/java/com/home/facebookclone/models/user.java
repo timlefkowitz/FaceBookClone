@@ -84,7 +84,7 @@ public class  user {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "postOwner")
     @JsonBackReference
-    private List<usersPost> BlogPost;
+    private List<usersPost> blogPost;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
     @JsonBackReference
@@ -133,7 +133,7 @@ public class  user {
         this.imgPath = imgPath;
         this.originalavatar = originalavatar;
         this.isAdmin = isAdmin;
-        BlogPost = blogPost;
+        this.blogPost = blogPost;
         this.groupOwner = groupOwner;
         this.groupMember = groupMember;
         this.groupComment = groupComment;
@@ -158,7 +158,7 @@ public class  user {
         this.imgPath = imgPath;
         this.originalavatar = originalavatar;
         this.isAdmin = isAdmin;
-        BlogPost = blogPost;
+        this.blogPost = blogPost;
         this.groupOwner = groupOwner;
         this.groupMember = groupMember;
         this.groupComment = groupComment;
@@ -183,7 +183,7 @@ public class  user {
         status = copy.status;
         imgPath = copy.imgPath;
         originalavatar = copy.originalavatar;
-        BlogPost = copy.BlogPost;
+        blogPost = copy.blogPost;
         contactListOwner = copy.contactListOwner;
 
 
@@ -299,12 +299,12 @@ public class  user {
         isAdmin = admin;
     }
 
-    public List<usersPost> getBlogPost() {
-        return BlogPost;
+    public List<usersPost> getblogPost() {
+        return blogPost;
     }
 
     public void setBlogPost(List<usersPost> blogPost) {
-        BlogPost = blogPost;
+        blogPost = blogPost;
     }
 
     public Collection<groups> getGroupOwner() {
