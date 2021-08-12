@@ -172,6 +172,7 @@
 
 
 <!--      Groups MAIN DIV   -->
+
 <div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">
 
     <h5 style=" align-items: center; margin-top: 5%; margin-right: 25%; text-align: center" class="card" id="headercard" width="300px">All Groups</h5>
@@ -179,15 +180,24 @@
 
     <div id="mainforpost" class="col-lg-9" th:each="group : ${allgroups}">
 
-        <!--              UserPost        style="max-height: 400px;      -->
+        <!--            UserPost        style="max-height: 400px;      -->
         <div class="card container userPost" style="height:100%">
 
-            <!--          Start of posting div-->
+            <!--        Start of posting div-->
             <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
-
-
+<!--                    link to groups page -->
+                <a th:href="'/' + ${group.title}">
+<!--                    group title-->
                 <span style="font-size:12px" th:text="${group.title}" id="allGroupNames"></span>
+<!--                    group image-->
+                    <img th:src="${group.groupavatar}" style="height: 64px; width: 64px;">
+<!--                    <span style="font-size:12px" th:text="${group.getTitle()}" id="userOwnerPost" th:href="@{group.getTitle()}"></span></a>-->
+
+
+
+
+
 
 
 

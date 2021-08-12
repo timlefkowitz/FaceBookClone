@@ -7,6 +7,7 @@ package com.home.facebookclone.controllers;
 
  */
 
+import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.groupMember;
 import com.home.facebookclone.models.groups;
 import com.home.facebookclone.models.user;
@@ -18,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -116,37 +118,35 @@ public class GroupController {
     @GetMapping("/groups")
     public String groupsHomeView(Model view)
     {
-//        1. who is the current user??
-//        user currentUSER = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////        2. generate the current users groups
-//
-////        2.1 get currentUsers username for groupOwnership
-//        String currentUsersUsername = currentUSER.username;
-//        Collection<groups> groupslistGenerator = groupDao.getByGroupMember(currentUsersUsername);
-////        3. Ok, I've already generated the current list. I need to come back to this. lets keep originzing'
-//        List<groupMember> groupMember = currentUSER.getGroupMember();
-////        4. addAttributes
+////        1. addAttributes
 //        view.addAttribute("allgroups", groupslistGenerator);
         view.addAttribute("allgroups", groupDao.findAll());
-
-
-
 
 //        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
 //        00.1 experiments and history
 
-
 //        System Prints
 //        System.out.println(groupMember);
-
-//        I believe from here I just need an addAttribute
-//        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
-
-//        view.addAttribute("friendslist", friendslistGen);
-
-//        Collection<friendslist> friendslistGen = groups.getByGroupOwner(groupOwner);
-
-
         return "groups";
     }
+
+    @GetMapping("groups/{title}")
+    public String showGroupByTitle(@PathVariable String title,
+                                 Model view
+    ){
+//            Current user and their username
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String usernameOfCurrentUser = currentUser.username;
+
+
+//            Current Group
+        groups currentGroup = groupDao.getByTitle(title);
+
+
+//        0.001 add Attributes
+        view.addAttribute("group", groupDao.getByTitle(title));
+
+        return "groupHome";
+    }
+
 }
