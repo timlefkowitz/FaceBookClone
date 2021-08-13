@@ -225,16 +225,15 @@ public class CreateControllers {
     // status update
 
 
-    @GetMapping("/statusupdate")
+    @GetMapping("/updatestatus")
     public String status(Model model)
     {
         return"statusupdate";
     }
 
-    @PostMapping("/statusupdate")
+    @PostMapping("/updatestatus")
     public String statusUpdate(Model view,
-                               @RequestParam(name="status") String status,
-                               @PathVariable String username
+                               @RequestParam(name="status") String status
     ){
 
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

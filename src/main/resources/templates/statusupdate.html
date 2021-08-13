@@ -167,16 +167,15 @@
 <body>
 
 
-
-<form class="form-signin" style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center" action="/statusupdate" method="Post">
+<form class="form-signin" th:action="@{/updatestatus}" method="POST"  style="margin-top: 125px; max-width: 300px; margin-left:20%; margin-right:20%; align-items: center">
   <img class="mb-4" src="https://i.imgur.com/v2t7qrK.gif" alt="" width="72" height="72">
 
 
-  <h1 class="h3 mb-3 font-weight-normal">status </h1>
+  <h1 class="h3 mb-3 font-weight-normal">status</h1>
 
   <!--         update status           -->
-  <label for="GroupPosttitle" class="sr-only">update status</label><p></p>
-  <input type="username" id="GroupPosttitle" class="form-control" placeholder="Give your post a title" required="" autofocus="" name="GroupPosttitle">
+  <label for="status" class="sr-only">update status</label><p></p>
+  <input type="username" id="status" class="form-control" placeholder="update your status" required="" autofocus="" name="status">
   <p></p>
   <button class="btn btn-lg btn-block" style="background:linear-gradient(to right, #9e69ba, #b700fc);" type="submit">update</button><p></p>
 
