@@ -112,6 +112,11 @@ public class  user {
     @JsonBackReference
     private Collection<groups> groupOwner;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusOwner")
+    @JsonBackReference
+    private Collection<status> statusOwner;
+
+
     @ManyToMany
     @JoinTable(
             name = "groupMemberModel",
