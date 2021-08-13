@@ -114,18 +114,16 @@ public class  user {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusOwner")
     @JsonBackReference
-    private Collection<status> statusOwner;
+    private Collection<status> usersStatus;
 
 
-
-
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "groupMemberModel",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id")
+            joinColumns = @JoinColumn(name = "user_id", insertable = false, updatable = false),
+            inverseJoinColumns = @JoinColumn(name = "group_id", insertable = false, updatable = false)
     )
-    private List<groupMember> groups = new ArrayList<>();
+    private List<groupMemberModel> groups = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
     @JsonBackReference
@@ -153,7 +151,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> statusOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> usersStatus, List<groupMemberModel> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -173,7 +171,7 @@ public class  user {
         this.link3 = link3;
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
-        this.statusOwner = statusOwner;
+        this.usersStatus = usersStatus;
         this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
@@ -183,7 +181,7 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> statusOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> usersStatus, List<groupMemberModel> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -204,7 +202,7 @@ public class  user {
         this.link3 = link3;
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
-        this.statusOwner = statusOwner;
+        this.usersStatus = usersStatus;
         this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
@@ -400,19 +398,19 @@ public class  user {
         this.groupOwner = groupOwner;
     }
 
-    public Collection<com.home.facebookclone.models.status> getStatusOwner() {
-        return statusOwner;
+    public Collection<com.home.facebookclone.models.status> getUsersStatus() {
+        return usersStatus;
     }
 
-    public void setStatusOwner(Collection<com.home.facebookclone.models.status> statusOwner) {
-        this.statusOwner = statusOwner;
+    public void setUsersStatus(Collection<com.home.facebookclone.models.status> statusOwner) {
+        this.usersStatus = statusOwner;
     }
 
-    public List<groupMember> getGroups() {
+    public List<groupMemberModel> getGroups() {
         return groups;
     }
 
-    public void setGroups(List<groupMember> groups) {
+    public void setGroups(List<groupMemberModel> groups) {
         this.groups = groups;
     }
 

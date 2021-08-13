@@ -76,7 +76,9 @@ public class ProfileController {
 //        0.001 add Attributes
         view.addAttribute("user", userDao.getByUsername(username));
         view.addAttribute("FriendsListRepo", friendslistGen);
-//        view.addAttribute("status", statusDao.getByUsername(username));
+//        view.addAttribute("status", statusDao.getByUsername(currentUser));
+
+
 //        view.addAttribute("featuredPost", userDao.getByUsername(username).getBlogPost());
 //        view.addAttribute("featuredPost", postsRepo.findByOwner(currentProfile));
 

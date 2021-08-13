@@ -70,7 +70,7 @@ public class GroupController {
 
 
 //        2. generate the list of group members
-        List<groupMember> currentgroups = currentUser.getGroups();
+        List<groupMemberModel> currentgroups = currentUser.getGroups();
 
 
 //        3. generate what the current Groups Name is
@@ -81,7 +81,7 @@ public class GroupController {
 //        currentgroups.add(new groupMember(userInSession));
 
 //        5.  add new user to group
-        currentUser.setGroups((List<groupMember>) currentGroupsName);
+        currentUser.setGroups((List<groupMemberModel>) currentGroupsName);
         groupDao.save(currentGroupsName);
 
 
@@ -185,7 +185,7 @@ public class GroupController {
 
 //                      Lets grab the current users groups and see if that matches the title
 
-        List<groupMember> CurrentUsersGroups = currentUser.getGroups();
+        List<groupMemberModel> CurrentUsersGroups = currentUser.getGroups();
 
         System.out.println(CurrentUsersGroups);
 

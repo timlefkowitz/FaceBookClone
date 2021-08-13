@@ -188,7 +188,7 @@
 <!--              Status -->
         <div th:each="status : ${status}">
           <a style="font-size: 12px">status</a>
-            <h4 style="align-items: center" th:text="${status}"></h4>
+            <h4 style="align-items: center" th:text="${status.getStatus()}"></h4>
         </div>
 
 <!--              Friends -->

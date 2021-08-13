@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface statusRepo extends JpaRepository<status, String> {
 
-
+//
+//    user getByUsername(user username);
 }

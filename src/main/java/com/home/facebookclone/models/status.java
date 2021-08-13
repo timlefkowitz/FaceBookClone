@@ -24,25 +24,25 @@ public class status {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusComments")
     @JsonBackReference
-    private Collection<comment> statusComments;
+    private Collection<comment> usersStatus;
 
     //insert
 
-    public status(user statusOwner, String status, Collection<comment> statusComments) {
+    public status(user statusOwner, String status, Collection<comment> usersStatus) {
         this.statusOwner = statusOwner;
         this.status = status;
-        this.statusComments = statusComments;
+        this.usersStatus = usersStatus;
     }
 
 
     //update
 
 
-    public status(long id, user statusOwner, String status, Collection<comment> statusComments) {
+    public status(long id, user statusOwner, String status, Collection<comment> usersStatus) {
         this.id = id;
         this.statusOwner = statusOwner;
         this.status = status;
-        this.statusComments = statusComments;
+        this.usersStatus = usersStatus;
     }
 
     public status() {
@@ -69,12 +69,12 @@ public class status {
         this.statusOwner = statusOwner;
     }
 
-    public Collection<comment> getStatusComments() {
-        return statusComments;
+    public Collection<comment> getUsersStatus() {
+        return usersStatus;
     }
 
-    public void setStatusComments(Collection<comment> statusComments) {
-        this.statusComments = statusComments;
+    public void setUsersStatus(Collection<comment> statusComments) {
+        this.usersStatus = statusComments;
     }
 
     public String getStatus() {
