@@ -151,7 +151,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> statusOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -164,8 +164,14 @@ public class  user {
         this.imgPath = imgPath;
         this.originalavatar = originalavatar;
         this.isAdmin = isAdmin;
+        this.banner = banner;
+        this.bio = bio;
+        this.link1 = link1;
+        this.link2 = link2;
+        this.link3 = link3;
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
+        this.statusOwner = statusOwner;
         this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
@@ -175,7 +181,7 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> statusOwner, List<groupMember> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -189,8 +195,14 @@ public class  user {
         this.imgPath = imgPath;
         this.originalavatar = originalavatar;
         this.isAdmin = isAdmin;
+        this.banner = banner;
+        this.bio = bio;
+        this.link1 = link1;
+        this.link2 = link2;
+        this.link3 = link3;
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
+        this.statusOwner = statusOwner;
         this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
@@ -330,24 +342,68 @@ public class  user {
         isAdmin = admin;
     }
 
-    public List<usersPost> getblogPost() {
-        return blogPost;
+    public String getBanner() {
+        return banner;
     }
 
-    public void setBlogPost(List<usersPost> blogPost) {
-        blogPost = blogPost;
+    public void setBanner(String banner) {
+        this.banner = banner;
     }
 
-    public Collection<groups> getGroupOwner() {
-        return groupOwner;
+    public String getBio() {
+        return bio;
     }
 
-    public void setGroupOwner(Collection<groups> groupOwner) {
-        this.groupOwner = groupOwner;
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLink1() {
+        return link1;
+    }
+
+    public void setLink1(String link1) {
+        this.link1 = link1;
+    }
+
+    public String getLink2() {
+        return link2;
+    }
+
+    public void setLink2(String link2) {
+        this.link2 = link2;
+    }
+
+    public String getLink3() {
+        return link3;
+    }
+
+    public void setLink3(String link3) {
+        this.link3 = link3;
     }
 
     public List<usersPost> getBlogPost() {
         return blogPost;
+    }
+
+    public void setBlogPost(List<usersPost> blogPost) {
+        this.blogPost = blogPost;
+    }
+
+    public Collection<com.home.facebookclone.models.groups> getGroupOwner() {
+        return groupOwner;
+    }
+
+    public void setGroupOwner(Collection<com.home.facebookclone.models.groups> groupOwner) {
+        this.groupOwner = groupOwner;
+    }
+
+    public Collection<com.home.facebookclone.models.status> getStatusOwner() {
+        return statusOwner;
+    }
+
+    public void setStatusOwner(Collection<com.home.facebookclone.models.status> statusOwner) {
+        this.statusOwner = statusOwner;
     }
 
     public List<groupMember> getGroups() {
@@ -356,14 +412,6 @@ public class  user {
 
     public void setGroups(List<groupMember> groups) {
         this.groups = groups;
-    }
-
-    public Collection<Token> getReceivedTokens() {
-        return receivedTokens;
-    }
-
-    public void setReceivedTokens(Collection<Token> receivedTokens) {
-        this.receivedTokens = receivedTokens;
     }
 
     public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {
@@ -382,12 +430,11 @@ public class  user {
         this.contactListOwner = contactListOwner;
     }
 
-
-    public Collection<Token> getTokens() {
+    public Collection<Token> getReceivedTokens() {
         return receivedTokens;
     }
 
-    public void setTokens(Collection<Token> receivedTokens) {
+    public void setReceivedTokens(Collection<Token> receivedTokens) {
         this.receivedTokens = receivedTokens;
     }
 }
