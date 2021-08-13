@@ -10,6 +10,10 @@ import java.io.Serializable;
 @Table(name="groupMemberModel")
 public class groupMemberModel implements Serializable {
 
+    public groupMemberModel(){
+
+    }
+
     @Id
     @Column(name = "user_id")
     private Long userId;
@@ -18,10 +22,15 @@ public class groupMemberModel implements Serializable {
     @Column(name = "group_id")
     private Long groupId;
 
+    // constructors
+
     public groupMemberModel(Long userId, Long groupId) {
         this.userId = userId;
         this.groupId = groupId;
     }
+
+
+    // getters and setters
 
     public Long getUserId() {
         return userId;

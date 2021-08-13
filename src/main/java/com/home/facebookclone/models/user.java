@@ -74,6 +74,26 @@ public class  user {
     @Column
     private boolean isAdmin;
 
+    @Column(name = "banner")
+    private String banner;
+
+//    LOB should let us use as much text as we want
+    @Lob
+    @Column(name = "bio")
+    private String bio;
+
+//    links
+
+    @Column(name = "link1")
+    private String link1;
+
+    @Column(name = "link2")
+    private String link2;
+
+    @Column(name = "link3")
+    private String link3;
+
+
 
 
 

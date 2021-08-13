@@ -23,6 +23,7 @@ public class Token {
     @Column
     private String hashedPostFinalString;
 
+    @Lob
     @Column
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private String hashPostTitle;
