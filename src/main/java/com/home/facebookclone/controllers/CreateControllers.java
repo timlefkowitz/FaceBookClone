@@ -232,6 +232,63 @@ public class CreateControllers {
     }
 
 
+    // status update
+
+
+    @GetMapping("/statusupdate")
+    public String usersPost(Model model)
+    {
+        model.addAttribute("usersPost", new usersPost());
+        model.addAttribute("fileStackApi",fileStackApi);
+        return"UserPostingForm";
+    }
+
+    @PostMapping("/post")
+    public String addAnewUserPost(@RequestParam(name="title") String title,
+                                  @RequestParam(name="body") String description,
+                                  @RequestParam(name="imgPath") String imgPath
+//                                  @RequestParam(name="postOwner") user postOwner
+
+
+    ){
+//        1. lets get the current user
+        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        2. get the currentUsers username
+        user username = usersDao.getByUsername(user.username);
+
+//        Collection <HashedPostRepo> hashedPostRepoCollection = user.getHashedPostModelOwner(groupOwnersUsersName);
+//        3. lets create a new userspost
+
+
+        usersPost n = new usersPost();
+
+//        4. lets set all our requested Parameters
+        n.setImgPath(imgPath);
+        n.setOwner(user);
+        n.setTitle(title);
+        n.setBody(description);
+        usersPost.save(n);
+
+        Collection<Token> tokens = user.getTokens();
+        String PostToString = n.toString();
+        String hash = passwordEncoder.encode(PostToString);
+
+        Token x = new Token();
+        x.setTokenOwner(username);
+        x.setHashedPostFinalString(hash);
+        tokenRepoDao.save(x);
+
+
+
+
+
+//        hashPostRepo.save(hashedPostRepoCollection);
+
+        return "redirect:/home";
+    }
+
+
+
 
 
 
