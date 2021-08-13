@@ -115,7 +115,7 @@ public class ProfileController {
     }
 
 
-    @PostMapping("/Tim")
+    @PostMapping("/{tim}/hi")
     public String timspostmapping(@RequestParam(name="FriendHidden") long addID){
 
 //        Creating a new friends list query
