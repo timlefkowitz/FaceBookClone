@@ -114,7 +114,7 @@ public class  user {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusOwner")
     @JsonBackReference
-    private List<status> statusOwner;
+    private Collection<status> statusOwner;
 
 
     @ManyToMany

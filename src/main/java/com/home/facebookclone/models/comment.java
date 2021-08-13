@@ -2,6 +2,7 @@ package com.home.facebookclone.models;
 
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "comments")
@@ -17,6 +18,10 @@ public class comment {
 
     @Column(length = 3096)
     private String body;
+
+    @ManyToOne
+    @JoinColumn(name = "statusComments")
+    private comment statusComments;
 
 
 
