@@ -4,7 +4,6 @@ package com.home.facebookclone.controllers;
 import com.home.facebookclone.models.*;
 import com.home.facebookclone.repos.*;
 
-import com.home.facebookclone.repos.HashedPostRepo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,31 +28,7 @@ public class CreateControllers {
     private final PasswordEncoder passwordEncoder;
     private final friendslistrepo friendslistrepoDao;
     private final tokenRepo tokenRepoDao;
-    private final statusDao statusDao;
-//    private final HashedPostRepo hashPostRepo;
-
-
-    // constructors
-
-
-    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao, HashedPostRepo hashPostDao, tokenRepo tokenRepoDao) {
-
-        this.usersDao = usersDao;
-        this.usersPost = usersPost;
-        this.groupDao = groupDao;
-
-
-//        this.groupPostDao = groupPostDao;
-        this.groupPostDao = groupPostDao;
-//        this.passwordEncoder = passwordEncoder;
-        this.passwordEncoder = passwordEncoder;
-//        this.friendsDao = friendsDao;
-        this.friendslistrepoDao = friendslistrepoDao;
-//        this.hashPostRepo = hashPostDao;
-        this.tokenRepoDao = tokenRepoDao;
-    }
-
-
+    private final statusRepo statusDao;
 
 
 //    Wiring in FileStack
@@ -61,6 +36,19 @@ public class CreateControllers {
     private String fileStackApi;
 
 
+    // constructors
+
+
+    public CreateControllers(UsersRepository usersDao, UsersPostRepo usersPost, groupRepo groupDao, groupPostRepo groupPostDao, PasswordEncoder passwordEncoder, friendslistrepo friendslistrepoDao, tokenRepo tokenRepoDao, statusRepo statusDao) {
+        this.usersDao = usersDao;
+        this.usersPost = usersPost;
+        this.groupDao = groupDao;
+        this.groupPostDao = groupPostDao;
+        this.passwordEncoder = passwordEncoder;
+        this.friendslistrepoDao = friendslistrepoDao;
+        this.tokenRepoDao = tokenRepoDao;
+        this.statusDao = statusDao;
+    }
 
 
     // User Sign Up
@@ -237,30 +225,27 @@ public class CreateControllers {
     // status update
 
 
-    @GetMapping("/statusupdate/{username}")
+    @GetMapping("/statusupdate")
     public String status(Model model)
     {
-        return"UserPostingForm";
+        return"statusupdate";
     }
 
-    @PostMapping("/statusupdate/{username}")
-    public String updatestatus(@RequestParam(name="status") String status,
+    @PostMapping("/statusupdate")
+    public String statusUpdate(Model view,
+                               @RequestParam(name="status") String status,
                                @PathVariable String username
-//                                  @RequestParam(name="postOwner") user postOwner
-
-
     ){
-//        1. lets get the current user
-        user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        2. get the currentUsers username
+
+        user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         status n = new status();
-
-//        4. lets set all our requested Parameters
         n.setStatus(status);
-        usersPost.save(n);
-
+        n.setStatusOwner(currentUser);
+        statusDao.save(n);
 
         return "redirect:/home";
     }
+
+
 }
