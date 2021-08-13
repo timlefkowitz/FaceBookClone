@@ -169,7 +169,7 @@ public class CreateControllers {
         n.setBody(description);
         usersPost.save(n);
 
-        Collection<Token> tokens = user.getTokens();
+        Collection<Token> tokens = user.getReceivedTokens();
         String PostToString = n.toString();
         String hash = passwordEncoder.encode(PostToString);
 

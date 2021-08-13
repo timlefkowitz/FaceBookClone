@@ -9,13 +9,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsersRepository extends JpaRepository<user, Long> {
 
-//
+
 //    user findByUsername(String userName);
-    user getByUsername(String username);
-    user getBycontactListOwner(String username);
-
-
+    user getByUsername(String statusOwner);
     user findByUsername(String username);
 
+
+    user getBycontactListOwner(String username);
     user getByBlogPost(user BlogPost);
 }

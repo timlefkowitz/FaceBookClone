@@ -3,17 +3,12 @@ package com.home.facebookclone.controllers;
 
 import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.user;
-import com.home.facebookclone.models.usersPost;
-import com.home.facebookclone.repos.UsersPostRepo;
-import com.home.facebookclone.repos.UsersRepository;
-import com.home.facebookclone.repos.friendslistrepo;
-import com.home.facebookclone.repos.groupRepo;
+import com.home.facebookclone.repos.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -26,6 +21,7 @@ public class ProfileController {
     private final groupRepo groupDao;
     private final UsersPostRepo postsRepo;
     private final friendslistrepo friendslistDao;
+    private final statusRepo statusDao;
 
 
 
@@ -35,6 +31,7 @@ public class ProfileController {
         view.addAttribute("username", userDao.getByUsername(username));
         view.addAttribute("usersPost", postsRepo.getById(id));
         view.addAttribute("{id}+friends", userDao.getById(id));
+//        view.addAttribute("status", statusDao.getByUsername(username));
         return "UsersProfile";
     }
 
@@ -79,6 +76,7 @@ public class ProfileController {
 //        0.001 add Attributes
         view.addAttribute("user", userDao.getByUsername(username));
         view.addAttribute("FriendsListRepo", friendslistGen);
+//        view.addAttribute("status", statusDao.getByUsername(username));
 //        view.addAttribute("featuredPost", userDao.getByUsername(username).getBlogPost());
 //        view.addAttribute("featuredPost", postsRepo.findByOwner(currentProfile));
 
@@ -274,10 +272,11 @@ public class ProfileController {
 //    }
 
 
-    public ProfileController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo, friendslistrepo friendslistDao) {
+    public ProfileController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo, friendslistrepo friendslistDao, statusRepo statusDao) {
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.postsRepo = postsRepo;
         this.friendslistDao = friendslistDao;
+        this.statusDao = statusDao;
     }
 }

@@ -117,6 +117,8 @@ public class  user {
     private Collection<status> statusOwner;
 
 
+
+
     @ManyToMany
     @JoinTable(
             name = "groupMemberModel",

@@ -14,23 +14,22 @@ public class groupMember implements Serializable {
 
     }
 
+
+
     @Id
-    private String messedup;
-//
-//    @Id
-//    @Column(name = "user_id")
-//    private Long userId;
+    @Column(name = "user_id")
+    private Long userId;
 //
 //    @Id
 //    @Column(name = "group_id")
 //    private Long groupId;
-
-    public enum UserGroupRole {
-        MEMBER, MODERATOR
-    }
-
-    @Enumerated(EnumType.STRING)
-    private UserGroupRole role;
+//
+//    public enum UserGroupRole {
+//        MEMBER, MODERATOR
+//    }
+//
+//    @Enumerated(EnumType.STRING)
+//    private UserGroupRole role;
 
 
 
