@@ -29,6 +29,7 @@ public class CreateControllers {
     private final PasswordEncoder passwordEncoder;
     private final friendslistrepo friendslistrepoDao;
     private final tokenRepo tokenRepoDao;
+    private final statusDao statusDao;
 //    private final HashedPostRepo hashPostRepo;
 
 
@@ -237,17 +238,13 @@ public class CreateControllers {
 
 
     @GetMapping("/statusupdate/{username}")
-    public String status(Model model,@PathVariable String username)
+    public String status(Model model)
     {
-        model.addAttribute("usersPost", new usersPost());
-        model.addAttribute("fileStackApi",fileStackApi);
         return"UserPostingForm";
     }
 
     @PostMapping("/statusupdate/{username}")
-    public String updatestatus(@RequestParam(name="title") String title,
-                                  @RequestParam(name="body") String description,
-                                  @RequestParam(name="imgPath") String imgPath,
+    public String updatestatus(@RequestParam(name="status") String status,
                                @PathVariable String username
 //                                  @RequestParam(name="postOwner") user postOwner
 
@@ -256,43 +253,14 @@ public class CreateControllers {
 //        1. lets get the current user
         user user = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        2. get the currentUsers username
-        user username = usersDao.getByUsername(user.username);
 
-//        Collection <HashedPostRepo> hashedPostRepoCollection = user.getHashedPostModelOwner(groupOwnersUsersName);
-//        3. lets create a new userspost
-
-
-        usersPost n = new usersPost();
+        status n = new status();
 
 //        4. lets set all our requested Parameters
-        n.setImgPath(imgPath);
+        n.setStatus(status);
         usersPost.save(n);
 
-        Collection<Token> tokens = user.getTokens();
-        String PostToString = n.toString();
-        String hash = passwordEncoder.encode(PostToString);
-
-        Token x = new Token();
-        x.setTokenOwner(username);
-        x.setHashedPostFinalString(hash);
-        tokenRepoDao.save(x);
-
-
-
-
-
-//        hashPostRepo.save(hashedPostRepoCollection);
 
         return "redirect:/home";
     }
-
-
-
-
-
-
-
-
-
-
 }

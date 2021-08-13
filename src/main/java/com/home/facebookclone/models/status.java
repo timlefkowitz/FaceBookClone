@@ -19,22 +19,29 @@ public class status {
     @JoinColumn(name = "statusOwner")
     private user statusOwner;
 
+    @Column(length = 3096)
+    private String status;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusComments")
     @JsonBackReference
     private Collection<comment> statusComments;
 
     //insert
 
-    public status(user statusOwner, Collection<comment> statusComments) {
+    public status(user statusOwner, String status, Collection<comment> statusComments) {
         this.statusOwner = statusOwner;
+        this.status = status;
         this.statusComments = statusComments;
     }
 
+
     //update
 
-    public status(long id, user statusOwner, Collection<comment> statusComments) {
+
+    public status(long id, user statusOwner, String status, Collection<comment> statusComments) {
         this.id = id;
         this.statusOwner = statusOwner;
+        this.status = status;
         this.statusComments = statusComments;
     }
 
@@ -68,5 +75,13 @@ public class status {
 
     public void setStatusComments(Collection<comment> statusComments) {
         this.statusComments = statusComments;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
