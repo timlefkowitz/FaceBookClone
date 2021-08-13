@@ -56,9 +56,9 @@ public class groups {
     @JoinColumn(name = "groupComment")
     private groups groupComment;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groups")
-
-    private List<user> groupMember = new ArrayList<>();
+//    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groups")
+//
+//    private List<user> groupMember = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "groupOwner")
@@ -81,7 +81,7 @@ public class groups {
         this.groupavatar = groupavatar;
         this.groupPost = groupPost;
         this.groupComment = groupComment;
-        this.groupMember = groupMember;
+//        this.groupMember = groupMember;
         this.groupOwner = groupOwner;
     }
 
@@ -99,7 +99,7 @@ public class groups {
         this.groupavatar = groupavatar;
         this.groupPost = groupPost;
         this.groupComment = groupComment;
-        this.groupMember = groupMember;
+//        this.groupMember = groupMember;
         this.groupOwner = groupOwner;
     }
 
@@ -191,11 +191,11 @@ public class groups {
         this.groupComment = groupComment;
     }
 
-    public List<user> getGroupMember() {
-        return groupMember;
-    }
-
-    public void setGroupMember(List<user> groupMember) {
-        this.groupMember = groupMember;
-    }
+//    public List<user> getGroupMember() {
+//        return groupMember;
+//    }
+//
+//    public void setGroupMember(List<user> groupMember) {
+//        this.groupMember = groupMember;
+//    }
 }

@@ -116,14 +116,14 @@ public class  user {
     @JsonBackReference
     private Collection<status> usersStatus;
 
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "groupMemberModel",
-            joinColumns = @JoinColumn(name = "user_id", insertable = false, updatable = false),
-            inverseJoinColumns = @JoinColumn(name = "group_id", insertable = false, updatable = false)
-    )
-    private List<groupMemberModel> groups = new ArrayList<>();
+//
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "groupMemberModel",
+//            joinColumns = @JoinColumn(name = "user_id", insertable = false, updatable = false),
+//            inverseJoinColumns = @JoinColumn(name = "group_id", insertable = false, updatable = false)
+//    )
+//    private List<groupMemberModel> groups = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
     @JsonBackReference
@@ -172,7 +172,7 @@ public class  user {
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
         this.usersStatus = usersStatus;
-        this.groups = groups;
+//        this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
@@ -203,7 +203,7 @@ public class  user {
         this.blogPost = blogPost;
         this.groupOwner = groupOwner;
         this.usersStatus = usersStatus;
-        this.groups = groups;
+//        this.groups = groups;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
@@ -406,13 +406,13 @@ public class  user {
         this.usersStatus = statusOwner;
     }
 
-    public List<groupMemberModel> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<groupMemberModel> groups) {
-        this.groups = groups;
-    }
+//    public List<groupMemberModel> getGroups() {
+//        return groups;
+//    }
+//
+//    public void setGroups(List<groupMemberModel> groups) {
+//        this.groups = groups;
+//    }
 
     public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {
         return groupComment;

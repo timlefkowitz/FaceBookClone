@@ -70,19 +70,19 @@ public class GroupController {
 
 
 //        2. generate the list of group members
-        List<groupMemberModel> currentgroups = currentUser.getGroups();
+//        List<groupMemberModel> currentgroups = currentUser.getGroups();
 
 
 //        3. generate what the current Groups Name is
-        groups currentGroupsName = groupDao.getByTitle(currentGroup);
+//        groups currentGroupsName = groupDao.getByTitle(currentGroup);
 
 
 //        4. Create a new object of group member <<<< this needs to be moved where groups are created |||||
 //        currentgroups.add(new groupMember(userInSession));
 
 //        5.  add new user to group
-        currentUser.setGroups((List<groupMemberModel>) currentGroupsName);
-        groupDao.save(currentGroupsName);
+//        currentUser.setGroups((List<groupMemberModel>) currentGroupsName);
+//        groupDao.save(currentGroupsName);
 
 
 
@@ -146,11 +146,11 @@ public class GroupController {
 
 
 //            Current Group
-        groups currentGroup = groupDao.getByTitle(title);
+//        groups currentGroup = groupDao.getByTitle(title);
 
 
 //        0.001 add Attributes
-        view.addAttribute("group", groupDao.getByTitle(title));
+//        view.addAttribute("group", groupDao.getByTitle(title));
 
 
         return "groupHome";
@@ -165,7 +165,7 @@ public class GroupController {
     {
         model.addAttribute("fileStackApi",fileStackApi);
         model.addAttribute("groupId", groupDao.findAll());  // When I come back to this we can link all groupsThatBelongToOwner
-        model.addAttribute("group", groupDao.getByTitle(title));
+//        model.addAttribute("group", groupDao.getByTitle(title));
         model.addAttribute("allgroups", groupDao.findAll());
         return"GroupPostingForm";
     }
@@ -185,9 +185,9 @@ public class GroupController {
 
 //                      Lets grab the current users groups and see if that matches the title
 
-        List<groupMemberModel> CurrentUsersGroups = currentUser.getGroups();
+//        List<groupMemberModel> CurrentUsersGroups = currentUser.getGroups();
 
-        System.out.println(CurrentUsersGroups);
+//        System.out.println(CurrentUsersGroups);
 
 //        Change from new group to current group
 //        groupPost n = new groupPost();

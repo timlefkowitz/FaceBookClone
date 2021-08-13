@@ -13,8 +13,8 @@ public interface groupRepo extends JpaRepository<groups, Long> {
 
 //    groups findByGroupName(String title);
 
-    groups getByTitle(String title);
-    groups getByGroupOwner(String groupOwner);
-
-    Collection<groups> getByGroupMember(String groupMember);
+//    groups getByTitle(String title);
+//    groups getByGroupOwner(String groupOwner);
+//
+//    Collection<groups> getByGroupMember(String groupMember);
 }
