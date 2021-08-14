@@ -25,8 +25,81 @@
     <link rel="stylesheet" href="stylesheet/3dstyles.css">
 </head>
 <body>
-<!-- NAV BAR -->
-<div id="jnavbar"></div>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Container wrapper -->
+    <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="/home">
+            <!--            <img th:src="@{/users/avatars/BlueSphere1.2.gif}" width="50" height="50" class="d-inline-block align-top" alt=""/>-->
+            <img src="https://live.staticflickr.com/65535/51369056853_85ef692ae7_o.gif" width="50" height="50" class="d-inline-block align-top" alt="">
+        </a>
+
+        <a class="navbar-brand me-2" href="/home">
+            PHOTONS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left links -->
+<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="groups">groups</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="friends">friends</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+
+            <!-- Left links -->
+
+            <div class="d-flex align-items-center">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="updatestatus">update status</a>-->
+<!--                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Tim">back to photon labs</a>
+                    </li>
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a class="nav-link" th:action="@{/logout}" th:method="post" th:href="logout">logout</a>-->
+                    <!--                    </li>-->
+
+                    <!--                    <li class="nav-item">-->
+                    <!--&lt;!&ndash;                         <a&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        class="btn btn-dark px-3 material-icons-outlined"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        href="myprofile"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        role="button">&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;                             <i class="material-icons" style="font-size:14px;">account_circle</i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                         </a>&ndash;&gt;-->
+                    <!--                    </li>-->
+
+                    <!-- More links here... -->
+                    <!-- More links here... -->
+<!--                    <li class="nav-item">-->
+<!--                        <form th:action="@{/logout}" th:method="post">-->
+<!--                            <button class="btn-link btn" style="text-decoration: none; color:#00b1ae">logout</button>-->
+<!--                        </form>-->
+<!--                    </li>-->
+                </ul>
+
+
+
+            </div>
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- END OF NAVBAR     -->
 
 <!--&lt;!&ndash; Media panel &ndash;&gt;-->
 <!--<div class="container d-flex justify-content-center mediacontainer ">-->
