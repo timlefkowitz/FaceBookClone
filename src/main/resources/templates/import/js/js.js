@@ -38,7 +38,7 @@ $(document).ready(function(){
         "\n" +
         "\n" +
         "                <li class=\"nav-item\">\n" +
-        "                    <a class=\"nav-link\" href=\"flickarchive.html\">Photographic Archive</a>\n" +
+        "                    <a class=\"nav-link\" href=\"flicks.html\">Photographic Archive</a>\n" +
         "                </li>\n" +
         "\n" +
         "                <li class=\"nav-item\">\n" +

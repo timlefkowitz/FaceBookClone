@@ -110,12 +110,12 @@ public class CustomController {
     @GetMapping("/Tim/flicks")
     public String flicks(
     ){
-        return "import/flicks";
+        return "import/flickarchive";
     }
     @GetMapping("/Tim/three")
     public String three(
     ){
-        return "import/three";
+        return "import/3d";
     }
 
 //            resume and cv
