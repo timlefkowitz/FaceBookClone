@@ -151,7 +151,7 @@
   <div class="container userPost" style="height:100%">
 
     <!--          Start of posting div-->
-    <div class="row postingDiv" th:each="group : ${groups}" style="display: flex; justify-content: center; align-items: center; text-align: center">
+    <div class="row postingDiv" th:each="group : ${group}" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
       <div id="profileItems" style="margin-top:10vh">
 
@@ -189,25 +189,25 @@
         <!--- Join Groups --->
 
         <!--                  Add To Contacts -->
-        <form th:method="post" th:action="@{/groups}" >
-          <input id="addedUser" name="addedUser" th:value="${username}"
-                 type="hidden">
-          <button style="padding-top: 10px; margin-right: 5px" type="submit"
-                  class="btn btn3"><span class="bg-dark btn" th:text="'Add Friend'" style="color:#00b1ae; padding-top:1vh; padding-bottom: 1vh"></span></button>
+<!--        <form th:method="post" th:action="@{/groups}" >-->
+<!--          <input id="addedUser" name="addedUser" th:value="${username}"-->
+<!--                 type="hidden">-->
+<!--          <button style="padding-top: 10px; margin-right: 5px" type="submit"-->
+<!--                  class="btn btn3"><span class="bg-dark btn" th:text="'Add Friend'" style="color:#00b1ae; padding-top:1vh; padding-bottom: 1vh"></span></button>-->
 
-        </form>
+<!--        </form>-->
 
 
 <!--              Members -->
 
-      <div>
-        <a style="font-size: 12px">Members</a>
-          <div th:each="friend : ${FriendsListRepo}">
-            <a th:href="'/' + ${friend.getAdded_user_id().username}">
-              <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>
-              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>
-          </div>
-        </div>
+<!--      <div>-->
+<!--        <a style="font-size: 12px">Members</a>-->
+<!--          <div th:each="friend : ${FriendsListRepo}">-->
+<!--            <a th:href="'/' + ${friend.getAdded_user_id().username}">-->
+<!--              <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>-->
+<!--              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>-->
+<!--          </div>-->
+<!--        </div>-->
 
 <!--              Featured Post  -->
         <div>

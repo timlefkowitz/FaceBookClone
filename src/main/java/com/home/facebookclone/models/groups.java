@@ -56,8 +56,6 @@ public class groups {
     @JoinColumn(name = "groupComment")
     private groups groupComment;
 
-
-
     @ManyToOne
     @JoinColumn(name = "groupOwner")
     private user groupOwner;

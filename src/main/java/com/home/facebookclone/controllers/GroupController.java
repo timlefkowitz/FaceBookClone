@@ -113,7 +113,7 @@ public class GroupController {
         groupDao.save(currentGroup);
 
 
-        return "redirect:/friends";
+        return "redirect:/groups";
     }
 
 

@@ -238,7 +238,7 @@
 
                     <!--                    <img th:src="${usersPost.getOwnerUser().originalavatar}" style="height: 20px; width: 20px;">-->
 
-                    <a th:href="'/' + ${usersPost.getOwner().username}">
+                    <a th:href="'/i/' + ${usersPost.getOwner().username}">
                         <img th:src="${usersPost.getOwner().imgPath}" style="height: 32px; width: 32px;">
                         <h6 style="align-items: center" th:text="${usersPost.getOwner().username}"></h6></a>
 

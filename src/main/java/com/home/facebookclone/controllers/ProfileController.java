@@ -28,17 +28,17 @@ public class ProfileController {
 
 
 
-    @GetMapping("/{username}/{id}")
-    public String showById2(@PathVariable Long id, Model view, String username){
-        view.addAttribute("user", userDao.getById(id));
-        view.addAttribute("username", userDao.getByUsername(username));
-        view.addAttribute("usersPost", postsRepo.getById(id));
-        view.addAttribute("{id}+friends", userDao.getById(id));
-//        view.addAttribute("status", statusDao.getByUsername(username));
-        return "UsersProfile";
-    }
+//    @GetMapping("/{username}/{id}")
+//    public String showById2(@PathVariable Long id, Model view, String username){
+//        view.addAttribute("user", userDao.getById(id));
+//        view.addAttribute("username", userDao.getByUsername(username));
+//        view.addAttribute("usersPost", postsRepo.getById(id));
+//        view.addAttribute("{id}+friends", userDao.getById(id));
+////        view.addAttribute("status", statusDao.getByUsername(username));
+//        return "UsersProfile";
+//    }
 
-    @GetMapping("/{username}")
+    @GetMapping("/i/{username}")
     public String showByUsername(@PathVariable String username,
                                  Model view
 //                                 @RequestParam(name="addfriend") long addID
@@ -99,56 +99,9 @@ public class ProfileController {
         return "UsersProfile";
     }
 
-    @GetMapping("/admin")
-    public String Tim(
-                                 Model view
-    ){
-
-        String Tim = userDao.getById(1l).username;
-
-        user currentProfile = userDao.getByUsername(Tim);
-
-        user userOfCurrentProfile = userDao.getByUsername(Tim);
-
-        Collection<friendslist> friendslistGen = friendslistDao.getByOwnerUser(userOfCurrentProfile);
 
 
-        view.addAttribute("user", userDao.getByUsername(Tim));
-        view.addAttribute("FriendsListRepo", friendslistGen);
-
-        return "admin";
-    }
-
-
-    @PostMapping("/{tim}/hi")
-    public String timspostmapping(@RequestParam(name="FriendHidden") long addID){
-
-//        Creating a new friends list query
-//        1. we are creating a new friendslist
-        friendslist addedFriend = new friendslist();
-
-//        2. creating the variable to add by users ID
-        user addedUser = userDao.getById(addID);
-
-//        3. this tells us who the current user is
-        user friendslistOwner = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-
-        long newfriend = addedUser.getId();
-
-//        String usernameString = {username};
-
-        addedFriend.setOwner_user(friendslistOwner);
-        addedFriend.setAdded_user_id(addedUser);
-        friendslistDao.save(addedFriend);
-
-
-        return "Tim";
-    }
-
-
-
-    @PostMapping("/{username}")
+    @PostMapping("/i/{username}")
     public String profilePostings(@RequestParam(name="FriendHidden") long addID){
 
 //        Creating a new friends list query
@@ -173,6 +126,31 @@ public class ProfileController {
 
         return "redirect:/home";
     }
+
+    @GetMapping("/admin")
+    public String Tim(
+                                 Model view
+    ){
+
+        String Tim = userDao.getById(1l).username;
+
+        user currentProfile = userDao.getByUsername(Tim);
+
+        user userOfCurrentProfile = userDao.getByUsername(Tim);
+
+        Collection<friendslist> friendslistGen = friendslistDao.getByOwnerUser(userOfCurrentProfile);
+
+
+        view.addAttribute("user", userDao.getByUsername(Tim));
+        view.addAttribute("FriendsListRepo", friendslistGen);
+
+        return "admin";
+    }
+
+
+
+
+
 
     boolean isProfileOwner;
 

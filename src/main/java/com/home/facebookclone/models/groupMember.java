@@ -17,20 +17,21 @@ public class groupMember {
     @ManyToOne
     @JoinColumn(name="list_owner_id")
     @JsonManagedReference
-    private user ownerUser;
+    private groups ownerUser;
 
     @ManyToOne
     @JoinColumn(name="added_user_id")
     @JsonManagedReference
     private user added_user_id;
 
-    public groupMember(user ownerUser, user added_user_id) {
+
+    public groupMember(long id, groups ownerUser, user added_user_id) {
+        this.id = id;
         this.ownerUser = ownerUser;
         this.added_user_id = added_user_id;
     }
 
-    public groupMember(long id, user ownerUser, user added_user_id) {
-        this.id = id;
+    public groupMember(groups ownerUser, user added_user_id) {
         this.ownerUser = ownerUser;
         this.added_user_id = added_user_id;
     }
@@ -47,11 +48,11 @@ public class groupMember {
         this.id = id;
     }
 
-    public user getOwnerUser() {
+    public groups getOwnerUser() {
         return ownerUser;
     }
 
-    public void setOwnerUser(user ownerUser) {
+    public void setOwnerUser(groups ownerUser) {
         this.ownerUser = ownerUser;
     }
 

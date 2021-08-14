@@ -16,7 +16,7 @@ public interface groupRepo extends JpaRepository<groups, Long> {
 //    groups findByGroupName(String title);
 
     groups getByTitle(String title);
-    List<groups> getByGroupUser(user OwnerUser);
+//    List<groups> getByGroupUser(user OwnerUser);
 //    groups getByGroupOwner(String groupOwner);
 //
 //    Collection<groups> getByGroupMember(String groupMember);
