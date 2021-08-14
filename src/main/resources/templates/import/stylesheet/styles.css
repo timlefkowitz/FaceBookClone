@@ -1,0 +1,143 @@
+#jnavbar{
+    /*display:flex;*/
+    /*justify-content: center;*/
+    font-size: 15px !important;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    /*border: 5px solid red;*/
+}
+
+.navbar{
+
+    font-size: 10px !important;
+    font-family: -apappleappple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.codecard {
+    margin-right:5em;
+}
+
+/*.calltojustify{*/
+/*    justify-content: end !important;*/
+/*}*/
+
+.rowone{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+/*.cards{*/
+/*    margin-top: 10%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+.boxes{
+    margin-top:10%;
+    justify-content: center;
+}
+
+#carouselExampleControls{
+    height:200px !important;
+}
+
+#demo{
+    margin-top: 10%;
+    font-size: 20px;
+}
+
+.textarea{
+    margin-top: 10%;
+}
+
+div {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size:10px;
+    font-weight: 600;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    padding-top:65px;
+}
+
+.mediacontainer img{
+    display: inline-block;
+    max-width: 100%;
+    max-height: 300px !important;
+    /*border: 5px solid red;*/
+}
+
+.ml3 {
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+footer{
+    width: 100%;
+    background-color: #0a0400;
+    position: relative;
+}
+
+.box2{
+    width: 100%;
+    background-color: #0a0400;
+    position: relative;
+    padding:0;
+}
+
+
+/*
+  iPhone 6 and 6s
+*/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (width : 375px)
+and (height : 559px)
+and (orientation : portrait)
+and (color : 8)
+and (device-aspect-ratio : 375/667)
+and (aspect-ratio : 375/559)
+and (device-pixel-ratio : 2)
+and (-webkit-min-device-pixel-ratio : 2)
+{
+
+    .navbar{
+        font-size: 20px !important;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+        font-weight: 600 !important;
+        height: 200px !important;
+    }
+}
+
+/* 2340x1080 pixels at 476ppi
+Iphone 12mini
+*/
+/*@media only screen*/
+/*and (device-width: 375px)*/
+/*and (device-height: 812px)*/
+/*and (-webkit-device-pixel-ratio: 3) {*/
+
+
+/*    .navbar{*/
+
+/*        font-size: 12px !important;*/
+/*        font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;*/
+/*        font-weight: 600 !important;*/
+/*    }*/
+
+/*}*/
+
+/* 2532x1170 pixels at 460ppi
+iPhone 12 Pro
+*/
+
+/*@media only screen*/
+/*and (device-width: 390px)*/
+/*and (device-height: 844px)*/
+/*and (-webkit-device-pixel-ratio: 3) { }*/

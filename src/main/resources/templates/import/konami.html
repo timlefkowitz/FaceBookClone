@@ -1,0 +1,130 @@
+<!--- PhotonLife is a brand by Timothy Craig Lefkowitz
+----- If you are seeing this I'm always looking for new opportunities
+----- This is my portfolio - Thank you for looking :D
+----- cell: 6125626492
+-----
+----- Photon Corp
+----- v.10
+----- @url https://photonlife.com
+----->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Photon Life</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!--- J Query -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <!-- BootStrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="stylesheet/styles.css">
+
+
+
+</head>
+
+
+<body>
+<!-- NAV BAR -->
+<div id="jnavbar"></div>
+
+
+<style>
+    .gif{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body{
+        background-color: #7CB06C;
+    }
+    h1{
+        color : #afd3c1;
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<body>
+<h1>Konami Code</h1>
+<div class="gif">
+    <img src="https://media.giphy.com/media/DpXqHdILXRRDi/source.gif">
+</div>
+
+<script>
+    // function konami (fn) {
+    //     var input = "";
+    //     var pattern = "3838404037393739666513";
+    //     $(document).keydown(function(e) {
+    //         input += e.keyCode;
+    //         if (input.includes(pattern)) {
+    //             fn();
+    //             input = "";
+    //         }
+    //     });
+    // }
+    // $(document).ready(function() {
+    //     konami(function () {
+    //         alert('YOU HAVE ADDED 30 LIVES!!')
+    //     })
+    // })
+
+    "use strict";
+    var keysPressed = [];
+    var konamiCodeKeys = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"]
+
+    $(document).keyup(function(event){
+        // console.log(event.keyCode);
+        keysPressed.push(event.key);
+
+        if(keysPressed.length > 11){
+            keysPressed.shift()
+        }
+        if(konamiCodeKeys.toString() === keysPressed.toString()){
+            $("body").html("You get 30 lives. Now go code some more!");
+            $("body").css("background-color", "#afd3c1");
+            $("h1").css("background-color", "#7CB06C");
+        }
+
+
+        console.log(keysPressed);
+    });
+</script>
+
+<!--- Scripts --->
+
+<script src="js/js.js"></script>
+
+
+
+<!--Boot Strap -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

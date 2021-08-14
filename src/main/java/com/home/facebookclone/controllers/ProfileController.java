@@ -127,26 +127,6 @@ public class ProfileController {
         return "redirect:/home";
     }
 
-    @GetMapping("/admin")
-    public String Tim(
-                                 Model view
-    ){
-
-        String Tim = userDao.getById(1l).username;
-
-        user currentProfile = userDao.getByUsername(Tim);
-
-        user userOfCurrentProfile = userDao.getByUsername(Tim);
-
-        Collection<friendslist> friendslistGen = friendslistDao.getByOwnerUser(userOfCurrentProfile);
-
-
-        view.addAttribute("user", userDao.getByUsername(Tim));
-        view.addAttribute("FriendsListRepo", friendslistGen);
-
-        return "admin";
-    }
-
 
 
 

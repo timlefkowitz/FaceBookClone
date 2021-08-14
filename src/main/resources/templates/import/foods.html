@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Photon Life</title>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- BootStrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="stylesheet/styles.css">
+
+    <!--- J Query -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+
+<!---- MapBOX CDN ----->
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+
+<style>
+    body {
+        background: linear-gradient(to right, #b20d14, #bf212a);
+    }
+    .map{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+    }
+
+    #map{
+        width:100%;
+        height:700px;
+        box-shadow: 2px 2px 0px 0px #565454;
+    }
+    h1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 18px;
+    }
+    .text-box {
+        display: flex;
+        justify-content: flex-end;
+        font-family: 'Orelega One', cursive;
+        color:#afd3c1;
+        text-shadow: 2px 2px #565454;
+
+    }
+
+    .container{
+        margin-top: 1.7%;
+    }
+
+
+</style>
+
+<script src="js/keys.js"></script>
+
+<body>
+<!-- NAV BAR -->
+<div id="jnavbar"></div>
+
+<!-- Media panel -->
+<!--<div class="container d-flex justify-content-center mediacontainer flavoursContainer">-->
+<!--    <img src="img/photonlife.png">-->
+<!--</div>-->
+
+<div class="container">
+    <!-- code here -->
+    <div class="text-box">
+        <h1>🍔 Tims Food Picks 🌮</h1>
+    </div>
+</div>
+<div class="map">
+    <div id='map' style='width: 100%; height: 600px;'></div>
+</div>
+<script>
+    mapboxgl.accessToken = mapboxtoken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.48, 29.45],
+        zoom:10,
+    });
+
+
+
+    function Foods(){
+
+        var midTownBistro = new mapboxgl.Popup(popupOptions)
+            .setHTML("<p>\t\n" +
+                "MidTown Bistro has some of the best fries around. </p>"+"<h6>Contact Number</h6><a href=\"tel:210-857-4518\">210-857-4518<i class=\"material-icons\" style=\"font-size:30px;color:black;\">phone</i></a>");
+        var marker = new mapboxgl.Marker({
+            color: "#ff601c",
+            draggable: false
+        })
+            .setLngLat([-98.468405, 29.460158])
+            .addTo(map)
+            .setPopup(midTownBistro);
+
+    }
+
+
+    Foods();
+
+    function vetOwned(){
+
+        var popup1Cybersecurity = new mapboxgl.Popup(popupOptions)
+            .setHTML("<i class=\"material-icons\" style=\"font-size:30px;color:#115A07;\">flag</i><h6>la Madeleine French Bakery & Cafe</h6><p>\t\n" +
+                "I know, It's kinda a chain. I can't help it I love La Madeleine </p>"+"<h6>Contact Number</h6><a href=\"tel:+2108297291\">+12108297291<i class=\"material-icons\" style=\"font-size:30px;color:black;\">phone</i></a>");
+        var marker = new mapboxgl.Marker({
+            color: "#ff601c",
+            draggable: false
+        })
+            .setLngLat([-98.463089, 29.471085])
+            .addTo(map)
+            .setPopup(popup1Cybersecurity);
+
+
+
+
+        var popup1iApparel = new mapboxgl.Popup(popupOptions)
+            .setHTML("<i class=\"material-icons\" style=\"font-size:30px;color:#115A07;\">flag</i><h6>Cullum's Attagirl Ice House</h6><p>Hands down the best wings I've had. I didn't know I liked wings until I had Attagirls wings!</p>"+"<h6>Contact Number</h6><a href=\"tel:+210-807-8777\">+1210-807-8777<i class=\"material-icons\" style=\"font-size:30px;color:black;\">phone</i></a>");
+        var marker = new mapboxgl.Marker({
+            color: "#ff601c",
+            draggable: false
+        })
+            .setLngLat([-98.484918, 29.453307])
+            .addTo(map)
+            .setPopup(popup1iApparel);
+
+
+        var popupSecurity = new mapboxgl.Popup(popupOptions)
+            .setHTML("<i class=\"material-icons\" style=\"font-size:30px;color:#115A07;\">flag</i><h6>Southerleigh Fine Food and Brewery</h6><p>Some of the best food from the south I've ever had!</p>"+"<h6>Contact Number</h6><a href=\"tel:+12104555701\">+12104555701<i class=\"material-icons\" style=\"font-size:30px;color:black;\">phone</i></a>");
+        var marker = new mapboxgl.Marker({
+            color: "#ff601c",
+            draggable: false
+        })
+            .setLngLat([-98.480506,29.442585])
+            .addTo(map)
+            .setPopup(popupSecurity);
+
+
+
+        var popupTech = new mapboxgl.Popup(popupOptions)
+            .setHTML("<i class=\"material-icons\" style=\"font-size:30px;color:#115A07;\">flag</i><h6>Halcyon and Stella</h6><p>Halcyon has some of the best chicken and mac, plates ever and it's only five dollars!</p>"+"<h6>Contact Number</h6><a href=\"tel:+12102277047\">+1+2102777047<i class=\"material-icons\" style=\"font-size:30px;color:black;\">phone</i></a>");
+        var marker = new mapboxgl.Marker({
+            color: "#ff601c",
+            draggable: false
+        })
+            .setLngLat([-98.495297, 29.410172])
+            .addTo(map)
+            .setPopup(popupSecurity);
+
+        currentMarkers.push(marker);
+
+
+    }
+
+    vetOwned();
+
+    mapboxgl.accessToken = mapboxtoken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.48, 29.425],
+        zoom:12.5,
+    });
+
+    var markerOptions = {
+        color: "red",
+        scale: .9,
+    }
+
+    var popupOptions = {
+        anchor: "top",
+    }
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--- Scripts --->
+
+<script src="js/js.js"></script>
+
+
+
+<!--Boot Strap -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

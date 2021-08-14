@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Photon Life</title>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- MapBOx utilis -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- BootStrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="stylesheet/styles.css">
+
+<!--    &lt;!&ndash;- J Query &ndash;&gt;-->
+
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+
+
+
+
+
+
+</head>
+<body>
+<!-- NAV BAR -->
+<div id="jnavbar"></div>
+
+<!--&lt;!&ndash; Media panel &ndash;&gt;-->
+<!--<div class="container d-flex justify-content-center mediacontainer flavoursContainer">-->
+<!--    <img src="img/photonlife.png">-->
+<!--</div>-->
+
+<style>
+    .container{
+        margin-top:5%;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-around">
+
+            <div class="card" style="width: 10rem;">
+                <div class="card-header">
+                    <a class="day1 text-center day1" id="dayOneDT">10-16-1988</a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item dayonecity">Description:</li>
+                    <li class="list-group-item dayonepressure">Pressure:</li>
+                    <li class="list-group-item dayonetemp">Humidity:</li>
+                    <li class="list-group-item dayonewind">Wind:</li>
+
+                </ul>
+            </div>
+                <div class="card" style="width: 10rem;">
+                    <div class="card-header">
+                        <a class="day1 text-center day1" id="dayTwoDT">10-16-1988</a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item daytwocity">Description:</li>
+                        <li class="list-group-item daytwopressure">Pressure:</li>
+                        <li class="list-group-item daytwotemp">Humidity:</li>
+                        <li class="list-group-item daytwowind">Wind:</li>
+
+                    </ul>
+                </div>
+
+        <div class="card" style="width: 10rem;">
+            <div class="card-header">
+                <a class="day1 text-center day1" id="daythreeDT">10-16-1988</a>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item daythreecity">Description:</li>
+                <li class="list-group-item daythreepressure">Pressure:</li>
+                <li class="list-group-item daythreetemp">Humidity:</li>
+                <li class="list-group-item daythreewind">Wind:</li>
+
+            </ul>
+        </div>
+
+
+
+<!--        <div class="col">-->
+<!--            <div class="card" style="width: 10rem;">-->
+<!--                <div class="card-header">-->
+<!--                    <a class="daytwo text-center">10-16-1988</a>-->
+<!--                </div>-->
+<!--                <ul class="list-group list-group-flush">-->
+<!--                    <li class="list-group-item">Description:</li>-->
+<!--                    <li class="list-group-item">Humidity:</li>-->
+<!--                    <li class="list-group-item">Wind:</li>-->
+<!--                    <li class="list-group-item">Pressure:</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--        <div class="col">-->
+<!--            <div class="card" style="width: 10rem;">-->
+<!--                <div class="card-header">-->
+<!--                    <a class="daythree text-center">10-16-1988</a>-->
+<!--                </div>-->
+<!--                <ul class="list-group list-group-flush">-->
+<!--                    <li class="list-group-item">Description:</li>-->
+<!--                    <li class="list-group-item">Humidity:</li>-->
+<!--                    <li class="list-group-item">Wind:</li>-->
+<!--                    <li class="list-group-item">Pressure:</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--        <div class="col">-->
+<!--            <div class="card" style="width: 10rem;">-->
+<!--                <div class="card-header">-->
+<!--                    <a class="dayfour text-center">10-16-1988</a>-->
+<!--                </div>-->
+<!--                <ul class="list-group list-group-flush">-->
+<!--                    <li class="list-group-item">Description:</li>-->
+<!--                    <li class="list-group-item">Humidity:</li>-->
+<!--                    <li class="list-group-item">Wind:</li>-->
+<!--                    <li class="list-group-item">Pressure:</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--        <div class="col">-->
+<!--            <div class="card" style="width: 10rem;">-->
+<!--                <div class="card-header">-->
+<!--                    <a class="dayfive text-center">10-16-1988</a>-->
+<!--                </div>-->
+<!--                <ul class="list-group list-group-flush">-->
+<!--                    <li class="list-group-item">Description:</li>-->
+<!--                    <li class="list-group-item">Humidity:</li>-->
+<!--                    <li class="list-group-item">Wind:</li>-->
+<!--                    <li class="list-group-item">Pressure:</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+
+</div>
+
+
+
+
+<div class="map">
+    <div id='map'></div>
+</div>
+
+
+<!--<h5>Tips</h5>-->
+<!--<ul>-->
+<!--    <li>Take time to plan out your approach for each part of the project</li>-->
+<!--    <li>Commit along the way. Especially as you are starting new functionality</li>-->
+<!--    <li>You may utilize the geocoder helper methods from the previous mapbox lesson</li>-->
+<!--    <li>API Keys should be protected in your keys.js</li>-->
+<!--    <li>Read the docs!</li>-->
+<!--    <li>Get your project working, then focus on styling & refactoring</li>-->
+<!--    <li>To add mapbox autocomplete search, you will need to include geocoder scripts from mapbox</li>-->
+<!--</ul>-->
+
+
+    <style>
+    .row{
+        flex-wrap: nowrap;
+    }
+    .col{
+        flex-grow: 0;
+    }
+    #map{
+        display: flex;
+        justify-content: center;
+        width:100%;
+        height:400px;
+
+    }
+    .map {
+        display: flex;
+        justify-content: center;
+        padding-top:1em;
+
+    }
+    .days {
+        padding-top:2em;
+        width:80%;
+    }
+</style>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+
+
+<!--- Scripts --->
+
+<script src="js/js.js"></script>
+
+
+
+<!--Boot Strap -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+<!--- MapBox CDN --->
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/keys.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+        "use strict";
+
+        mapboxgl.accessToken = mapboxtoken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 10,
+            center: [-98.4916, 29.4252]})
+
+
+
+        $.get("https://api.openweathermap.org/data/2.5/forecast", {
+            q: "San Antonio, US",
+            appid: OPEN_WEATHER_APPID,
+            units: "imperial",
+        }).done(function(results) {
+            console.log(results.dt)
+            console.log(results)
+
+
+            // day one current time
+            var weatherObj = results;
+
+            const milliseconds = results.list[0].dt * 1000 // 1575909015000
+
+            const dayonetime = new Date(milliseconds)
+
+            console.log(dayonetime.toLocaleString()); //2019-12-9 10:30:15
+
+            // day two current time
+
+            // const millisecondsdaytwo = results.list[1].dt * 1000 // 1575909015000
+
+            const daytwotime = results.list[1].dt_txt;
+
+            console.log(daytwotime.toLocaleString()); //2019-12-9 10:30:15
+
+            // day three time
+
+            const daythreetime = results.list[8].dt_txt;
+
+            console.log(daythreetime.toLocaleString()); //2019-12-9 10:30:15
+
+
+            $("#dayOneDT").html("<h5>Today</h5>"+dayonetime.toLocaleString());
+            $("#dayTwoDT").html("<h5>Tomorrow</h5>"+daytwotime.toLocaleString());
+            $("#daythreeDT").html("<h5>Next</h5>"+daythreetime.toLocaleString());
+
+            // DAY ONE
+
+
+            // day one weather
+            const dayonecity = results.list[0].weather[0].description;
+            $(".dayonecity").html("Description: \n" +
+                ""+dayonecity);
+
+            // day one temp
+            const dayonetemp = results.list[0].main.temp;
+            $(".dayonetemp").html("Temp: "+dayonetemp);
+
+            // day one wind
+            const dayonewind = results.list[0].wind.speed;
+            $(".dayonewind").html("Wind: "+dayonewind);
+
+            // day one weather
+            const dayonepressure = results.list[0].main.pressure;
+            $(".dayonepressure").html("Pressure: "+dayonepressure);
+
+            // DayTwo
+            //
+            const daytwocity = results.list[1].weather[0].description;
+            $(".daytwocity").html("Description: \n" +
+                ""+daytwocity);
+
+            // day one temp
+            const daytwotemp = results.list[1].main.temp;
+            $(".daytwotemp").html("Temp: "+daytwotemp);
+
+            // day one wind
+            const daytwowind = results.list[1].wind.speed;
+            $(".daytwowind").html("Wind: "+daytwowind);
+
+            // day one weather
+            const daytwopressure = results.list[1].main.pressure;
+            $(".daytwopressure").html("Pressure: "+daytwopressure);
+
+
+            // Day three
+            //
+            const daythreecity = results.list[8].weather[0].description;
+            $(".daythreecity").html("Description: \n" +
+                ""+daythreecity);
+
+            // day one temp
+            const daythreetemp = results.list[8].main.temp;
+            $(".daythreetemp").html("Temp: "+daythreetemp);
+
+            // day one wind
+            const daythreewind = results.list[8].wind.speed;
+            $(".daythreewind").html("Wind: "+daythreewind);
+
+            // day one weather
+            const daythreepressure = results.list[8].main.pressure;
+            $(".daythreepressure").html("Pressure: "+daythreepressure);
+
+
+
+            //"results" is the weather object
+
+            // Example
+            // $("card").html("<h4>"+ results.day1.getforcast +"</h4>")
+
+
+            // if (weather.dt_txt.split(" ")[1] === "09:00:00") {
+            //     weatherlist.push(weather);
+            //     console.log(weatherlist)
+        });
+
+        // $("#day1").append("<a class=\"day1 text-center day1\" id=\"day1\">day1</a>");
+
+    });
+
+</script>
+
+
+
+<!--- MapBox CDN --->
+
+
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+
+</body>
+</html>
