@@ -149,15 +149,12 @@
 
 <!--      USERS POSTS DIV   -->
 <div id="mainforpost" class="col-lg-12" >
-
   <!--              UserPost        style="max-height: 400px;      -->
   <div class="container userPost" style="height:100%">
-
     <!--          Start of posting div-->
     <div class="row postingDiv" th:each="usersmodel : ${user}" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
       <input th:each="userID : ${user}" type="hidden">
-
       <div id="profileItems" style="margin-top:10vh">
 
 <!--          Avatar and Add to Contacts Buttons-->
@@ -186,10 +183,19 @@
         </div>
 
 <!--              Status -->
-        <div th:each="status : ${status}">
+        <div>
           <a style="font-size: 12px">status</a>
-            <h4 style="align-items: center" th:text="${status.getStatus()}"></h4>
+            <h4 style="align-items: center" th:text="${user.status}"></h4>
         </div>
+
+
+
+
+
+
+
+<!--                friends and groups-->
+        <div class="col-lg-12" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
 <!--              Friends -->
 
@@ -202,64 +208,44 @@
           </div>
         </div>
 
-<!--              Featured Post  -->
-        <div>
-          <a style="font-size: 12px">featuredPost</a>
-<!--          <img th:src="${usersPost.imgPath}" style="width: 85vh;">-->
-<!--          <h4 style="align-items: center" th:text="${usersPost.title}"></h4>-->
-<!--          <p style="align-items: center" th:text="${usersPost.body}"></p>-->
 
-          </div>
+<!--              Groups  -->
 
-        </div>
-
-
-
-
-
-<!--      &lt;!&ndash;      Featured Post DIV   &ndash;&gt;-->
-<!--      <div class="col-lg-9"; style=" align-items: center; margin-top: 15%; margin-left: 15%; margin-right: 15%; text-align: center">-->
-<!--        <h5 style=" align-items: center; text-align: center" class="card" id="headercard" width="300px">featured Post</h5>-->
-
-
-<!--        <div id="featuredPost" class="col-lg-9" th:each="post : ${featuredPost}">-->
-
-<!--          &lt;!&ndash;              UserPost        style="max-height: 400px;      &ndash;&gt;-->
-<!--          <div class="card container userPost" style="height:100%">-->
-
-<!--            &lt;!&ndash;          Start of posting div&ndash;&gt;-->
-<!--            <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">-->
-
-
-
-
-<!--                <img th:src="${post}" style="height: 64px; width: 64px;">-->
-<!--                <span style="font-size:12px" th:text="${post}"></span>-->
-
-
-
-
-
-
-
-<!--              &lt;!&ndash;            for adding a friend&ndash;&gt;-->
-<!--              <form th:method="post" th:action="@{/friends}">-->
-<!--                <input id="friendslistHidden" name="friendslistHidden"  type="hidden">-->
-<!--              </form>-->
-
-
-
-
-<!--              &lt;!&ndash;                                        <form>&ndash;&gt;-->
-<!--              &lt;!&ndash;                                            <input type="hidden" name="user_id" value="${user.id}" style="width: 20px">&ndash;&gt;-->
-<!--              &lt;!&ndash;                                            <input class="btn btn-danger btn-sm" text="" type="submit" value="Delete">&ndash;&gt;-->
-<!--              &lt;!&ndash;                                        </form>&ndash;&gt;-->
-
-<!--            </div>-->
+<!--        <div>-->
+<!--          <a style="font-size: 12px">groups</a>-->
+<!--          <div th:each="group : ${groups}">-->
+<!--            <a th:href="'/' + ${friend.getAdded_user_id().username}">-->
+<!--              <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>-->
+<!--              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>-->
 <!--          </div>-->
 <!--        </div>-->
-<!--      </div>-->
 
+
+      <div class="col-lg-12">
+
+<!--              Featured Post  -->
+<!--        <div>-->
+<!--          <a style="font-size: 12px;">featuredPost</a>-->
+
+<!--          &lt;!&ndash;          Start of posting div&ndash;&gt;-->
+<!--          <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center" th:each="post : ${featuredPost}">-->
+
+
+<!--            <img th:src="${post.imgPath}" style="width: 85vh;">-->
+<!--            <h4 style="align-items: center" th:text="${post.title}"></h4>-->
+<!--            <p style="align-items: center" th:text="${post.body}"></p>-->
+<!--          </div>-->
+<!--&lt;!&ndash;          <img th:src="${usersPost.imgPath}" style="width: 85vh;">&ndash;&gt;-->
+<!--&lt;!&ndash;          <h4 style="align-items: center" th:text="${usersPost.title}"></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;          <p style="align-items: center" th:text="${usersPost.body}"></p>&ndash;&gt;-->
+
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+        </div>
+      </div>
+    </div>
+</div>
 
 
 <!--               END OF UserProfiles HOME   -->

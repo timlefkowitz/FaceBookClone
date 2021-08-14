@@ -42,84 +42,16 @@ public class GroupController {
 
 
 
-
-
-
     // Blank
     public GroupController(UsersRepository userDao, groupRepo groupDao, groupPostRepo groupPostDao, UsersPostRepo postsDao){
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.groupPostDao = groupPostDao;
-
         this.postsDao = postsDao;
     }
 
 
 
-    @PostMapping("/ADDgroups")
-    public String groupsAndgroupMembers(@RequestParam(name = "addedUser") String addedUser,
-                             @RequestParam(name = "currentGroup") String currentGroup
-    )
-    {
-
-//        1. generate the user
-        user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-//            -- Define currentUser and get by their username ((username)) < Check It out get by username!!
-        user currentUser = userDao.getByUsername(addedUser);
-
-
-//        2. generate the list of group members
-//        List<groupMemberModel> currentgroups = currentUser.getGroups();
-
-
-//        3. generate what the current Groups Name is
-//        groups currentGroupsName = groupDao.getByTitle(currentGroup);
-
-
-//        4. Create a new object of group member <<<< this needs to be moved where groups are created |||||
-//        currentgroups.add(new groupMember(userInSession));
-
-//        5.  add new user to group
-//        currentUser.setGroups((List<groupMemberModel>) currentGroupsName);
-//        groupDao.save(currentGroupsName);
-
-
-
-
-
-//        APPLICATION WRAP UP / ORGINIZE TEMPLATE // BY TIMOTHY LEFKOWITZ , SAMUEL M, KENNETH HOWELL, DOUGLAS HIRSH THANK YOU
-
-//        1. generate the user
-//        2. generate the list of group members
-//        3. generate what the current Groups Name is
-
-
-
-//        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
-//        00.1 experiments and history
-//        {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
-
-
-//        user currentUser = userDao.getById(userInSession.getId());
-
-//        friendslist n = new friendslist();
-
-//        userInSession.getContactListOwner();
-//        n.setOwner_user(userInSession);
-//        n.setAdded_user_id(addthisUser);
-
-//        Collection<friendslist> addFriend = userInSession.getContactListOwner();
-//        user addthisUserID = users.getById(addID);
-//
-//        addFriend.setOwner_user(friendslistOwner);
-//        addFriend.setAdded_user_id(addthisUserID);
-//        friends.save(addFriend);
-
-
-//        return"redirect:/friends";
-        return "redirect:/groups";
-    }
 
     @GetMapping("/groups")
     public String groupsHomeView(Model view)
@@ -150,11 +82,45 @@ public class GroupController {
 
 
 //        0.001 add Attributes
-//        view.addAttribute("group", groupDao.getByTitle(title));
+        view.addAttribute("group", groupDao.getByTitle(title));
 
 
         return "groupHome";
     }
+
+
+
+    //      GetMapping and Post Mapping
+    @PostMapping("/groups/{title}")
+    public String friendspage(@RequestParam(name = "addedUser") String addedUser,
+                              @PathVariable String title
+    ){
+
+
+//        1. generate the user and different user types
+        user userInSession = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user currentUser = userDao.getById(userInSession.getId());
+        user addthisUser = userDao.getByUsername(addedUser);
+
+
+        groups currentGroup = groupDao.getByTitle(title);
+        Collection<groups> currentUsersGroups = currentUser.getGroupMember();
+
+        currentUsersGroups.add(new groups(currentGroup, addthisUser));
+//        4. add friends
+        currentUser.setGroupMember(currentUsersGroups);
+//        5. save the new friendslst
+        groupDao.save(currentGroup);
+
+
+        return "redirect:/friends";
+    }
+
+
+
+
+
+
 
 
 
@@ -183,22 +149,9 @@ public class GroupController {
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String usernameOfCurrentUser = currentUser.username;
 
-//                      Lets grab the current users groups and see if that matches the title
 
-//        List<groupMemberModel> CurrentUsersGroups = currentUser.getGroups();
 
-//        System.out.println(CurrentUsersGroups);
 
-//        Change from new group to current group
-//        groupPost n = new groupPost();
-//        Collection<groups> GroupToPost = currentUser.getGroupMember(title);
-//        groupPost n = currentUser.getGroupMember();
-////        set the posts Requested Parameters
-//        n.setTitle(title);
-//        n.setBody(summary);
-//        n.setImgPath(GroupPostIMGPath);
-//        save the post
-//        groupPostDao.save(n);
         return "redirect:/home";
 
 

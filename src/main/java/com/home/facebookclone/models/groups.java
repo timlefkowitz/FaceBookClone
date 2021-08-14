@@ -56,13 +56,15 @@ public class groups {
     @JoinColumn(name = "groupComment")
     private groups groupComment;
 
-//    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "groups")
-//
-//    private List<user> groupMember = new ArrayList<>();
+
 
     @ManyToOne
     @JoinColumn(name = "groupOwner")
     private user groupOwner;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerUser")
+    @JsonBackReference
+    private Collection<groupMember> groupMember;
 
 
     // THERE CAN BE MANY OWNERS THAT OWN THINGS???????
@@ -72,7 +74,7 @@ public class groups {
 
     // Insert Constructor
 
-    public groups(String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, List<user> groupMember, user groupOwner) {
+    public groups(String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, user groupOwner, Collection<com.home.facebookclone.models.groupMember> groupMember) {
         CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
@@ -81,15 +83,15 @@ public class groups {
         this.groupavatar = groupavatar;
         this.groupPost = groupPost;
         this.groupComment = groupComment;
-//        this.groupMember = groupMember;
         this.groupOwner = groupOwner;
+        this.groupMember = groupMember;
     }
 
 
     // Update Constructor
 
 
-    public groups(long id, String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, List<user> groupMember, user groupOwner) {
+    public groups(long id, String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, user groupOwner, Collection<com.home.facebookclone.models.groupMember> groupMember) {
         this.id = id;
         CreatedBy = createdBy;
         this.title = title;
@@ -99,8 +101,8 @@ public class groups {
         this.groupavatar = groupavatar;
         this.groupPost = groupPost;
         this.groupComment = groupComment;
-//        this.groupMember = groupMember;
         this.groupOwner = groupOwner;
+        this.groupMember = groupMember;
     }
 
     public groups(groups groupMember, user addthisUser) {
@@ -174,6 +176,13 @@ public class groups {
         this.groupPost = groupPost;
     }
 
+    public groups getGroupComment() {
+        return groupComment;
+    }
+
+    public void setGroupComment(groups groupComment) {
+        this.groupComment = groupComment;
+    }
 
     public user getGroupOwner() {
         return groupOwner;
@@ -183,19 +192,12 @@ public class groups {
         this.groupOwner = groupOwner;
     }
 
-    public groups getGroupComment() {
-        return groupComment;
+
+    public Collection<com.home.facebookclone.models.groupMember> getGroupMember() {
+        return groupMember;
     }
 
-    public void setGroupComment(groups groupComment) {
-        this.groupComment = groupComment;
+    public void setGroupMember(Collection<com.home.facebookclone.models.groupMember> groupMember) {
+        this.groupMember = groupMember;
     }
-
-//    public List<user> getGroupMember() {
-//        return groupMember;
-//    }
-//
-//    public void setGroupMember(List<user> groupMember) {
-//        this.groupMember = groupMember;
-//    }
 }

@@ -184,13 +184,17 @@
             <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
 <!--                    link to groups page -->
-                <a th:href="'/groups/' + ${group.title}">
-<!--                    group title-->
-                <span style="font-size:12px" th:text="${group.title}" id="allGroupNames"></span>
-<!--                    group image-->
-                    <img th:src="${group.groupavatar}" style="height: 64px; width: 64px;">
+                <div>
+                    <a th:href="'/groups/' + ${group.title}">
+    <!--                    group title-->
+                        <span style="font-size:12px" th:text="${group.title}" id="allGroupNames"></span>
+        <!--                    group image-->
+                            <img th:src="${group.groupavatar}" style="height: 64px; width: 64px;">
 
-                </a>
+                    </a>
+                </div>
+
+
 <!--                    <span style="font-size:12px" th:text="${group.getTitle()}" id="userOwnerPost" th:href="@{group.getTitle()}"></span></a>-->
 
 

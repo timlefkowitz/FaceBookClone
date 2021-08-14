@@ -108,30 +108,28 @@ public class  user {
     @JsonBackReference
     private List<usersPost> blogPost;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupOwner")
-    @JsonBackReference
-    private Collection<groups> groupOwner;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusOwner")
     @JsonBackReference
     private Collection<status> usersStatus;
 
-//
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "groupMemberModel",
-//            joinColumns = @JoinColumn(name = "user_id", insertable = false, updatable = false),
-//            inverseJoinColumns = @JoinColumn(name = "group_id", insertable = false, updatable = false)
-//    )
-//    private List<groupMemberModel> groups = new ArrayList<>();
+
+//    groups
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupMember")
+    @JsonBackReference
+    private Collection<groups> groupMember;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
     @JsonBackReference
     private Collection<groupComment> groupComment;
 
+//    friends
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerUser")
     @JsonBackReference
     private Collection<friendslist> contactListOwner;
+
+//    token
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tokenOwner")
     @JsonBackReference
@@ -151,7 +149,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> usersStatus, List<groupMemberModel> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, Collection<groups> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -170,9 +168,8 @@ public class  user {
         this.link2 = link2;
         this.link3 = link3;
         this.blogPost = blogPost;
-        this.groupOwner = groupOwner;
         this.usersStatus = usersStatus;
-//        this.groups = groups;
+        this.groupMember = groupMember;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
@@ -181,7 +178,7 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.groups> groupOwner, Collection<com.home.facebookclone.models.status> usersStatus, List<groupMemberModel> groups, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, Collection<groups> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -201,9 +198,8 @@ public class  user {
         this.link2 = link2;
         this.link3 = link3;
         this.blogPost = blogPost;
-        this.groupOwner = groupOwner;
         this.usersStatus = usersStatus;
-//        this.groups = groups;
+        this.groupMember = groupMember;
         this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
@@ -390,29 +386,21 @@ public class  user {
         this.blogPost = blogPost;
     }
 
-    public Collection<com.home.facebookclone.models.groups> getGroupOwner() {
-        return groupOwner;
-    }
-
-    public void setGroupOwner(Collection<com.home.facebookclone.models.groups> groupOwner) {
-        this.groupOwner = groupOwner;
-    }
-
     public Collection<com.home.facebookclone.models.status> getUsersStatus() {
         return usersStatus;
     }
 
-    public void setUsersStatus(Collection<com.home.facebookclone.models.status> statusOwner) {
-        this.usersStatus = statusOwner;
+    public void setUsersStatus(Collection<com.home.facebookclone.models.status> usersStatus) {
+        this.usersStatus = usersStatus;
     }
 
-//    public List<groupMemberModel> getGroups() {
-//        return groups;
-//    }
-//
-//    public void setGroups(List<groupMemberModel> groups) {
-//        this.groups = groups;
-//    }
+    public Collection<groups> getGroupMember() {
+        return groupMember;
+    }
+
+    public void setGroupMember(Collection<groups> groupMember) {
+        this.groupMember = groupMember;
+    }
 
     public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {
         return groupComment;

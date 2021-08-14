@@ -3,13 +3,16 @@ package com.home.facebookclone.controllers;
 
 import com.home.facebookclone.models.friendslist;
 import com.home.facebookclone.models.user;
+import com.home.facebookclone.models.usersPost;
 import com.home.facebookclone.repos.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Controller
@@ -76,18 +79,20 @@ public class ProfileController {
 //        0.001 add Attributes
         view.addAttribute("user", userDao.getByUsername(username));
         view.addAttribute("FriendsListRepo", friendslistGen);
-//        view.addAttribute("status", statusDao.getByUsername(currentUser));
+        view.addAttribute("allusers", userDao.findAll());
 
+        List<usersPost> featured = new ArrayList<>();
+//        featured.add(postsRepo.findAll());
+
+        System.out.println(postsRepo.findAll() +"dsadasdadsadada");
+        view.addAttribute("featuredPost", postsRepo.findAll());
+//        view.addAttribute("groups", groupDao.getByGroupMember())
+//        view.addAttribute("status", statusDao.getByUsername(currentUser));
 
 //        view.addAttribute("featuredPost", userDao.getByUsername(username).getBlogPost());
 //        view.addAttribute("featuredPost", postsRepo.findByOwner(currentProfile));
 
-
-
-
 //        view.addAttribute("featuredPost", postsRepo.findAllByUsername(username));
-
-
 //        user featuredPostOwner = userDao.getByUsername(username);
 //        view.addAttribute("theFeaturedPost", postsRepo.findByOwner(featuredPostOwner));
 //        view.addAttribute("addfriend", addID);
@@ -200,6 +205,8 @@ public class ProfileController {
 
         //        0.001 add Attributes
         view.addAttribute("userToEdit", userDao.getByUsername(username));
+        view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("featuredPost", postsRepo.findAll().size() -1);
 
 
 
