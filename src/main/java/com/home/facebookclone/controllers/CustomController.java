@@ -119,10 +119,10 @@ public class CustomController {
     }
 
 //            resume and cv
-    @GetMapping("/Tim/cv")
+    @GetMapping("/Tim/contact")
     public String cv(
     ){
-        return "import/cv";
+        return "import/contact";
     }
 
 }
