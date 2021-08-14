@@ -208,11 +208,15 @@
                 <!--              Friends -->
 
                 <div class="bg-dark btn bodytext" style="margin-bottom:2vh; margin-top:1.5vh;">
-                  <a style="font-size: 12px ; color:#00b1ae";><h4>friends</h4></a>
+                  <a style="font-size: 12px ; color:#00b1ae";><h5>friends</h5></a>
+
                   <div th:each="friend : ${FriendsListRepo}">
+
                     <a th:href="'/' + ${friend.getAdded_user_id().username}">
+                      <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;">
                       <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>
-                      <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>
+                    </a><br>
+
                   </div>
                 </div>
 
