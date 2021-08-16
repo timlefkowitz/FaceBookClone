@@ -205,16 +205,17 @@
         </div>
 
 
-<!--              Groups  -->
+              Groups
 
-<!--        <div>-->
-<!--          <a style="font-size: 12px">groups</a>-->
-<!--          <div th:each="group : ${groups}">-->
-<!--            <a th:href="'/' + ${friend.getAdded_user_id().username}">-->
-<!--              <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>-->
-<!--              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div>
+          <a style="font-size: 12px">groups</a>
+          <div th:each="group : ${user.getGroupMember()}">
+            <a th:href="'/' + ${group.title}">
+              <h4 style="align-items: center" th:text="${group.getTitle()}"></h4>
+              <p></p>
+              <!--              <img th:src="${}" style="height: 44px; width: 44px;"></a>--></a></div>
+          </div>
+        </div>
 
 
       <div class="col-lg-12">

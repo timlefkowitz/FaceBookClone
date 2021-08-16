@@ -8,10 +8,7 @@ package com.home.facebookclone.controllers;
  */
 
 import com.home.facebookclone.models.*;
-import com.home.facebookclone.repos.UsersPostRepo;
-import com.home.facebookclone.repos.UsersRepository;
-import com.home.facebookclone.repos.groupPostRepo;
-import com.home.facebookclone.repos.groupRepo;
+import com.home.facebookclone.repos.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -33,6 +30,7 @@ public class GroupController {
     private final groupRepo groupDao;
     private final groupPostRepo groupPostDao;
     private final UsersPostRepo postsDao;
+    private final GroupMembersRepo groupMemberDao;
 
 
 
@@ -43,15 +41,15 @@ public class GroupController {
 
 
     // Blank
-    public GroupController(UsersRepository userDao, groupRepo groupDao, groupPostRepo groupPostDao, UsersPostRepo postsDao){
+
+
+    public GroupController(UsersRepository userDao, groupRepo groupDao, groupPostRepo groupPostDao, UsersPostRepo postsDao, GroupMembersRepo groupMemberDao) {
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.groupPostDao = groupPostDao;
         this.postsDao = postsDao;
+        this.groupMemberDao = groupMemberDao;
     }
-
-
-
 
     @GetMapping("/groups")
     public String groupsHomeView(Model view)
@@ -82,7 +80,7 @@ public class GroupController {
 
 
 //        0.001 add Attributes
-        view.addAttribute("group", groupDao.getByTitle(title));
+        view.addAttribute("groupProfile", groupDao.getByTitle(title).getTitle());
 
 
         return "groupHome";
@@ -106,13 +104,19 @@ public class GroupController {
 //            get group by title
         groups currentGroup = groupDao.getByTitle(title);
 //            generate the current collection users groups
-        Collection<groups> currentUsersGroups = currentUser.getGroupMember();
+//        Collection<groupMember> currentGroupMembers = currentGroup.getGroupMember();
+        groupMember memberToAdd = new groupMember(currentGroup, currentUser);
 
-        currentUsersGroups.add(new groups(currentGroup, addthisUser));
-//        4. add friends
-        currentUser.setGroupMember(currentUsersGroups);
-//        5. save the new friendslst
-        groupDao.save(currentGroup);
+        groupMemberDao.save(memberToAdd);
+
+//        currentGroupMembers.add(new groupMember());
+//        Collection<groups> currentUsersGroups = currentUser.getGroupMember();
+//
+//        currentUsersGroups.add(new groups(currentGroup, addthisUser));
+////        4. add friends
+//        currentUser.setGroupMember(currentUsersGroups);
+////        5. save the new friendslst
+//        groupDao.save(currentGroup);
 
 
         return "redirect:/groups";
