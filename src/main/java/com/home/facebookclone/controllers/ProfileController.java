@@ -25,6 +25,7 @@ public class ProfileController {
     private final UsersPostRepo postsRepo;
     private final friendslistrepo friendslistDao;
     private final statusRepo statusDao;
+    private final GroupMembersRepo groupMembersRepo;
 
 
 
@@ -80,6 +81,13 @@ public class ProfileController {
         view.addAttribute("user", userDao.getByUsername(username));
         view.addAttribute("FriendsListRepo", friendslistGen);
         view.addAttribute("allusers", userDao.findAll());
+        view.addAttribute("memberList", groupMembersRepo.getByGroupMember_Id(currentUser.getId()));
+
+
+
+        System.out.println("This is group members");
+        System.out.println("This is group members" + groupMembersRepo.getByGroupMember_Id(currentUser.getId()));
+
 
         List<usersPost> featured = new ArrayList<>();
 //        featured.add(postsRepo.findAll());
@@ -239,11 +247,12 @@ public class ProfileController {
 //    }
 
 
-    public ProfileController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo, friendslistrepo friendslistDao, statusRepo statusDao) {
+    public ProfileController(UsersRepository userDao, groupRepo groupDao, UsersPostRepo postsRepo, friendslistrepo friendslistDao, statusRepo statusDao, GroupMembersRepo groupMembersRepo) {
         this.userDao = userDao;
         this.groupDao = groupDao;
         this.postsRepo = postsRepo;
         this.friendslistDao = friendslistDao;
         this.statusDao = statusDao;
+        this.groupMembersRepo = groupMembersRepo;
     }
 }

@@ -24,6 +24,14 @@ public class groupMember {
     @JsonManagedReference
     private user groupMember;
 
+    @Override
+    public String toString() {
+        return "groupMember{" +
+                "id=" + id +
+                ", ownerUser=" + ownerUser +
+                ", groupMember=" + groupMember +
+                '}';
+    }
 
     public groupMember(long id, groups ownerUser, user groupMember) {
         this.id = id;

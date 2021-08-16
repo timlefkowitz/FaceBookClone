@@ -151,26 +151,26 @@
   <div class="container userPost" style="height:100%">
 
     <!--          Start of posting div-->
-    <div class="row postingDiv" th:each="profile : ${groupProfile}" style="display: flex; justify-content: center; align-items: center; text-align: center">
+    <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
 
       <div id="profileItems" style="margin-top:10vh">
 
 <!--          Avatar and Add to Contacts Buttons-->
         <div>
 
-            <a href="javascript:;" class="avatar rounded-circle">
-              <img class="avatar" th:src="${profile}" style="height: 20vh; width: 20vh;">
-            </a>
+<!--            <a href="javascript:;" class="avatar rounded-circle">-->
+<!--              <img class="avatar" th:src="${groupProfile.groupavatar}" style="height: 20vh; width: 20vh;">-->
+<!--            </a>-->
 
 
 
             <div>
               <a style="font-size: 12px">group</a></s>
-              <h6 style="align-items: center" th:text="${group.title}"></h6>
+              <h6 style="align-items: center" th:text="${groupProfile.title}"></h6>
 
               <!--                  Join Group -->
-              <form th:method="post" th:action="${'/groups/'+ group.title}">
-                <input id="addedUser" name="addedUser" th:value="${group.title}"
+              <form th:method="post" th:action="${'/groups/'+ groupProfile.title}">
+                <input id="addedUser" name="addedUser" th:value="${groupProfile.title}"
                        type="hidden">
                 <button style="padding-top: 10px; margin-right: 5px" type="submit"
                         class="btn btn3"><span class="bg-dark btn" th:text="'Join Group'" style="color:#00b1ae; padding-top:1vh; padding-bottom: 1vh"></span></button>
@@ -183,7 +183,7 @@
 <!--              Status -->
         <div>
           <a style="font-size: 12px">summary</a>
-            <h4 style="align-items: center" th:text="${group.summary}"></h4>
+            <h4 style="align-items: center" th:text="${groupProfile.summary}"></h4>
         </div>
 
         - Join Groups -
@@ -287,6 +287,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </div>
+</div>
 </div>
 </body>
 </html>

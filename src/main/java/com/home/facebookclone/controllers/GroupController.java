@@ -74,13 +74,11 @@ public class GroupController {
         user currentUser = (user) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String usernameOfCurrentUser = currentUser.username;
 
-
 //            Current Group
 //        groups currentGroup = groupDao.getByTitle(title);
 
-
 //        0.001 add Attributes
-        view.addAttribute("groupProfile", groupDao.getByTitle(title).getTitle());
+        view.addAttribute("groupProfile", groupDao.getByTitle(title));
 
 
         return "groupHome";

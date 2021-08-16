@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface GroupMembersRepo extends JpaRepository<groupMember, Long> {
-    List<groupMember> getByGroupMember(user groupMember);
+    List<groupMember> getByGroupMember_Id(long groupMember_id);
+
 
 }
