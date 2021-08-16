@@ -190,7 +190,6 @@ public class groups {
         this.groupOwner = groupOwner;
     }
 
-
     public Collection<com.home.facebookclone.models.groupMember> getGroupMember() {
         return groupMember;
     }

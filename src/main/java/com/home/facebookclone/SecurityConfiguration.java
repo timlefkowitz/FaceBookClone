@@ -64,7 +64,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "post", // only authenticated users can create ads
-                        "groupcreation",
                         "groups",
                         "/groups",
                         "UserPostingForm",
@@ -72,6 +71,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/UsersHome",
                         "UsersProfile",
                         "/post",
+                        "/groups/{title}",
                         "/{username}",
                         "/home",
                         "/groups"/// maybe anyone can see usersprofiles but not post

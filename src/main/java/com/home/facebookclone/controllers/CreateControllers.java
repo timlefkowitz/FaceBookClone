@@ -24,7 +24,6 @@ public class CreateControllers {
     private final UsersRepository usersDao;
     private final UsersPostRepo usersPost;
     private final groupRepo groupDao;
-    private final groupPostRepo groupPostDao;
     private final PasswordEncoder passwordEncoder;
     private final friendslistrepo friendslistrepoDao;
     private final tokenRepo tokenRepoDao;
@@ -43,7 +42,6 @@ public class CreateControllers {
         this.usersDao = usersDao;
         this.usersPost = usersPost;
         this.groupDao = groupDao;
-        this.groupPostDao = groupPostDao;
         this.passwordEncoder = passwordEncoder;
         this.friendslistrepoDao = friendslistrepoDao;
         this.tokenRepoDao = tokenRepoDao;
