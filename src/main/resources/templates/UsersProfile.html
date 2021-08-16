@@ -167,7 +167,7 @@
 
 
             <div>
-              <a style="font-size: 12px">username</a></s>
+              <a style="font-size: 17px; color:#ce3500  "><b>username</b></a></s>
               <h6 style="align-items: center" th:text="${user.username}"></h6>
 
 <!--                  Add To Contacts -->
@@ -184,7 +184,7 @@
 
 <!--              Status -->
         <div>
-          <a style="font-size: 12px">status</a>
+          <a style="font-size: 17px; color:#ce3500 "><b>status</b></a>
             <h4 style="align-items: center" th:text="${user.status}"></h4>
         </div>
 
@@ -196,23 +196,23 @@
 <!--              Friends -->
 
       <div>
-        <a style="font-size: 12px">friends</a>
+        <a style="font-size: 17px; color:#ce3500 "><b>friends</b></a>
           <div th:each="friend : ${FriendsListRepo}">
             <a th:href="'/' + ${friend.getAdded_user_id().username}">
               <h4 style="align-items: center" th:text="${friend.getAdded_user_id().username}"></h4>
-              <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>
+              <img th:src="${friend.getAdded_user_id().imgPath}" class="avatar rounded-circle" style="height: 44px; width: 44px;"></a>
           </div>
         </div>
         </div>
           <p></p>
 
         <div>
-          <a style="font-size: 12px; ">groups</a>
+          <a style="font-size: 17px; color:#ce3500"><b>groups</b></a>
           <div th:each="group : ${memberList}">
+            <img th:src="${group.getOwnerUser().getGroupavatar()}" class="avatar rounded-circle" style="height: 44px; width: 44px;">
             <a th:href="'/groups/' + ${group.getOwnerUser().getTitle()}">
               <h4 style="align-items: center" th:text="${group.getOwnerUser().getTitle()}"></h4>
-              <p>this is a group</p>
-              <img th:src="${group.getOwnerUser().getGroupavatar()}" style="height: 44px; width: 44px;"></a></div>
+             </a></div>
           </div>
         </div>
 
