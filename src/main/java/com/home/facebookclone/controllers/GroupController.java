@@ -103,8 +103,9 @@ public class GroupController {
         user currentUser = userDao.getById(userInSession.getId());
         user addthisUser = userDao.getByUsername(addedUser);
 
-
+//            get group by title
         groups currentGroup = groupDao.getByTitle(title);
+//            generate the current collection users groups
         Collection<groups> currentUsersGroups = currentUser.getGroupMember();
 
         currentUsersGroups.add(new groups(currentGroup, addthisUser));
