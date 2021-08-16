@@ -203,15 +203,16 @@
               <img th:src="${friend.getAdded_user_id().imgPath}" style="height: 44px; width: 44px;"></a>
           </div>
         </div>
+        </div>
           <p></p>
 
         <div>
-          <a style="font-size: 12px">groups</a>
+          <a style="font-size: 12px; ">groups</a>
           <div th:each="group : ${memberList}">
-            <a th:href="'/' + ${group.getOwnerUser().getTitle()}">
+            <a th:href="'/groups/' + ${group.getOwnerUser().getTitle()}">
               <h4 style="align-items: center" th:text="${group.getOwnerUser().getTitle()}"></h4>
               <p>this is a group</p>
-              <!--              <img th:src="${}" style="height: 44px; width: 44px;"></a>--></a></div>
+              <img th:src="${group.getOwnerUser().getGroupavatar()}" style="height: 44px; width: 44px;"></a></div>
           </div>
         </div>
 
