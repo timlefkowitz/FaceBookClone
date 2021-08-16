@@ -168,14 +168,14 @@
               <a style="font-size: 12px">group</a></s>
               <h6 style="align-items: center" th:text="${group.title}"></h6>
 
-<!--                  Become a member    -->
-<!--              <form th:method="post" th:action="@{/friends}" >-->
-<!--                <input id="addedMember" name="addedMember" th:value="${username}"-->
-<!--                       type="hidden">-->
-<!--                <button style="padding-top: 10px; margin-right: 5px" type="submit"-->
-<!--                        class="btn btn3"><span class="bg-dark btn" th:text="'Add Friend'" style="color:#00b1ae; padding-top:1vh; padding-bottom: 1vh"></span></button>-->
+              <!--                  Join Group -->
+              <form th:method="post" th:action="${'/groups/'+ group.title}">
+                <input id="addedUser" name="addedUser" th:value="${group.title}"
+                       type="hidden">
+                <button style="padding-top: 10px; margin-right: 5px" type="submit"
+                        class="btn btn3"><span class="bg-dark btn" th:text="'Join Group'" style="color:#00b1ae; padding-top:1vh; padding-bottom: 1vh"></span></button>
 
-<!--              </form>-->
+              </form>
             </div>
 
         </div>

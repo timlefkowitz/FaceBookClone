@@ -92,8 +92,9 @@ public class GroupController {
 
     //      GetMapping and Post Mapping
     @PostMapping("/groups/{title}")
-    public String friendspage(@RequestParam(name = "addedUser") String addedUser,
-                              @PathVariable String title
+    public String friendspage(@PathVariable String title,
+            @RequestParam(name = "addedUser") String addedUser
+
     ){
 
 
