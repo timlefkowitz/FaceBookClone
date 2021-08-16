@@ -209,8 +209,8 @@
         <div>
           <a style="font-size: 17px; color:#ce3500"><b>groups</b></a>
           <div th:each="group : ${memberList}">
-            <img th:src="${group.getOwnerUser().getGroupavatar()}" class="avatar rounded-circle" style="height: 44px; width: 44px;">
             <a th:href="'/groups/' + ${group.getOwnerUser().getTitle()}">
+              <img th:src="${group.getOwnerUser().getGroupavatar()}" class="avatar rounded-circle" style="height: 44px; width: 44px;">
               <h4 style="align-items: center" th:text="${group.getOwnerUser().getTitle()}"></h4>
              </a></div>
           </div>
