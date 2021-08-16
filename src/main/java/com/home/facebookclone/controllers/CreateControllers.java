@@ -197,10 +197,10 @@ public class CreateControllers {
 
     @PostMapping("/groupcreation")
     public String addAnewGroup(@RequestParam(name="GroupPosttitle") String title,
-                               @RequestParam(name="GroupPostsummary") String summary,
-                               @RequestParam(name="GroupPostcreatedBy") String createdBy,
-                               @RequestParam(name="GroupPostcontent") String content,
-                               @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
+                               @RequestParam(name="GroupPostsummary") String summary
+//                               @RequestParam(name="GroupPostcreatedBy") String createdBy,
+//                               @RequestParam(name="GroupPostcontent") String content,
+//                               @RequestParam(name="GroupPostIMGPath") String GroupPostIMGPath
 
 
     ){
@@ -211,8 +211,8 @@ public class CreateControllers {
         groups n = new groups();
         n.setSummary(summary);
         n.setTitle(title);
-        n.setContent(content);
-        n.setCreatedBy(createdBy);
+//        n.setContent(content);
+//        n.setCreatedBy(createdBy);
         n.setGroupOwner(currentUser);
 //        save the groups info
         groupDao.save(n);
