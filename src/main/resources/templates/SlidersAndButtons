@@ -155,6 +155,50 @@ const OPTIONS = {
   '--speed': 0.25,
 }
 
+
+
+const UPDATE = () => {
+  for (const key of Object.keys(OPTIONS)) {
+    console.info(key)
+    document.documentElement.style.setProperty(key, OPTIONS[key])
+  }
+  
+  document.documentElement.style.setProperty('--animated', OPTIONS['--animated'] ? 'running' : 'paused')
+  document.body.className = OPTIONS['--animated'] ? 'animated' : ''
+}
+
+const LIGHT = CONTROLLER.addFolder('Color (Light)')
+LIGHT.add(OPTIONS, '--huey-light', 0, 360, 1)
+  .name('Hue')
+  .onChange(UPDATE)
+LIGHT.add(OPTIONS, '--saturation-light', 0, 100, 1)
+  .name('Saturation')
+  .onChange(UPDATE)
+LIGHT.add(OPTIONS, '--lightness-light', 0, 100, 1)
+  .name('Lightness')
+  .onChange(UPDATE)
+
+const DARK = CONTROLLER.addFolder('Color (Dark)')
+DARK.add(OPTIONS, '--huey-dark', 0, 360, 1)
+  .name('Hue')
+  .onChange(UPDATE)
+DARK.add(OPTIONS, '--saturation-dark', 0, 100, 1)
+  .name('Saturation')
+  .onChange(UPDATE)
+DARK.add(OPTIONS, '--lightness-dark', 0, 100, 1)
+  .name('Lightness')
+  .onChange(UPDATE)
+
+
+CONTROLLER.add(OPTIONS, '--animated')
+  .name('Animate Hue')
+  .onChange(UPDATE)
+CONTROLLER.add(OPTIONS, '--speed', 0.1, 10, 0.1)
+  .name('Speed (s)')
+  .onChange(UPDATE)
+
+UPDATE()
+
 </script>
 </body>
 
