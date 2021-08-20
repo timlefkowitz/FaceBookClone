@@ -85,7 +85,53 @@ default
     <input type="range" id="default-light" checked>
   </label>
 
-</section>
+    <label for="accented-light">
+    Accent
+    <input class="accented" type="range" id="accented-light" checked>
+  </label>
+</fieldset>
 
-</body>
-</html>
+<fieldset color-scheme="dark">
+  <label for="default-dark">
+    Default
+    <input type="range" id="default-dark" checked>
+  </label>
+
+  <label for="accented-dark">
+    Accent
+    <input class="accented" type="range" id="accented-dark" checked>
+  </label>
+</fieldset>
+</section>
+<section>
+<fieldset color-scheme="light">
+  <label>
+    Default
+    <input type="radio" name="default-demo-light" checked>
+    <input type="radio" name="default-demo-light">
+    <input type="radio" name="default-demo-light">
+  </label>
+
+  <label class="accented">
+    Accent
+    <input type="radio" name="accented-demo-light" checked>
+    <input type="radio" name="accented-demo-light">
+    <input type="radio" name="accented-demo-light">
+  </label>
+</fieldset>
+<fieldset color-scheme="dark">
+  <label>
+    Default
+    <input type="radio" name="default-demo-dark" checked>
+    <input type="radio" name="default-demo-dark">
+    <input type="radio" name="default-demo-dark">
+  </label>
+
+  <label class="accented">
+    Accent
+    <input type="radio" name="accented-demo-dark" checked>
+    <input type="radio" name="accented-demo-dark">
+    <input type="radio" name="accented-demo-dark">
+  </label>
+</fieldset>
+</section>
