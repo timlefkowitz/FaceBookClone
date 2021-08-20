@@ -26,6 +26,11 @@ fieldset {
     gap:1rem;
 }
 
+fieldset[color-scheme="dark"] {
+  background: Canvas;
+  color: white;
+}
+
 </style>
 <body>
 
