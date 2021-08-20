@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Sliders and Buttons</title>
 </head>
+<style>
+fieldset input {
+    --size:2rem;
+    block-size:var(--size);
+    inline-size: var(--size);
+}
+
+</style>
 <body>
 
 <section>
