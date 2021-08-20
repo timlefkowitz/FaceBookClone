@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sliders and Buttons</title>
 </head>
 <body>
+
+<section>
+<fieldset color-scheme="light">
+<label type="checkbox" id="default-light" checked>
+</label>
+
+
+</section>
 
 </body>
 </html>
