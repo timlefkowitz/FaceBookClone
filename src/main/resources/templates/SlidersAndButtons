@@ -136,7 +136,26 @@ default
 </fieldset>
 </section>
 
+<script>
 
+import { GUI } from 'https://cdn.skypack.dev/dat.gui'
+
+const CONTROLLER = new GUI({
+  width: 320
+})
+
+const OPTIONS = {
+  '--huey-light': Math.floor(Math.random() * 359),
+  '--huey-dark': Math.floor(Math.random() * 359),
+  '--saturation-light': 80,
+  '--saturation-dark': 80,
+  '--lightness-light': 30,
+  '--lightness-dark': 80,  
+  '--animated': false,
+  '--speed': 0.25,
+}
+
+</script>
 </body>
 
 </html>
