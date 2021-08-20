@@ -106,6 +106,29 @@ fieldset[color-scheme="dark"] {
 <label type="checkbox" id="default-light" checked>
 </label>
 
+
+  <label class="accented">
+    Accent
+    <input type="radio" name="accented-demo-light" checked>
+    <input type="radio" name="accented-demo-light">
+    <input type="radio" name="accented-demo-light">
+  </label>
+</fieldset>
+<fieldset color-scheme="dark">
+  <label>
+    Default
+    <input type="radio" name="default-demo-dark" checked>
+    <input type="radio" name="default-demo-dark">
+    <input type="radio" name="default-demo-dark">
+  </label>
+
+  <label class="accented">
+    Accent
+    <input type="radio" name="accented-demo-dark" checked>
+    <input type="radio" name="accented-demo-dark">
+    <input type="radio" name="accented-demo-dark">
+  </label>
+
 label for="accented-light">
 accent
 <input class="accented" type="checkbox" id="accented-light" checked>
