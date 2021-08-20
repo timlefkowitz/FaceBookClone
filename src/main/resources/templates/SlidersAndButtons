@@ -25,6 +25,22 @@ body {
   gap: 2rem;
 }
 
+.animated .accented {
+  accent-color: hsl(var(--hue) calc(var(--saturation-light, 80) * 1%) calc(var(--lightness-light, 30) * 1%));
+}
+
+.animated [color-scheme="dark"] .accented {
+  accent-color: hsl(var(--hue) calc(var(--saturation-dark, 80) * 1%) calc(var(--lightness-dark, 80) * 1%));
+}
+
+.accented {
+  accent-color: hsl(var(--huey-light) calc(var(--saturation-light, 80) * 1%) calc(var(--lightness-light, 30) * 1%));
+}
+
+[color-scheme="dark"] .accented {
+  accent-color: hsl(var(--huey-dark) calc(var(--saturation-dark, 80) * 1%) calc(var(--lightness-dark, 80) * 1%));
+}
+
 
 fieldset input {
     --size:2rem;
