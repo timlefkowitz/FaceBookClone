@@ -16,6 +16,26 @@ section {
   gap: 2em;
 }
 
+@property --hue {
+  initial-value: 0;
+  syntax: '<number>';
+  inherits: false;
+}
+
+.animated .accented {
+  animation: rainbow calc(var(--speed, 1) * 1s) infinite linear;
+  animation-play-state: var(--animated, paused);
+}
+
+@keyframes rainbow {
+  0% {
+    --hue: 0;
+  }
+  100% {
+    --hue: 360;
+  }
+}
+
 body {
   min-block-size: 100%;
   font-family: system-ui, sans-serif;
