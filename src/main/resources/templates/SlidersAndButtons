@@ -72,6 +72,19 @@ default
 <input type="checkbox" id="default-dark" checked>
 </label>
 
+  <label for="accented-dark">
+    Accent
+    <input class="accented" type="checkbox" id="accented-dark" checked>
+  </label>
+</fieldset>
+</section>
+<section>
+<fieldset color-scheme="light">
+  <label for="default-light">
+    Default
+    <input type="range" id="default-light" checked>
+  </label>
+
 </section>
 
 </body>
