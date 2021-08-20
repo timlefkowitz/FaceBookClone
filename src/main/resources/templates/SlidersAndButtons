@@ -5,6 +5,27 @@
     <title>Sliders and Buttons</title>
 </head>
 <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+section {
+  display: grid;
+  gap: 2em;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: system-ui, sans-serif;
+  background: hsl(210, 34%, 95%);
+  display: grid;
+  place-content: center;
+  gap: 2rem;
+}
+
+
 fieldset input {
     --size:2rem;
     block-size:var(--size);
@@ -38,6 +59,12 @@ fieldset[color-scheme="dark"] {
 <fieldset color-scheme="light">
 <label type="checkbox" id="default-light" checked>
 </label>
+
+label for="accented-light">
+accent
+<input class="accented" type="checkbox" id="accented-light" checked>
+</label>
+</fieldset>
 
 
 </section>
