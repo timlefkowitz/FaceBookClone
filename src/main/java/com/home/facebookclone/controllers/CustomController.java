@@ -53,6 +53,12 @@ public class CustomController {
         return "Tim";
     }
 
+    @GetMapping("/helptank")
+    public String helptank(
+    ){
+        return "helptank";
+    }
+
     //      GetMapping and Post Mapping
 //    @PostMapping("/friends")
 //    public String friendspage(@RequestParam(name = "addedUser") String addedUser)
