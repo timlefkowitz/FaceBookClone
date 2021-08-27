@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HelpMap</title>
+
+     <!--    FAVCON -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favcon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favcon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favcon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favcon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favcon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favcon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favcon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favcon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favcon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favcon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favcon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favcon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favcon/favicon-16x16.png">
+    <link rel="manifest" href="favcon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favcon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- BootStrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="styles/stylesheet.css">
+
+    <!--- J Query -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<!---- MapBOX CDN ----->
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+<script src="javascript/mapbox-geocoder-utils.js"></script>
+
+
+<style>
+    body {
+        background: linear-gradient(to right, #b20d14, #bf212a);
+    }
+    .map{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+    }
+
+    #map{
+        width:100%;
+        height:700px;
+        box-shadow: 2px 2px 0px 0px #565454;
+    }
+    h1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 18px;
+    }
+    .text-box {
+        display: flex;
+        justify-content: flex-end;
+        font-family: 'Orelega One', cursive;
+        color:#afd3c1;
+        text-shadow: 2px 2px #565454;
+
+    }
+
+
+</style>
+
+<script src="javascript/keys.js"></script>
+
+<body>
+<!-- NAV BAR -->
+<!--            NAV BAR-->
+<!-- As a link -->
+<nav class="navbar navbar-custom">
+    <!--    <a class="navbar-brand text-center" href="#">Help Tank</a>-->
+    <a class="navbar-brand mx-auto" href="#">
+        <input type="image" src="imgs/helpmap.png" alt="Submit" width="150" height="150">
+        <input type="image" src="imgs/HelpTankLogo.png" alt="Submit" width="150" height="150">
+        <input type="image" src="imgs/shelter.png" alt="Submit" width="150" height="150">
+        <input type="image" src="imgs/foodlogo.png" alt="Submit" width="150" height="150">
+    </a>
+
+
+</nav>
+
+<!-- Media panel -->
+<!--<div class="container d-flex justify-content-center mediacontainer flavoursContainer">-->
+<!--    <img src="img/photonlife.png">-->
+<!--</div>-->
+
+<div class="map">
+    <div id='map' style='width: 100%; height: 600px;'></div>
+</div>
+<script>
+    mapboxgl.accessToken = mapboxtoken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.48, 29.45],
+        zoom:10,
+    });
+
+
+    //Yes we can set the zoom after the map is drawn
+    //map.setZoom(20);
+
+    // geocode("1414 S Alamo St, San Antonio, TX 78210", mapboxtoken).then(function(results){
+    //     console.log("Restaurant coordinates", results);
+    //     var marker = new mapboxgl.Marker()
+    //         .setLngLat(results)
+    //         .setPopup(new mapboxgl.Popup({ offset: 25 })
+    //         .setHTML('<a>Halcyon</a>'))
+    //         .addTo(map)
+    //
+    // })
+
+    //
+    // geocode("701 S St Mary's St, San Antonio, TX 78204", mapboxtoken).then(function(results){
+    //     console.log("Restaurant coordinates", results);
+    //     var marker = new mapboxgl.Marker()
+    //         .setLngLat(results)
+    //         .setPopup(new mapboxgl.Popup({ offset: 25 })
+    //             .setHTML('<a>Filling Station</a>'))
+    //         .addTo(map);
+    // })
+
+    //
+    //
+    // geocode("4025 Broadway, San Antonio, TX 78209", mapboxtoken).then(function(results){
+    //     console.log("Restaurant coordinates", results);
+    //     var marker = new mapboxgl.Marker()
+    //         .setLngLat(results)
+    //         .setPopup(new mapboxgl.Popup({ offset: 25 })
+    //             .setHTML('<a>Hayden</a>'))
+    //         .addTo(map);
+    //
+    // })
+
+    var favFoods =
+        [
+            {
+                name: "The Hayden",
+                addr: "4025 Broadway, San Antonio, TX 78209",
+                contents: "The Hayden",
+            },
+            {
+                name: "The Filling Station",
+                addr: "701 S St Mary's St, San Antonio, TX 78204",
+                contents: "The Filling Station",
+            },
+            {
+                name: "Cullum's Attagirl Ice House",
+                addr: "726 E Mistletoe Ave, San Antonio, TX 78212",
+                contents: "Cullum's Attagirl Ice House",
+            },
+            {
+                name: "Burger Boy",
+                addr: "726 E Mistletoe Ave, San Antonio, TX 78212",
+                contents: "Burger Boy",
+            },
+            {
+                name: "Halcyon",
+                addr: "1414 S Alamo St, San Antonio, TX 78210",
+                contents: "Halcyon",
+            },
+            {
+                name: "Charging station",
+                addr: "29.424152, -98.493364",
+                contents: "Charging Sation",
+            },
+        ]
+
+    console.log(favFoods);
+
+    for (var i = 0; i < favFoods.length; i++){
+        console.log(favFoods[i])
+
+        var favfoodContents = favFoods[i].contents;
+
+
+        geocode(favFoods[i].addr, mapboxtoken).then(function(results){
+            console.log("Restaurant coordinates", results);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(results)
+                .setPopup(new mapboxgl.Popup({ offset: 25 })
+                    .setHTML(favfoodContents))
+                .addTo(map);
+
+        })
+    }
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--- Scripts --->
+
+<script src="javascript/js.js"></script>
+
+
+
+<!--Boot Strap -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
