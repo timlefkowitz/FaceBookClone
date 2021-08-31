@@ -65,6 +65,11 @@ public class  user {
     @Column(name = "status", nullable = true)
     private String status;
 
+
+    // add local politicians twitters by zip code
+    @Column(name = "zip")
+    private String zip;
+
     @Column(name = "imgPath")
     private String imgPath;
 
