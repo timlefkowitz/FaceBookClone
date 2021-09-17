@@ -24,14 +24,14 @@ public class groupMember {
     @JsonManagedReference
     private user groupMember;
 
-    @Override
-    public String toString() {
-        return "groupMember{" +
-                "id=" + id +
-                ", ownerUser=" + ownerUser +
-                ", groupMember=" + groupMember +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "groupMember{" +
+//                "id=" + id +
+//                ", ownerUser=" + ownerUser +
+//                ", groupMember=" + groupMember +
+//                '}';
+//    }
 
     public groupMember(long id, groups ownerUser, user groupMember) {
         this.id = id;
@@ -60,15 +60,15 @@ public class groupMember {
         return ownerUser;
     }
 
-    public void setOwnerUser(groups ownerUser) {
-        this.ownerUser = ownerUser;
-    }
-
-    public user getGroupMember() {
-        return groupMember;
-    }
-
-    public void setGroupMember(user added_user_id) {
-        this.groupMember = added_user_id;
-    }
+//    public void setOwnerUser(groups ownerUser) {
+//        this.ownerUser = ownerUser;
+//    }
+//
+//    public user getGroupMember() {
+//        return groupMember;
+//    }
+//
+//    public void setGroupMember(user added_user_id) {
+//        this.groupMember = added_user_id;
+//    }
 }
