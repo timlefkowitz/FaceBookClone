@@ -124,9 +124,9 @@ public class  user {
     @JsonBackReference
     private List<groups> groupMember;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
-    @JsonBackReference
-    private Collection<groupComment> groupComment;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupComment")
+//    @JsonBackReference
+//    private Collection<groupComment> groupComment;
 
 //    friends
 
@@ -154,7 +154,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, List<groups> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, List<groups> groupMember, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -175,7 +175,7 @@ public class  user {
         this.blogPost = blogPost;
         this.usersStatus = usersStatus;
         this.groupMember = groupMember;
-        this.groupComment = groupComment;
+//        this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
     }
@@ -183,7 +183,7 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, List<groups> groupMember, Collection<com.home.facebookclone.models.groupComment> groupComment, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, List<groups> groupMember, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -205,7 +205,7 @@ public class  user {
         this.blogPost = blogPost;
         this.usersStatus = usersStatus;
         this.groupMember = groupMember;
-        this.groupComment = groupComment;
+//        this.groupComment = groupComment;
         this.contactListOwner = contactListOwner;
         this.receivedTokens = receivedTokens;
     }
@@ -407,13 +407,13 @@ public class  user {
         this.groupMember = groupMember;
     }
 
-    public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {
-        return groupComment;
-    }
-
-    public void setGroupComment(Collection<com.home.facebookclone.models.groupComment> groupComment) {
-        this.groupComment = groupComment;
-    }
+//    public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {
+//        return groupComment;
+//    }
+//
+//    public void setGroupComment(Collection<com.home.facebookclone.models.groupComment> groupComment) {
+//        this.groupComment = groupComment;
+//    }
 
     public Collection<friendslist> getContactListOwner() {
         return contactListOwner;
