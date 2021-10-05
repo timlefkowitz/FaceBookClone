@@ -36,3 +36,30 @@ function palindrome(str){
     }
     return true
 }
+
+// Callback
+
+function foo(bar){
+    Bar();
+}
+
+foo(function(){
+    console.log("bar");
+}
+
+);
+
+
+orderPizza('pep', 'cheese barbeque', function(msg){
+    console.log("msg");
+});
+
+// Pizzahub emnd
+function orderPizza(type, name){
+    console.log('Pizza ${type} ${name} is ordered');
+
+    setTimeout(function(){
+        const msg = 'Pizza ${type} ${name} is ready '
+        cancelIdleCallback(msg);
+    }, 3000);
+}
