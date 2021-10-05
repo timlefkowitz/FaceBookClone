@@ -1,9 +1,23 @@
 
 // this is a file for Javascript practice 
 
+
+
+// Fizz Buzz
 for (var i=1 ; i < 101; i++){
     if (i % 15 == 0) console.log ("FizzBuzz");
     else if (i % 3 == 0) console.log("Fizz");
     else if (i % 5 == 0) console.log("Buzz");
     else console.log(i)
+}
+
+// isAnagram
+
+function compare (a,b){
+    var y = a.split("").sort().join(""),
+    z = b.split("").sort().join("");
+    console.log(z === y
+    ? a + " and " + b + "are anagrams!"
+    : a + " and " + b + " are not anagrams."
+    );
 }
