@@ -11,6 +11,13 @@ for (var i=1 ; i < 101; i++){
     else console.log(i)
 }
 
+for (var I =1 ; I< 10; I++){
+if (I % 15 == 0) console.log ("fizzbuzz");
+Else if (I % 3 == 0) console.log("Fizz");
+Else if (I % 5 == 0) consile.log("buzz");
+Else console.log(I)
+}
+
 // isAnagram
 
 function compare (a,b){
