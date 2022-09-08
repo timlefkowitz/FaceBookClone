@@ -1,8 +1,8 @@
-package com.home.facebookclone.services;
+package com.home.towers.services;
 
-import com.home.facebookclone.models.UserWithRoles;
-import com.home.facebookclone.models.user;
-import com.home.facebookclone.repos.UsersRepository;
+import com.home.towers.models.UserWithRoles;
+import com.home.towers.models.user;
+import com.home.towers.repos.UsersRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

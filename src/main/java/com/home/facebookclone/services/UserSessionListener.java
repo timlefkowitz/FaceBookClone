@@ -1,10 +1,10 @@
-package com.home.facebookclone.services;
+package com.home.towers.services;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import com.home.facebookclone.models.user;
-import com.home.facebookclone.repos.UsersRepository;
+import com.home.towers.models.user;
+import com.home.towers.repos.UsersRepository;
 
 public class UserSessionListener implements HttpSessionListener {
         static final String ONLINE_USERS = "OnlineUsers";

@@ -1,9 +1,9 @@
-package com.home.facebookclone.repos;
+package com.home.towers.repos;
 
 
-import com.home.facebookclone.models.friendslist;
-import com.home.facebookclone.models.user;
-import com.home.facebookclone.models.usersPost;
+import com.home.towers.models.friendslist;
+import com.home.towers.models.user;
+import com.home.towers.models.usersPost;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.home.facebookclone.controllers;
+package com.home.towers.controllers;
 
 
 /*
@@ -7,8 +7,8 @@ package com.home.facebookclone.controllers;
 
  */
 
-import com.home.facebookclone.models.*;
-import com.home.facebookclone.repos.*;
+import com.home.towers.models.*;
+import com.home.towers.repos.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;

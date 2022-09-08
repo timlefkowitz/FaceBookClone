@@ -1,4 +1,4 @@
-package com.home.facebookclone.models;
+package com.home.towers.models;
 
 import javax.persistence.*;
 
@@ -154,7 +154,7 @@ public class  user {
 
     // Insert Constructor
 
-    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, List<groups> groupMember, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.towers.models.status> usersStatus, List<groups> groupMember, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.firstname = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -183,7 +183,7 @@ public class  user {
 
     // update Constructor
 
-    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.facebookclone.models.status> usersStatus, List<groups> groupMember, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
+    public user(long id, String firstname, String middleName, String lastName, String username, String email, String password, String profile, long mobile, String status, String imgPath, String originalavatar, boolean isAdmin, String banner, String bio, String link1, String link2, String link3, List<usersPost> blogPost, Collection<com.home.towers.models.status> usersStatus, List<groups> groupMember, Collection<friendslist> contactListOwner, Collection<Token> receivedTokens) {
         this.id = id;
         this.firstname = firstname;
         this.middleName = middleName;
@@ -391,11 +391,11 @@ public class  user {
         this.blogPost = blogPost;
     }
 
-    public Collection<com.home.facebookclone.models.status> getUsersStatus() {
+    public Collection<com.home.towers.models.status> getUsersStatus() {
         return usersStatus;
     }
 
-    public void setUsersStatus(Collection<com.home.facebookclone.models.status> usersStatus) {
+    public void setUsersStatus(Collection<com.home.towers.models.status> usersStatus) {
         this.usersStatus = usersStatus;
     }
 
@@ -407,11 +407,11 @@ public class  user {
         this.groupMember = groupMember;
     }
 
-//    public Collection<com.home.facebookclone.models.groupComment> getGroupComment() {
+//    public Collection<com.home.towers.models.groupComment> getGroupComment() {
 //        return groupComment;
 //    }
 //
-//    public void setGroupComment(Collection<com.home.facebookclone.models.groupComment> groupComment) {
+//    public void setGroupComment(Collection<com.home.towers.models.groupComment> groupComment) {
 //        this.groupComment = groupComment;
 //    }
 

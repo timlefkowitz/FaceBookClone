@@ -1,7 +1,7 @@
-package com.home.facebookclone.services;
+package com.home.towers.services;
 
 
-import com.home.facebookclone.models.user;
+import com.home.towers.models.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;

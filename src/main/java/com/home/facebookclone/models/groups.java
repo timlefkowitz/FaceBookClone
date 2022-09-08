@@ -1,4 +1,4 @@
-package com.home.facebookclone.models;
+package com.home.towers.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -72,7 +72,7 @@ public class groups {
 
     // Insert Constructor
 
-    public groups(String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, user groupOwner, Collection<com.home.facebookclone.models.groupMember> groupMember) {
+    public groups(String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.towers.models.groupPost> groupPost, groups groupComment, user groupOwner, Collection<com.home.towers.models.groupMember> groupMember) {
         CreatedBy = createdBy;
         this.title = title;
         this.summary = summary;
@@ -89,7 +89,7 @@ public class groups {
     // Update Constructor
 
 
-    public groups(long id, String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.facebookclone.models.groupPost> groupPost, groups groupComment, user groupOwner, Collection<com.home.facebookclone.models.groupMember> groupMember) {
+    public groups(long id, String createdBy, String title, String summary, String profile, String content, String groupavatar, List<com.home.towers.models.groupPost> groupPost, groups groupComment, user groupOwner, Collection<com.home.towers.models.groupMember> groupMember) {
         this.id = id;
         CreatedBy = createdBy;
         this.title = title;
@@ -166,11 +166,11 @@ public class groups {
         this.groupavatar = groupavatar;
     }
 
-    public List<com.home.facebookclone.models.groupPost> getGroupPost() {
+    public List<com.home.towers.models.groupPost> getGroupPost() {
         return groupPost;
     }
 
-    public void setGroupPost(List<com.home.facebookclone.models.groupPost> groupPost) {
+    public void setGroupPost(List<com.home.towers.models.groupPost> groupPost) {
         this.groupPost = groupPost;
     }
 
@@ -190,11 +190,11 @@ public class groups {
         this.groupOwner = groupOwner;
     }
 
-    public Collection<com.home.facebookclone.models.groupMember> getGroupMember() {
+    public Collection<com.home.towers.models.groupMember> getGroupMember() {
         return groupMember;
     }
 
-    public void setGroupMember(Collection<com.home.facebookclone.models.groupMember> groupMember) {
+    public void setGroupMember(Collection<com.home.towers.models.groupMember> groupMember) {
         this.groupMember = groupMember;
     }
 }

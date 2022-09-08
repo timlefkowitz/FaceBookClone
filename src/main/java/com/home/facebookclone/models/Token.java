@@ -1,7 +1,7 @@
-package com.home.facebookclone.models;
+package com.home.towers.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.home.facebookclone.repos.UsersRepository;
+import com.home.towers.repos.UsersRepository;
 import org.apache.tomcat.jni.User;
 
 import javax.persistence.*;

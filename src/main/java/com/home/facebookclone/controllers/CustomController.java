@@ -1,9 +1,9 @@
-package com.home.facebookclone.controllers;
+package com.home.towers.controllers;
 
 
-import com.home.facebookclone.models.friendslist;
-import com.home.facebookclone.models.user;
-import com.home.facebookclone.repos.*;
+import com.home.towers.models.friendslist;
+import com.home.towers.models.user;
+import com.home.towers.repos.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

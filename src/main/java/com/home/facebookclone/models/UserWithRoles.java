@@ -1,6 +1,6 @@
-package com.home.facebookclone.models;
+package com.home.towers.models;
 
-import com.home.facebookclone.repos.UsersRepository;
+import com.home.towers.repos.UsersRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.home.facebookclone.models;
+package com.home.towers.models;
 
 
 import javax.persistence.*;
