@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <!--/*-->
-<!--FACEBOOK CLONE / PHOTONS / HELP TANK-->
+<!--PHOTONS / HELP TANK-->
 <!--A Spring MVC FRAME FOR A SOCIAL MEDIA PLATFORM-->
 <!--By Timothy Craig Lefkowitz and the help of Codeup!-->
 <!--Aug 9th 2021-->
@@ -132,7 +132,7 @@
 <!--</div>-->
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
     <!-- Container wrapper -->
     <div class="container">
         <!-- Navbar brand -->
@@ -141,7 +141,7 @@
             <img src="https://live.staticflickr.com/65535/51369056853_85ef692ae7_o.gif" width="50" height="50" class="d-inline-block align-top" alt="">
         </a>
 
-        <a class="navbar-brand me-2" href="/home">
+        <a class="navbar-brand me-2" href="/home" style="font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">
             PHOTONS
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -167,11 +167,17 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="groups">groups</a>
+                    <a class="nav-link" href="i/${username}">your profile</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="friends">friends</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="groups">groups</a>
+                </li>
+
             </ul>
 
 
@@ -180,11 +186,12 @@
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="updatestatus">update status</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="post">post</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="updatestatus">update status</a>
+                    </li>
+
 <!--                    <li class="nav-item">-->
 <!--                        <a class="nav-link" th:action="@{/logout}" th:method="post" th:href="logout">logout</a>-->
 <!--                    </li>-->
@@ -221,18 +228,30 @@
 
 
 <!--      USERS POSTS DIV   -->
-<div id="mainforpost" class="col-lg-12" th:each="usersPost : ${allposts}" style="align-items: center; align-content: center;">
+<div id="mainforpost" class="col-lg-12" th:each="usersPost : ${allposts}" style="align-items: center;
+align-content: center;
+font-family: 'Andale Mono', 'Noto Sans','American Typewriter', 'DecoType Naskh';
+">
 
             <!--              UserPost        style="max-height: 400px;      -->
-            <div class="container userPost" style="height:100%">
+            <div class="container userPost" style="height:100%; margin-top: 7%">
 
                 <!--          Start of posting div-->
-                <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center">
+                <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center;margin-top:7%">
 
 
                     <img th:src="${usersPost.imgPath}" style="width: 85vh;">
-                    <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
-                    <p style="align-items: center" th:text="${usersPost.body}"></p>
+                    <div id="displayTXT" style="display: none; font-family:  ">
+                        <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
+                        <p style="align-items: center" th:text="${usersPost.body}"></p>
+                    </div>
+                    <script>
+                        function displayTXT(){
+                            var T = document.getElementById("displayTXT");
+                            T.style.display = "block";
+                            T.style.justifyContent = "center";
+                        }
+                    </script>
 
 
 
