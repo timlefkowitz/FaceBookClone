@@ -234,14 +234,14 @@ font-family: 'Andale Mono', 'Noto Sans','American Typewriter', 'DecoType Naskh';
 ">
 
             <!--              UserPost        style="max-height: 400px;      -->
-            <div class="container userPost" style="height:100%; margin-top: 7%">
+            <div class="container userPost" style="height:100%;">
 
                 <!--          Start of posting div-->
                 <div class="row postingDiv" style="display: flex; justify-content: center; align-items: center; text-align: center;margin-top:7%">
 
 
                     <img th:src="${usersPost.imgPath}" style="width: 85vh;">
-                    <div id="displayTXT" style="display: none; font-family:  ">
+                    <div id="displayTXT" style="">
                         <h4 style="align-items: center" th:text="${usersPost.title}"></h4>
                         <p style="align-items: center" th:text="${usersPost.body}"></p>
                     </div>
