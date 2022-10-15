@@ -112,15 +112,10 @@ scene("game", ({level, score}) => {
     // player
 
     const player = add([
-        health(10),
+
         sprite('link-going-right'),
         pos(5,190),
-        area(),
-        body(),
         {
-            // right by default
-            dead:false,
-            speed:240,
             dir: vec2(1,0)
         }
 
