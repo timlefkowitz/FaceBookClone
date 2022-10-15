@@ -112,18 +112,36 @@ scene("game", ({level, score}) => {
     // player
 
     const player = add([
-
         sprite('link-going-right'),
         pos(5,190),
         {
             dir: vec2(1,0)
         }
-
-
     ])
 
     player.action(() => {
         player.resolve()
+    })
+
+    keyDown('left', () => {
+        player.changeSprite('link-going-left')
+        player.move(-MOVE_SPEED,0)
+        player.dir = vec2(-1,0)
+    })
+    keyDown('right', () => {
+        player.changeSprite('link-going-right')
+        player.move(MOVE_SPEED,0)
+        player.dir = vec2(1,0)
+    })
+    keyDown('up', () => {
+        player.changeSprite('link-going-up')
+        player.move(0, -MOVE_SPEED)
+        player.dir = vec2(0,-1)
+    })
+    keyDown('down', () => {
+        player.changeSprite('link-going-down')
+        player.move(0, MOVE_SPEED)
+        player.dir = vec2(0,1)
     })
 })
 
